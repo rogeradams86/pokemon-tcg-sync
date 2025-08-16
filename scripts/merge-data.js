@@ -77,7 +77,7 @@ function mergeData() {
     console.log('💾 Saving optimized files...');
     
     // Save search index
-    fs.writeFileSync('data/cards-index.json', JSON.stringify(searchIndex, null, 2));
+    fs.writeFileSync('data/tcg-cards-index.json', JSON.stringify(searchIndex, null, 2));
     console.log(`✅ Search index saved (${searchIndex.totalCards} cards, ${searchIndex.totalSets} sets)`);
     
     // Save chunks
