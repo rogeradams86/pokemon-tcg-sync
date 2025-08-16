@@ -1,9 +1,10 @@
-
 name: Daily Pokemon TCG Sync
 on:
-  schedule:
-    - cron: '0 6 * * *'  # Daily at 6 AM UTC
-  workflow_dispatch:      # Manual trigger button
+  workflow_dispatch:      # Manual trigger only for now
+
+permissions:
+  contents: write         # Allow writing to repository
+  actions: read          # Allow reading actions
 
 jobs:
   sync:
@@ -11,6 +12,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -18,27 +21,45 @@ jobs:
           node-version: '18'
           
       - name: Install dependencies
-        run: npm install
+        run: |
+          echo "Installing dependencies..."
+          npm install
+          echo "Dependencies installed successfully"
         
-      - name: Fetch Pokemon TCG data
-        run: npm run fetch-cards
+      - name: Test fetch cards
+        run: |
+          echo "Testing card fetch..."
+          npm run fetch-cards
         
-      - name: Fetch pricing data
-        run: npm run fetch-pricing
+      - name: Test pricing fetch
+        run: |
+          echo "Testing pricing fetch..."
+          npm run fetch-pricing
         
-      - name: Merge and optimize data
-        run: npm run merge-data
+      - name: Test merge data
+        run: |
+          echo "Testing data merge..."
+          npm run merge-data
         
       - name: Upload to Shopify
         run: npm run upload-shopify
         env:
           SHOPIFY_STORE: ${{ secrets.SHOPIFY_STORE }}
           SHOPIFY_ACCESS_TOKEN: ${{ secrets.SHOPIFY_ACCESS_TOKEN }}
+        
+      - name: List generated files
+        run: |
+          echo "Generated files:"
+          ls -la data/ || echo "No data directory found"
           
       - name: Commit updated data
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add data/
-          git commit -m "Update Pokemon TCG data $(date)" || exit 0
-          git push
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update Pokemon TCG data $(date)"
+            git push
+          fi
