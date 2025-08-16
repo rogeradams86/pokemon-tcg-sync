@@ -63,6 +63,16 @@ async function uploadToShopify() {
         
         const content = fs.readFileSync(`data/${file}`, 'utf8');
         
+        // Determine correct asset key (remove double tcg- prefix)
+        let assetKey;
+        if (file.startsWith('tcg-')) {
+          assetKey = `assets/${file}`; // Already has tcg- prefix
+        } else {
+          assetKey = `assets/tcg-${file}`; // Add tcg- prefix
+        }
+        
+        console.log(`  Asset key: ${assetKey}`);
+        
         // Upload as Shopify asset using correct theme ID
         const response = await fetch(
           `https://${SHOPIFY_STORE}.myshopify.com/admin/api/2023-10/themes/${themeId}/assets.json`,
@@ -74,15 +84,15 @@ async function uploadToShopify() {
             },
             body: JSON.stringify({
               asset: {
-  key: file === 'cards-index.json' ? `assets/tcg-cards-index.json` : `assets/tcg-${file}`,
-  value: content
-}
+                key: assetKey,
+                value: content
+              }
             })
           }
         );
         
         if (response.ok) {
-          console.log(`  ✅ Uploaded: ${file}`);
+          console.log(`  ✅ Uploaded: ${file} → ${assetKey}`);
           successCount++;
         } else {
           const errorText = await response.text();
@@ -104,7 +114,7 @@ async function uploadToShopify() {
     
     if (successCount > 0) {
       console.log('✅ Data successfully uploaded to Shopify!');
-      console.log(`   Files are available at: /assets/tcg-[filename].json`);
+      console.log(`   Files are available at: /assets/[filename].json`);
       console.log(`   Example: https://${SHOPIFY_STORE}.myshopify.com/assets/tcg-cards-index.json`);
     }
     
