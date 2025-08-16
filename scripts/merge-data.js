@@ -19,11 +19,35 @@ function mergeData() {
     const pricingData = JSON.parse(fs.readFileSync('data/pricing-raw.json'));
     
     console.log(`📊 Processing ${cardData.cards.length} cards...`);
+    console.log(`💰 Available pricing entries: ${Object.keys(pricingData.pricing).length}`);
+    
+    // Helper function to find pricing for a card
+    function findPricing(card) {
+      const cardName = card.name.toLowerCase();
+      const setName = (card.set?.name || '').toLowerCase();
+      
+      // Try multiple search strategies
+      const searchKeys = [
+        `${cardName}|${setName}`, // Exact match
+        cardName, // Just card name
+        cardName.replace(/[^\w\s]/g, ''), // Remove special characters
+        `${cardName.replace(/[^\w\s]/g, '')}|${setName}`,
+      ];
+      
+      for (const key of searchKeys) {
+        if (key && pricingData.pricing[key]) {
+          return pricingData.pricing[key];
+        }
+      }
+      
+      return null;
+    }
     
     // Merge cards with pricing
+    let cardsWithPricing = 0;
     const enrichedCards = cardData.cards.map(card => {
-      const pricingKey = `${card.name}|${card.set?.name || ''}`.toLowerCase();
-      const pricing = pricingData.pricing[pricingKey] || null;
+      const pricing = findPricing(card);
+      if (pricing) cardsWithPricing++;
       
       return {
         id: card.id,
@@ -59,6 +83,7 @@ function mergeData() {
       rarities: [...new Set(enrichedCards.map(c => c.rarity).filter(Boolean))].sort(),
       totalCards: enrichedCards.length,
       totalSets: cardData.sets.length,
+      cardsWithPricing: cardsWithPricing,
       lastUpdated: new Date().toISOString(),
       pricingSource: pricingData.source,
       pricingUpdated: pricingData.lastUpdated
@@ -89,7 +114,7 @@ function mergeData() {
         lastUpdated: new Date().toISOString()
       };
       
-      fs.writeFileSync(`data/cards-chunk-${index + 1}.json`, JSON.stringify(chunkData, null, 2));
+      fs.writeFileSync(`data/tcg-cards-chunk-${index + 1}.json`, JSON.stringify(chunkData, null, 2));
     });
     
     console.log(`✅ Created ${chunks.length} data chunks`);
@@ -99,7 +124,8 @@ function mergeData() {
       totalCards: enrichedCards.length,
       totalSets: cardData.sets.length,
       totalChunks: chunks.length,
-      cardsWithPricing: enrichedCards.filter(c => c.pricing).length,
+      cardsWithPricing: cardsWithPricing,
+      pricingCoverage: `${((cardsWithPricing / enrichedCards.length) * 100).toFixed(1)}%`,
       lastUpdated: new Date().toISOString()
     };
     
@@ -109,7 +135,7 @@ function mergeData() {
     console.log(`   Total cards: ${summary.totalCards}`);
     console.log(`   Total sets: ${summary.totalSets}`);
     console.log(`   Data chunks: ${summary.totalChunks}`);
-    console.log(`   Cards with pricing: ${summary.cardsWithPricing}`);
+    console.log(`   Cards with pricing: ${summary.cardsWithPricing} (${summary.pricingCoverage})`);
     console.log('✅ Data merge completed successfully!');
     
   } catch (error) {
