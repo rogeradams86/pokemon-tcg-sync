@@ -1,1 +1,44 @@
 
+name: Daily Pokemon TCG Sync
+on:
+  schedule:
+    - cron: '0 6 * * *'  # Daily at 6 AM UTC
+  workflow_dispatch:      # Manual trigger button
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Fetch Pokemon TCG data
+        run: npm run fetch-cards
+        
+      - name: Fetch pricing data
+        run: npm run fetch-pricing
+        
+      - name: Merge and optimize data
+        run: npm run merge-data
+        
+      - name: Upload to Shopify
+        run: npm run upload-shopify
+        env:
+          SHOPIFY_STORE: ${{ secrets.SHOPIFY_STORE }}
+          SHOPIFY_ACCESS_TOKEN: ${{ secrets.SHOPIFY_ACCESS_TOKEN }}
+          
+      - name: Commit updated data
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add data/
+          git commit -m "Update Pokemon TCG data $(date)" || exit 0
+          git push
