@@ -26,8 +26,8 @@ async function fetchPricingData() {
     
     console.log(`Found ${allGroups.length} Pokemon TCG groups`);
     
-    // Step 2: Process each group (limit to first 10 for testing)
-    const groupsToProcess = allGroups.slice(0, 10); // Limit for testing
+    // Step 2: Process more groups (increased from 10 to 50 for better coverage)
+    const groupsToProcess = allGroups.slice(0, 50); // Process more groups
     
     for (const group of groupsToProcess) {
       try {
@@ -90,14 +90,24 @@ async function fetchPricingData() {
           const pricing = priceMap[productId];
           
           if (pricing && productName) {
-            // Create searchable key: "Card Name|Set Name"
-            const key = `${productName}|${groupName}`.toLowerCase();
-            pricingMap[key] = {
-              ...pricing,
-              productId: productId,
-              groupName: groupName,
-              groupId: groupId
-            };
+            // Create multiple searchable keys for better matching
+            const keys = [
+              `${productName}|${groupName}`.toLowerCase(),
+              productName.toLowerCase(), // Also try just the card name
+              `${productName}`.toLowerCase().replace(/[^\w\s]/g, '') // Remove special chars
+            ];
+            
+            keys.forEach(key => {
+              if (key.trim()) {
+                pricingMap[key] = {
+                  ...pricing,
+                  productId: productId,
+                  groupName: groupName,
+                  groupId: groupId
+                };
+              }
+            });
+            
             groupProductCount++;
           }
         });
@@ -107,7 +117,7 @@ async function fetchPricingData() {
         processedGroups++;
         
         // Small delay to be nice to their API
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise(resolve => setTimeout(resolve, 500));
         
       } catch (error) {
         console.log(`  ❌ Error processing group ${group.groupId}: ${error.message}`);
@@ -127,7 +137,8 @@ async function fetchPricingData() {
       source: 'tcgcsv.com API',
       totalProducts: totalProducts,
       processedGroups: processedGroups,
-      apiCategory: POKEMON_CATEGORY
+      apiCategory: POKEMON_CATEGORY,
+      uniquePriceEntries: Object.keys(pricingMap).length
     };
     
     fs.writeFileSync('data/pricing-raw.json', JSON.stringify(pricingData, null, 2));
