@@ -74,9 +74,9 @@ async function uploadToShopify() {
             },
             body: JSON.stringify({
               asset: {
-                key: `assets/tcg-${file}`,
-                value: content
-              }
+  key: file === 'cards-index.json' ? `assets/tcg-cards-index.json` : `assets/tcg-${file}`,
+  value: content
+}
             })
           }
         );
