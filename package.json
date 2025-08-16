@@ -1,0 +1,19 @@
+{
+  "name": "pokemon-tcg-sync",
+  "version": "1.0.0",
+  "description": "Daily sync of Pokemon TCG data with pricing for Shopify buylist",
+  "type": "module",
+  "scripts": {
+    "fetch-cards": "node scripts/fetch-cards.js",
+    "fetch-pricing": "node scripts/fetch-pricing.js",
+    "merge-data": "node scripts/merge-data.js",
+    "upload-shopify": "node scripts/upload-shopify.js",
+    "full-sync": "npm run fetch-cards && npm run fetch-pricing && npm run merge-data && npm run upload-shopify"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2",
+    "csv-parse": "^5.4.0"
+  },
+  "author": "Roger Adams",
+  "license": "MIT"
+}
