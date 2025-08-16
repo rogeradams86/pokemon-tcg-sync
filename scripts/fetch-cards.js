@@ -1,83 +1,163 @@
 import fs from 'fs';
 import fetch from 'node-fetch';
 
-async function fetchCardData() {
-  console.log('📥 Fetching Pokemon TCG data from GitHub...');
+const POKEMON_CATEGORY = '3'; // Pokemon TCG category on tcgcsv.com
+
+async function fetchPricingData() {
+  console.log('💰 Fetching pricing data from tcgcsv.com API...');
   
   try {
-    // 1. Fetch sets list
-    console.log('Fetching sets list...');
-    const setsResponse = await fetch('https://raw.githubusercontent.com/PokemonTCG/pokemon-tcg-data/master/sets/en.json');
+    const pricingMap = {};
+    let totalProducts = 0;
+    let processedGroups = 0;
     
-    if (!setsResponse.ok) {
-      throw new Error(`Failed to fetch sets: ${setsResponse.statusText}`);
+    // Step 1: Get all Pokemon TCG groups
+    console.log('📋 Fetching Pokemon TCG groups...');
+    const groupsResponse = await fetch(`https://tcgcsv.com/tcgplayer/${POKEMON_CATEGORY}/groups`, {
+      timeout: 30000
+    });
+    
+    if (!groupsResponse.ok) {
+      throw new Error(`Failed to fetch groups: ${groupsResponse.statusText}`);
     }
     
-    const setsData = await setsResponse.json();
-    const sets = setsData.data || setsData; // Handle different response formats
+    const groupsData = await groupsResponse.json();
+    const allGroups = groupsData.results || [];
     
-    console.log(`Found ${sets.length} sets`);
+    console.log(`Found ${allGroups.length} Pokemon TCG groups`);
     
-    // 2. Fetch all cards from all sets
-    const allCards = [];
-    let processedSets = 0;
+    // Step 2: Process each group (limit to first 10 for testing)
+    const groupsToProcess = allGroups.slice(0, 10); // Limit for testing
     
-    for (const set of sets) {
+    for (const group of groupsToProcess) {
       try {
-        console.log(`Fetching cards for set: ${set.name} (${processedSets + 1}/${sets.length})`);
+        const groupId = group.groupId;
+        const groupName = group.name || `Group ${groupId}`;
         
-        const cardsResponse = await fetch(
-          `https://raw.githubusercontent.com/PokemonTCG/pokemon-tcg-data/master/cards/en/${set.id}.json`
+        console.log(`Processing group: ${groupName} (${processedGroups + 1}/${groupsToProcess.length})`);
+        
+        // Get products for this group
+        const productsResponse = await fetch(
+          `https://tcgcsv.com/tcgplayer/${POKEMON_CATEGORY}/${groupId}/products`,
+          { timeout: 30000 }
         );
         
-        if (cardsResponse.ok) {
-          const cardsData = await cardsResponse.json();
-          const cards = cardsData.data || cardsData; // Handle different response formats
-          
-          if (Array.isArray(cards)) {
-            allCards.push(...cards);
-            console.log(`  ✅ Added ${cards.length} cards from ${set.name}`);
-          }
-        } else {
-          console.log(`  ⚠️ No cards found for ${set.name}`);
+        if (!productsResponse.ok) {
+          console.log(`  ⚠️ Failed to fetch products for ${groupName}`);
+          continue;
         }
         
-        processedSets++;
+        const productsData = await productsResponse.json();
+        const products = productsData.results || [];
         
-        // Small delay to be nice to GitHub
-        await new Promise(resolve => setTimeout(resolve, 100));
+        if (products.length === 0) {
+          console.log(`  ⚠️ No products found for ${groupName}`);
+          continue;
+        }
+        
+        // Get prices for this group
+        const pricesResponse = await fetch(
+          `https://tcgcsv.com/tcgplayer/${POKEMON_CATEGORY}/${groupId}/prices`,
+          { timeout: 30000 }
+        );
+        
+        if (!pricesResponse.ok) {
+          console.log(`  ⚠️ Failed to fetch prices for ${groupName}`);
+          continue;
+        }
+        
+        const pricesData = await pricesResponse.json();
+        const prices = pricesData.results || [];
+        
+        // Create a map of productId to price data
+        const priceMap = {};
+        prices.forEach(price => {
+          priceMap[price.productId] = {
+            market: parseFloat(price.marketPrice || 0),
+            low: parseFloat(price.lowPrice || 0),
+            mid: parseFloat(price.midPrice || 0),
+            high: parseFloat(price.highPrice || 0),
+            lastUpdated: new Date().toISOString(),
+            subType: price.subTypeName || 'Normal'
+          };
+        });
+        
+        // Process products and match with prices
+        let groupProductCount = 0;
+        products.forEach(product => {
+          const productId = product.productId;
+          const productName = product.name || '';
+          const pricing = priceMap[productId];
+          
+          if (pricing && productName) {
+            // Create searchable key: "Card Name|Set Name"
+            const key = `${productName}|${groupName}`.toLowerCase();
+            pricingMap[key] = {
+              ...pricing,
+              productId: productId,
+              groupName: groupName,
+              groupId: groupId
+            };
+            groupProductCount++;
+          }
+        });
+        
+        console.log(`  ✅ Added pricing for ${groupProductCount} products from ${groupName}`);
+        totalProducts += groupProductCount;
+        processedGroups++;
+        
+        // Small delay to be nice to their API
+        await new Promise(resolve => setTimeout(resolve, 1000));
         
       } catch (error) {
-        console.log(`  ❌ Failed to fetch ${set.name}: ${error.message}`);
+        console.log(`  ❌ Error processing group ${group.groupId}: ${error.message}`);
+        continue;
       }
     }
     
-    console.log(`📊 Total cards fetched: ${allCards.length}`);
-    
-    // 3. Create data directory if it doesn't exist
+    // Create data directory if it doesn't exist
     if (!fs.existsSync('data')) {
       fs.mkdirSync('data');
     }
     
-    // 4. Save raw data
-    const rawData = {
-      sets: sets,
-      cards: allCards,
+    // Save pricing data
+    const pricingData = {
+      pricing: pricingMap,
       lastUpdated: new Date().toISOString(),
-      totalSets: sets.length,
-      totalCards: allCards.length
+      source: 'tcgcsv.com API',
+      totalProducts: totalProducts,
+      processedGroups: processedGroups,
+      apiCategory: POKEMON_CATEGORY
     };
     
-    fs.writeFileSync('data/raw-cards.json', JSON.stringify(rawData, null, 2));
+    fs.writeFileSync('data/pricing-raw.json', JSON.stringify(pricingData, null, 2));
     
-    console.log('✅ Card data saved to data/raw-cards.json');
-    console.log(`📈 Summary: ${sets.length} sets, ${allCards.length} cards`);
+    console.log('📊 Pricing Summary:');
+    console.log(`   Processed groups: ${processedGroups}`);
+    console.log(`   Total products with pricing: ${totalProducts}`);
+    console.log(`   Unique price entries: ${Object.keys(pricingMap).length}`);
+    console.log('✅ Pricing data saved to data/pricing-raw.json');
     
   } catch (error) {
-    console.error('❌ Error fetching card data:', error.message);
-    process.exit(1);
+    console.error('❌ Error fetching pricing data:', error.message);
+    
+    // Create empty pricing file so the process doesn't break
+    const fallbackPricing = {
+      pricing: {},
+      lastUpdated: new Date().toISOString(),
+      source: 'error',
+      error: error.message,
+      note: 'Fallback empty pricing due to API error'
+    };
+    
+    if (!fs.existsSync('data')) {
+      fs.mkdirSync('data');
+    }
+    
+    fs.writeFileSync('data/pricing-raw.json', JSON.stringify(fallbackPricing, null, 2));
+    console.log('⚠️ Created fallback empty pricing file');
   }
 }
 
 // Run the function
-fetchCardData().catch(console.error);
+fetchPricingData().catch(console.error);
