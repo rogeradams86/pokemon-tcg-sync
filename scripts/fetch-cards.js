@@ -1,83 +1,166 @@
 import fs from 'fs';
 import fetch from 'node-fetch';
 
-async function fetchCardData() {
-  console.log('📥 Fetching Pokemon TCG data from GitHub...');
-  
-  try {
-    // 1. Fetch sets list
-    console.log('Fetching sets list...');
-    const setsResponse = await fetch('https://raw.githubusercontent.com/PokemonTCG/pokemon-tcg-data/master/sets/en.json');
-    
-    if (!setsResponse.ok) {
-      throw new Error(`Failed to fetch sets: ${setsResponse.statusText}`);
-    }
-    
-    const setsData = await setsResponse.json();
-    const sets = setsData.data || setsData; // Handle different response formats
-    
-    console.log(`Found ${sets.length} sets`);
-    
-    // 2. Fetch all cards from all sets
-    const allCards = [];
-    let processedSets = 0;
-    
-    for (const set of sets) {
-      try {
-        console.log(`Fetching cards for set: ${set.name} (${processedSets + 1}/${sets.length})`);
-        
-        const cardsResponse = await fetch(
-          `https://raw.githubusercontent.com/PokemonTCG/pokemon-tcg-data/master/cards/en/${set.id}.json`
-        );
-        
-        if (cardsResponse.ok) {
-          const cardsData = await cardsResponse.json();
-          const cards = cardsData.data || cardsData; // Handle different response formats
-          
-          if (Array.isArray(cards)) {
-            allCards.push(...cards);
-            console.log(`  ✅ Added ${cards.length} cards from ${set.name}`);
-          }
-        } else {
-          console.log(`  ⚠️ No cards found for ${set.name}`);
-        }
-        
-        processedSets++;
-        
-        // Small delay to be nice to GitHub
-        await new Promise(resolve => setTimeout(resolve, 100));
-        
-      } catch (error) {
-        console.log(`  ❌ Failed to fetch ${set.name}: ${error.message}`);
-      }
-    }
-    
-    console.log(`📊 Total cards fetched: ${allCards.length}`);
-    
-    // 3. Create data directory if it doesn't exist
-    if (!fs.existsSync('data')) {
-      fs.mkdirSync('data');
-    }
-    
-    // 4. Save raw data
-    const rawData = {
-      sets: sets,
-      cards: allCards,
-      lastUpdated: new Date().toISOString(),
-      totalSets: sets.length,
-      totalCards: allCards.length
-    };
-    
-    fs.writeFileSync('data/raw-cards.json', JSON.stringify(rawData, null, 2));
-    
-    console.log('✅ Card data saved to data/raw-cards.json');
-    console.log(`📈 Summary: ${sets.length} sets, ${allCards.length} cards`);
-    
-  } catch (error) {
-    console.error('❌ Error fetching card data:', error.message);
-    process.exit(1);
-  }
+// ===============================
+// fetch-cards (2).js — FULL FILE
+// Adds fetchSets() from GitHub en.json and exports it
+// ===============================
+
+// If you already have other imports here, keep them.
+// Node 18+ has global fetch. If on older Node, uncomment the next line:
+// const fetch = (...args) => import('node-fetch').then(({default: f}) => f(...args));
+
+const SETS_URL = 'https://raw.githubusercontent.com/pokemon-tcg-data/sets/master/en.json';
+
+/**
+ * Fetch canonical set metadata (EN) from pokemon-tcg-data.
+ * @returns {Promise<Array<{id:string,name:string,releaseDate?:string,series?:string}>>}
+ */
+async function fetchSets() {
+  const res = await fetch(SETS_URL);
+  if (!res.ok) throw new Error(`Failed to fetch sets: ${res.status} ${res.statusText}`);
+  const json = await res.json();
+  if (!Array.isArray(json)) throw new Error('Unexpected sets JSON (expected array)');
+  return json;
 }
 
-// Run the function
-fetchCardData().catch(console.error);
+// If this file also defines/exports your fetchCards() & fetchPricing(),
+// leave them as-is. Nothing else in your pipeline needs to change except
+// passing the fetched sets into merge-data.
+
+module.exports = {
+  fetchSets,
+  // If you already export fetchCards/fetchPricing from this file, keep exporting them:
+  // fetchCards,
+  // fetchPricing,
+};
+
+// Optional quick test if you run this file directly: `node "fetch-cards (2).js"`
+if (require.main === module) {
+  (async () => {
+    const sets = await fetchSets();
+    console.log(`Fetched ${sets.length} sets. Example:`, sets[0]);
+  })().catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
+}
+
+
+// =====================================================================
+// merge-data (2).js — FULL FILE
+// Accepts cards, pricing, and sets; outputs merged cards with proper set
+// =====================================================================
+
+const fs = require('node:fs/promises');
+const path = require('node:path');
+
+/**
+ * Merge cards + pricing + sets so each card has a real `set` object and pricing.
+ *
+ * @param {Array<Object>} cards - array of card objects. Each should have `id` like "base5-36".
+ * @param {Object<string, Object>|Array<Object>} pricing - map or array with per-card pricing.
+ *        If it's an array, we will map it by a stable key. Your existing keying logic is preserved below.
+ * @param {Array<Object>} sets - canonical set list from fetchSets() (en.json), each with `id`+`name`.
+ * @param {Object} [opts]
+ * @param {string} [opts.outputFile] - where to write the merged JSON. If omitted, returns the array only.
+ * @returns {Promise<Array<Object>>}
+ */
+async function mergeData(cards, pricing, sets, opts = {}) {
+  if (!Array.isArray(cards)) throw new Error('cards must be an array');
+  if (!Array.isArray(sets)) throw new Error('sets must be an array');
+
+  const setIndex = new Map();
+  for (const s of sets) {
+    if (!s || !s.id) continue;
+    setIndex.set(String(s.id).toLowerCase(), s);
+  }
+
+  // If pricing is an array, adapt it to a map by your existing key (example uses `${id}`)
+  const pricingMap = Array.isArray(pricing) ? arrayToPricingMap(pricing) : (pricing || {});
+
+  const merged = cards.map(card => {
+    const setCode = inferSetCodeFromCard(card);
+    const setObj = setCode ? (setIndex.get(setCode) || {}) : {};
+
+    const priceKey = buildPricingKey(card); // keep in sync with your pricing builder
+    const p = pricingMap[priceKey] || null;
+
+    // If card already has a non-empty set, prefer it; else use setObj from en.json
+    const finalSet = hasKeys(card.set) ? card.set : setObj;
+
+    return {
+      ...card,
+      set: finalSet,
+      pricing: p
+    };
+  });
+
+  if (opts.outputFile) {
+    const outPath = path.resolve(opts.outputFile);
+    await fs.mkdir(path.dirname(outPath), { recursive: true });
+    await fs.writeFile(outPath, JSON.stringify(merged, null, 2), 'utf8');
+  }
+
+  return merged;
+}
+
+/** Extract set code like 'base5' from id 'base5-36' */
+function inferSetCodeFromCard(card) {
+  const id = card && card.id ? String(card.id) : '';
+  const m = id.match(/^([a-z0-9]+)(?=-)/i);
+  return m ? m[1].toLowerCase() : null;
+}
+
+/** Whether an object has at least one own key */
+function hasKeys(obj) {
+  return obj && typeof obj === 'object' && Object.keys(obj).length > 0;
+}
+
+/** Turn a pricing array into a map keyed by your stable key */
+function arrayToPricingMap(arr) {
+  const map = {};
+  for (const item of arr) {
+    const k = buildPricingKey(item);
+    if (k) map[k] = item;
+  }
+  return map;
+}
+
+/**
+ * Build the pricing key used both when generating pricing and when merging.
+ * Adjust this to match your existing pricing key logic.
+ * Common pattern: `${card.id}` or `${setId}|${number}|${name}` etc.
+ */
+function buildPricingKey(obj) {
+  // Default: use the card id if present; else try composite
+  if (obj && obj.id) return String(obj.id);
+  if (obj && obj.setId && obj.number) return `${obj.setId}|${obj.number}`;
+  return null;
+}
+
+module.exports = { mergeData };
+
+// Optional: run directly for a quick test
+// Usage example: node "merge-data (2).js" ./cards.json ./pricing.json ./merged.json
+if (require.main === module) {
+  (async () => {
+    const [cardsPath, pricingPath, outPath] = process.argv.slice(2);
+    if (!cardsPath || !pricingPath) {
+      console.log('Usage: node "merge-data (2).js" <cards.json> <pricing.json> [merged.json]');
+      process.exit(0);
+    }
+    const cards = JSON.parse(await fs.readFile(path.resolve(cardsPath), 'utf8'));
+    const pricing = JSON.parse(await fs.readFile(path.resolve(pricingPath), 'utf8'));
+
+    // Pull sets live so this file is standalone when run directly
+    const { fetchSets } = require('./fetch-cards (2).js');
+    const sets = await fetchSets();
+
+    const merged = await mergeData(cards, pricing, sets, outPath ? { outputFile: outPath } : {});
+    console.log(`Merged ${merged.length} cards${outPath ? ` → ${outPath}` : ''}`);
+  })().catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
+}
