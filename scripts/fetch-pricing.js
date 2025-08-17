@@ -101,9 +101,9 @@ async function fetchPricingData() {
               if (key.trim()) {
                 pricingMap[key] = {
   ...pricing,
-  productId: productId,
-  groupName: groupName,
-  groupId: groupId
+  productId,
+  groupName,
+  groupId
 };
               }
             });
