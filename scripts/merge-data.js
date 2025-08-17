@@ -21,14 +21,14 @@ function mergeData() {
     console.log(`📊 Processing ${cardData.cards.length} cards...`);
     console.log(`💰 Available pricing entries: ${Object.keys(pricingData.pricing).length}`);
     
-    // NEW APPROACH: Only find pricing, keep original set names
+    // CONSERVATIVE: Only find pricing, keep original GitHub set names
     function findPricing(card) {
       const cardName = card.name.toLowerCase();
       const setName = (card.set?.name || '').toLowerCase();
       
-      // Try exact matches only (no fuzzy matching to prevent wrong assignments)
+      // Try exact matches only - no fuzzy matching to prevent wrong assignments
       const searchKeys = [
-        `${cardName}|${setName}`, // Card name with GitHub set name
+        `${cardName}|${setName}`, // Card name with original GitHub set name
         cardName.replace(/[^\w\s]/g, ''), // Clean card name only
       ];
       
@@ -39,31 +39,31 @@ function mergeData() {
         }
       }
       
-      // No pricing found - that's OK!
+      // No pricing found - that's OK, we keep the original set info
       return null;
     }
     
-    // Merge cards with pricing (but keep original set info)
+    // Merge cards with pricing but preserve original GitHub set data
     let cardsWithPricing = 0;
     
     const enrichedCards = cardData.cards.map(card => {
       const pricing = findPricing(card);
       if (pricing) cardsWithPricing++;
       
-      // KEEP ORIGINAL GITHUB SET DATA - do not replace with tcgcsv set names
+      // ALWAYS keep original GitHub set data (this prevents wrong set assignments)
       const finalSetData = {
-        id: card.set?.id,           // Keep original GitHub set ID (base1, pgo, etc.)
-        name: card.set?.name,       // Keep original GitHub set name
+        id: card.set?.id,           // Keep GitHub set ID (base1, pgo, fossil1, etc.)
+        name: card.set?.name,       // Keep GitHub set name (Base Set, Pokémon GO, Fossil)
         series: card.set?.series,   // Keep original series
         releaseDate: card.set?.releaseDate // Keep original release date
       };
       
-      // Add pricing data separately (without affecting set info)
+      // Add pricing data separately (without affecting set identification)
       let pricingWithSetInfo = null;
       if (pricing) {
         pricingWithSetInfo = {
           ...pricing,
-          // Include tcgcsv set info in pricing object for reference, but don't use for display
+          // Include tcgcsv set info in pricing object for reference only
           groupName: pricing.groupName,
           groupId: pricing.groupId
         };
@@ -74,14 +74,14 @@ function mergeData() {
         name: card.name,
         number: card.number,
         rarity: card.rarity,
-        set: finalSetData, // Always use original GitHub set data
+        set: finalSetData, // Always use original GitHub set data for display
         supertype: card.supertype,
         types: card.types || [],
         images: {
           small: card.images?.small,
           large: card.images?.large
         },
-        pricing: pricingWithSetInfo // Pricing data separate from set identification
+        pricing: pricingWithSetInfo // Pricing separate from set identification
       };
     });
     
@@ -93,7 +93,7 @@ function mergeData() {
       if (card.set?.id && card.set?.name) {
         setMap.set(card.set.id, {
           id: card.set.id,
-          name: card.set.name, // Original GitHub set names
+          name: card.set.name, // Original GitHub set names (correct)
           series: card.set.series,
           releaseDate: card.set.releaseDate
         });
@@ -107,13 +107,13 @@ function mergeData() {
       totalCards: enrichedCards.length,
       totalSets: setMap.size,
       cardsWithPricing: cardsWithPricing,
-      approach: 'pricing-only', // Track that we're keeping original set names
+      approach: 'keep-original-sets', // Track our approach
       lastUpdated: new Date().toISOString(),
       pricingSource: pricingData.source,
       pricingUpdated: pricingData.lastUpdated
     };
     
-    // Split cards into chunks
+    // Split cards into chunks (500 cards each for faster loading)
     console.log('📦 Creating data chunks...');
     const chunkSize = 500;
     const chunks = [];
@@ -159,7 +159,7 @@ function mergeData() {
     console.log(`   Total sets: ${summary.totalSets}`);
     console.log(`   Data chunks: ${summary.totalChunks}`);
     console.log(`   Cards with pricing: ${summary.cardsWithPricing} (${summary.pricingCoverage})`);
-    console.log(`   📍 Approach: Keep original set names, pricing data only`);
+    console.log(`   📍 Approach: Keep original GitHub set names, add pricing only`);
     console.log('✅ Data merge completed successfully!');
     
   } catch (error) {
