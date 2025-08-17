@@ -21,98 +21,51 @@ function mergeData() {
     console.log(`📊 Processing ${cardData.cards.length} cards...`);
     console.log(`💰 Available pricing entries: ${Object.keys(pricingData.pricing).length}`);
     
-    // Create a set mapping from GitHub set IDs to likely tcgcsv groups
-    const setMappings = {
-      'base1': 604,     // Base Set
-      'base2': 605,     // Base Set 2  
-      'fossil1': 630,   // Fossil
-      'jungle1': 635,   // Jungle
-      'team-rocket': 1373, // Team Rocket
-      // Add more mappings as needed
-    };
-    
-    // CONSERVATIVE: Helper function to find pricing for a card
+    // NEW APPROACH: Only find pricing, keep original set names
     function findPricing(card) {
       const cardName = card.name.toLowerCase();
       const setName = (card.set?.name || '').toLowerCase();
-      const cardId = card.id || '';
-      const setId = card.set?.id || '';
       
-      // Strategy 1: Try exact set mapping first
-      if (setId && setMappings[setId]) {
-        const expectedGroupId = setMappings[setId];
-        
-        // Look for pricing entries that match both card name AND expected group
-        for (const [pricingKey, pricingValue] of Object.entries(pricingData.pricing)) {
-          if (pricingValue.groupId === expectedGroupId && 
-              pricingKey.toLowerCase().includes(cardName)) {
-            console.log(`🎯 Set-specific match: ${cardName} -> ${pricingValue.groupName}`);
-            return pricingValue;
-          }
-        }
-      }
-      
-      // Strategy 2: Try conservative name matching (no fuzzy matching)
+      // Try exact matches only (no fuzzy matching to prevent wrong assignments)
       const searchKeys = [
-        `${cardName}|${setName}`, // Exact match with set
-        cardName, // Just card name
-        cardName.replace(/[^\w\s]/g, ''), // Remove special characters
+        `${cardName}|${setName}`, // Card name with GitHub set name
+        cardName.replace(/[^\w\s]/g, ''), // Clean card name only
       ];
       
       for (const key of searchKeys) {
         if (key && pricingData.pricing[key]) {
-          console.log(`📍 Direct match: ${cardName} -> ${pricingData.pricing[key].groupName}`);
+          console.log(`💰 Pricing found: ${cardName} -> £${pricingData.pricing[key].market || 0}`);
           return pricingData.pricing[key];
         }
       }
       
-      // Strategy 3: DISABLED fuzzy matching to prevent wrong assignments
-      // (We were getting too many incorrect matches like Base Set cards -> SWSH sets)
-      
-      console.log(`❌ No pricing found for: ${cardName} (${setId})`);
+      // No pricing found - that's OK!
       return null;
     }
     
-    // Merge cards with pricing
+    // Merge cards with pricing (but keep original set info)
     let cardsWithPricing = 0;
-    let setNameUpdates = 0;
-    let incorrectMatches = 0;
     
     const enrichedCards = cardData.cards.map(card => {
       const pricing = findPricing(card);
+      if (pricing) cardsWithPricing++;
       
+      // KEEP ORIGINAL GITHUB SET DATA - do not replace with tcgcsv set names
+      const finalSetData = {
+        id: card.set?.id,           // Keep original GitHub set ID (base1, pgo, etc.)
+        name: card.set?.name,       // Keep original GitHub set name
+        series: card.set?.series,   // Keep original series
+        releaseDate: card.set?.releaseDate // Keep original release date
+      };
+      
+      // Add pricing data separately (without affecting set info)
+      let pricingWithSetInfo = null;
       if (pricing) {
-        cardsWithPricing++;
-        
-        // Sanity check: warn about potential incorrect matches
-        const originalSetId = card.set?.id || '';
-        const newSetName = pricing.groupName || '';
-        
-        // Flag suspicious matches (Base Set cards getting modern set names)
-        if (originalSetId.startsWith('base') && newSetName.includes('SW')) {
-          console.log(`⚠️  Suspicious match: ${card.name} (${originalSetId}) -> ${newSetName}`);
-          incorrectMatches++;
-        }
-      }
-      
-      // Use tcgcsv set names when available, fallback to GitHub data
-      let finalSetData;
-      if (pricing && pricing.groupName) {
-        // Prioritize tcgcsv set information
-        finalSetData = {
-          id: pricing.groupId || card.set?.id,
-          name: pricing.groupName, // Use tcgcsv set name
-          series: card.set?.series, // Keep original series info
-          releaseDate: card.set?.releaseDate // Keep original release date
-        };
-        setNameUpdates++;
-      } else {
-        // Fallback to original GitHub set data
-        finalSetData = {
-          id: card.set?.id,
-          name: card.set?.name,
-          series: card.set?.series,
-          releaseDate: card.set?.releaseDate
+        pricingWithSetInfo = {
+          ...pricing,
+          // Include tcgcsv set info in pricing object for reference, but don't use for display
+          groupName: pricing.groupName,
+          groupId: pricing.groupId
         };
       }
       
@@ -121,27 +74,26 @@ function mergeData() {
         name: card.name,
         number: card.number,
         rarity: card.rarity,
-        set: finalSetData,
+        set: finalSetData, // Always use original GitHub set data
         supertype: card.supertype,
         types: card.types || [],
         images: {
           small: card.images?.small,
           large: card.images?.large
         },
-        pricing: pricing
+        pricing: pricingWithSetInfo // Pricing data separate from set identification
       };
     });
     
-    // Create search index with correct set data
+    // Create search index using original GitHub set names
     console.log('🔍 Creating search index...');
     
-    // Get unique sets from the enriched data
     const setMap = new Map();
     enrichedCards.forEach(card => {
       if (card.set?.id && card.set?.name) {
         setMap.set(card.set.id, {
           id: card.set.id,
-          name: card.set.name,
+          name: card.set.name, // Original GitHub set names
           series: card.set.series,
           releaseDate: card.set.releaseDate
         });
@@ -155,14 +107,13 @@ function mergeData() {
       totalCards: enrichedCards.length,
       totalSets: setMap.size,
       cardsWithPricing: cardsWithPricing,
-      setNameUpdates: setNameUpdates,
-      incorrectMatches: incorrectMatches, // Track suspicious matches
+      approach: 'pricing-only', // Track that we're keeping original set names
       lastUpdated: new Date().toISOString(),
       pricingSource: pricingData.source,
       pricingUpdated: pricingData.lastUpdated
     };
     
-    // Split cards into chunks (500 cards each for faster loading)
+    // Split cards into chunks
     console.log('📦 Creating data chunks...');
     const chunkSize = 500;
     const chunks = [];
@@ -174,11 +125,9 @@ function mergeData() {
     // Save optimized files
     console.log('💾 Saving optimized files...');
     
-    // Save search index
     fs.writeFileSync('data/tcg-cards-index.json', JSON.stringify(searchIndex, null, 2));
     console.log(`✅ Search index saved (${searchIndex.totalCards} cards, ${searchIndex.totalSets} sets)`);
     
-    // Save chunks
     chunks.forEach((chunk, index) => {
       const chunkData = {
         cards: chunk,
@@ -198,9 +147,8 @@ function mergeData() {
       totalSets: setMap.size,
       totalChunks: chunks.length,
       cardsWithPricing: cardsWithPricing,
-      setNameUpdates: setNameUpdates,
-      incorrectMatches: incorrectMatches,
       pricingCoverage: `${((cardsWithPricing / enrichedCards.length) * 100).toFixed(1)}%`,
+      approach: 'Keep original GitHub set names, add pricing data only',
       lastUpdated: new Date().toISOString()
     };
     
@@ -211,8 +159,7 @@ function mergeData() {
     console.log(`   Total sets: ${summary.totalSets}`);
     console.log(`   Data chunks: ${summary.totalChunks}`);
     console.log(`   Cards with pricing: ${summary.cardsWithPricing} (${summary.pricingCoverage})`);
-    console.log(`   🆕 Set names updated from tcgcsv: ${setNameUpdates}`);
-    console.log(`   ⚠️  Suspicious matches: ${incorrectMatches}`);
+    console.log(`   📍 Approach: Keep original set names, pricing data only`);
     console.log('✅ Data merge completed successfully!');
     
   } catch (error) {
