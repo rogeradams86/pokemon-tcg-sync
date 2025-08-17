@@ -1,121 +1,197 @@
 import fs from 'fs';
 
+function mergeData() {
+  console.log('🔄 Merging card data with pricing...');
 
-
-// =====================================================================
-// merge-data (2).js — FULL FILE
-// Accepts cards, pricing, and sets; outputs merged cards with proper set
-// =====================================================================
-
-const fs = require('node:fs/promises');
-const path = require('node:path');
-
-/**
- * Merge cards + pricing + sets so each card has a real `set` object and pricing.
- *
- * @param {Array<Object>} cards - array of card objects. Each should have `id` like "base5-36".
- * @param {Object<string, Object>|Array<Object>} pricing - map or array with per-card pricing.
- *        If it's an array, we will map it by a stable key. Your existing keying logic is preserved below.
- * @param {Array<Object>} sets - canonical set list from fetchSets() (en.json), each with `id`+`name`.
- * @param {Object} [opts]
- * @param {string} [opts.outputFile] - where to write the merged JSON. If omitted, returns the array only.
- * @returns {Promise<Array<Object>>}
- */
-async function mergeData(cards, pricing, sets, opts = {}) {
-  if (!Array.isArray(cards)) throw new Error('cards must be an array');
-  if (!Array.isArray(sets)) throw new Error('sets must be an array');
-
-  const setIndex = new Map();
-  for (const s of sets) {
-    if (!s || !s.id) continue;
-    setIndex.set(String(s.id).toLowerCase(), s);
-  }
-
-  // If pricing is an array, adapt it to a map by your existing key (example uses `${id}`)
-  const pricingMap = Array.isArray(pricing) ? arrayToPricingMap(pricing) : (pricing || {});
-
-  const merged = cards.map(card => {
-    const setCode = inferSetCodeFromCard(card);
-    const setObj = setCode ? (setIndex.get(setCode) || {}) : {};
-
-    const priceKey = buildPricingKey(card); // keep in sync with your pricing builder
-    const p = pricingMap[priceKey] || null;
-
-    // If card already has a non-empty set, prefer it; else use setObj from en.json
-    const finalSet = hasKeys(card.set) ? card.set : setObj;
-
-    return {
-      ...card,
-      set: finalSet,
-      pricing: p
-    };
-  });
-
-  if (opts.outputFile) {
-    const outPath = path.resolve(opts.outputFile);
-    await fs.mkdir(path.dirname(outPath), { recursive: true });
-    await fs.writeFile(outPath, JSON.stringify(merged, null, 2), 'utf8');
-  }
-
-  return merged;
-}
-
-/** Extract set code like 'base5' from id 'base5-36' */
-function inferSetCodeFromCard(card) {
-  const id = card && card.id ? String(card.id) : '';
-  const m = id.match(/^([a-z0-9]+)(?=-)/i);
-  return m ? m[1].toLowerCase() : null;
-}
-
-/** Whether an object has at least one own key */
-function hasKeys(obj) {
-  return obj && typeof obj === 'object' && Object.keys(obj).length > 0;
-}
-
-/** Turn a pricing array into a map keyed by your stable key */
-function arrayToPricingMap(arr) {
-  const map = {};
-  for (const item of arr) {
-    const k = buildPricingKey(item);
-    if (k) map[k] = item;
-  }
-  return map;
-}
-
-/**
- * Build the pricing key used both when generating pricing and when merging.
- * Adjust this to match your existing pricing key logic.
- * Common pattern: `${card.id}` or `${setId}|${number}|${name}` etc.
- */
-function buildPricingKey(obj) {
-  // Default: use the card id if present; else try composite
-  if (obj && obj.id) return String(obj.id);
-  if (obj && obj.setId && obj.number) return `${obj.setId}|${obj.number}`;
-  return null;
-}
-
-module.exports = { mergeData };
-
-// Optional: run directly for a quick test
-// Usage example: node "merge-data (2).js" ./cards.json ./pricing.json ./merged.json
-if (require.main === module) {
-  (async () => {
-    const [cardsPath, pricingPath, outPath] = process.argv.slice(2);
-    if (!cardsPath || !pricingPath) {
-      console.log('Usage: node "merge-data (2).js" <cards.json> <pricing.json> [merged.json]');
-      process.exit(0);
+  try {
+    // Check if required files exist
+    if (!fs.existsSync('data/raw-cards.json')) {
+      throw new Error('raw-cards.json not found. Run fetch-cards.js first.');
     }
-    const cards = JSON.parse(await fs.readFile(path.resolve(cardsPath), 'utf8'));
-    const pricing = JSON.parse(await fs.readFile(path.resolve(pricingPath), 'utf8'));
 
-    // Pull sets live so this file is standalone when run directly
-    const { fetchSets } = require('./fetch-cards (2).js');
-    const sets = await fetchSets();
+    if (!fs.existsSync('data/pricing-raw.json')) {
+      throw new Error('pricing-raw.json not found. Run fetch-pricing.js first.');
+    }
 
-    const merged = await mergeData(cards, pricing, sets, outPath ? { outputFile: outPath } : {});
-    console.log(`Merged ${merged.length} cards${outPath ? ` → ${outPath}` : ''}`);
-  })().catch(err => {
-    console.error(err);
+    // Load raw data
+    console.log('📖 Loading raw data...');
+    const cardData = JSON.parse(fs.readFileSync('data/raw-cards.json'));
+    const pricingData = JSON.parse(fs.readFileSync('data/pricing-raw.json'));
+
+    const allCards = Array.isArray(cardData.cards) ? cardData.cards : [];
+    const allSets  = Array.isArray(cardData.sets)  ? cardData.sets  : [];
+
+    console.log(`📊 Processing ${allCards.length} cards...`);
+    console.log(`💰 Available pricing entries: ${Object.keys(pricingData.pricing || {}).length}`);
+    console.log(`📦 Loaded ${allSets.length} sets from raw-cards.json`);
+
+    // Build a fast lookup by set id (e.g., base5, sv3pt5)
+    const setIndex = new Map();
+    for (const s of allSets) {
+      if (s && s.id) setIndex.set(String(s.id).toLowerCase(), s);
+    }
+
+    const inferSetIdFromCard = (card) => {
+      const id = card?.id ? String(card.id) : '';
+      const m = id.match(/^([a-z0-9]+)(?=-)/i);
+      return m ? m[1].toLowerCase() : null;
+    };
+
+    // CONSERVATIVE: Only find pricing, keep original GitHub set names (or enrich from setIndex when missing)
+    function findPricing(card) {
+      const cardName = (card.name || '').toLowerCase();
+      const setName  = (card.set?.name || '').toLowerCase();
+
+      // Try exact/clean keys only — no fuzzy to avoid wrong assignments
+      const searchKeys = [
+        `${cardName}|${setName}`,
+        cardName.replace(/[^À-\w\s]/g, ''), // Clean punctuation
+      ];
+
+      for (const key of searchKeys) {
+        if (key && pricingData.pricing && pricingData.pricing[key]) {
+          // console.log(`💰 Pricing found: ${cardName} -> £${pricingData.pricing[key].market || 0}`);
+          return pricingData.pricing[key];
+        }
+      }
+      return null; // No pricing found — OK
+    }
+
+    let cardsWithPricing = 0;
+    let setsEnriched = 0; // how many cards had empty set and were enriched from setIndex
+
+    const enrichedCards = allCards.map(card => {
+      const pricing = findPricing(card);
+      if (pricing) cardsWithPricing++;
+
+      // If original set object is empty/missing, enrich from setIndex using card.id prefix
+      let finalSet = (card.set && Object.keys(card.set).length > 0) ? card.set : null;
+      if (!finalSet) {
+        const inferred = inferSetIdFromCard(card);
+        const fallback = inferred ? setIndex.get(inferred) : null;
+        if (fallback) {
+          finalSet = fallback;
+          setsEnriched++;
+        } else {
+          finalSet = {}; // keep empty if we truly can't resolve
+        }
+      }
+
+      // Add pricing data separately (without affecting set identification)
+      let pricingWithSetInfo = null;
+      if (pricing) {
+        pricingWithSetInfo = {
+          ...pricing,
+          groupName: pricing.groupName,
+          groupId: pricing.groupId
+        };
+      }
+
+      return {
+        id: card.id,
+        name: card.name,
+        number: card.number,
+        rarity: card.rarity,
+        set: finalSet ? {
+          id: finalSet.id,
+          name: finalSet.name,
+          series: finalSet.series,
+          releaseDate: finalSet.releaseDate
+        } : {},
+        supertype: card.supertype,
+        types: card.types || [],
+        images: {
+          small: card.images?.small,
+          large: card.images?.large
+        },
+        pricing: pricingWithSetInfo
+      };
+    });
+
+    console.log(`🧩 Set enrichment applied to ${setsEnriched} card(s) that had empty set objects`);
+
+    // Create search index using original (or enriched) set names
+    console.log('🔍 Creating search index...');
+
+    const setMap = new Map();
+    enrichedCards.forEach(card => {
+      if (card.set?.id && card.set?.name) {
+        setMap.set(card.set.id, {
+          id: card.set.id,
+          name: card.set.name,
+          series: card.set.series,
+          releaseDate: card.set.releaseDate
+        });
+      }
+    });
+
+    const searchIndex = {
+      sets: Array.from(setMap.values()).sort((a, b) => a.name.localeCompare(b.name)),
+      types: [...new Set(enrichedCards.flatMap(c => c.types || []))].sort(),
+      rarities: [...new Set(enrichedCards.map(c => c.rarity).filter(Boolean))].sort(),
+      totalCards: enrichedCards.length,
+      totalSets: setMap.size,
+      cardsWithPricing: cardsWithPricing,
+      approach: 'keep-original-sets-or-enrich-from-en.json',
+      lastUpdated: new Date().toISOString(),
+      pricingSource: pricingData.source,
+      pricingUpdated: pricingData.lastUpdated
+    };
+
+    // Split cards into chunks (500 cards each for faster loading)
+    console.log('📦 Creating data chunks...');
+    const chunkSize = 500;
+    const chunks = [];
+
+    for (let i = 0; i < enrichedCards.length; i += chunkSize) {
+      chunks.push(enrichedCards.slice(i, i + chunkSize));
+    }
+
+    // Save optimized files
+    console.log('💾 Saving optimized files...');
+
+    fs.writeFileSync('data/tcg-cards-index.json', JSON.stringify(searchIndex, null, 2));
+    console.log(`✅ Search index saved (${searchIndex.totalCards} cards, ${searchIndex.totalSets} sets)`);
+
+    chunks.forEach((chunk, index) => {
+      const chunkData = {
+        cards: chunk,
+        chunk: index + 1,
+        totalChunks: chunks.length,
+        lastUpdated: new Date().toISOString()
+      };
+
+      fs.writeFileSync(`data/tcg-cards-chunk-${index + 1}.json`, JSON.stringify(chunkData, null, 2));
+    });
+
+    console.log(`✅ Created ${chunks.length} data chunks`);
+
+    // Create summary
+    const summary = {
+      totalCards: enrichedCards.length,
+      totalSets: setMap.size,
+      totalChunks: chunks.length,
+      cardsWithPricing: cardsWithPricing,
+      pricingCoverage: `${((cardsWithPricing / enrichedCards.length) * 100).toFixed(1)}%`,
+      approach: 'Keep original GitHub set names; enrich from en.json when missing; pricing separate',
+      lastUpdated: new Date().toISOString()
+    };
+
+    fs.writeFileSync('data/summary.json', JSON.stringify(summary, null, 2));
+
+    console.log('📈 Summary:');
+    console.log(`   Total cards: ${summary.totalCards}`);
+    console.log(`   Total sets: ${summary.totalSets}`);
+    console.log(`   Data chunks: ${summary.totalChunks}`);
+    console.log(`   Cards with pricing: ${summary.cardsWithPricing} (${summary.pricingCoverage})`);
+    console.log('   📍 Approach: Keep original GitHub set names; enrich when missing; pricing separate');
+    console.log('✅ Data merge completed successfully!');
+
+  } catch (error) {
+    console.error('❌ Error merging data:', error.message);
     process.exit(1);
-  });
+  }
 }
+
+// Run the function
+mergeData();
