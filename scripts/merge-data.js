@@ -61,12 +61,11 @@ function mergeData() {
       // Add pricing data separately (without affecting set identification)
       let pricingWithSetInfo = null;
       if (pricing) {
-        pricingWithSetInfo = {
-          ...pricing,
-          // Include tcgcsv set info in pricing object for reference only
-          groupName: pricing.groupName,
-          groupId: pricing.groupId
-        };
+        const pricingWithSetInfo = {
+  ...pricing,
+  groupName: pricing.groupName,
+  groupId: pricing.groupId
+};
       }
       
       return {
