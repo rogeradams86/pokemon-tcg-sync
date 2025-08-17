@@ -100,11 +100,11 @@ async function fetchPricingData() {
             keys.forEach(key => {
               if (key.trim()) {
                 pricingMap[key] = {
-                  ...pricing,
-                  productId: productId,
-                  groupName: groupName,
-                  groupId: groupId
-                };
+  ...pricing,
+  productId: productId,
+  groupName: groupName,
+  groupId: groupId
+};
               }
             });
             
