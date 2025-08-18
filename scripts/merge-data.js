@@ -1,275 +1,181 @@
-// merge-data.js - COMPLETE FIXED VERSION with enhanced pricing key matching
-// Enhanced debugging and multiple matching strategies
+/**
+ * merge-data.js
+ * 
+ * Merges Pokémon TCG card data with pricing from `data/pricing-raw.json`,
+ * writes chunked card JSON files and an index manifest into /data.
+ * 
+ * INPUTS (expected):
+ *  - data/cards-all.json  (array of card objects from Pokémon TCG API export)
+ *    Each card minimally: { id, number, name, set: { id, name }, ... }
+ *  - data/pricing-raw.json (from fetch-pricing.js)
+ * 
+ * OUTPUTS:
+ *  - data/tcg-cards-index.json   (manifest with chunk list)
+ *  - data/tcg-cards-chunk-#.json (cards with attached `pricing` object)
+ * 
+ * If your project produces cards in a different structure, adjust `loadCards()`.
+ */
+import fs from 'fs';
+import path from 'path';
+import process from 'process';
 
-import fs from 'node:fs';
-import path from 'node:path';
+const REPO_ROOT = process.cwd();
+const DATA_DIR  = path.join(REPO_ROOT, 'data');
+const CARDS_SRC = path.join(DATA_DIR, 'cards-all.json');
+const PRICING   = path.join(DATA_DIR, 'pricing-raw.json');
 
-const DEFAULT_LANG = 'EN';
+const CHUNK_SIZE = 5000;
 
-function toSetCodeFromIdOrUrl(id, imgUrl) {
-  // card.id like "base5-36" → base5
-  if (id) {
-    const m = String(id).match(/^([a-z0-9]+)(?=-)/i);
-    if (m) return m[1].toLowerCase();
+// ------- utilities ----------------------------------------------------------
+function readJson(p, optional=false) {
+  if (!fs.existsSync(p)) {
+    if (optional) return null;
+    throw new Error(`Missing required file: ${p}`);
   }
-  if (imgUrl) {
-    const m = String(imgUrl).match(/images\.pokemontcg\.io\/(.*?)\//i);
-    if (m) return m[1].toLowerCase();
-  }
-  return null;
-}
-
-function normalizePrintingLike(s) {
-  const v = String(s || '').toLowerCase();
-  if (v.includes('reverse')) return 'reverse';
-  if (v.includes('holo') || v.includes('foil')) return 'holo';
-  return 'normal';
-}
-
-function buildPricingKey({ groupId, extNumber, printing, lang }) {
-  return `${String(groupId||'').toLowerCase()}|${String(extNumber||'').toUpperCase()}|${String(printing||'normal').toLowerCase()}|${String(lang||DEFAULT_LANG).toUpperCase()}`;
-}
-
-// ENHANCED: Multiple strategies for number matching
-function normalizeCardNumber(num) {
-  if (!num) return [''];
-  const str = String(num).toUpperCase();
-  
-  // Return multiple variations to try
-  return [
-    str,                    // Original: "025"
-    str.replace(/^0+/, ''), // Remove leading zeros: "25"
-    str.padStart(3, '0'),   // Ensure 3 digits: "025"
-    str.replace(/[^0-9A-Z]/g, '') // Remove special chars
-  ].filter(v => v); // Remove empty strings
-}
-
-// ENHANCED: Multiple strategies for set ID matching
-function normalizeSetId(setId) {
-  if (!setId) return [''];
-  const str = String(setId).toLowerCase();
-  
-  return [
-    str,                    // Original: "base5"
-    str.replace(/[^a-z0-9]/g, ''), // Remove special chars
-    str.replace('base', 'bs'),     // Common abbreviation
-    str.replace('bs', 'base'),     // Reverse abbreviation
-    str.replace(/(\d+)$/, ''),     // Remove trailing numbers: "base5" -> "base"
-    str + '1',              // Add 1 if missing: "base" -> "base1"
-  ].filter(v => v); // Remove empty strings
-}
-
-function loadJson(p) {
   return JSON.parse(fs.readFileSync(p, 'utf8'));
 }
 
-function hasKeys(obj) { return obj && typeof obj === 'object' && Object.keys(obj).length > 0; }
-
-function main() {
-  console.log('🔄 Merging card data with pricing (ENHANCED VERSION)...');
-
-  const rawCardsPath = 'data/raw-cards.json';
-  const pricingPath  = 'data/pricing-raw.json';
-
-  if (!fs.existsSync(rawCardsPath)) throw new Error('raw-cards.json not found. Run fetch-cards first.');
-  if (!fs.existsSync(pricingPath)) throw new Error('pricing-raw.json not found. Run fetch-pricing first.');
-
-  console.log('📖 Loading raw data...');
-  const cardData = loadJson(rawCardsPath);
-  const pricingData = loadJson(pricingPath);
-
-  const allCards = Array.isArray(cardData.cards) ? cardData.cards : [];
-  const allSets  = Array.isArray(cardData.sets)  ? cardData.sets  : [];
-  const pricingMap = pricingData.pricing || {};
-
-  console.log(`📊 Processing ${allCards.length} cards...`);
-  console.log(`💰 Pricing entries: ${Object.keys(pricingMap).length}`);
-  console.log(`📦 Loaded ${allSets.length} sets`);
-
-  // DEBUGGING: Show sample pricing keys
-  console.log('\n🔍 Sample pricing keys from CSV:');
-  Object.keys(pricingMap).slice(0, 10).forEach(key => {
-    const data = pricingMap[key];
-    console.log(`  ${key} → ${data.name} (£${data.market})`);
-  });
-
-  // Build set index by id (e.g., base5)
-  const setIndex = new Map();
-  for (const s of allSets) {
-    if (s && s.id) setIndex.set(String(s.id).toLowerCase(), s);
-  }
-
-  let cardsWithPricing = 0;
-  let setsEnriched = 0;
-  let pricingAttempts = 0;
-  let successfulMatches = 0;
-
-  const enrichedCards = allCards.map((card, index) => {
-    // Show progress for large datasets
-    if (index % 1000 === 0) {
-      console.log(`Processing card ${index + 1}/${allCards.length}...`);
-    }
-
-    // Ensure card.set is populated
-    let finalSet = hasKeys(card.set) ? card.set : null;
-    if (!finalSet) {
-      const code = toSetCodeFromIdOrUrl(card.id, card.images?.small || card.images?.large);
-      const s = code ? setIndex.get(code) : null;
-      if (s) { finalSet = s; setsEnriched++; }
-      else { finalSet = {}; }
-    }
-
-    // ENHANCED: Try multiple matching strategies
-    const setVariations = normalizeSetId(finalSet?.id || toSetCodeFromIdOrUrl(card.id));
-    const numberVariations = normalizeCardNumber(card.number);
-    const printingVariations = [ 
-      card.printing || card.variant || normalizePrintingLike(card.name), 
-      'normal', 
-      'holo', 
-      'reverse' 
-    ];
-
-    let pricing = null;
-    let matchedKey = null;
-
-    // Try all combinations
-    outerLoop: for (const setId of setVariations) {
-      for (const cardNum of numberVariations) {
-        for (const printing of printingVariations) {
-          pricingAttempts++;
-          const key = buildPricingKey({ 
-            groupId: setId, 
-            extNumber: cardNum, 
-            printing: printing, 
-            lang: DEFAULT_LANG 
-          });
-          
-          if (pricingMap[key]) {
-            pricing = pricingMap[key];
-            matchedKey = key;
-            successfulMatches++;
-            break outerLoop;
-          }
-        }
-      }
-    }
-
-    if (pricing) {
-      cardsWithPricing++;
-      
-      // Debug successful matches for first few cards
-      if (cardsWithPricing <= 5) {
-        console.log(`✅ MATCH: ${card.name} matched with key: ${matchedKey}`);
-      }
-    } else {
-      // Debug failed matches for first few cards
-      if (index < 10) {
-        console.log(`❌ NO MATCH: ${card.name}`);
-        console.log(`   Tried set variations: ${setVariations.join(', ')}`);
-        console.log(`   Tried number variations: ${numberVariations.join(', ')}`);
-        console.log(`   Card set ID: ${finalSet?.id || 'none'}`);
-        console.log(`   Card number: ${card.number || 'none'}`);
-      }
-    }
-
-    // Build output
-    const out = {
-      id: card.id,
-      name: card.name,
-      number: card.number,
-      rarity: card.rarity,
-      set: finalSet ? {
-        id: finalSet.id,
-        name: finalSet.name,
-        series: finalSet.series,
-        releaseDate: finalSet.releaseDate
-      } : {},
-      supertype: card.supertype,
-      types: card.types || [],
-      images: {
-        small: card.images?.small,
-        large: card.images?.large
-      },
-      pricing: pricing ? {
-        ...pricing,
-        groupName: pricing.groupName || finalSet?.name || '',
-        groupId: pricing.groupId,
-        matchedKey: matchedKey // For debugging
-      } : null
-    };
-
-    return out;
-  });
-
-  console.log(`\n🔍 PRICING MATCH ANALYSIS:`);
-  console.log(`🧩 Set enrichment applied to ${setsEnriched} card(s)`);
-  console.log(`🎯 Total pricing attempts: ${pricingAttempts}`);
-  console.log(`✅ Successful matches: ${successfulMatches}`);
-  console.log(`💷 Cards matched with pricing: ${cardsWithPricing}`);
-  console.log(`📈 Pricing coverage: ${((cardsWithPricing / Math.max(1, allCards.length)) * 100).toFixed(1)}%`);
-
-  // Build search index
-  console.log('🔍 Creating search index...');
-  const setMap = new Map();
-  enrichedCards.forEach(c => { if (c.set?.id && c.set?.name) setMap.set(c.set.id, c.set); });
-
-  const searchIndex = {
-    sets: Array.from(setMap.values()).sort((a,b)=>a.name.localeCompare(b.name)),
-    types: [...new Set(enrichedCards.flatMap(c => c.types || []))].sort(),
-    rarities: [...new Set(enrichedCards.map(c => c.rarity).filter(Boolean))].sort(),
-    totalCards: enrichedCards.length,
-    totalSets: setMap.size,
-    cardsWithPricing: cardsWithPricing,
-    pricingCoverage: ((cardsWithPricing / Math.max(1, enrichedCards.length)) * 100).toFixed(1) + '%',
-    approach: 'enhanced multi-strategy pricing key matching',
-    lastUpdated: new Date().toISOString(),
-    pricingSource: pricingData.source,
-    pricingUpdated: pricingData.lastUpdated,
-    pricingStats: {
-      totalAttempts: pricingAttempts,
-      successfulMatches: successfulMatches,
-      successRate: ((successfulMatches / Math.max(1, pricingAttempts)) * 100).toFixed(1) + '%'
-    }
-  };
-
-  // Chunk and save
-  console.log('📦 Creating data chunks...');
-  const chunkSize = 500;
-  const chunks = [];
-  for (let i = 0; i < enrichedCards.length; i += chunkSize) {
-    chunks.push(enrichedCards.slice(i, i + chunkSize));
-  }
-
-  console.log('💾 Saving optimized files...');
-  fs.writeFileSync('data/tcg-cards-index.json', JSON.stringify(searchIndex, null, 2));
-  chunks.forEach((chunk, idx) => {
-    const payload = { 
-      cards: chunk, 
-      chunk: idx + 1, 
-      totalChunks: chunks.length, 
-      lastUpdated: new Date().toISOString() 
-    };
-    fs.writeFileSync(`data/tcg-cards-chunk-${idx + 1}.json`, JSON.stringify(payload, null, 2));
-  });
-
-  const summary = {
-    totalCards: enrichedCards.length,
-    totalSets: searchIndex.totalSets,
-    totalChunks: chunks.length,
-    cardsWithPricing,
-    pricingCoverage: searchIndex.pricingCoverage,
-    pricingStats: searchIndex.pricingStats,
-    lastUpdated: new Date().toISOString()
-  };
-  fs.writeFileSync('data/summary.json', JSON.stringify(summary, null, 2));
-
-  console.log('\n📈 FINAL SUMMARY:');
-  console.log(`   Total cards: ${summary.totalCards}`);
-  console.log(`   Total sets: ${summary.totalSets}`);
-  console.log(`   Data chunks: ${summary.totalChunks}`);
-  console.log(`   Cards with pricing: ${summary.cardsWithPricing} (${summary.pricingCoverage})`);
-  console.log(`   Pricing success rate: ${summary.pricingStats.successRate}`);
-  console.log('✅ Enhanced data merge completed successfully!');
+function writeJson(p, obj) {
+  fs.mkdirSync(path.dirname(p), { recursive: true });
+  fs.writeFileSync(p, JSON.stringify(obj, null, 2), 'utf8');
 }
 
-try { main(); } catch (err) { console.error('❌ Error merging data:', err.message); process.exit(1); }
+function normalizeSetId(setId) {
+  if (!setId) return [''];
+  const s = String(setId).toLowerCase();
+  const out = new Set([s, s.replace(/[^a-z0-9]/g,'')]);
+
+  // common aliases for vintage
+  if (s === 'base') { out.add('base1'); out.add('base-set'); }
+  if (s === 'base1') { out.add('base'); out.add('base-set'); }
+
+  // Try removing trailing number (neo1 -> neo)
+  out.add(s.replace(/(\d+)$/, ''));
+
+  return [...out];
+}
+
+function numberCandidates(n) {
+  if (!n) return ['','0'];
+  const s = String(n).toUpperCase().trim();
+  const out = new Set([s]);
+
+  if (s.includes('/')) {
+    const left = s.split('/')[0]; // "1/102" -> "1"
+    out.add(left);
+    const num = parseInt(left, 10);
+    if (Number.isFinite(num)) out.add(String(num));
+  }
+  const digits = s.replace(/\D/g,'');
+  if (digits) {
+    out.add(digits);
+    const n2 = parseInt(digits, 10);
+    if (Number.isFinite(n2)) out.add(String(n2));
+  }
+  out.add(s.replace(/[^A-Z0-9]/g,'')); // SVP-001 -> SVP001
+  return [...out].filter(Boolean);
+}
+
+function normalizePrint(v='normal'){
+  v = String(v || 'normal').toLowerCase();
+  if (v.startsWith('rev') || v.includes('reverse')) return 'reverse';
+  if (v.includes('holo') || v.includes('foil'))   return 'holo';
+  if (v.includes('normal'))                        return 'normal';
+  return v || 'normal';
+}
+
+function toSetIdFromCard(card) {
+  // card.set?.id is the best source; fallback to id prefix like "base1-1"
+  if (card?.set?.id) return String(card.set.id).toLowerCase();
+  const id = String(card?.id || '');
+  const m = id.match(/^([a-z0-9\-]+)\-/i);
+  if (m) return m[1].toLowerCase();
+  return '';
+}
+
+function attachPricing(card, pricingMap) {
+  const setIds = normalizeSetId(toSetIdFromCard(card));
+  const nums   = numberCandidates(card.number);
+  const prints = [normalizePrint(card.printing || card.variant || card.rarity || 'normal'), 'normal','holo','reverse'];
+
+  let match = null;
+
+  outer: for (const gid of setIds) {
+    for (const num of nums) for (const pr of prints) {
+      const k = `${gid}|${num}|${pr}|EN`;
+      if (pricingMap[k]) { match = pricingMap[k]; break outer; }
+    }
+  }
+  // sealed / blank-number fallback
+  if (!match) {
+    for (const gid of setIds) for (const pr of prints) {
+      const k = `${gid}||${pr}|EN`;
+      if (pricingMap[k]) { match = pricingMap[k]; break; }
+    }
+  }
+
+  if (match) {
+    card.pricing = {
+      market: match.market,
+      low: match.low,
+      high: match.high
+    };
+  } else {
+    card.pricing = null;
+  }
+  return card;
+}
+
+// ------- main ---------------------------------------------------------------
+function loadCards() {
+  // Expect a single file with all cards
+  return readJson(CARDS_SRC);
+}
+
+function chunkArray(arr, size) {
+  const out = [];
+  for (let i=0; i<arr.length; i+=size) out.push(arr.slice(i, i+size));
+  return out;
+}
+
+function main() {
+  const cards = loadCards();
+  const pricingRaw = readJson(PRICING, true);
+  const pricingMap = pricingRaw?.pricing || {};
+
+  console.log(`Cards: ${cards.length} • Pricing entries: ${Object.keys(pricingMap).length}`);
+  let withPricing = 0;
+
+  const merged = cards.map(c => {
+    const r = attachPricing({ ...c }, pricingMap);
+    if (r.pricing) withPricing++;
+    return r;
+  });
+
+  // Write chunks
+  const chunks = chunkArray(merged, CHUNK_SIZE);
+  const chunkNames = [];
+  chunks.forEach((chunk, idx) => {
+    const name = `tcg-cards-chunk-${idx+1}.json`;
+    writeJson(path.join(DATA_DIR, name), { cards: chunk });
+    chunkNames.push(name);
+  });
+
+  // Manifest
+  const index = {
+    generatedAt: new Date().toISOString(),
+    totalCards: merged.length,
+    cardsWithPricing: withPricing,
+    chunks: chunkNames
+  };
+  writeJson(path.join(DATA_DIR, 'tcg-cards-index.json'), index);
+
+  console.log(`✅ Wrote ${chunkNames.length} chunk(s). cardsWithPricing=${withPricing}`);
+}
+
+try {
+  main();
+} catch (e) {
+  console.error(e);
+  process.exit(1);
+}
