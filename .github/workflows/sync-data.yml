@@ -1,50 +1,126 @@
-name: Daily Pokemon TCG Sync
+name: Sync Pokemon TCG Data
+
 on:
-  workflow_dispatch:      # Manual trigger only for now
+  schedule:
+    # Run daily at 6 AM UTC
+    - cron: '0 6 * * *'
+  workflow_dispatch: # Allow manual trigger
+  push:
+    paths:
+      - 'scripts/**'
+      - 'pricing-raw.csv'
+      - '.github/workflows/**'
 
 jobs:
-  sync:
+  sync-data:
     runs-on: ubuntu-latest
+    
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v4
       
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-          
-      - name: Install dependencies
-        run: npm install
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
         
-      - name: Fetch Pokemon TCG data
-        run: npm run fetch-cards
+    - name: Install dependencies
+      run: |
+        if [ -f package.json ]; then
+          npm ci
+        else
+          npm install node-fetch@3
+        fi
         
-      - name: Fetch pricing data
-        run: npm run fetch-pricing
+    - name: Create data directory
+      run: mkdir -p data
+      
+    - name: Check if pricing CSV exists
+      run: |
+        if [ -f pricing-raw.csv ]; then
+          echo "✅ Pricing CSV found"
+          ls -la pricing-raw.csv
+        else
+          echo "⚠️ No pricing CSV found - will skip pricing step"
+          echo "Upload your pricing-raw.csv file to enable pricing integration"
+        fi
         
-      - name: Merge and optimize data
-        run: npm run merge-data
+    - name: Fetch card data
+      run: node scripts/fetch-cards.js
+      
+    - name: Process pricing data (if CSV exists)
+      run: |
+        if [ -f pricing-raw.csv ]; then
+          echo "Processing pricing data..."
+          node scripts/fetch-pricing.js
+        else
+          echo "Skipping pricing processing - no CSV file"
+          # Create empty pricing file
+          echo '{"source":"none","lastUpdated":"'$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")'","pricing":{}}' > data/pricing-raw.json
+        fi
         
-      - name: Commit data files to repository
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add data/*.json
-          git diff --staged --quiet || git commit -m "Update Pokemon TCG data - $(date)"
+    - name: Merge data
+      run: node scripts/merge-data.js
+      
+    - name: Upload to Shopify (if configured)
+      env:
+        SHOPIFY_STORE: ${{ secrets.SHOPIFY_STORE }}
+        SHOPIFY_ACCESS_TOKEN: ${{ secrets.SHOPIFY_ACCESS_TOKEN }}
+      run: |
+        if [ -n "$SHOPIFY_STORE" ] && [ -n "$SHOPIFY_ACCESS_TOKEN" ]; then
+          echo "Uploading to Shopify..."
+          node scripts/upload-shopify.js
+        else
+          echo "Skipping Shopify upload - no credentials configured"
+          echo "Set SHOPIFY_STORE and SHOPIFY_ACCESS_TOKEN secrets to enable Shopify upload"
+        fi
+        
+    - name: Commit and push data files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        
+        # Add generated data files
+        git add data/
+        
+        # Check if there are changes to commit
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "Update Pokemon TCG data - $(date -u +"%Y-%m-%d %H:%M UTC")"
           git push
+        fi
         
-      - name: Show results
-        run: |
-          echo "=== PROCESSING COMPLETE ==="
-          echo "Generated files:"
-          ls -la data/
-          echo ""
-          echo "File sizes:"
-          du -h data/*
-          echo ""
-          echo "Summary:"
-          cat data/summary.json || echo "No summary file"
-          echo ""
-          echo "Data files committed to repository and accessible via:"
-          echo "https://raw.githubusercontent.com/${{ github.repository }}/main/data/tcg-cards-index.json"
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: pokemon-tcg-data
+        path: |
+          data/
+          !data/raw-*
+        retention-days: 30
+        
+    - name: Generate summary
+      run: |
+        echo "## 🎯 Sync Summary" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        
+        if [ -f data/summary.json ]; then
+          echo "### 📊 Data Statistics" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`json" >> $GITHUB_STEP_SUMMARY
+          cat data/summary.json >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 📁 Generated Files" >> $GITHUB_STEP_SUMMARY
+        echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+        ls -la data/ || echo "No data directory found"
+        echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+        
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 🔗 Access URLs" >> $GITHUB_STEP_SUMMARY
+        echo "- Index: \`https://raw.githubusercontent.com/${{ github.repository }}/main/data/tcg-cards-index.json\`" >> $GITHUB_STEP_SUMMARY
+        echo "- Chunks: \`https://raw.githubusercontent.com/${{ github.repository }}/main/data/tcg-cards-chunk-[1-60].json\`" >> $GITHUB_STEP_SUMMARY
