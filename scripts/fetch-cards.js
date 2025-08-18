@@ -1,19 +1,44 @@
+// fetch-cards.js - COMPLETE VERSION with built-in modules only
 import fs from 'fs';
-import fetch from 'node-fetch';
+import https from 'https';
+
+function fetchJSON(url) {
+  return new Promise((resolve, reject) => {
+    const request = https.get(url, (response) => {
+      let data = '';
+      
+      response.on('data', (chunk) => {
+        data += chunk;
+      });
+      
+      response.on('end', () => {
+        try {
+          const json = JSON.parse(data);
+          resolve(json);
+        } catch (error) {
+          reject(new Error(`Failed to parse JSON from ${url}: ${error.message}`));
+        }
+      });
+    });
+    
+    request.on('error', (error) => {
+      reject(new Error(`Request failed for ${url}: ${error.message}`));
+    });
+    
+    request.setTimeout(30000, () => {
+      request.destroy();
+      reject(new Error(`Request timeout for ${url}`));
+    });
+  });
+}
 
 async function fetchCardData() {
-  console.log('📥 Fetching Pokemon TCG data from GitHub...');
+  console.log('🔥 Fetching Pokemon TCG data from GitHub...');
   
   try {
     // 1. Fetch sets list
     console.log('Fetching sets list...');
-    const setsResponse = await fetch('https://raw.githubusercontent.com/PokemonTCG/pokemon-tcg-data/master/sets/en.json');
-    
-    if (!setsResponse.ok) {
-      throw new Error(`Failed to fetch sets: ${setsResponse.statusText}`);
-    }
-    
-    const setsData = await setsResponse.json();
+    const setsData = await fetchJSON('https://raw.githubusercontent.com/PokemonTCG/pokemon-tcg-data/master/sets/en.json');
     const sets = setsData.data || setsData; // Handle different response formats
     
     console.log(`Found ${sets.length} sets`);
@@ -26,20 +51,15 @@ async function fetchCardData() {
       try {
         console.log(`Fetching cards for set: ${set.name} (${processedSets + 1}/${sets.length})`);
         
-        const cardsResponse = await fetch(
+        const cardsData = await fetchJSON(
           `https://raw.githubusercontent.com/PokemonTCG/pokemon-tcg-data/master/cards/en/${set.id}.json`
         );
         
-        if (cardsResponse.ok) {
-          const cardsData = await cardsResponse.json();
-          const cards = cardsData.data || cardsData; // Handle different response formats
-          
-          if (Array.isArray(cards)) {
-            allCards.push(...cards);
-            console.log(`  ✅ Added ${cards.length} cards from ${set.name}`);
-          }
-        } else {
-          console.log(`  ⚠️ No cards found for ${set.name}`);
+        const cards = cardsData.data || cardsData; // Handle different response formats
+        
+        if (Array.isArray(cards)) {
+          allCards.push(...cards);
+          console.log(`  ✅ Added ${cards.length} cards from ${set.name}`);
         }
         
         processedSets++;
@@ -48,7 +68,7 @@ async function fetchCardData() {
         await new Promise(resolve => setTimeout(resolve, 100));
         
       } catch (error) {
-        console.log(`  ❌ Failed to fetch ${set.name}: ${error.message}`);
+        console.log(`  ⚠️ Failed to fetch ${set.name}: ${error.message}`);
       }
     }
     
