@@ -2,8 +2,7 @@
   "totalCards": 19465,
   "totalSets": 168,
   "totalChunks": 39,
-  "cardsWithPricing": 14405,
-  "pricingCoverage": "74.0%",
-  "approach": "Keep original GitHub set names; enrich from en.json when missing; pricing separate",
-  "lastUpdated": "2025-08-17T21:28:52.362Z"
+  "cardsWithPricing": 0,
+  "pricingCoverage": "0.0%",
+  "lastUpdated": "2025-08-18T15:44:47.472Z"
 }

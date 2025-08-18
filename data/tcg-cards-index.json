@@ -1062,9 +1062,9 @@
   ],
   "totalCards": 19465,
   "totalSets": 168,
-  "cardsWithPricing": 14405,
-  "approach": "keep-original-sets-or-enrich-from-en.json",
-  "lastUpdated": "2025-08-17T21:28:52.233Z",
-  "pricingSource": "tcgcsv.com API",
-  "pricingUpdated": "2025-08-17T21:28:51.649Z"
+  "cardsWithPricing": 0,
+  "approach": "attach pricing via groupId|extNumber|printing|EN; fallback to normal",
+  "lastUpdated": "2025-08-18T15:44:47.380Z",
+  "pricingSource": "none",
+  "pricingUpdated": "2025-08-18T15:44:47.034Z"
 }

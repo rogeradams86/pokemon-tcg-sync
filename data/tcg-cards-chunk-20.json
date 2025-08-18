@@ -40,17 +40,7 @@
         "small": "https://images.pokemontcg.io/smp/SM177.png",
         "large": "https://images.pokemontcg.io/smp/SM177_hires.png"
       },
-      "pricing": {
-        "market": 0.08,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253338,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM178",
@@ -92,17 +82,7 @@
         "small": "https://images.pokemontcg.io/smp/SM179.png",
         "large": "https://images.pokemontcg.io/smp/SM179_hires.png"
       },
-      "pricing": {
-        "market": 0.16,
-        "low": 0.09,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:50.579Z",
-        "subType": "Reverse Holofoil",
-        "productId": 232427,
-        "groupName": "Shining Fates",
-        "groupId": 2754
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM180",
@@ -144,17 +124,7 @@
         "small": "https://images.pokemontcg.io/smp/SM181.png",
         "large": "https://images.pokemontcg.io/smp/SM181_hires.png"
       },
-      "pricing": {
-        "market": 0.15,
-        "low": 0.03,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Holofoil",
-        "productId": 253340,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM182",
@@ -175,17 +145,7 @@
         "small": "https://images.pokemontcg.io/smp/SM182.png",
         "large": "https://images.pokemontcg.io/smp/SM182_hires.png"
       },
-      "pricing": {
-        "market": 0.19,
-        "low": 0.05,
-        "mid": 0.23,
-        "high": 5.1,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Reverse Holofoil",
-        "productId": 253292,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM183",
@@ -206,17 +166,7 @@
         "small": "https://images.pokemontcg.io/smp/SM183.png",
         "large": "https://images.pokemontcg.io/smp/SM183_hires.png"
       },
-      "pricing": {
-        "market": 0.4,
-        "low": 0.1,
-        "mid": 0.39,
-        "high": 10,
-        "lastUpdated": "2025-08-17T21:28:48.309Z",
-        "subType": "Reverse Holofoil",
-        "productId": 246881,
-        "groupName": "SWSH07: Evolving Skies",
-        "groupId": 2848
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM184",
@@ -237,17 +187,7 @@
         "small": "https://images.pokemontcg.io/smp/SM184.png",
         "large": "https://images.pokemontcg.io/smp/SM184_hires.png"
       },
-      "pricing": {
-        "market": 0.33,
-        "low": 0.1,
-        "mid": 0.34,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:50.579Z",
-        "subType": "Reverse Holofoil",
-        "productId": 232528,
-        "groupName": "Shining Fates",
-        "groupId": 2754
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM185",
@@ -289,17 +229,7 @@
         "small": "https://images.pokemontcg.io/smp/SM186.png",
         "large": "https://images.pokemontcg.io/smp/SM186_hires.png"
       },
-      "pricing": {
-        "market": 10.08,
-        "low": 8,
-        "mid": 11.27,
-        "high": 999.99,
-        "lastUpdated": "2025-08-17T21:28:46.036Z",
-        "subType": "Holofoil",
-        "productId": 264210,
-        "groupName": "SWSH09: Brilliant Stars Trainer Gallery",
-        "groupId": 3020
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM187",
@@ -551,17 +481,7 @@
         "small": "https://images.pokemontcg.io/smp/SM198.png",
         "large": "https://images.pokemontcg.io/smp/SM198_hires.png"
       },
-      "pricing": {
-        "market": 2.61,
-        "low": 1.25,
-        "mid": 2.88,
-        "high": 49.99,
-        "lastUpdated": "2025-08-17T21:28:50.019Z",
-        "subType": "Normal",
-        "productId": 231307,
-        "groupName": "First Partner Pack",
-        "groupId": 2776
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM199",
@@ -582,17 +502,7 @@
         "small": "https://images.pokemontcg.io/smp/SM199.png",
         "large": "https://images.pokemontcg.io/smp/SM199_hires.png"
       },
-      "pricing": {
-        "market": 0.19,
-        "low": 0.01,
-        "mid": 0.15,
-        "high": 5.01,
-        "lastUpdated": "2025-08-17T21:28:48.308Z",
-        "subType": "Normal",
-        "productId": 246816,
-        "groupName": "SWSH07: Evolving Skies",
-        "groupId": 2848
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM200",
@@ -613,17 +523,7 @@
         "small": "https://images.pokemontcg.io/smp/SM200.png",
         "large": "https://images.pokemontcg.io/smp/SM200_hires.png"
       },
-      "pricing": {
-        "market": 0.07,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253278,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM201",
@@ -665,17 +565,7 @@
         "small": "https://images.pokemontcg.io/smp/SM202.png",
         "large": "https://images.pokemontcg.io/smp/SM202_hires.png"
       },
-      "pricing": {
-        "market": 0.22,
-        "low": 0.06,
-        "mid": 0.25,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:39.856Z",
-        "subType": "Reverse Holofoil",
-        "productId": 451633,
-        "groupName": "SWSH12: Silver Tempest",
-        "groupId": 3170
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM203",
@@ -696,17 +586,7 @@
         "small": "https://images.pokemontcg.io/smp/SM203.png",
         "large": "https://images.pokemontcg.io/smp/SM203_hires.png"
       },
-      "pricing": {
-        "market": 0.51,
-        "low": 0.05,
-        "mid": 0.47,
-        "high": 4.99,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Holofoil",
-        "productId": 241693,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM204",
@@ -748,17 +628,7 @@
         "small": "https://images.pokemontcg.io/smp/SM205.png",
         "large": "https://images.pokemontcg.io/smp/SM205_hires.png"
       },
-      "pricing": {
-        "market": 0.18,
-        "low": 0.02,
-        "mid": 0.21,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:39.856Z",
-        "subType": "Holofoil",
-        "productId": 451751,
-        "groupName": "SWSH12: Silver Tempest",
-        "groupId": 3170
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM206",
@@ -779,17 +649,7 @@
         "small": "https://images.pokemontcg.io/smp/SM206.png",
         "large": "https://images.pokemontcg.io/smp/SM206_hires.png"
       },
-      "pricing": {
-        "market": 0.4,
-        "low": 0.1,
-        "mid": 0.39,
-        "high": 10,
-        "lastUpdated": "2025-08-17T21:28:48.309Z",
-        "subType": "Reverse Holofoil",
-        "productId": 246881,
-        "groupName": "SWSH07: Evolving Skies",
-        "groupId": 2848
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM207",
@@ -810,17 +670,7 @@
         "small": "https://images.pokemontcg.io/smp/SM207.png",
         "large": "https://images.pokemontcg.io/smp/SM207_hires.png"
       },
-      "pricing": {
-        "market": 0.11,
-        "low": 0.01,
-        "mid": 0.11,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:43.785Z",
-        "subType": "Normal",
-        "productId": 272275,
-        "groupName": "SWSH10: Astral Radiance",
-        "groupId": 3040
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM208",
@@ -841,17 +691,7 @@
         "small": "https://images.pokemontcg.io/smp/SM208.png",
         "large": "https://images.pokemontcg.io/smp/SM208_hires.png"
       },
-      "pricing": {
-        "market": 0.15,
-        "low": 0.06,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Reverse Holofoil",
-        "productId": 253257,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM209",
@@ -977,17 +817,7 @@
         "small": "https://images.pokemontcg.io/smp/SM214.png",
         "large": "https://images.pokemontcg.io/smp/SM214_hires.png"
       },
-      "pricing": {
-        "market": 0.41,
-        "low": 0.09,
-        "mid": 0.37,
-        "high": 89,
-        "lastUpdated": "2025-08-17T21:28:45.483Z",
-        "subType": "Reverse Holofoil",
-        "productId": 263772,
-        "groupName": "SWSH09: Brilliant Stars",
-        "groupId": 2948
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM215",
@@ -1008,17 +838,7 @@
         "small": "https://images.pokemontcg.io/smp/SM215.png",
         "large": "https://images.pokemontcg.io/smp/SM215_hires.png"
       },
-      "pricing": {
-        "market": 1.19,
-        "low": 0.44,
-        "mid": 1,
-        "high": 9.99,
-        "lastUpdated": "2025-08-17T21:28:47.179Z",
-        "subType": "Holofoil",
-        "productId": 250309,
-        "groupName": "Celebrations",
-        "groupId": 2867
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM216",
@@ -1102,17 +922,7 @@
         "small": "https://images.pokemontcg.io/smp/SM219.png",
         "large": "https://images.pokemontcg.io/smp/SM219_hires.png"
       },
-      "pricing": {
-        "market": 0.34,
-        "low": 0.15,
-        "mid": 0.35,
-        "high": 9.99,
-        "lastUpdated": "2025-08-17T21:28:49.465Z",
-        "subType": "Holofoil",
-        "productId": 234098,
-        "groupName": "SWSH05: Battle Styles",
-        "groupId": 2765
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM220",
@@ -1133,17 +943,7 @@
         "small": "https://images.pokemontcg.io/smp/SM220.png",
         "large": "https://images.pokemontcg.io/smp/SM220_hires.png"
       },
-      "pricing": {
-        "market": 0.12,
-        "low": 0.01,
-        "mid": 0.15,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:39.856Z",
-        "subType": "Normal",
-        "productId": 451687,
-        "groupName": "SWSH12: Silver Tempest",
-        "groupId": 3170
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM221",
@@ -1185,17 +985,7 @@
         "small": "https://images.pokemontcg.io/smp/SM222.png",
         "large": "https://images.pokemontcg.io/smp/SM222_hires.png"
       },
-      "pricing": {
-        "market": 0.18,
-        "low": 0.02,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:43.785Z",
-        "subType": "Reverse Holofoil",
-        "productId": 272260,
-        "groupName": "SWSH10: Astral Radiance",
-        "groupId": 3040
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM223",
@@ -1216,17 +1006,7 @@
         "small": "https://images.pokemontcg.io/smp/SM223.png",
         "large": "https://images.pokemontcg.io/smp/SM223_hires.png"
       },
-      "pricing": {
-        "market": 0.18,
-        "low": 0.02,
-        "mid": 0.21,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:39.856Z",
-        "subType": "Holofoil",
-        "productId": 451751,
-        "groupName": "SWSH12: Silver Tempest",
-        "groupId": 3170
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM224",
@@ -1247,17 +1027,7 @@
         "small": "https://images.pokemontcg.io/smp/SM224.png",
         "large": "https://images.pokemontcg.io/smp/SM224_hires.png"
       },
-      "pricing": {
-        "market": 0.2,
-        "low": 0.01,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:50.579Z",
-        "subType": "Normal",
-        "productId": 232352,
-        "groupName": "Shining Fates",
-        "groupId": 2754
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM225",
@@ -1278,17 +1048,7 @@
         "small": "https://images.pokemontcg.io/smp/SM225.png",
         "large": "https://images.pokemontcg.io/smp/SM225_hires.png"
       },
-      "pricing": {
-        "market": 0.35,
-        "low": 0.1,
-        "mid": 0.32,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.309Z",
-        "subType": "Reverse Holofoil",
-        "productId": 246836,
-        "groupName": "SWSH07: Evolving Skies",
-        "groupId": 2848
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM226",
@@ -1309,17 +1069,7 @@
         "small": "https://images.pokemontcg.io/smp/SM226.png",
         "large": "https://images.pokemontcg.io/smp/SM226_hires.png"
       },
-      "pricing": {
-        "market": 107,
-        "low": 99,
-        "mid": 119.87,
-        "high": 250,
-        "lastUpdated": "2025-08-17T21:28:47.728Z",
-        "subType": "Holofoil",
-        "productId": 250320,
-        "groupName": "Celebrations: Classic Collection",
-        "groupId": 2931
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM227",
@@ -1340,17 +1090,7 @@
         "small": "https://images.pokemontcg.io/smp/SM227.png",
         "large": "https://images.pokemontcg.io/smp/SM227_hires.png"
       },
-      "pricing": {
-        "market": 0.4,
-        "low": 0.1,
-        "mid": 0.39,
-        "high": 10,
-        "lastUpdated": "2025-08-17T21:28:48.309Z",
-        "subType": "Reverse Holofoil",
-        "productId": 246881,
-        "groupName": "SWSH07: Evolving Skies",
-        "groupId": 2848
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM228",
@@ -1495,17 +1235,7 @@
         "small": "https://images.pokemontcg.io/smp/SM234.png",
         "large": "https://images.pokemontcg.io/smp/SM234_hires.png"
       },
-      "pricing": {
-        "market": 0.4,
-        "low": 0.1,
-        "mid": 0.39,
-        "high": 10,
-        "lastUpdated": "2025-08-17T21:28:48.309Z",
-        "subType": "Reverse Holofoil",
-        "productId": 246881,
-        "groupName": "SWSH07: Evolving Skies",
-        "groupId": 2848
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM235",
@@ -1526,17 +1256,7 @@
         "small": "https://images.pokemontcg.io/smp/SM235.png",
         "large": "https://images.pokemontcg.io/smp/SM235_hires.png"
       },
-      "pricing": {
-        "market": 0.33,
-        "low": 0.1,
-        "mid": 0.34,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:50.579Z",
-        "subType": "Reverse Holofoil",
-        "productId": 232528,
-        "groupName": "Shining Fates",
-        "groupId": 2754
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM236",
@@ -1578,17 +1298,7 @@
         "small": "https://images.pokemontcg.io/smp/SM237.png",
         "large": "https://images.pokemontcg.io/smp/SM237_hires.png"
       },
-      "pricing": {
-        "market": 0.42,
-        "low": 0.1,
-        "mid": 0.41,
-        "high": 5.95,
-        "lastUpdated": "2025-08-17T21:28:43.785Z",
-        "subType": "Reverse Holofoil",
-        "productId": 272213,
-        "groupName": "SWSH10: Astral Radiance",
-        "groupId": 3040
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM238",
@@ -1609,17 +1319,7 @@
         "small": "https://images.pokemontcg.io/smp/SM238.png",
         "large": "https://images.pokemontcg.io/smp/SM238_hires.png"
       },
-      "pricing": {
-        "market": 0.37,
-        "low": 0.14,
-        "mid": 0.39,
-        "high": 4.99,
-        "lastUpdated": "2025-08-17T21:28:43.785Z",
-        "subType": "Reverse Holofoil",
-        "productId": 272238,
-        "groupName": "SWSH10: Astral Radiance",
-        "groupId": 3040
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM239",
@@ -1724,17 +1424,7 @@
         "small": "https://images.pokemontcg.io/smp/SM243.png",
         "large": "https://images.pokemontcg.io/smp/SM243_hires.png"
       },
-      "pricing": {
-        "market": 0.4,
-        "low": 0.1,
-        "mid": 0.44,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:43.785Z",
-        "subType": "Reverse Holofoil",
-        "productId": 272371,
-        "groupName": "SWSH10: Astral Radiance",
-        "groupId": 3040
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM244",
@@ -1755,17 +1445,7 @@
         "small": "https://images.pokemontcg.io/smp/SM244.png",
         "large": "https://images.pokemontcg.io/smp/SM244_hires.png"
       },
-      "pricing": {
-        "market": 0.26,
-        "low": 0.1,
-        "mid": 0.26,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:43.207Z",
-        "subType": "Reverse Holofoil",
-        "productId": 276975,
-        "groupName": "Pokemon GO",
-        "groupId": 3064
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM245",
@@ -1786,17 +1466,7 @@
         "small": "https://images.pokemontcg.io/smp/SM245.png",
         "large": "https://images.pokemontcg.io/smp/SM245_hires.png"
       },
-      "pricing": {
-        "market": 0.18,
-        "low": 0.02,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:43.785Z",
-        "subType": "Reverse Holofoil",
-        "productId": 272260,
-        "groupName": "SWSH10: Astral Radiance",
-        "groupId": 3040
-      }
+      "pricing": null
     },
     {
       "id": "smp-SM246",
@@ -1878,17 +1548,7 @@
         "small": "https://images.pokemontcg.io/sm2/1.png",
         "large": "https://images.pokemontcg.io/sm2/1_hires.png"
       },
-      "pricing": {
-        "market": 0.21,
-        "low": 0.04,
-        "mid": 0.25,
-        "high": 10,
-        "lastUpdated": "2025-08-17T21:28:49.465Z",
-        "subType": "Reverse Holofoil",
-        "productId": 234035,
-        "groupName": "SWSH05: Battle Styles",
-        "groupId": 2765
-      }
+      "pricing": null
     },
     {
       "id": "sm2-2",
@@ -1909,17 +1569,7 @@
         "small": "https://images.pokemontcg.io/sm2/2.png",
         "large": "https://images.pokemontcg.io/sm2/2_hires.png"
       },
-      "pricing": {
-        "market": 0.09,
-        "low": 0.01,
-        "mid": 0.15,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:49.465Z",
-        "subType": "Normal",
-        "productId": 234037,
-        "groupName": "SWSH05: Battle Styles",
-        "groupId": 2765
-      }
+      "pricing": null
     },
     {
       "id": "sm2-3",
@@ -1940,17 +1590,7 @@
         "small": "https://images.pokemontcg.io/sm2/3.png",
         "large": "https://images.pokemontcg.io/sm2/3_hires.png"
       },
-      "pricing": {
-        "market": 0.18,
-        "low": 0.04,
-        "mid": 0.21,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:49.465Z",
-        "subType": "Normal",
-        "productId": 234038,
-        "groupName": "SWSH05: Battle Styles",
-        "groupId": 2765
-      }
+      "pricing": null
     },
     {
       "id": "sm2-4",
@@ -1971,17 +1611,7 @@
         "small": "https://images.pokemontcg.io/sm2/4.png",
         "large": "https://images.pokemontcg.io/sm2/4_hires.png"
       },
-      "pricing": {
-        "market": 0.05,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 19.95,
-        "lastUpdated": "2025-08-17T21:28:48.308Z",
-        "subType": "Normal",
-        "productId": 246823,
-        "groupName": "SWSH07: Evolving Skies",
-        "groupId": 2848
-      }
+      "pricing": null
     },
     {
       "id": "sm2-5",
@@ -2002,17 +1632,7 @@
         "small": "https://images.pokemontcg.io/sm2/5.png",
         "large": "https://images.pokemontcg.io/sm2/5_hires.png"
       },
-      "pricing": {
-        "market": 0.18,
-        "low": 0.01,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.308Z",
-        "subType": "Reverse Holofoil",
-        "productId": 246824,
-        "groupName": "SWSH07: Evolving Skies",
-        "groupId": 2848
-      }
+      "pricing": null
     },
     {
       "id": "sm2-6",
@@ -2033,17 +1653,7 @@
         "small": "https://images.pokemontcg.io/sm2/6.png",
         "large": "https://images.pokemontcg.io/sm2/6_hires.png"
       },
-      "pricing": {
-        "market": 0.16,
-        "low": 0.03,
-        "mid": 0.18,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Reverse Holofoil",
-        "productId": 253094,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm2-7",
@@ -2064,17 +1674,7 @@
         "small": "https://images.pokemontcg.io/sm2/7.png",
         "large": "https://images.pokemontcg.io/sm2/7_hires.png"
       },
-      "pricing": {
-        "market": 0.18,
-        "low": 0.08,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Reverse Holofoil",
-        "productId": 253096,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm2-8",
@@ -2095,17 +1695,7 @@
         "small": "https://images.pokemontcg.io/sm2/8.png",
         "large": "https://images.pokemontcg.io/sm2/8_hires.png"
       },
-      "pricing": {
-        "market": 0.21,
-        "low": 0.08,
-        "mid": 0.23,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:43.207Z",
-        "subType": "Reverse Holofoil",
-        "productId": 274457,
-        "groupName": "Pokemon GO",
-        "groupId": 3064
-      }
+      "pricing": null
     },
     {
       "id": "sm2-9",
@@ -2126,17 +1716,7 @@
         "small": "https://images.pokemontcg.io/sm2/9.png",
         "large": "https://images.pokemontcg.io/sm2/9_hires.png"
       },
-      "pricing": {
-        "market": 0.24,
-        "low": 0.04,
-        "mid": 0.25,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:43.207Z",
-        "subType": "Holofoil",
-        "productId": 274459,
-        "groupName": "Pokemon GO",
-        "groupId": 3064
-      }
+      "pricing": null
     },
     {
       "id": "sm2-10",
@@ -2157,17 +1737,7 @@
         "small": "https://images.pokemontcg.io/sm2/10.png",
         "large": "https://images.pokemontcg.io/sm2/10_hires.png"
       },
-      "pricing": {
-        "market": 0.35,
-        "low": 0.1,
-        "mid": 0.32,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.309Z",
-        "subType": "Reverse Holofoil",
-        "productId": 246836,
-        "groupName": "SWSH07: Evolving Skies",
-        "groupId": 2848
-      }
+      "pricing": null
     },
     {
       "id": "sm2-11",
@@ -2188,17 +1758,7 @@
         "small": "https://images.pokemontcg.io/sm2/11.png",
         "large": "https://images.pokemontcg.io/sm2/11_hires.png"
       },
-      "pricing": {
-        "market": 0.09,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:42.099Z",
-        "subType": "Normal",
-        "productId": 283824,
-        "groupName": "Trick or Trade BOOster Bundle",
-        "groupId": 3179
-      }
+      "pricing": null
     },
     {
       "id": "sm2-12",
@@ -2219,17 +1779,7 @@
         "small": "https://images.pokemontcg.io/sm2/12.png",
         "large": "https://images.pokemontcg.io/sm2/12_hires.png"
       },
-      "pricing": {
-        "market": 0.09,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:42.099Z",
-        "subType": "Normal",
-        "productId": 283825,
-        "groupName": "Trick or Trade BOOster Bundle",
-        "groupId": 3179
-      }
+      "pricing": null
     },
     {
       "id": "sm2-13",
@@ -2250,17 +1800,7 @@
         "small": "https://images.pokemontcg.io/sm2/13.png",
         "large": "https://images.pokemontcg.io/sm2/13_hires.png"
       },
-      "pricing": {
-        "market": 0.11,
-        "low": 0.01,
-        "mid": 0.2,
-        "high": 6.39,
-        "lastUpdated": "2025-08-17T21:28:42.099Z",
-        "subType": "Holofoil",
-        "productId": 283790,
-        "groupName": "Trick or Trade BOOster Bundle",
-        "groupId": 3179
-      }
+      "pricing": null
     },
     {
       "id": "sm2-14",
@@ -2281,17 +1821,7 @@
         "small": "https://images.pokemontcg.io/sm2/14.png",
         "large": "https://images.pokemontcg.io/sm2/14_hires.png"
       },
-      "pricing": {
-        "market": 0.09,
-        "low": 0.01,
-        "mid": 0.15,
-        "high": 5.04,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253158,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm2-15",
@@ -2312,17 +1842,7 @@
         "small": "https://images.pokemontcg.io/sm2/15.png",
         "large": "https://images.pokemontcg.io/sm2/15_hires.png"
       },
-      "pricing": {
-        "market": 0.1,
-        "low": 0.01,
-        "mid": 0.12,
-        "high": 5.01,
-        "lastUpdated": "2025-08-17T21:28:49.465Z",
-        "subType": "Normal",
-        "productId": 234130,
-        "groupName": "SWSH05: Battle Styles",
-        "groupId": 2765
-      }
+      "pricing": null
     },
     {
       "id": "sm2-16",
@@ -2343,17 +1863,7 @@
         "small": "https://images.pokemontcg.io/sm2/16.png",
         "large": "https://images.pokemontcg.io/sm2/16_hires.png"
       },
-      "pricing": {
-        "market": 0.19,
-        "low": 0.09,
-        "mid": 0.21,
-        "high": 5.1,
-        "lastUpdated": "2025-08-17T21:28:49.465Z",
-        "subType": "Reverse Holofoil",
-        "productId": 234133,
-        "groupName": "SWSH05: Battle Styles",
-        "groupId": 2765
-      }
+      "pricing": null
     },
     {
       "id": "sm2-17",
@@ -2374,17 +1884,7 @@
         "small": "https://images.pokemontcg.io/sm2/17.png",
         "large": "https://images.pokemontcg.io/sm2/17_hires.png"
       },
-      "pricing": {
-        "market": 0.18,
-        "low": 0.05,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Reverse Holofoil",
-        "productId": 253358,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm2-18",
@@ -2552,17 +2052,7 @@
         "small": "https://images.pokemontcg.io/sm2/23.png",
         "large": "https://images.pokemontcg.io/sm2/23_hires.png"
       },
-      "pricing": {
-        "market": 0.15,
-        "low": 0.04,
-        "mid": 0.17,
-        "high": 5.05,
-        "lastUpdated": "2025-08-17T21:28:48.308Z",
-        "subType": "Reverse Holofoil",
-        "productId": 246819,
-        "groupName": "SWSH07: Evolving Skies",
-        "groupId": 2848
-      }
+      "pricing": null
     },
     {
       "id": "sm2-24",
@@ -2583,17 +2073,7 @@
         "small": "https://images.pokemontcg.io/sm2/24.png",
         "large": "https://images.pokemontcg.io/sm2/24_hires.png"
       },
-      "pricing": {
-        "market": 0.14,
-        "low": 0.02,
-        "mid": 0.18,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.308Z",
-        "subType": "Reverse Holofoil",
-        "productId": 246822,
-        "groupName": "SWSH07: Evolving Skies",
-        "groupId": 2848
-      }
+      "pricing": null
     },
     {
       "id": "sm2-25",
@@ -2614,17 +2094,7 @@
         "small": "https://images.pokemontcg.io/sm2/25.png",
         "large": "https://images.pokemontcg.io/sm2/25_hires.png"
       },
-      "pricing": {
-        "market": 0.26,
-        "low": 0.05,
-        "mid": 0.25,
-        "high": 5.95,
-        "lastUpdated": "2025-08-17T21:28:40.987Z",
-        "subType": "Normal",
-        "productId": 283905,
-        "groupName": "SWSH11: Lost Origin",
-        "groupId": 3118
-      }
+      "pricing": null
     },
     {
       "id": "sm2-26",
@@ -2645,17 +2115,7 @@
         "small": "https://images.pokemontcg.io/sm2/26.png",
         "large": "https://images.pokemontcg.io/sm2/26_hires.png"
       },
-      "pricing": {
-        "market": 0.06,
-        "low": 0.01,
-        "mid": 0.11,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Normal",
-        "productId": 241685,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm2-27",
@@ -2676,17 +2136,7 @@
         "small": "https://images.pokemontcg.io/sm2/27.png",
         "large": "https://images.pokemontcg.io/sm2/27_hires.png"
       },
-      "pricing": {
-        "market": 0.05,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 19.95,
-        "lastUpdated": "2025-08-17T21:28:48.309Z",
-        "subType": "Normal",
-        "productId": 246839,
-        "groupName": "SWSH07: Evolving Skies",
-        "groupId": 2848
-      }
+      "pricing": null
     },
     {
       "id": "sm2-28",
@@ -2707,17 +2157,7 @@
         "small": "https://images.pokemontcg.io/sm2/28.png",
         "large": "https://images.pokemontcg.io/sm2/28_hires.png"
       },
-      "pricing": {
-        "market": 0.19,
-        "low": 0.08,
-        "mid": 0.21,
-        "high": 5.09,
-        "lastUpdated": "2025-08-17T21:28:48.309Z",
-        "subType": "Reverse Holofoil",
-        "productId": 246844,
-        "groupName": "SWSH07: Evolving Skies",
-        "groupId": 2848
-      }
+      "pricing": null
     },
     {
       "id": "sm2-29",
@@ -2738,17 +2178,7 @@
         "small": "https://images.pokemontcg.io/sm2/29.png",
         "large": "https://images.pokemontcg.io/sm2/29_hires.png"
       },
-      "pricing": {
-        "market": 0.04,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:39.856Z",
-        "subType": "Normal",
-        "productId": 451671,
-        "groupName": "SWSH12: Silver Tempest",
-        "groupId": 3170
-      }
+      "pricing": null
     },
     {
       "id": "sm2-30",
@@ -2769,17 +2199,7 @@
         "small": "https://images.pokemontcg.io/sm2/30.png",
         "large": "https://images.pokemontcg.io/sm2/30_hires.png"
       },
-      "pricing": {
-        "market": 0.16,
-        "low": 0.03,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:39.856Z",
-        "subType": "Reverse Holofoil",
-        "productId": 451673,
-        "groupName": "SWSH12: Silver Tempest",
-        "groupId": 3170
-      }
+      "pricing": null
     },
     {
       "id": "sm2-31",
@@ -2800,17 +2220,7 @@
         "small": "https://images.pokemontcg.io/sm2/31.png",
         "large": "https://images.pokemontcg.io/sm2/31_hires.png"
       },
-      "pricing": {
-        "market": 0.06,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Normal",
-        "productId": 241688,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm2-32",
@@ -2831,17 +2241,7 @@
         "small": "https://images.pokemontcg.io/sm2/32.png",
         "large": "https://images.pokemontcg.io/sm2/32_hires.png"
       },
-      "pricing": {
-        "market": 0.16,
-        "low": 0.05,
-        "mid": 0.17,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:39.856Z",
-        "subType": "Reverse Holofoil",
-        "productId": 451679,
-        "groupName": "SWSH12: Silver Tempest",
-        "groupId": 3170
-      }
+      "pricing": null
     },
     {
       "id": "sm2-33",
@@ -2862,17 +2262,7 @@
         "small": "https://images.pokemontcg.io/sm2/33.png",
         "large": "https://images.pokemontcg.io/sm2/33_hires.png"
       },
-      "pricing": {
-        "market": 0.12,
-        "low": 0.02,
-        "mid": 0.15,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:32.420Z",
-        "subType": "Reverse Holofoil",
-        "productId": 523652,
-        "groupName": "SV04: Paradox Rift",
-        "groupId": 23286
-      }
+      "pricing": null
     },
     {
       "id": "sm2-34",
@@ -2893,17 +2283,7 @@
         "small": "https://images.pokemontcg.io/sm2/34.png",
         "large": "https://images.pokemontcg.io/sm2/34_hires.png"
       },
-      "pricing": {
-        "market": 0.19,
-        "low": 0.04,
-        "mid": 0.25,
-        "high": 4.99,
-        "lastUpdated": "2025-08-17T21:28:24.395Z",
-        "subType": "Reverse Holofoil",
-        "productId": 642140,
-        "groupName": "SV: White Flare",
-        "groupId": 24326
-      }
+      "pricing": null
     },
     {
       "id": "sm2-35",
@@ -2924,17 +2304,7 @@
         "small": "https://images.pokemontcg.io/sm2/35.png",
         "large": "https://images.pokemontcg.io/sm2/35_hires.png"
       },
-      "pricing": {
-        "market": 0.17,
-        "low": 0.01,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:32.420Z",
-        "subType": "Reverse Holofoil",
-        "productId": 523654,
-        "groupName": "SV04: Paradox Rift",
-        "groupId": 23286
-      }
+      "pricing": null
     },
     {
       "id": "sm2-36",
@@ -2955,17 +2325,7 @@
         "small": "https://images.pokemontcg.io/sm2/36.png",
         "large": "https://images.pokemontcg.io/sm2/36_hires.png"
       },
-      "pricing": {
-        "market": 0.12,
-        "low": 0.02,
-        "mid": 0.15,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:37.000Z",
-        "subType": "Reverse Holofoil",
-        "productId": 487894,
-        "groupName": "SV01: Scarlet & Violet Base Set",
-        "groupId": 22873
-      }
+      "pricing": null
     },
     {
       "id": "sm2-37",
@@ -2986,17 +2346,7 @@
         "small": "https://images.pokemontcg.io/sm2/37.png",
         "large": "https://images.pokemontcg.io/sm2/37_hires.png"
       },
-      "pricing": {
-        "market": 0.11,
-        "low": 0.01,
-        "mid": 0.15,
-        "high": 19.95,
-        "lastUpdated": "2025-08-17T21:28:48.309Z",
-        "subType": "Normal",
-        "productId": 246873,
-        "groupName": "SWSH07: Evolving Skies",
-        "groupId": 2848
-      }
+      "pricing": null
     },
     {
       "id": "sm2-38",
@@ -3038,17 +2388,7 @@
         "small": "https://images.pokemontcg.io/sm2/39.png",
         "large": "https://images.pokemontcg.io/sm2/39_hires.png"
       },
-      "pricing": {
-        "market": 0.28,
-        "low": 0.05,
-        "mid": 0.27,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:39.856Z",
-        "subType": "Reverse Holofoil",
-        "productId": 451768,
-        "groupName": "SWSH12: Silver Tempest",
-        "groupId": 3170
-      }
+      "pricing": null
     },
     {
       "id": "sm2-40",
@@ -3069,17 +2409,7 @@
         "small": "https://images.pokemontcg.io/sm2/40.png",
         "large": "https://images.pokemontcg.io/sm2/40_hires.png"
       },
-      "pricing": {
-        "market": 0.06,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:25.560Z",
-        "subType": "Normal",
-        "productId": 623471,
-        "groupName": "SV09: Journey Together",
-        "groupId": 24073
-      }
+      "pricing": null
     },
     {
       "id": "sm2-41",
@@ -3100,17 +2430,7 @@
         "small": "https://images.pokemontcg.io/sm2/41.png",
         "large": "https://images.pokemontcg.io/sm2/41_hires.png"
       },
-      "pricing": {
-        "market": 0.14,
-        "low": 0.01,
-        "mid": 0.17,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:25.560Z",
-        "subType": "Reverse Holofoil",
-        "productId": 623472,
-        "groupName": "SV09: Journey Together",
-        "groupId": 24073
-      }
+      "pricing": null
     },
     {
       "id": "sm2-42",
@@ -3131,17 +2451,7 @@
         "small": "https://images.pokemontcg.io/sm2/42.png",
         "large": "https://images.pokemontcg.io/sm2/42_hires.png"
       },
-      "pricing": {
-        "market": 0.64,
-        "low": 0.11,
-        "mid": 0.48,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:25.560Z",
-        "subType": "Reverse Holofoil",
-        "productId": 623473,
-        "groupName": "SV09: Journey Together",
-        "groupId": 24073
-      }
+      "pricing": null
     },
     {
       "id": "sm2-43",
@@ -3162,17 +2472,7 @@
         "small": "https://images.pokemontcg.io/sm2/43.png",
         "large": "https://images.pokemontcg.io/sm2/43_hires.png"
       },
-      "pricing": {
-        "market": 0.2,
-        "low": 0.05,
-        "mid": 0.21,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Reverse Holofoil",
-        "productId": 253254,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm2-44",
@@ -3193,17 +2493,7 @@
         "small": "https://images.pokemontcg.io/sm2/44.png",
         "large": "https://images.pokemontcg.io/sm2/44_hires.png"
       },
-      "pricing": {
-        "market": 0.15,
-        "low": 0.05,
-        "mid": 0.19,
-        "high": 4.99,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Reverse Holofoil",
-        "productId": 253255,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm2-45",
@@ -3245,17 +2535,7 @@
         "small": "https://images.pokemontcg.io/sm2/46.png",
         "large": "https://images.pokemontcg.io/sm2/46_hires.png"
       },
-      "pricing": {
-        "market": 0.09,
-        "low": 0.01,
-        "mid": 0.15,
-        "high": 5.04,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253158,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm2-47",
@@ -3297,17 +2577,7 @@
         "small": "https://images.pokemontcg.io/sm2/48.png",
         "large": "https://images.pokemontcg.io/sm2/48_hires.png"
       },
-      "pricing": {
-        "market": 0.11,
-        "low": 0.01,
-        "mid": 0.12,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:43.207Z",
-        "subType": "Normal",
-        "productId": 276949,
-        "groupName": "Pokemon GO",
-        "groupId": 3064
-      }
+      "pricing": null
     },
     {
       "id": "sm2-49",
@@ -3328,17 +2598,7 @@
         "small": "https://images.pokemontcg.io/sm2/49.png",
         "large": "https://images.pokemontcg.io/sm2/49_hires.png"
       },
-      "pricing": {
-        "market": 0.14,
-        "low": 0.01,
-        "mid": 0.15,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:43.207Z",
-        "subType": "Normal",
-        "productId": 276950,
-        "groupName": "Pokemon GO",
-        "groupId": 3064
-      }
+      "pricing": null
     },
     {
       "id": "sm2-50",
@@ -3359,17 +2619,7 @@
         "small": "https://images.pokemontcg.io/sm2/50.png",
         "large": "https://images.pokemontcg.io/sm2/50_hires.png"
       },
-      "pricing": {
-        "market": 0.13,
-        "low": 0.01,
-        "mid": 0.14,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253382,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm2-51",
@@ -3390,17 +2640,7 @@
         "small": "https://images.pokemontcg.io/sm2/51.png",
         "large": "https://images.pokemontcg.io/sm2/51_hires.png"
       },
-      "pricing": {
-        "market": 0.1,
-        "low": 0.01,
-        "mid": 0.12,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253383,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm2-51a",
@@ -3421,17 +2661,7 @@
         "small": "https://images.pokemontcg.io/sm2/51a.png",
         "large": "https://images.pokemontcg.io/sm2/51a_hires.png"
       },
-      "pricing": {
-        "market": 0.1,
-        "low": 0.01,
-        "mid": 0.12,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253383,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm2-52",
@@ -3452,17 +2682,7 @@
         "small": "https://images.pokemontcg.io/sm2/52.png",
         "large": "https://images.pokemontcg.io/sm2/52_hires.png"
       },
-      "pricing": {
-        "market": 0.11,
-        "low": 0.01,
-        "mid": 0.15,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:35.831Z",
-        "subType": "Reverse Holofoil",
-        "productId": 497505,
-        "groupName": "SV02: Paldea Evolved",
-        "groupId": 23120
-      }
+      "pricing": null
     },
     {
       "id": "sm2-53",
@@ -3483,17 +2703,7 @@
         "small": "https://images.pokemontcg.io/sm2/53.png",
         "large": "https://images.pokemontcg.io/sm2/53_hires.png"
       },
-      "pricing": {
-        "market": 0.19,
-        "low": 0.02,
-        "mid": 0.2,
-        "high": 4.99,
-        "lastUpdated": "2025-08-17T21:28:24.395Z",
-        "subType": "Reverse Holofoil",
-        "productId": 642154,
-        "groupName": "SV: White Flare",
-        "groupId": 24326
-      }
+      "pricing": null
     },
     {
       "id": "sm2-54",
@@ -3514,17 +2724,7 @@
         "small": "https://images.pokemontcg.io/sm2/54.png",
         "large": "https://images.pokemontcg.io/sm2/54_hires.png"
       },
-      "pricing": {
-        "market": 0.18,
-        "low": 0.05,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:35.831Z",
-        "subType": "Reverse Holofoil",
-        "productId": 497507,
-        "groupName": "SV02: Paldea Evolved",
-        "groupId": 23120
-      }
+      "pricing": null
     },
     {
       "id": "sm2-55",
@@ -3545,17 +2745,7 @@
         "small": "https://images.pokemontcg.io/sm2/55.png",
         "large": "https://images.pokemontcg.io/sm2/55_hires.png"
       },
-      "pricing": {
-        "market": 0.09,
-        "low": 0.01,
-        "mid": 0.15,
-        "high": 5.04,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253158,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm2-56",
@@ -3576,17 +2766,7 @@
         "small": "https://images.pokemontcg.io/sm2/56.png",
         "large": "https://images.pokemontcg.io/sm2/56_hires.png"
       },
-      "pricing": {
-        "market": 0.09,
-        "low": 0.01,
-        "mid": 0.15,
-        "high": 5.04,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253158,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm2-57",
@@ -3628,17 +2808,7 @@
         "small": "https://images.pokemontcg.io/sm2/58.png",
         "large": "https://images.pokemontcg.io/sm2/58_hires.png"
       },
-      "pricing": {
-        "market": 0.16,
-        "low": 0.02,
-        "mid": 0.24,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:42.099Z",
-        "subType": "Holofoil",
-        "productId": 283798,
-        "groupName": "Trick or Trade BOOster Bundle",
-        "groupId": 3179
-      }
+      "pricing": null
     },
     {
       "id": "sm2-59",
@@ -3659,17 +2829,7 @@
         "small": "https://images.pokemontcg.io/sm2/59.png",
         "large": "https://images.pokemontcg.io/sm2/59_hires.png"
       },
-      "pricing": {
-        "market": 0.09,
-        "low": 0.02,
-        "mid": 0.15,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:34.660Z",
-        "subType": "Normal",
-        "productId": 515649,
-        "groupName": "Trick or Trade BOOster Bundle 2023",
-        "groupId": 23266
-      }
+      "pricing": null
     },
     {
       "id": "sm2-60",
@@ -3732,17 +2892,7 @@
         "small": "https://images.pokemontcg.io/sm2/61.png",
         "large": "https://images.pokemontcg.io/sm2/61_hires.png"
       },
-      "pricing": {
-        "market": 0.2,
-        "low": 0.05,
-        "mid": 0.25,
-        "high": 5.06,
-        "lastUpdated": "2025-08-17T21:28:47.179Z",
-        "subType": "Holofoil",
-        "productId": 250312,
-        "groupName": "Celebrations",
-        "groupId": 2867
-      }
+      "pricing": null
     },
     {
       "id": "sm2-62",
@@ -3763,17 +2913,7 @@
         "small": "https://images.pokemontcg.io/sm2/62.png",
         "large": "https://images.pokemontcg.io/sm2/62_hires.png"
       },
-      "pricing": {
-        "market": 0.11,
-        "low": 0.01,
-        "mid": 0.12,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:40.987Z",
-        "subType": "Normal",
-        "productId": 283971,
-        "groupName": "SWSH11: Lost Origin",
-        "groupId": 3118
-      }
+      "pricing": null
     },
     {
       "id": "sm2-63",
@@ -3794,17 +2934,7 @@
         "small": "https://images.pokemontcg.io/sm2/63.png",
         "large": "https://images.pokemontcg.io/sm2/63_hires.png"
       },
-      "pricing": {
-        "market": 0.11,
-        "low": 0.01,
-        "mid": 0.12,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:40.987Z",
-        "subType": "Normal",
-        "productId": 283971,
-        "groupName": "SWSH11: Lost Origin",
-        "groupId": 3118
-      }
+      "pricing": null
     },
     {
       "id": "sm2-64",
@@ -3825,17 +2955,7 @@
         "small": "https://images.pokemontcg.io/sm2/64.png",
         "large": "https://images.pokemontcg.io/sm2/64_hires.png"
       },
-      "pricing": {
-        "market": 0.1,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:40.987Z",
-        "subType": "Normal",
-        "productId": 283973,
-        "groupName": "SWSH11: Lost Origin",
-        "groupId": 3118
-      }
+      "pricing": null
     },
     {
       "id": "sm2-65",
@@ -3856,17 +2976,7 @@
         "small": "https://images.pokemontcg.io/sm2/65.png",
         "large": "https://images.pokemontcg.io/sm2/65_hires.png"
       },
-      "pricing": {
-        "market": 0.41,
-        "low": 0.07,
-        "mid": 0.4,
-        "high": 9.95,
-        "lastUpdated": "2025-08-17T21:28:40.987Z",
-        "subType": "Reverse Holofoil",
-        "productId": 283974,
-        "groupName": "SWSH11: Lost Origin",
-        "groupId": 3118
-      }
+      "pricing": null
     },
     {
       "id": "sm2-66",
@@ -3887,17 +2997,7 @@
         "small": "https://images.pokemontcg.io/sm2/66.png",
         "large": "https://images.pokemontcg.io/sm2/66_hires.png"
       },
-      "pricing": {
-        "market": 0.11,
-        "low": 0.01,
-        "mid": 0.11,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:43.785Z",
-        "subType": "Normal",
-        "productId": 272275,
-        "groupName": "SWSH10: Astral Radiance",
-        "groupId": 3040
-      }
+      "pricing": null
     },
     {
       "id": "sm2-67",
@@ -3918,17 +3018,7 @@
         "small": "https://images.pokemontcg.io/sm2/67.png",
         "large": "https://images.pokemontcg.io/sm2/67_hires.png"
       },
-      "pricing": {
-        "market": 0.06,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:49.465Z",
-        "subType": "Normal",
-        "productId": 234247,
-        "groupName": "SWSH05: Battle Styles",
-        "groupId": 2765
-      }
+      "pricing": null
     },
     {
       "id": "sm2-68",
@@ -3949,17 +3039,7 @@
         "small": "https://images.pokemontcg.io/sm2/68.png",
         "large": "https://images.pokemontcg.io/sm2/68_hires.png"
       },
-      "pricing": {
-        "market": 0.15,
-        "low": 0.01,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:49.465Z",
-        "subType": "Reverse Holofoil",
-        "productId": 234248,
-        "groupName": "SWSH05: Battle Styles",
-        "groupId": 2765
-      }
+      "pricing": null
     },
     {
       "id": "sm2-69",
@@ -3980,17 +3060,7 @@
         "small": "https://images.pokemontcg.io/sm2/69.png",
         "large": "https://images.pokemontcg.io/sm2/69_hires.png"
       },
-      "pricing": {
-        "market": 0.14,
-        "low": 0.03,
-        "mid": 0.19,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:45.483Z",
-        "subType": "Reverse Holofoil",
-        "productId": 263789,
-        "groupName": "SWSH09: Brilliant Stars",
-        "groupId": 2948
-      }
+      "pricing": null
     },
     {
       "id": "sm2-70",
@@ -4011,17 +3081,7 @@
         "small": "https://images.pokemontcg.io/sm2/70.png",
         "large": "https://images.pokemontcg.io/sm2/70_hires.png"
       },
-      "pricing": {
-        "market": 0.06,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:43.785Z",
-        "subType": "Normal",
-        "productId": 272235,
-        "groupName": "SWSH10: Astral Radiance",
-        "groupId": 3040
-      }
+      "pricing": null
     },
     {
       "id": "sm2-71",
@@ -4042,17 +3102,7 @@
         "small": "https://images.pokemontcg.io/sm2/71.png",
         "large": "https://images.pokemontcg.io/sm2/71_hires.png"
       },
-      "pricing": {
-        "market": 0.21,
-        "low": 0.05,
-        "mid": 0.23,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:43.785Z",
-        "subType": "Reverse Holofoil",
-        "productId": 272236,
-        "groupName": "SWSH10: Astral Radiance",
-        "groupId": 3040
-      }
+      "pricing": null
     },
     {
       "id": "sm2-72",
@@ -4073,17 +3123,7 @@
         "small": "https://images.pokemontcg.io/sm2/72.png",
         "large": "https://images.pokemontcg.io/sm2/72_hires.png"
       },
-      "pricing": {
-        "market": 0.13,
-        "low": 0.05,
-        "mid": 0.15,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Reverse Holofoil",
-        "productId": 253363,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm2-73",
@@ -4104,17 +3144,7 @@
         "small": "https://images.pokemontcg.io/sm2/73.png",
         "large": "https://images.pokemontcg.io/sm2/73_hires.png"
       },
-      "pricing": {
-        "market": 0.07,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Normal",
-        "productId": 241753,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm2-74",
@@ -4156,17 +3186,7 @@
         "small": "https://images.pokemontcg.io/sm2/75.png",
         "large": "https://images.pokemontcg.io/sm2/75_hires.png"
       },
-      "pricing": {
-        "market": 0.03,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:30.702Z",
-        "subType": "Normal",
-        "productId": 542835,
-        "groupName": "SV05: Temporal Forces",
-        "groupId": 23381
-      }
+      "pricing": null
     },
     {
       "id": "sm2-76",
@@ -4187,17 +3207,7 @@
         "small": "https://images.pokemontcg.io/sm2/76.png",
         "large": "https://images.pokemontcg.io/sm2/76_hires.png"
       },
-      "pricing": {
-        "market": 0.05,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 20,
-        "lastUpdated": "2025-08-17T21:28:24.985Z",
-        "subType": "Normal",
-        "productId": 632916,
-        "groupName": "SV10: Destined Rivals",
-        "groupId": 24269
-      }
+      "pricing": null
     },
     {
       "id": "sm2-77",
@@ -4239,17 +3249,7 @@
         "small": "https://images.pokemontcg.io/sm2/78.png",
         "large": "https://images.pokemontcg.io/sm2/78_hires.png"
       },
-      "pricing": {
-        "market": 0.21,
-        "low": 0.08,
-        "mid": 0.22,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:49.465Z",
-        "subType": "Reverse Holofoil",
-        "productId": 234224,
-        "groupName": "SWSH05: Battle Styles",
-        "groupId": 2765
-      }
+      "pricing": null
     },
     {
       "id": "sm2-79",
@@ -4270,17 +3270,7 @@
         "small": "https://images.pokemontcg.io/sm2/79.png",
         "large": "https://images.pokemontcg.io/sm2/79_hires.png"
       },
-      "pricing": {
-        "market": 0.18,
-        "low": 0.05,
-        "mid": 0.21,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:49.465Z",
-        "subType": "Reverse Holofoil",
-        "productId": 234225,
-        "groupName": "SWSH05: Battle Styles",
-        "groupId": 2765
-      }
+      "pricing": null
     },
     {
       "id": "sm2-80",
@@ -4301,17 +3291,7 @@
         "small": "https://images.pokemontcg.io/sm2/80.png",
         "large": "https://images.pokemontcg.io/sm2/80_hires.png"
       },
-      "pricing": {
-        "market": 0.15,
-        "low": 0.03,
-        "mid": 0.19,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.309Z",
-        "subType": "Reverse Holofoil",
-        "productId": 246842,
-        "groupName": "SWSH07: Evolving Skies",
-        "groupId": 2848
-      }
+      "pricing": null
     },
     {
       "id": "sm2-81",
@@ -4332,17 +3312,7 @@
         "small": "https://images.pokemontcg.io/sm2/81.png",
         "large": "https://images.pokemontcg.io/sm2/81_hires.png"
       },
-      "pricing": {
-        "market": 0.28,
-        "low": 0.09,
-        "mid": 0.28,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Reverse Holofoil",
-        "productId": 253378,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm2-82",
@@ -4363,17 +3333,7 @@
         "small": "https://images.pokemontcg.io/sm2/82.png",
         "large": "https://images.pokemontcg.io/sm2/82_hires.png"
       },
-      "pricing": {
-        "market": 0.11,
-        "low": 0.01,
-        "mid": 0.12,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253388,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm2-83",
@@ -4394,17 +3354,7 @@
         "small": "https://images.pokemontcg.io/sm2/83.png",
         "large": "https://images.pokemontcg.io/sm2/83_hires.png"
       },
-      "pricing": {
-        "market": 0.06,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 5,
-        "lastUpdated": "2025-08-17T21:28:39.856Z",
-        "subType": "Normal",
-        "productId": 451771,
-        "groupName": "SWSH12: Silver Tempest",
-        "groupId": 3170
-      }
+      "pricing": null
     },
     {
       "id": "sm2-84",
@@ -4425,17 +3375,7 @@
         "small": "https://images.pokemontcg.io/sm2/84.png",
         "large": "https://images.pokemontcg.io/sm2/84_hires.png"
       },
-      "pricing": {
-        "market": 0.04,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:39.856Z",
-        "subType": "Normal",
-        "productId": 451772,
-        "groupName": "SWSH12: Silver Tempest",
-        "groupId": 3170
-      }
+      "pricing": null
     },
     {
       "id": "sm2-85",
@@ -4477,17 +3417,7 @@
         "small": "https://images.pokemontcg.io/sm2/86.png",
         "large": "https://images.pokemontcg.io/sm2/86_hires.png"
       },
-      "pricing": {
-        "market": 0.05,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:45.483Z",
-        "subType": "Normal",
-        "productId": 263818,
-        "groupName": "SWSH09: Brilliant Stars",
-        "groupId": 2948
-      }
+      "pricing": null
     },
     {
       "id": "sm2-87",
@@ -4508,17 +3438,7 @@
         "small": "https://images.pokemontcg.io/sm2/87.png",
         "large": "https://images.pokemontcg.io/sm2/87_hires.png"
       },
-      "pricing": {
-        "market": 0.17,
-        "low": 0.03,
-        "mid": 0.25,
-        "high": 5.03,
-        "lastUpdated": "2025-08-17T21:28:47.179Z",
-        "subType": "Holofoil",
-        "productId": 250316,
-        "groupName": "Celebrations",
-        "groupId": 2867
-      }
+      "pricing": null
     },
     {
       "id": "sm2-88",
@@ -4539,17 +3459,7 @@
         "small": "https://images.pokemontcg.io/sm2/88.png",
         "large": "https://images.pokemontcg.io/sm2/88_hires.png"
       },
-      "pricing": {
-        "market": 0.07,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:45.483Z",
-        "subType": "Normal",
-        "productId": 263769,
-        "groupName": "SWSH09: Brilliant Stars",
-        "groupId": 2948
-      }
+      "pricing": null
     },
     {
       "id": "sm2-89",
@@ -4570,17 +3480,7 @@
         "small": "https://images.pokemontcg.io/sm2/89.png",
         "large": "https://images.pokemontcg.io/sm2/89_hires.png"
       },
-      "pricing": {
-        "market": 0.24,
-        "low": 0.05,
-        "mid": 0.24,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:45.483Z",
-        "subType": "Reverse Holofoil",
-        "productId": 263770,
-        "groupName": "SWSH09: Brilliant Stars",
-        "groupId": 2948
-      }
+      "pricing": null
     },
     {
       "id": "sm2-90",
@@ -4601,17 +3501,7 @@
         "small": "https://images.pokemontcg.io/sm2/90.png",
         "large": "https://images.pokemontcg.io/sm2/90_hires.png"
       },
-      "pricing": {
-        "market": 0.09,
-        "low": 0.01,
-        "mid": 0.12,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:31.276Z",
-        "subType": "Reverse Holofoil",
-        "productId": 534180,
-        "groupName": "SV: Paldean Fates",
-        "groupId": 23353
-      }
+      "pricing": null
     },
     {
       "id": "sm2-91",
@@ -4632,17 +3522,7 @@
         "small": "https://images.pokemontcg.io/sm2/91.png",
         "large": "https://images.pokemontcg.io/sm2/91_hires.png"
       },
-      "pricing": {
-        "market": 1.05,
-        "low": 0.7,
-        "mid": 2.85,
-        "high": 7.19,
-        "lastUpdated": "2025-08-17T21:28:39.275Z",
-        "subType": "Normal",
-        "productId": 476024,
-        "groupName": "Prize Pack Series Cards",
-        "groupId": 22880
-      }
+      "pricing": null
     },
     {
       "id": "sm2-92",
@@ -4705,17 +3585,7 @@
         "small": "https://images.pokemontcg.io/sm2/93.png",
         "large": "https://images.pokemontcg.io/sm2/93_hires.png"
       },
-      "pricing": {
-        "market": 0.19,
-        "low": 0.05,
-        "mid": 0.25,
-        "high": 5,
-        "lastUpdated": "2025-08-17T21:28:40.987Z",
-        "subType": "Reverse Holofoil",
-        "productId": 283960,
-        "groupName": "SWSH11: Lost Origin",
-        "groupId": 3118
-      }
+      "pricing": null
     },
     {
       "id": "sm2-94",
@@ -4736,17 +3606,7 @@
         "small": "https://images.pokemontcg.io/sm2/94.png",
         "large": "https://images.pokemontcg.io/sm2/94_hires.png"
       },
-      "pricing": {
-        "market": 0.25,
-        "low": 0.05,
-        "mid": 0.25,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Reverse Holofoil",
-        "productId": 253353,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm2-95",
@@ -4767,17 +3627,7 @@
         "small": "https://images.pokemontcg.io/sm2/95.png",
         "large": "https://images.pokemontcg.io/sm2/95_hires.png"
       },
-      "pricing": {
-        "market": 0.12,
-        "low": 0.02,
-        "mid": 0.15,
-        "high": 5.11,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253354,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm2-96",
@@ -4798,17 +3648,7 @@
         "small": "https://images.pokemontcg.io/sm2/96.png",
         "large": "https://images.pokemontcg.io/sm2/96_hires.png"
       },
-      "pricing": {
-        "market": 0.2,
-        "low": 0.05,
-        "mid": 0.23,
-        "high": 5.07,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253357,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm2-97",
@@ -4829,17 +3669,7 @@
         "small": "https://images.pokemontcg.io/sm2/97.png",
         "large": "https://images.pokemontcg.io/sm2/97_hires.png"
       },
-      "pricing": {
-        "market": 0.18,
-        "low": 0.08,
-        "mid": 0.24,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:49.465Z",
-        "subType": "Reverse Holofoil",
-        "productId": 234163,
-        "groupName": "SWSH05: Battle Styles",
-        "groupId": 2765
-      }
+      "pricing": null
     },
     {
       "id": "sm2-98",
@@ -4923,17 +3753,7 @@
         "small": "https://images.pokemontcg.io/sm2/101.png",
         "large": "https://images.pokemontcg.io/sm2/101_hires.png"
       },
-      "pricing": {
-        "market": 0.18,
-        "low": 0.05,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Reverse Holofoil",
-        "productId": 253296,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm2-102",
@@ -4954,17 +3774,7 @@
         "small": "https://images.pokemontcg.io/sm2/102.png",
         "large": "https://images.pokemontcg.io/sm2/102_hires.png"
       },
-      "pricing": {
-        "market": 0.2,
-        "low": 0.06,
-        "mid": 0.25,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Reverse Holofoil",
-        "productId": 253297,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm2-103",
@@ -4985,17 +3795,7 @@
         "small": "https://images.pokemontcg.io/sm2/103.png",
         "large": "https://images.pokemontcg.io/sm2/103_hires.png"
       },
-      "pricing": {
-        "market": 0.15,
-        "low": 0.02,
-        "mid": 0.18,
-        "high": 20,
-        "lastUpdated": "2025-08-17T21:28:24.985Z",
-        "subType": "Reverse Holofoil",
-        "productId": 632958,
-        "groupName": "SV10: Destined Rivals",
-        "groupId": 24269
-      }
+      "pricing": null
     },
     {
       "id": "sm2-104",
@@ -5016,17 +3816,7 @@
         "small": "https://images.pokemontcg.io/sm2/104.png",
         "large": "https://images.pokemontcg.io/sm2/104_hires.png"
       },
-      "pricing": {
-        "market": 0.06,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 20,
-        "lastUpdated": "2025-08-17T21:28:24.985Z",
-        "subType": "Normal",
-        "productId": 632959,
-        "groupName": "SV10: Destined Rivals",
-        "groupId": 24269
-      }
+      "pricing": null
     },
     {
       "id": "sm2-105",
@@ -5047,17 +3837,7 @@
         "small": "https://images.pokemontcg.io/sm2/105.png",
         "large": "https://images.pokemontcg.io/sm2/105_hires.png"
       },
-      "pricing": {
-        "market": 0.11,
-        "low": 0.01,
-        "mid": 0.13,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Normal",
-        "productId": 241800,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm2-106",
@@ -5078,17 +3858,7 @@
         "small": "https://images.pokemontcg.io/sm2/106.png",
         "large": "https://images.pokemontcg.io/sm2/106_hires.png"
       },
-      "pricing": {
-        "market": 0.26,
-        "low": 0.08,
-        "mid": 0.25,
-        "high": 176525.28,
-        "lastUpdated": "2025-08-17T21:28:26.113Z",
-        "subType": "Normal",
-        "productId": 614383,
-        "groupName": "McDonald's Promos 2024",
-        "groupId": 24163
-      }
+      "pricing": null
     },
     {
       "id": "sm2-107",
@@ -5109,17 +3879,7 @@
         "small": "https://images.pokemontcg.io/sm2/107.png",
         "large": "https://images.pokemontcg.io/sm2/107_hires.png"
       },
-      "pricing": {
-        "market": 0.15,
-        "low": 0.06,
-        "mid": 0.18,
-        "high": 4.99,
-        "lastUpdated": "2025-08-17T21:28:24.395Z",
-        "subType": "Reverse Holofoil",
-        "productId": 642185,
-        "groupName": "SV: White Flare",
-        "groupId": 24326
-      }
+      "pricing": null
     },
     {
       "id": "sm2-108",
@@ -5140,17 +3900,7 @@
         "small": "https://images.pokemontcg.io/sm2/108.png",
         "large": "https://images.pokemontcg.io/sm2/108_hires.png"
       },
-      "pricing": {
-        "market": 0.21,
-        "low": 0.04,
-        "mid": 0.25,
-        "high": 4.99,
-        "lastUpdated": "2025-08-17T21:28:24.395Z",
-        "subType": "Reverse Holofoil",
-        "productId": 642186,
-        "groupName": "SV: White Flare",
-        "groupId": 24326
-      }
+      "pricing": null
     },
     {
       "id": "sm2-109",
@@ -5171,17 +3921,7 @@
         "small": "https://images.pokemontcg.io/sm2/109.png",
         "large": "https://images.pokemontcg.io/sm2/109_hires.png"
       },
-      "pricing": {
-        "market": 0.14,
-        "low": 0.04,
-        "mid": 0.16,
-        "high": 89,
-        "lastUpdated": "2025-08-17T21:28:48.309Z",
-        "subType": "Reverse Holofoil",
-        "productId": 246879,
-        "groupName": "SWSH07: Evolving Skies",
-        "groupId": 2848
-      }
+      "pricing": null
     },
     {
       "id": "sm2-110",
@@ -5202,17 +3942,7 @@
         "small": "https://images.pokemontcg.io/sm2/110.png",
         "large": "https://images.pokemontcg.io/sm2/110_hires.png"
       },
-      "pricing": {
-        "market": 0.05,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.309Z",
-        "subType": "Normal",
-        "productId": 246882,
-        "groupName": "SWSH07: Evolving Skies",
-        "groupId": 2848
-      }
+      "pricing": null
     },
     {
       "id": "sm2-111",
@@ -5233,17 +3963,7 @@
         "small": "https://images.pokemontcg.io/sm2/111.png",
         "large": "https://images.pokemontcg.io/sm2/111_hires.png"
       },
-      "pricing": {
-        "market": 0.22,
-        "low": 0.1,
-        "mid": 0.25,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.309Z",
-        "subType": "Reverse Holofoil",
-        "productId": 246885,
-        "groupName": "SWSH07: Evolving Skies",
-        "groupId": 2848
-      }
+      "pricing": null
     },
     {
       "id": "sm2-112",
@@ -5264,17 +3984,7 @@
         "small": "https://images.pokemontcg.io/sm2/112.png",
         "large": "https://images.pokemontcg.io/sm2/112_hires.png"
       },
-      "pricing": {
-        "market": 0.08,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253364,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm2-113",
@@ -5295,17 +4005,7 @@
         "small": "https://images.pokemontcg.io/sm2/113.png",
         "large": "https://images.pokemontcg.io/sm2/113_hires.png"
       },
-      "pricing": {
-        "market": 0.09,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253365,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm2-114",
@@ -5326,17 +4026,7 @@
         "small": "https://images.pokemontcg.io/sm2/114.png",
         "large": "https://images.pokemontcg.io/sm2/114_hires.png"
       },
-      "pricing": {
-        "market": 0.07,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:40.987Z",
-        "subType": "Normal",
-        "productId": 284077,
-        "groupName": "SWSH11: Lost Origin",
-        "groupId": 3118
-      }
+      "pricing": null
     },
     {
       "id": "sm2-115",
@@ -5509,17 +4199,7 @@
         "small": "https://images.pokemontcg.io/sm2/122.png",
         "large": "https://images.pokemontcg.io/sm2/122_hires.png"
       },
-      "pricing": {
-        "market": 0.19,
-        "low": 0.06,
-        "mid": 0.25,
-        "high": 5.39,
-        "lastUpdated": "2025-08-17T21:28:43.785Z",
-        "subType": "Reverse Holofoil",
-        "productId": 272392,
-        "groupName": "SWSH10: Astral Radiance",
-        "groupId": 3040
-      }
+      "pricing": null
     },
     {
       "id": "sm2-123",
@@ -5538,17 +4218,7 @@
         "small": "https://images.pokemontcg.io/sm2/123.png",
         "large": "https://images.pokemontcg.io/sm2/123_hires.png"
       },
-      "pricing": {
-        "market": 0.17,
-        "low": 0.05,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:49.465Z",
-        "subType": "Normal",
-        "productId": 234116,
-        "groupName": "SWSH05: Battle Styles",
-        "groupId": 2765
-      }
+      "pricing": null
     },
     {
       "id": "sm2-124",
@@ -5567,17 +4237,7 @@
         "small": "https://images.pokemontcg.io/sm2/124.png",
         "large": "https://images.pokemontcg.io/sm2/124_hires.png"
       },
-      "pricing": {
-        "market": 0.1,
-        "low": 0.01,
-        "mid": 0.15,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:39.275Z",
-        "subType": "Normal",
-        "productId": 619090,
-        "groupName": "Prize Pack Series Cards",
-        "groupId": 22880
-      }
+      "pricing": null
     },
     {
       "id": "sm2-124a",
@@ -5596,17 +4256,7 @@
         "small": "https://images.pokemontcg.io/sm2/124a.png",
         "large": "https://images.pokemontcg.io/sm2/124a_hires.png"
       },
-      "pricing": {
-        "market": 0.1,
-        "low": 0.01,
-        "mid": 0.15,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:39.275Z",
-        "subType": "Normal",
-        "productId": 619090,
-        "groupName": "Prize Pack Series Cards",
-        "groupId": 22880
-      }
+      "pricing": null
     },
     {
       "id": "sm2-125",
@@ -6460,17 +5110,7 @@
         "small": "https://images.pokemontcg.io/sm2/162.png",
         "large": "https://images.pokemontcg.io/sm2/162_hires.png"
       },
-      "pricing": {
-        "market": 0.1,
-        "low": 0.01,
-        "mid": 0.15,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:39.275Z",
-        "subType": "Normal",
-        "productId": 619090,
-        "groupName": "Prize Pack Series Cards",
-        "groupId": 22880
-      }
+      "pricing": null
     },
     {
       "id": "sm2-163",
@@ -6527,17 +5167,7 @@
         "small": "https://images.pokemontcg.io/sm2/165.png",
         "large": "https://images.pokemontcg.io/sm2/165_hires.png"
       },
-      "pricing": {
-        "market": 0.42,
-        "low": 0.08,
-        "mid": 0.4,
-        "high": 5.95,
-        "lastUpdated": "2025-08-17T21:28:43.207Z",
-        "subType": "Reverse Holofoil",
-        "productId": 276997,
-        "groupName": "Pokemon GO",
-        "groupId": 3064
-      }
+      "pricing": null
     },
     {
       "id": "sm2-166",
@@ -6634,17 +5264,7 @@
         "small": "https://images.pokemontcg.io/sm3/1.png",
         "large": "https://images.pokemontcg.io/sm3/1_hires.png"
       },
-      "pricing": {
-        "market": 0.18,
-        "low": 0.05,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Reverse Holofoil",
-        "productId": 253069,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm3-2",
@@ -6665,17 +5285,7 @@
         "small": "https://images.pokemontcg.io/sm3/2.png",
         "large": "https://images.pokemontcg.io/sm3/2_hires.png"
       },
-      "pricing": {
-        "market": 0.23,
-        "low": 0.09,
-        "mid": 0.25,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Reverse Holofoil",
-        "productId": 253072,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm3-3",
@@ -6696,17 +5306,7 @@
         "small": "https://images.pokemontcg.io/sm3/3.png",
         "large": "https://images.pokemontcg.io/sm3/3_hires.png"
       },
-      "pricing": {
-        "market": 0.22,
-        "low": 0.05,
-        "mid": 0.25,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Holofoil",
-        "productId": 253073,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm3-4",
@@ -6727,17 +5327,7 @@
         "small": "https://images.pokemontcg.io/sm3/4.png",
         "large": "https://images.pokemontcg.io/sm3/4_hires.png"
       },
-      "pricing": {
-        "market": 0.14,
-        "low": 0.04,
-        "mid": 0.19,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:40.986Z",
-        "subType": "Reverse Holofoil",
-        "productId": 283861,
-        "groupName": "SWSH11: Lost Origin",
-        "groupId": 3118
-      }
+      "pricing": null
     },
     {
       "id": "sm3-5",
@@ -6758,17 +5348,7 @@
         "small": "https://images.pokemontcg.io/sm3/5.png",
         "large": "https://images.pokemontcg.io/sm3/5_hires.png"
       },
-      "pricing": {
-        "market": 0.1,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 5,
-        "lastUpdated": "2025-08-17T21:28:40.986Z",
-        "subType": "Normal",
-        "productId": 283862,
-        "groupName": "SWSH11: Lost Origin",
-        "groupId": 3118
-      }
+      "pricing": null
     },
     {
       "id": "sm3-6",
@@ -6789,17 +5369,7 @@
         "small": "https://images.pokemontcg.io/sm3/6.png",
         "large": "https://images.pokemontcg.io/sm3/6_hires.png"
       },
-      "pricing": {
-        "market": 0.24,
-        "low": 0.1,
-        "mid": 0.25,
-        "high": 5,
-        "lastUpdated": "2025-08-17T21:28:40.986Z",
-        "subType": "Holofoil",
-        "productId": 283865,
-        "groupName": "SWSH11: Lost Origin",
-        "groupId": 3118
-      }
+      "pricing": null
     },
     {
       "id": "sm3-7",
@@ -6820,17 +5390,7 @@
         "small": "https://images.pokemontcg.io/sm3/7.png",
         "large": "https://images.pokemontcg.io/sm3/7_hires.png"
       },
-      "pricing": {
-        "market": 0.28,
-        "low": 0.16,
-        "mid": 0.3,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:38.127Z",
-        "subType": "Reverse Holofoil",
-        "productId": 478050,
-        "groupName": "Crown Zenith",
-        "groupId": 17688
-      }
+      "pricing": null
     },
     {
       "id": "sm3-8",
@@ -6851,17 +5411,7 @@
         "small": "https://images.pokemontcg.io/sm3/8.png",
         "large": "https://images.pokemontcg.io/sm3/8_hires.png"
       },
-      "pricing": {
-        "market": 0.25,
-        "low": 0.07,
-        "mid": 0.28,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:38.127Z",
-        "subType": "Reverse Holofoil",
-        "productId": 478051,
-        "groupName": "Crown Zenith",
-        "groupId": 17688
-      }
+      "pricing": null
     },
     {
       "id": "sm3-9",
@@ -6882,17 +5432,7 @@
         "small": "https://images.pokemontcg.io/sm3/9.png",
         "large": "https://images.pokemontcg.io/sm3/9_hires.png"
       },
-      "pricing": {
-        "market": 0.19,
-        "low": 0.05,
-        "mid": 0.2,
-        "high": 5.06,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Reverse Holofoil",
-        "productId": 241651,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm3-10",
@@ -6913,17 +5453,7 @@
         "small": "https://images.pokemontcg.io/sm3/10.png",
         "large": "https://images.pokemontcg.io/sm3/10_hires.png"
       },
-      "pricing": {
-        "market": 0.07,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Normal",
-        "productId": 241652,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm3-11",
@@ -6944,17 +5474,7 @@
         "small": "https://images.pokemontcg.io/sm3/11.png",
         "large": "https://images.pokemontcg.io/sm3/11_hires.png"
       },
-      "pricing": {
-        "market": 0.05,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Normal",
-        "productId": 241653,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm3-12",
@@ -6975,17 +5495,7 @@
         "small": "https://images.pokemontcg.io/sm3/12.png",
         "large": "https://images.pokemontcg.io/sm3/12_hires.png"
       },
-      "pricing": {
-        "market": 0.06,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253077,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm3-13",
@@ -7006,17 +5516,7 @@
         "small": "https://images.pokemontcg.io/sm3/13.png",
         "large": "https://images.pokemontcg.io/sm3/13_hires.png"
       },
-      "pricing": {
-        "market": 0.17,
-        "low": 0.07,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Reverse Holofoil",
-        "productId": 253078,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm3-14",
@@ -7037,17 +5537,7 @@
         "small": "https://images.pokemontcg.io/sm3/14.png",
         "large": "https://images.pokemontcg.io/sm3/14_hires.png"
       },
-      "pricing": {
-        "market": 0.13,
-        "low": 0.02,
-        "mid": 0.16,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Reverse Holofoil",
-        "productId": 253102,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm3-15",
@@ -7068,17 +5558,7 @@
         "small": "https://images.pokemontcg.io/sm3/15.png",
         "large": "https://images.pokemontcg.io/sm3/15_hires.png"
       },
-      "pricing": {
-        "market": 0.12,
-        "low": 0.01,
-        "mid": 0.15,
-        "high": 5.03,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253105,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm3-16",
@@ -7099,17 +5579,7 @@
         "small": "https://images.pokemontcg.io/sm3/16.png",
         "large": "https://images.pokemontcg.io/sm3/16_hires.png"
       },
-      "pricing": {
-        "market": 0.21,
-        "low": 0.08,
-        "mid": 0.23,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:43.207Z",
-        "subType": "Reverse Holofoil",
-        "productId": 274457,
-        "groupName": "Pokemon GO",
-        "groupId": 3064
-      }
+      "pricing": null
     },
     {
       "id": "sm3-17",
@@ -7151,17 +5621,7 @@
         "small": "https://images.pokemontcg.io/sm3/18.png",
         "large": "https://images.pokemontcg.io/sm3/18_hires.png"
       },
-      "pricing": {
-        "market": 1.38,
-        "low": 0.85,
-        "mid": 1.5,
-        "high": 10,
-        "lastUpdated": "2025-08-17T21:28:50.019Z",
-        "subType": "Normal",
-        "productId": 231451,
-        "groupName": "First Partner Pack",
-        "groupId": 2776
-      }
+      "pricing": null
     },
     {
       "id": "sm3-18a",
@@ -7182,17 +5642,7 @@
         "small": "https://images.pokemontcg.io/sm3/18a.png",
         "large": "https://images.pokemontcg.io/sm3/18a_hires.png"
       },
-      "pricing": {
-        "market": 1.38,
-        "low": 0.85,
-        "mid": 1.5,
-        "high": 10,
-        "lastUpdated": "2025-08-17T21:28:50.019Z",
-        "subType": "Normal",
-        "productId": 231451,
-        "groupName": "First Partner Pack",
-        "groupId": 2776
-      }
+      "pricing": null
     },
     {
       "id": "sm3-19",
@@ -7213,17 +5663,7 @@
         "small": "https://images.pokemontcg.io/sm3/19.png",
         "large": "https://images.pokemontcg.io/sm3/19_hires.png"
       },
-      "pricing": {
-        "market": 0.16,
-        "low": 0.04,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:43.207Z",
-        "subType": "Normal",
-        "productId": 274438,
-        "groupName": "Pokemon GO",
-        "groupId": 3064
-      }
+      "pricing": null
     },
     {
       "id": "sm3-20",
@@ -7286,17 +5726,7 @@
         "small": "https://images.pokemontcg.io/sm3/22.png",
         "large": "https://images.pokemontcg.io/sm3/22_hires.png"
       },
-      "pricing": {
-        "market": 0.15,
-        "low": 0.05,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Reverse Holofoil",
-        "productId": 253137,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm3-23",
@@ -7317,17 +5747,7 @@
         "small": "https://images.pokemontcg.io/sm3/23.png",
         "large": "https://images.pokemontcg.io/sm3/23_hires.png"
       },
-      "pricing": {
-        "market": 0.1,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 19.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253140,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm3-24",
@@ -7348,17 +5768,7 @@
         "small": "https://images.pokemontcg.io/sm3/24.png",
         "large": "https://images.pokemontcg.io/sm3/24_hires.png"
       },
-      "pricing": {
-        "market": 0.14,
-        "low": 0.05,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:49.465Z",
-        "subType": "Reverse Holofoil",
-        "productId": 234129,
-        "groupName": "SWSH05: Battle Styles",
-        "groupId": 2765
-      }
+      "pricing": null
     },
     {
       "id": "sm3-25",
@@ -7400,17 +5810,7 @@
         "small": "https://images.pokemontcg.io/sm3/26.png",
         "large": "https://images.pokemontcg.io/sm3/26_hires.png"
       },
-      "pricing": {
-        "market": 0.18,
-        "low": 0.05,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Reverse Holofoil",
-        "productId": 253358,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm3-27",
@@ -7473,17 +5873,7 @@
         "small": "https://images.pokemontcg.io/sm3/29.png",
         "large": "https://images.pokemontcg.io/sm3/29_hires.png"
       },
-      "pricing": {
-        "market": 0.05,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 25.05,
-        "lastUpdated": "2025-08-17T21:28:50.579Z",
-        "subType": "Normal",
-        "productId": 232409,
-        "groupName": "Shining Fates",
-        "groupId": 2754
-      }
+      "pricing": null
     },
     {
       "id": "sm3-30",
@@ -7504,17 +5894,7 @@
         "small": "https://images.pokemontcg.io/sm3/30.png",
         "large": "https://images.pokemontcg.io/sm3/30_hires.png"
       },
-      "pricing": {
-        "market": 0.17,
-        "low": 0.05,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:49.465Z",
-        "subType": "Reverse Holofoil",
-        "productId": 234156,
-        "groupName": "SWSH05: Battle Styles",
-        "groupId": 2765
-      }
+      "pricing": null
     },
     {
       "id": "sm3-31",
@@ -7535,17 +5915,7 @@
         "small": "https://images.pokemontcg.io/sm3/31.png",
         "large": "https://images.pokemontcg.io/sm3/31_hires.png"
       },
-      "pricing": {
-        "market": 0.27,
-        "low": 0.1,
-        "mid": 0.3,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:49.465Z",
-        "subType": "Reverse Holofoil",
-        "productId": 234161,
-        "groupName": "SWSH05: Battle Styles",
-        "groupId": 2765
-      }
+      "pricing": null
     },
     {
       "id": "sm3-32",
@@ -7566,17 +5936,7 @@
         "small": "https://images.pokemontcg.io/sm3/32.png",
         "large": "https://images.pokemontcg.io/sm3/32_hires.png"
       },
-      "pricing": {
-        "market": 0.11,
-        "low": 0.01,
-        "mid": 0.12,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:43.207Z",
-        "subType": "Normal",
-        "productId": 276951,
-        "groupName": "Pokemon GO",
-        "groupId": 3064
-      }
+      "pricing": null
     },
     {
       "id": "sm3-33",
@@ -7597,17 +5957,7 @@
         "small": "https://images.pokemontcg.io/sm3/33.png",
         "large": "https://images.pokemontcg.io/sm3/33_hires.png"
       },
-      "pricing": {
-        "market": 0.26,
-        "low": 0.09,
-        "mid": 0.29,
-        "high": 5.35,
-        "lastUpdated": "2025-08-17T21:28:43.207Z",
-        "subType": "Holofoil",
-        "productId": 276955,
-        "groupName": "Pokemon GO",
-        "groupId": 3064
-      }
+      "pricing": null
     },
     {
       "id": "sm3-34",
@@ -7628,17 +5978,7 @@
         "small": "https://images.pokemontcg.io/sm3/34.png",
         "large": "https://images.pokemontcg.io/sm3/34_hires.png"
       },
-      "pricing": {
-        "market": 0.15,
-        "low": 0.01,
-        "mid": 0.15,
-        "high": 19.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253189,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm3-35",
@@ -7659,17 +5999,7 @@
         "small": "https://images.pokemontcg.io/sm3/35.png",
         "large": "https://images.pokemontcg.io/sm3/35_hires.png"
       },
-      "pricing": {
-        "market": 0.13,
-        "low": 0.01,
-        "mid": 0.17,
-        "high": 5.03,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253190,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm3-36",
@@ -7690,17 +6020,7 @@
         "small": "https://images.pokemontcg.io/sm3/36.png",
         "large": "https://images.pokemontcg.io/sm3/36_hires.png"
       },
-      "pricing": {
-        "market": 0.07,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 19.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253211,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm3-37",
@@ -7721,17 +6041,7 @@
         "small": "https://images.pokemontcg.io/sm3/37.png",
         "large": "https://images.pokemontcg.io/sm3/37_hires.png"
       },
-      "pricing": {
-        "market": 0.06,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 19.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253212,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm3-38",
@@ -7752,17 +6062,7 @@
         "small": "https://images.pokemontcg.io/sm3/38.png",
         "large": "https://images.pokemontcg.io/sm3/38_hires.png"
       },
-      "pricing": {
-        "market": 0.14,
-        "low": 0.03,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:49.465Z",
-        "subType": "Reverse Holofoil",
-        "productId": 234189,
-        "groupName": "SWSH05: Battle Styles",
-        "groupId": 2765
-      }
+      "pricing": null
     },
     {
       "id": "sm3-39",
@@ -7825,17 +6125,7 @@
         "small": "https://images.pokemontcg.io/sm3/40.png",
         "large": "https://images.pokemontcg.io/sm3/40_hires.png"
       },
-      "pricing": {
-        "market": 0.4,
-        "low": 0.1,
-        "mid": 0.39,
-        "high": 10,
-        "lastUpdated": "2025-08-17T21:28:48.309Z",
-        "subType": "Reverse Holofoil",
-        "productId": 246881,
-        "groupName": "SWSH07: Evolving Skies",
-        "groupId": 2848
-      }
+      "pricing": null
     },
     {
       "id": "sm3-41",
@@ -7856,17 +6146,7 @@
         "small": "https://images.pokemontcg.io/sm3/41.png",
         "large": "https://images.pokemontcg.io/sm3/41_hires.png"
       },
-      "pricing": {
-        "market": 0.33,
-        "low": 0.12,
-        "mid": 0.34,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.309Z",
-        "subType": "Reverse Holofoil",
-        "productId": 246886,
-        "groupName": "SWSH07: Evolving Skies",
-        "groupId": 2848
-      }
+      "pricing": null
     },
     {
       "id": "sm3-42",
@@ -7887,17 +6167,7 @@
         "small": "https://images.pokemontcg.io/sm3/42.png",
         "large": "https://images.pokemontcg.io/sm3/42_hires.png"
       },
-      "pricing": {
-        "market": 0.22,
-        "low": 0.05,
-        "mid": 0.24,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:49.465Z",
-        "subType": "Reverse Holofoil",
-        "productId": 234192,
-        "groupName": "SWSH05: Battle Styles",
-        "groupId": 2765
-      }
+      "pricing": null
     },
     {
       "id": "sm3-43",
@@ -7918,17 +6188,7 @@
         "small": "https://images.pokemontcg.io/sm3/43.png",
         "large": "https://images.pokemontcg.io/sm3/43_hires.png"
       },
-      "pricing": {
-        "market": 0.17,
-        "low": 0.08,
-        "mid": 0.24,
-        "high": 6.39,
-        "lastUpdated": "2025-08-17T21:28:49.465Z",
-        "subType": "Reverse Holofoil",
-        "productId": 234195,
-        "groupName": "SWSH05: Battle Styles",
-        "groupId": 2765
-      }
+      "pricing": null
     },
     {
       "id": "sm3-44",
@@ -7949,17 +6209,7 @@
         "small": "https://images.pokemontcg.io/sm3/44.png",
         "large": "https://images.pokemontcg.io/sm3/44_hires.png"
       },
-      "pricing": {
-        "market": 0.09,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253251,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm3-45",
@@ -7980,17 +6230,7 @@
         "small": "https://images.pokemontcg.io/sm3/45.png",
         "large": "https://images.pokemontcg.io/sm3/45_hires.png"
       },
-      "pricing": {
-        "market": 0.04,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253252,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm3-46",
@@ -8011,17 +6251,7 @@
         "small": "https://images.pokemontcg.io/sm3/46.png",
         "large": "https://images.pokemontcg.io/sm3/46_hires.png"
       },
-      "pricing": {
-        "market": 0.12,
-        "low": 0.01,
-        "mid": 0.15,
-        "high": 5.03,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253253,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm3-47",
@@ -8042,17 +6272,7 @@
         "small": "https://images.pokemontcg.io/sm3/47.png",
         "large": "https://images.pokemontcg.io/sm3/47_hires.png"
       },
-      "pricing": {
-        "market": 0.06,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 25,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253336,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm3-48",
@@ -8073,17 +6293,7 @@
         "small": "https://images.pokemontcg.io/sm3/48.png",
         "large": "https://images.pokemontcg.io/sm3/48_hires.png"
       },
-      "pricing": {
-        "market": 0.1,
-        "low": 0.01,
-        "mid": 0.14,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:27.851Z",
-        "subType": "Normal",
-        "productId": 567284,
-        "groupName": "SV07: Stellar Crown",
-        "groupId": 23537
-      }
+      "pricing": null
     },
     {
       "id": "sm3-49",
@@ -8104,17 +6314,7 @@
         "small": "https://images.pokemontcg.io/sm3/49.png",
         "large": "https://images.pokemontcg.io/sm3/49_hires.png"
       },
-      "pricing": {
-        "market": 0.09,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 19.95,
-        "lastUpdated": "2025-08-17T21:28:48.309Z",
-        "subType": "Normal",
-        "productId": 246840,
-        "groupName": "SWSH07: Evolving Skies",
-        "groupId": 2848
-      }
+      "pricing": null
     },
     {
       "id": "sm3-50",
@@ -8135,17 +6335,7 @@
         "small": "https://images.pokemontcg.io/sm3/50.png",
         "large": "https://images.pokemontcg.io/sm3/50_hires.png"
       },
-      "pricing": {
-        "market": 0.12,
-        "low": 0.03,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Reverse Holofoil",
-        "productId": 241776,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm3-51",
@@ -8166,17 +6356,7 @@
         "small": "https://images.pokemontcg.io/sm3/51.png",
         "large": "https://images.pokemontcg.io/sm3/51_hires.png"
       },
-      "pricing": {
-        "market": 0.08,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:45.483Z",
-        "subType": "Normal",
-        "productId": 263776,
-        "groupName": "SWSH09: Brilliant Stars",
-        "groupId": 2948
-      }
+      "pricing": null
     },
     {
       "id": "sm3-52",
@@ -8197,17 +6377,7 @@
         "small": "https://images.pokemontcg.io/sm3/52.png",
         "large": "https://images.pokemontcg.io/sm3/52_hires.png"
       },
-      "pricing": {
-        "market": 0.17,
-        "low": 0.04,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:45.483Z",
-        "subType": "Reverse Holofoil",
-        "productId": 263777,
-        "groupName": "SWSH09: Brilliant Stars",
-        "groupId": 2948
-      }
+      "pricing": null
     },
     {
       "id": "sm3-53",
@@ -8228,17 +6398,7 @@
         "small": "https://images.pokemontcg.io/sm3/53.png",
         "large": "https://images.pokemontcg.io/sm3/53_hires.png"
       },
-      "pricing": {
-        "market": 1.6,
-        "low": 0.97,
-        "mid": 1.99,
-        "high": 999.99,
-        "lastUpdated": "2025-08-17T21:28:46.036Z",
-        "subType": "Holofoil",
-        "productId": 264214,
-        "groupName": "SWSH09: Brilliant Stars Trainer Gallery",
-        "groupId": 3020
-      }
+      "pricing": null
     },
     {
       "id": "sm3-54",
@@ -8259,17 +6419,7 @@
         "small": "https://images.pokemontcg.io/sm3/54.png",
         "large": "https://images.pokemontcg.io/sm3/54_hires.png"
       },
-      "pricing": {
-        "market": 0.09,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253379,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm3-55",
@@ -8290,17 +6440,7 @@
         "small": "https://images.pokemontcg.io/sm3/55.png",
         "large": "https://images.pokemontcg.io/sm3/55_hires.png"
       },
-      "pricing": {
-        "market": 0.17,
-        "low": 0.07,
-        "mid": 0.23,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Reverse Holofoil",
-        "productId": 253380,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm3-56",
@@ -8321,17 +6461,7 @@
         "small": "https://images.pokemontcg.io/sm3/56.png",
         "large": "https://images.pokemontcg.io/sm3/56_hires.png"
       },
-      "pricing": {
-        "market": 0.05,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Normal",
-        "productId": 241780,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm3-57",
@@ -8352,17 +6482,7 @@
         "small": "https://images.pokemontcg.io/sm3/57.png",
         "large": "https://images.pokemontcg.io/sm3/57_hires.png"
       },
-      "pricing": {
-        "market": 0.13,
-        "low": 0.04,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Reverse Holofoil",
-        "productId": 241781,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm3-58",
@@ -8383,17 +6503,7 @@
         "small": "https://images.pokemontcg.io/sm3/58.png",
         "large": "https://images.pokemontcg.io/sm3/58_hires.png"
       },
-      "pricing": {
-        "market": 0.22,
-        "low": 0.1,
-        "mid": 0.25,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Reverse Holofoil",
-        "productId": 241782,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm3-59",
@@ -8414,17 +6524,7 @@
         "small": "https://images.pokemontcg.io/sm3/59.png",
         "large": "https://images.pokemontcg.io/sm3/59_hires.png"
       },
-      "pricing": {
-        "market": 0.08,
-        "low": 0.01,
-        "mid": 0.12,
-        "high": 5.01,
-        "lastUpdated": "2025-08-17T21:28:49.465Z",
-        "subType": "Normal",
-        "productId": 234232,
-        "groupName": "SWSH05: Battle Styles",
-        "groupId": 2765
-      }
+      "pricing": null
     },
     {
       "id": "sm3-60",
@@ -8445,17 +6545,7 @@
         "small": "https://images.pokemontcg.io/sm3/60.png",
         "large": "https://images.pokemontcg.io/sm3/60_hires.png"
       },
-      "pricing": {
-        "market": 0.22,
-        "low": 0.05,
-        "mid": 0.26,
-        "high": 4.99,
-        "lastUpdated": "2025-08-17T21:28:49.465Z",
-        "subType": "Holofoil",
-        "productId": 234233,
-        "groupName": "SWSH05: Battle Styles",
-        "groupId": 2765
-      }
+      "pricing": null
     },
     {
       "id": "sm3-61",
@@ -8476,17 +6566,7 @@
         "small": "https://images.pokemontcg.io/sm3/61.png",
         "large": "https://images.pokemontcg.io/sm3/61_hires.png"
       },
-      "pricing": {
-        "market": 0.08,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253311,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm3-62",
@@ -8507,17 +6587,7 @@
         "small": "https://images.pokemontcg.io/sm3/62.png",
         "large": "https://images.pokemontcg.io/sm3/62_hires.png"
       },
-      "pricing": {
-        "market": 0.21,
-        "low": 0.04,
-        "mid": 0.22,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Reverse Holofoil",
-        "productId": 253313,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm3-63",
@@ -8580,17 +6650,7 @@
         "small": "https://images.pokemontcg.io/sm3/65.png",
         "large": "https://images.pokemontcg.io/sm3/65_hires.png"
       },
-      "pricing": {
-        "market": 0.06,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:40.987Z",
-        "subType": "Normal",
-        "productId": 283976,
-        "groupName": "SWSH11: Lost Origin",
-        "groupId": 3118
-      }
+      "pricing": null
     },
     {
       "id": "sm3-66",
@@ -8611,17 +6671,7 @@
         "small": "https://images.pokemontcg.io/sm3/66.png",
         "large": "https://images.pokemontcg.io/sm3/66_hires.png"
       },
-      "pricing": {
-        "market": 0.14,
-        "low": 0.05,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:40.987Z",
-        "subType": "Reverse Holofoil",
-        "productId": 283978,
-        "groupName": "SWSH11: Lost Origin",
-        "groupId": 3118
-      }
+      "pricing": null
     },
     {
       "id": "sm3-67",
@@ -8642,17 +6692,7 @@
         "small": "https://images.pokemontcg.io/sm3/67.png",
         "large": "https://images.pokemontcg.io/sm3/67_hires.png"
       },
-      "pricing": {
-        "market": 0.14,
-        "low": 0.03,
-        "mid": 0.15,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:40.987Z",
-        "subType": "Normal",
-        "productId": 283979,
-        "groupName": "SWSH11: Lost Origin",
-        "groupId": 3118
-      }
+      "pricing": null
     },
     {
       "id": "sm3-68",
@@ -8673,17 +6713,7 @@
         "small": "https://images.pokemontcg.io/sm3/68.png",
         "large": "https://images.pokemontcg.io/sm3/68_hires.png"
       },
-      "pricing": {
-        "market": 0.08,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:43.207Z",
-        "subType": "Normal",
-        "productId": 276972,
-        "groupName": "Pokemon GO",
-        "groupId": 3064
-      }
+      "pricing": null
     },
     {
       "id": "sm3-69",
@@ -8704,17 +6734,7 @@
         "small": "https://images.pokemontcg.io/sm3/69.png",
         "large": "https://images.pokemontcg.io/sm3/69_hires.png"
       },
-      "pricing": {
-        "market": 0.22,
-        "low": 0.09,
-        "mid": 0.25,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:43.207Z",
-        "subType": "Reverse Holofoil",
-        "productId": 276993,
-        "groupName": "Pokemon GO",
-        "groupId": 3064
-      }
+      "pricing": null
     },
     {
       "id": "sm3-70",
@@ -8735,17 +6755,7 @@
         "small": "https://images.pokemontcg.io/sm3/70.png",
         "large": "https://images.pokemontcg.io/sm3/70_hires.png"
       },
-      "pricing": {
-        "market": 0.11,
-        "low": 0.01,
-        "mid": 0.11,
-        "high": 19.95,
-        "lastUpdated": "2025-08-17T21:28:45.483Z",
-        "subType": "Normal",
-        "productId": 263794,
-        "groupName": "SWSH09: Brilliant Stars",
-        "groupId": 2948
-      }
+      "pricing": null
     },
     {
       "id": "sm3-71",
@@ -8766,17 +6776,7 @@
         "small": "https://images.pokemontcg.io/sm3/71.png",
         "large": "https://images.pokemontcg.io/sm3/71_hires.png"
       },
-      "pricing": {
-        "market": 0.41,
-        "low": 0.15,
-        "mid": 0.44,
-        "high": 6.23,
-        "lastUpdated": "2025-08-17T21:28:45.483Z",
-        "subType": "Reverse Holofoil",
-        "productId": 263795,
-        "groupName": "SWSH09: Brilliant Stars",
-        "groupId": 2948
-      }
+      "pricing": null
     },
     {
       "id": "sm3-72",
@@ -8797,17 +6797,7 @@
         "small": "https://images.pokemontcg.io/sm3/72.png",
         "large": "https://images.pokemontcg.io/sm3/72_hires.png"
       },
-      "pricing": {
-        "market": 0.17,
-        "low": 0.05,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:45.483Z",
-        "subType": "Reverse Holofoil",
-        "productId": 263797,
-        "groupName": "SWSH09: Brilliant Stars",
-        "groupId": 2948
-      }
+      "pricing": null
     },
     {
       "id": "sm3-73",
@@ -8828,17 +6818,7 @@
         "small": "https://images.pokemontcg.io/sm3/73.png",
         "large": "https://images.pokemontcg.io/sm3/73_hires.png"
       },
-      "pricing": {
-        "market": 0.12,
-        "low": 0.02,
-        "mid": 0.17,
-        "high": 5.03,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Reverse Holofoil",
-        "productId": 241751,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm3-74",
@@ -8859,17 +6839,7 @@
         "small": "https://images.pokemontcg.io/sm3/74.png",
         "large": "https://images.pokemontcg.io/sm3/74_hires.png"
       },
-      "pricing": {
-        "market": 0.05,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Normal",
-        "productId": 241752,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm3-75",
@@ -8890,17 +6860,7 @@
         "small": "https://images.pokemontcg.io/sm3/75.png",
         "large": "https://images.pokemontcg.io/sm3/75_hires.png"
       },
-      "pricing": {
-        "market": 0.22,
-        "low": 0.1,
-        "mid": 0.25,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Reverse Holofoil",
-        "productId": 241754,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm3-76",
@@ -8921,17 +6881,7 @@
         "small": "https://images.pokemontcg.io/sm3/76.png",
         "large": "https://images.pokemontcg.io/sm3/76_hires.png"
       },
-      "pricing": {
-        "market": 0.22,
-        "low": 0.1,
-        "mid": 0.25,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Reverse Holofoil",
-        "productId": 241754,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm3-77",
@@ -8952,17 +6902,7 @@
         "small": "https://images.pokemontcg.io/sm3/77.png",
         "large": "https://images.pokemontcg.io/sm3/77_hires.png"
       },
-      "pricing": {
-        "market": 0.03,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:30.702Z",
-        "subType": "Normal",
-        "productId": 542835,
-        "groupName": "SV05: Temporal Forces",
-        "groupId": 23381
-      }
+      "pricing": null
     },
     {
       "id": "sm3-78",
@@ -8983,17 +6923,7 @@
         "small": "https://images.pokemontcg.io/sm3/78.png",
         "large": "https://images.pokemontcg.io/sm3/78_hires.png"
       },
-      "pricing": {
-        "market": 0.05,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 20,
-        "lastUpdated": "2025-08-17T21:28:24.985Z",
-        "subType": "Normal",
-        "productId": 632916,
-        "groupName": "SV10: Destined Rivals",
-        "groupId": 24269
-      }
+      "pricing": null
     },
     {
       "id": "sm3-79",
@@ -9014,17 +6944,7 @@
         "small": "https://images.pokemontcg.io/sm3/79.png",
         "large": "https://images.pokemontcg.io/sm3/79_hires.png"
       },
-      "pricing": {
-        "market": 0.15,
-        "low": 0.03,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Reverse Holofoil",
-        "productId": 241755,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm3-80",
@@ -9066,17 +6986,7 @@
         "small": "https://images.pokemontcg.io/sm3/81.png",
         "large": "https://images.pokemontcg.io/sm3/81_hires.png"
       },
-      "pricing": {
-        "market": 0.24,
-        "low": 0.09,
-        "mid": 0.25,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:43.207Z",
-        "subType": "Reverse Holofoil",
-        "productId": 277002,
-        "groupName": "Pokemon GO",
-        "groupId": 3064
-      }
+      "pricing": null
     },
     {
       "id": "sm3-82",
@@ -9097,17 +7007,7 @@
         "small": "https://images.pokemontcg.io/sm3/82.png",
         "large": "https://images.pokemontcg.io/sm3/82_hires.png"
       },
-      "pricing": {
-        "market": 0.12,
-        "low": 0.01,
-        "mid": 0.12,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:43.207Z",
-        "subType": "Normal",
-        "productId": 277003,
-        "groupName": "Pokemon GO",
-        "groupId": 3064
-      }
+      "pricing": null
     },
     {
       "id": "sm3-83",
@@ -9170,17 +7070,7 @@
         "small": "https://images.pokemontcg.io/sm3/85.png",
         "large": "https://images.pokemontcg.io/sm3/85_hires.png"
       },
-      "pricing": {
-        "market": 0.05,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Normal",
-        "productId": 241683,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm3-86",
@@ -9201,17 +7091,7 @@
         "small": "https://images.pokemontcg.io/sm3/86.png",
         "large": "https://images.pokemontcg.io/sm3/86_hires.png"
       },
-      "pricing": {
-        "market": 0.23,
-        "low": 0.1,
-        "mid": 0.25,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Reverse Holofoil",
-        "productId": 241684,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm3-87",
@@ -9232,17 +7112,7 @@
         "small": "https://images.pokemontcg.io/sm3/87.png",
         "large": "https://images.pokemontcg.io/sm3/87_hires.png"
       },
-      "pricing": {
-        "market": 0.13,
-        "low": 0.01,
-        "mid": 0.15,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253381,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm3-88",
@@ -9305,17 +7175,7 @@
         "small": "https://images.pokemontcg.io/sm3/89.png",
         "large": "https://images.pokemontcg.io/sm3/89_hires.png"
       },
-      "pricing": {
-        "market": 0.06,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Normal",
-        "productId": 241730,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm3-90",
@@ -9336,17 +7196,7 @@
         "small": "https://images.pokemontcg.io/sm3/90.png",
         "large": "https://images.pokemontcg.io/sm3/90_hires.png"
       },
-      "pricing": {
-        "market": 0.11,
-        "low": 0.05,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Reverse Holofoil",
-        "productId": 241731,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm3-91",
@@ -9367,17 +7217,7 @@
         "small": "https://images.pokemontcg.io/sm3/91.png",
         "large": "https://images.pokemontcg.io/sm3/91_hires.png"
       },
-      "pricing": {
-        "market": 0.16,
-        "low": 0.03,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Reverse Holofoil",
-        "productId": 241720,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm3-92",
@@ -9398,17 +7238,7 @@
         "small": "https://images.pokemontcg.io/sm3/92.png",
         "large": "https://images.pokemontcg.io/sm3/92_hires.png"
       },
-      "pricing": {
-        "market": 0.08,
-        "low": 0.01,
-        "mid": 0.15,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Normal",
-        "productId": 241721,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm3-92a",
@@ -9429,17 +7259,7 @@
         "small": "https://images.pokemontcg.io/sm3/92a.png",
         "large": "https://images.pokemontcg.io/sm3/92a_hires.png"
       },
-      "pricing": {
-        "market": 0.08,
-        "low": 0.01,
-        "mid": 0.15,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Normal",
-        "productId": 241721,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm3-93",
@@ -9481,17 +7301,7 @@
         "small": "https://images.pokemontcg.io/sm3/94.png",
         "large": "https://images.pokemontcg.io/sm3/94_hires.png"
       },
-      "pricing": {
-        "market": 0.25,
-        "low": 0.09,
-        "mid": 0.27,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:43.785Z",
-        "subType": "Holofoil",
-        "productId": 272269,
-        "groupName": "SWSH10: Astral Radiance",
-        "groupId": 3040
-      }
+      "pricing": null
     },
     {
       "id": "sm3-95",
@@ -9512,17 +7322,7 @@
         "small": "https://images.pokemontcg.io/sm3/95.png",
         "large": "https://images.pokemontcg.io/sm3/95_hires.png"
       },
-      "pricing": {
-        "market": 0.2,
-        "low": 0.04,
-        "mid": 0.2,
-        "high": 5.04,
-        "lastUpdated": "2025-08-17T21:28:48.309Z",
-        "subType": "Reverse Holofoil",
-        "productId": 246862,
-        "groupName": "SWSH07: Evolving Skies",
-        "groupId": 2848
-      }
+      "pricing": null
     },
     {
       "id": "sm3-96",
@@ -9543,17 +7343,7 @@
         "small": "https://images.pokemontcg.io/sm3/96.png",
         "large": "https://images.pokemontcg.io/sm3/96_hires.png"
       },
-      "pricing": {
-        "market": 0.09,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.309Z",
-        "subType": "Normal",
-        "productId": 246864,
-        "groupName": "SWSH07: Evolving Skies",
-        "groupId": 2848
-      }
+      "pricing": null
     },
     {
       "id": "sm3-97",
@@ -9574,17 +7364,7 @@
         "small": "https://images.pokemontcg.io/sm3/97.png",
         "large": "https://images.pokemontcg.io/sm3/97_hires.png"
       },
-      "pricing": {
-        "market": 0.12,
-        "low": 0.02,
-        "mid": 0.15,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:27.275Z",
-        "subType": "Reverse Holofoil",
-        "productId": 590009,
-        "groupName": "SV08: Surging Sparks",
-        "groupId": 23651
-      }
+      "pricing": null
     },
     {
       "id": "sm3-98",
@@ -9647,17 +7427,7 @@
         "small": "https://images.pokemontcg.io/sm3/100.png",
         "large": "https://images.pokemontcg.io/sm3/100_hires.png"
       },
-      "pricing": {
-        "market": 0.2,
-        "low": 0.1,
-        "mid": 0.25,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.309Z",
-        "subType": "Reverse Holofoil",
-        "productId": 246915,
-        "groupName": "SWSH07: Evolving Skies",
-        "groupId": 2848
-      }
+      "pricing": null
     },
     {
       "id": "sm3-101",
@@ -9678,17 +7448,7 @@
         "small": "https://images.pokemontcg.io/sm3/101.png",
         "large": "https://images.pokemontcg.io/sm3/101_hires.png"
       },
-      "pricing": {
-        "market": 0.09,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 19.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253291,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm3-102",
@@ -9709,17 +7469,7 @@
         "small": "https://images.pokemontcg.io/sm3/102.png",
         "large": "https://images.pokemontcg.io/sm3/102_hires.png"
       },
-      "pricing": {
-        "market": 0.19,
-        "low": 0.05,
-        "mid": 0.23,
-        "high": 5.1,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Reverse Holofoil",
-        "productId": 253292,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm3-103",
@@ -9740,17 +7490,7 @@
         "small": "https://images.pokemontcg.io/sm3/103.png",
         "large": "https://images.pokemontcg.io/sm3/103_hires.png"
       },
-      "pricing": {
-        "market": 0.18,
-        "low": 0.06,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Reverse Holofoil",
-        "productId": 241793,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm3-104",
@@ -9771,17 +7511,7 @@
         "small": "https://images.pokemontcg.io/sm3/104.png",
         "large": "https://images.pokemontcg.io/sm3/104_hires.png"
       },
-      "pricing": {
-        "market": 0.15,
-        "low": 0.02,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Reverse Holofoil",
-        "productId": 241794,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm3-105",
@@ -9802,17 +7532,7 @@
         "small": "https://images.pokemontcg.io/sm3/105.png",
         "large": "https://images.pokemontcg.io/sm3/105_hires.png"
       },
-      "pricing": {
-        "market": 0.4,
-        "low": 0.07,
-        "mid": 0.4,
-        "high": 89,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Holofoil",
-        "productId": 241795,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm3-105a",
@@ -9833,17 +7553,7 @@
         "small": "https://images.pokemontcg.io/sm3/105a.png",
         "large": "https://images.pokemontcg.io/sm3/105a_hires.png"
       },
-      "pricing": {
-        "market": 0.4,
-        "low": 0.07,
-        "mid": 0.4,
-        "high": 89,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Holofoil",
-        "productId": 241795,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm3-106",
@@ -9864,17 +7574,7 @@
         "small": "https://images.pokemontcg.io/sm3/106.png",
         "large": "https://images.pokemontcg.io/sm3/106_hires.png"
       },
-      "pricing": {
-        "market": 2.87,
-        "low": 2.24,
-        "mid": 3.25,
-        "high": 999.99,
-        "lastUpdated": "2025-08-17T21:28:44.340Z",
-        "subType": "Holofoil",
-        "productId": 272483,
-        "groupName": "SWSH10: Astral Radiance Trainer Gallery",
-        "groupId": 3068
-      }
+      "pricing": null
     },
     {
       "id": "sm3-107",
@@ -9895,17 +7595,7 @@
         "small": "https://images.pokemontcg.io/sm3/107.png",
         "large": "https://images.pokemontcg.io/sm3/107_hires.png"
       },
-      "pricing": {
-        "market": 0.09,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 5.02,
-        "lastUpdated": "2025-08-17T21:28:43.785Z",
-        "subType": "Normal",
-        "productId": 272356,
-        "groupName": "SWSH10: Astral Radiance",
-        "groupId": 3040
-      }
+      "pricing": null
     },
     {
       "id": "sm3-108",
@@ -9926,17 +7616,7 @@
         "small": "https://images.pokemontcg.io/sm3/108.png",
         "large": "https://images.pokemontcg.io/sm3/108_hires.png"
       },
-      "pricing": {
-        "market": 0.18,
-        "low": 0.05,
-        "mid": 0.24,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:49.465Z",
-        "subType": "Reverse Holofoil",
-        "productId": 234160,
-        "groupName": "SWSH05: Battle Styles",
-        "groupId": 2765
-      }
+      "pricing": null
     },
     {
       "id": "sm3-109",
@@ -9957,17 +7637,7 @@
         "small": "https://images.pokemontcg.io/sm3/109.png",
         "large": "https://images.pokemontcg.io/sm3/109_hires.png"
       },
-      "pricing": {
-        "market": 0.16,
-        "low": 0.05,
-        "mid": 0.17,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:39.856Z",
-        "subType": "Reverse Holofoil",
-        "productId": 451785,
-        "groupName": "SWSH12: Silver Tempest",
-        "groupId": 3170
-      }
+      "pricing": null
     },
     {
       "id": "sm3-110",
@@ -9988,17 +7658,7 @@
         "small": "https://images.pokemontcg.io/sm3/110.png",
         "large": "https://images.pokemontcg.io/sm3/110_hires.png"
       },
-      "pricing": {
-        "market": 0.08,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253364,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm3-111",
@@ -10019,17 +7679,7 @@
         "small": "https://images.pokemontcg.io/sm3/111.png",
         "large": "https://images.pokemontcg.io/sm3/111_hires.png"
       },
-      "pricing": {
-        "market": 0.09,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253365,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm3-112",
@@ -10105,17 +7755,7 @@
         "small": "https://images.pokemontcg.io/sm3/114.png",
         "large": "https://images.pokemontcg.io/sm3/114_hires.png"
       },
-      "pricing": {
-        "market": 0.42,
-        "low": 0.1,
-        "mid": 0.42,
-        "high": 18,
-        "lastUpdated": "2025-08-17T21:28:49.465Z",
-        "subType": "Reverse Holofoil",
-        "productId": 234117,
-        "groupName": "SWSH05: Battle Styles",
-        "groupId": 2765
-      }
+      "pricing": null
     },
     {
       "id": "sm3-115",
@@ -10343,17 +7983,7 @@
         "small": "https://images.pokemontcg.io/sm3/124.png",
         "large": "https://images.pokemontcg.io/sm3/124_hires.png"
       },
-      "pricing": {
-        "market": 0.27,
-        "low": 0.19,
-        "mid": 0.32,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:31.841Z",
-        "subType": "Holofoil",
-        "productId": 528028,
-        "groupName": "Trading Card Game Classic",
-        "groupId": 23323
-      }
+      "pricing": null
     },
     {
       "id": "sm3-125",
@@ -11146,17 +8776,7 @@
         "small": "https://images.pokemontcg.io/sm3/163.png",
         "large": "https://images.pokemontcg.io/sm3/163_hires.png"
       },
-      "pricing": {
-        "market": 0.42,
-        "low": 0.1,
-        "mid": 0.42,
-        "high": 18,
-        "lastUpdated": "2025-08-17T21:28:49.465Z",
-        "subType": "Reverse Holofoil",
-        "productId": 234117,
-        "groupName": "SWSH05: Battle Styles",
-        "groupId": 2765
-      }
+      "pricing": null
     },
     {
       "id": "sm3-164",
@@ -11213,17 +8833,7 @@
         "small": "https://images.pokemontcg.io/sm3/166.png",
         "large": "https://images.pokemontcg.io/sm3/166_hires.png"
       },
-      "pricing": {
-        "market": 0.27,
-        "low": 0.19,
-        "mid": 0.32,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:31.841Z",
-        "subType": "Holofoil",
-        "productId": 528028,
-        "groupName": "Trading Card Game Classic",
-        "groupId": 23323
-      }
+      "pricing": null
     },
     {
       "id": "sm3-167",
@@ -11301,17 +8911,7 @@
         "small": "https://images.pokemontcg.io/sm35/1.png",
         "large": "https://images.pokemontcg.io/sm35/1_hires.png"
       },
-      "pricing": {
-        "market": 2.61,
-        "low": 1.25,
-        "mid": 2.88,
-        "high": 49.99,
-        "lastUpdated": "2025-08-17T21:28:50.019Z",
-        "subType": "Normal",
-        "productId": 231307,
-        "groupName": "First Partner Pack",
-        "groupId": 2776
-      }
+      "pricing": null
     },
     {
       "id": "sm35-2",
@@ -11332,17 +8932,7 @@
         "small": "https://images.pokemontcg.io/sm35/2.png",
         "large": "https://images.pokemontcg.io/sm35/2_hires.png"
       },
-      "pricing": {
-        "market": 0.19,
-        "low": 0.02,
-        "mid": 0.2,
-        "high": 501.5,
-        "lastUpdated": "2025-08-17T21:28:43.207Z",
-        "subType": "Normal",
-        "productId": 274434,
-        "groupName": "Pokemon GO",
-        "groupId": 3064
-      }
+      "pricing": null
     },
     {
       "id": "sm35-3",
@@ -11363,17 +8953,7 @@
         "small": "https://images.pokemontcg.io/sm35/3.png",
         "large": "https://images.pokemontcg.io/sm35/3_hires.png"
       },
-      "pricing": {
-        "market": 8.25,
-        "low": 5.47,
-        "mid": 9.43,
-        "high": 1000,
-        "lastUpdated": "2025-08-17T21:28:47.728Z",
-        "subType": "Holofoil",
-        "productId": 250321,
-        "groupName": "Celebrations: Classic Collection",
-        "groupId": 2931
-      }
+      "pricing": null
     },
     {
       "id": "sm35-4",
@@ -11394,17 +8974,7 @@
         "small": "https://images.pokemontcg.io/sm35/4.png",
         "large": "https://images.pokemontcg.io/sm35/4_hires.png"
       },
-      "pricing": {
-        "market": 0.07,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253074,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm35-5",
@@ -11425,17 +8995,7 @@
         "small": "https://images.pokemontcg.io/sm35/5.png",
         "large": "https://images.pokemontcg.io/sm35/5_hires.png"
       },
-      "pricing": {
-        "market": 0.08,
-        "low": 0.01,
-        "mid": 0.11,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253075,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm35-6",
@@ -11456,17 +9016,7 @@
         "small": "https://images.pokemontcg.io/sm35/6.png",
         "large": "https://images.pokemontcg.io/sm35/6_hires.png"
       },
-      "pricing": {
-        "market": 0.21,
-        "low": 0.03,
-        "mid": 0.23,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:49.465Z",
-        "subType": "Reverse Holofoil",
-        "productId": 234058,
-        "groupName": "SWSH05: Battle Styles",
-        "groupId": 2765
-      }
+      "pricing": null
     },
     {
       "id": "sm35-7",
@@ -11487,17 +9037,7 @@
         "small": "https://images.pokemontcg.io/sm35/7.png",
         "large": "https://images.pokemontcg.io/sm35/7_hires.png"
       },
-      "pricing": {
-        "market": 0.24,
-        "low": 0.1,
-        "mid": 0.27,
-        "high": 89,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Reverse Holofoil",
-        "productId": 241802,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm35-8",
@@ -11518,17 +9058,7 @@
         "small": "https://images.pokemontcg.io/sm35/8.png",
         "large": "https://images.pokemontcg.io/sm35/8_hires.png"
       },
-      "pricing": {
-        "market": 0.18,
-        "low": 0.05,
-        "mid": 0.24,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Reverse Holofoil",
-        "productId": 253092,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm35-9",
@@ -11612,17 +9142,7 @@
         "small": "https://images.pokemontcg.io/sm35/11.png",
         "large": "https://images.pokemontcg.io/sm35/11_hires.png"
       },
-      "pricing": {
-        "market": 0.18,
-        "low": 0.02,
-        "mid": 0.19,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:45.483Z",
-        "subType": "Reverse Holofoil",
-        "productId": 263716,
-        "groupName": "SWSH09: Brilliant Stars",
-        "groupId": 2948
-      }
+      "pricing": null
     },
     {
       "id": "sm35-12",
@@ -11643,17 +9163,7 @@
         "small": "https://images.pokemontcg.io/sm35/12.png",
         "large": "https://images.pokemontcg.io/sm35/12_hires.png"
       },
-      "pricing": {
-        "market": 0.13,
-        "low": 0.04,
-        "mid": 0.19,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Reverse Holofoil",
-        "productId": 241675,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm35-13",
@@ -11674,17 +9184,7 @@
         "small": "https://images.pokemontcg.io/sm35/13.png",
         "large": "https://images.pokemontcg.io/sm35/13_hires.png"
       },
-      "pricing": {
-        "market": 0.12,
-        "low": 0.03,
-        "mid": 0.15,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Normal",
-        "productId": 241676,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm35-14",
@@ -11705,17 +9205,7 @@
         "small": "https://images.pokemontcg.io/sm35/14.png",
         "large": "https://images.pokemontcg.io/sm35/14_hires.png"
       },
-      "pricing": {
-        "market": 1.48,
-        "low": 0.69,
-        "mid": 1.5,
-        "high": 89,
-        "lastUpdated": "2025-08-17T21:28:50.579Z",
-        "subType": "Holofoil",
-        "productId": 232402,
-        "groupName": "Shining Fates",
-        "groupId": 2754
-      }
+      "pricing": null
     },
     {
       "id": "sm35-15",
@@ -11736,17 +9226,7 @@
         "small": "https://images.pokemontcg.io/sm35/15.png",
         "large": "https://images.pokemontcg.io/sm35/15_hires.png"
       },
-      "pricing": {
-        "market": 2.26,
-        "low": 1.38,
-        "mid": 2.5,
-        "high": 7.99,
-        "lastUpdated": "2025-08-17T21:28:50.019Z",
-        "subType": "Normal",
-        "productId": 231459,
-        "groupName": "First Partner Pack",
-        "groupId": 2776
-      }
+      "pricing": null
     },
     {
       "id": "sm35-16",
@@ -11767,17 +9247,7 @@
         "small": "https://images.pokemontcg.io/sm35/16.png",
         "large": "https://images.pokemontcg.io/sm35/16_hires.png"
       },
-      "pricing": {
-        "market": 0.17,
-        "low": 0.05,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:39.856Z",
-        "subType": "Reverse Holofoil",
-        "productId": 451662,
-        "groupName": "SWSH12: Silver Tempest",
-        "groupId": 3170
-      }
+      "pricing": null
     },
     {
       "id": "sm35-17",
@@ -11798,17 +9268,7 @@
         "small": "https://images.pokemontcg.io/sm35/17.png",
         "large": "https://images.pokemontcg.io/sm35/17_hires.png"
       },
-      "pricing": {
-        "market": 0.3,
-        "low": 0.19,
-        "mid": 0.35,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:39.856Z",
-        "subType": "Reverse Holofoil",
-        "productId": 451663,
-        "groupName": "SWSH12: Silver Tempest",
-        "groupId": 3170
-      }
+      "pricing": null
     },
     {
       "id": "sm35-18",
@@ -11829,17 +9289,7 @@
         "small": "https://images.pokemontcg.io/sm35/18.png",
         "large": "https://images.pokemontcg.io/sm35/18_hires.png"
       },
-      "pricing": {
-        "market": 1.37,
-        "low": 0.75,
-        "mid": 1.37,
-        "high": 10,
-        "lastUpdated": "2025-08-17T21:28:50.019Z",
-        "subType": "Normal",
-        "productId": 231472,
-        "groupName": "First Partner Pack",
-        "groupId": 2776
-      }
+      "pricing": null
     },
     {
       "id": "sm35-19",
@@ -11860,17 +9310,7 @@
         "small": "https://images.pokemontcg.io/sm35/19.png",
         "large": "https://images.pokemontcg.io/sm35/19_hires.png"
       },
-      "pricing": {
-        "market": 0.35,
-        "low": 0.1,
-        "mid": 0.33,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Reverse Holofoil",
-        "productId": 253187,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm35-20",
@@ -11891,17 +9331,7 @@
         "small": "https://images.pokemontcg.io/sm35/20.png",
         "large": "https://images.pokemontcg.io/sm35/20_hires.png"
       },
-      "pricing": {
-        "market": 0.25,
-        "low": 0.01,
-        "mid": 0.25,
-        "high": 9.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Holofoil",
-        "productId": 253188,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm35-21",
@@ -11922,17 +9352,7 @@
         "small": "https://images.pokemontcg.io/sm35/21.png",
         "large": "https://images.pokemontcg.io/sm35/21_hires.png"
       },
-      "pricing": {
-        "market": 0.12,
-        "low": 0.02,
-        "mid": 0.18,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Reverse Holofoil",
-        "productId": 241775,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm35-22",
@@ -11953,17 +9373,7 @@
         "small": "https://images.pokemontcg.io/sm35/22.png",
         "large": "https://images.pokemontcg.io/sm35/22_hires.png"
       },
-      "pricing": {
-        "market": 0.11,
-        "low": 0.03,
-        "mid": 0.19,
-        "high": 25.11,
-        "lastUpdated": "2025-08-17T21:28:50.579Z",
-        "subType": "Reverse Holofoil",
-        "productId": 232418,
-        "groupName": "Shining Fates",
-        "groupId": 2754
-      }
+      "pricing": null
     },
     {
       "id": "sm35-23",
@@ -11984,17 +9394,7 @@
         "small": "https://images.pokemontcg.io/sm35/23.png",
         "large": "https://images.pokemontcg.io/sm35/23_hires.png"
       },
-      "pricing": {
-        "market": 0.13,
-        "low": 0.02,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:50.579Z",
-        "subType": "Reverse Holofoil",
-        "productId": 232419,
-        "groupName": "Shining Fates",
-        "groupId": 2754
-      }
+      "pricing": null
     },
     {
       "id": "sm35-24",
@@ -12015,17 +9415,7 @@
         "small": "https://images.pokemontcg.io/sm35/24.png",
         "large": "https://images.pokemontcg.io/sm35/24_hires.png"
       },
-      "pricing": {
-        "market": 0.15,
-        "low": 0.01,
-        "mid": 0.2,
-        "high": 10,
-        "lastUpdated": "2025-08-17T21:28:47.179Z",
-        "subType": "Holofoil",
-        "productId": 250302,
-        "groupName": "Celebrations",
-        "groupId": 2867
-      }
+      "pricing": null
     },
     {
       "id": "sm35-25",
@@ -12046,17 +9436,7 @@
         "small": "https://images.pokemontcg.io/sm35/25.png",
         "large": "https://images.pokemontcg.io/sm35/25_hires.png"
       },
-      "pricing": {
-        "market": 0.12,
-        "low": 0.01,
-        "mid": 0.17,
-        "high": 5,
-        "lastUpdated": "2025-08-17T21:28:50.579Z",
-        "subType": "Normal",
-        "productId": 232424,
-        "groupName": "Shining Fates",
-        "groupId": 2754
-      }
+      "pricing": null
     },
     {
       "id": "sm35-26",
@@ -12077,17 +9457,7 @@
         "small": "https://images.pokemontcg.io/sm35/26.png",
         "large": "https://images.pokemontcg.io/sm35/26_hires.png"
       },
-      "pricing": {
-        "market": 0.31,
-        "low": 0.1,
-        "mid": 0.29,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:43.785Z",
-        "subType": "Reverse Holofoil",
-        "productId": 272245,
-        "groupName": "SWSH10: Astral Radiance",
-        "groupId": 3040
-      }
+      "pricing": null
     },
     {
       "id": "sm35-27",
@@ -12129,17 +9499,7 @@
         "small": "https://images.pokemontcg.io/sm35/28.png",
         "large": "https://images.pokemontcg.io/sm35/28_hires.png"
       },
-      "pricing": {
-        "market": 0.4,
-        "low": 0.1,
-        "mid": 0.39,
-        "high": 10,
-        "lastUpdated": "2025-08-17T21:28:48.309Z",
-        "subType": "Reverse Holofoil",
-        "productId": 246881,
-        "groupName": "SWSH07: Evolving Skies",
-        "groupId": 2848
-      }
+      "pricing": null
     },
     {
       "id": "sm35-29",
@@ -12181,17 +9541,7 @@
         "small": "https://images.pokemontcg.io/sm35/30.png",
         "large": "https://images.pokemontcg.io/sm35/30_hires.png"
       },
-      "pricing": {
-        "market": 0.1,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253243,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm35-31",
@@ -12212,17 +9562,7 @@
         "small": "https://images.pokemontcg.io/sm35/31.png",
         "large": "https://images.pokemontcg.io/sm35/31_hires.png"
       },
-      "pricing": {
-        "market": 0.11,
-        "low": 0.01,
-        "mid": 0.15,
-        "high": 5.02,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253244,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm35-32",
@@ -12264,17 +9604,7 @@
         "small": "https://images.pokemontcg.io/sm35/33.png",
         "large": "https://images.pokemontcg.io/sm35/33_hires.png"
       },
-      "pricing": {
-        "market": 0.12,
-        "low": 0.01,
-        "mid": 0.12,
-        "high": 19.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253245,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm35-34",
@@ -12295,17 +9625,7 @@
         "small": "https://images.pokemontcg.io/sm35/34.png",
         "large": "https://images.pokemontcg.io/sm35/34_hires.png"
       },
-      "pricing": {
-        "market": 0.14,
-        "low": 0.01,
-        "mid": 0.15,
-        "high": 19.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Normal",
-        "productId": 253246,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm35-35",
@@ -12326,17 +9646,7 @@
         "small": "https://images.pokemontcg.io/sm35/35.png",
         "large": "https://images.pokemontcg.io/sm35/35_hires.png"
       },
-      "pricing": {
-        "market": 20.07,
-        "low": 17.05,
-        "mid": 24.75,
-        "high": 1000,
-        "lastUpdated": "2025-08-17T21:28:47.728Z",
-        "subType": "Holofoil",
-        "productId": 250338,
-        "groupName": "Celebrations: Classic Collection",
-        "groupId": 2931
-      }
+      "pricing": null
     },
     {
       "id": "sm35-36",
@@ -12357,17 +9667,7 @@
         "small": "https://images.pokemontcg.io/sm35/36.png",
         "large": "https://images.pokemontcg.io/sm35/36_hires.png"
       },
-      "pricing": {
-        "market": 0.08,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:33.554Z",
-        "subType": "Normal",
-        "productId": 515955,
-        "groupName": "SV: Scarlet & Violet 151",
-        "groupId": 23237
-      }
+      "pricing": null
     },
     {
       "id": "sm35-37",
@@ -12409,17 +9709,7 @@
         "small": "https://images.pokemontcg.io/sm35/38.png",
         "large": "https://images.pokemontcg.io/sm35/38_hires.png"
       },
-      "pricing": {
-        "market": 0.19,
-        "low": 0.05,
-        "mid": 0.2,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Reverse Holofoil",
-        "productId": 253273,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm35-39",
@@ -12482,17 +9772,7 @@
         "small": "https://images.pokemontcg.io/sm35/41.png",
         "large": "https://images.pokemontcg.io/sm35/41_hires.png"
       },
-      "pricing": {
-        "market": 0.33,
-        "low": 0.09,
-        "mid": 0.32,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:46.620Z",
-        "subType": "Reverse Holofoil",
-        "productId": 253351,
-        "groupName": "SWSH08: Fusion Strike",
-        "groupId": 2906
-      }
+      "pricing": null
     },
     {
       "id": "sm35-42",
@@ -12534,17 +9814,7 @@
         "small": "https://images.pokemontcg.io/sm35/43.png",
         "large": "https://images.pokemontcg.io/sm35/43_hires.png"
       },
-      "pricing": {
-        "market": 0.07,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Normal",
-        "productId": 241726,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm35-44",
@@ -12565,17 +9835,7 @@
         "small": "https://images.pokemontcg.io/sm35/44.png",
         "large": "https://images.pokemontcg.io/sm35/44_hires.png"
       },
-      "pricing": {
-        "market": 0.17,
-        "low": 0.05,
-        "mid": 0.2,
-        "high": 5.05,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Reverse Holofoil",
-        "productId": 241727,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm35-45",
@@ -12596,17 +9856,7 @@
         "small": "https://images.pokemontcg.io/sm35/45.png",
         "large": "https://images.pokemontcg.io/sm35/45_hires.png"
       },
-      "pricing": {
-        "market": 0.26,
-        "low": 0.05,
-        "mid": 0.29,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.309Z",
-        "subType": "Reverse Holofoil",
-        "productId": 246866,
-        "groupName": "SWSH07: Evolving Skies",
-        "groupId": 2848
-      }
+      "pricing": null
     },
     {
       "id": "sm35-46",
@@ -12627,17 +9877,7 @@
         "small": "https://images.pokemontcg.io/sm35/46.png",
         "large": "https://images.pokemontcg.io/sm35/46_hires.png"
       },
-      "pricing": {
-        "market": 0.17,
-        "low": 0.03,
-        "mid": 0.18,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:39.856Z",
-        "subType": "Reverse Holofoil",
-        "productId": 451711,
-        "groupName": "SWSH12: Silver Tempest",
-        "groupId": 3170
-      }
+      "pricing": null
     },
     {
       "id": "sm35-47",
@@ -12658,17 +9898,7 @@
         "small": "https://images.pokemontcg.io/sm35/47.png",
         "large": "https://images.pokemontcg.io/sm35/47_hires.png"
       },
-      "pricing": {
-        "market": 0.19,
-        "low": 0.05,
-        "mid": 0.25,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:48.888Z",
-        "subType": "Reverse Holofoil",
-        "productId": 241777,
-        "groupName": "SWSH06: Chilling Reign",
-        "groupId": 2807
-      }
+      "pricing": null
     },
     {
       "id": "sm35-48",
@@ -12689,17 +9919,7 @@
         "small": "https://images.pokemontcg.io/sm35/48.png",
         "large": "https://images.pokemontcg.io/sm35/48_hires.png"
       },
-      "pricing": {
-        "market": 0.07,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 19.95,
-        "lastUpdated": "2025-08-17T21:28:45.483Z",
-        "subType": "Normal",
-        "productId": 263807,
-        "groupName": "SWSH09: Brilliant Stars",
-        "groupId": 2948
-      }
+      "pricing": null
     },
     {
       "id": "sm35-49",
@@ -12720,17 +9940,7 @@
         "small": "https://images.pokemontcg.io/sm35/49.png",
         "large": "https://images.pokemontcg.io/sm35/49_hires.png"
       },
-      "pricing": {
-        "market": 0.2,
-        "low": 0.09,
-        "mid": 0.25,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:45.483Z",
-        "subType": "Reverse Holofoil",
-        "productId": 263809,
-        "groupName": "SWSH09: Brilliant Stars",
-        "groupId": 2948
-      }
+      "pricing": null
     },
     {
       "id": "sm35-50",
@@ -12751,17 +9961,7 @@
         "small": "https://images.pokemontcg.io/sm35/50.png",
         "large": "https://images.pokemontcg.io/sm35/50_hires.png"
       },
-      "pricing": {
-        "market": 0.08,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 19.95,
-        "lastUpdated": "2025-08-17T21:28:48.309Z",
-        "subType": "Normal",
-        "productId": 246896,
-        "groupName": "SWSH07: Evolving Skies",
-        "groupId": 2848
-      }
+      "pricing": null
     },
     {
       "id": "sm35-51",
@@ -12782,17 +9982,7 @@
         "small": "https://images.pokemontcg.io/sm35/51.png",
         "large": "https://images.pokemontcg.io/sm35/51_hires.png"
       },
-      "pricing": {
-        "market": 0.06,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 5.01,
-        "lastUpdated": "2025-08-17T21:28:48.309Z",
-        "subType": "Normal",
-        "productId": 246905,
-        "groupName": "SWSH07: Evolving Skies",
-        "groupId": 2848
-      }
+      "pricing": null
     },
     {
       "id": "sm35-52",
@@ -12813,17 +10003,7 @@
         "small": "https://images.pokemontcg.io/sm35/52.png",
         "large": "https://images.pokemontcg.io/sm35/52_hires.png"
       },
-      "pricing": {
-        "market": 0.09,
-        "low": 0.01,
-        "mid": 0.1,
-        "high": 19.95,
-        "lastUpdated": "2025-08-17T21:28:48.309Z",
-        "subType": "Normal",
-        "productId": 246899,
-        "groupName": "SWSH07: Evolving Skies",
-        "groupId": 2848
-      }
+      "pricing": null
     },
     {
       "id": "sm35-53",
@@ -12865,17 +10045,7 @@
         "small": "https://images.pokemontcg.io/sm35/54.png",
         "large": "https://images.pokemontcg.io/sm35/54_hires.png"
       },
-      "pricing": {
-        "market": 1.05,
-        "low": 0.5,
-        "mid": 1.24,
-        "high": 89,
-        "lastUpdated": "2025-08-17T21:28:50.579Z",
-        "subType": "Holofoil",
-        "productId": 232519,
-        "groupName": "Shining Fates",
-        "groupId": 2754
-      }
+      "pricing": null
     },
     {
       "id": "sm35-55",
@@ -12896,17 +10066,7 @@
         "small": "https://images.pokemontcg.io/sm35/55.png",
         "large": "https://images.pokemontcg.io/sm35/55_hires.png"
       },
-      "pricing": {
-        "market": 0.14,
-        "low": 0.04,
-        "mid": 0.15,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:40.987Z",
-        "subType": "Normal",
-        "productId": 284030,
-        "groupName": "SWSH11: Lost Origin",
-        "groupId": 3118
-      }
+      "pricing": null
     },
     {
       "id": "sm35-56",
@@ -12986,17 +10146,7 @@
         "small": "https://images.pokemontcg.io/sm35/59.png",
         "large": "https://images.pokemontcg.io/sm35/59_hires.png"
       },
-      "pricing": {
-        "market": 0.13,
-        "low": 0.01,
-        "mid": 0.15,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:38.127Z",
-        "subType": "Normal",
-        "productId": 478174,
-        "groupName": "Crown Zenith",
-        "groupId": 17688
-      }
+      "pricing": null
     },
     {
       "id": "sm35-60",
@@ -13015,17 +10165,7 @@
         "small": "https://images.pokemontcg.io/sm35/60.png",
         "large": "https://images.pokemontcg.io/sm35/60_hires.png"
       },
-      "pricing": {
-        "market": 1.86,
-        "low": 1.48,
-        "mid": 1.87,
-        "high": 3.16,
-        "lastUpdated": "2025-08-17T21:28:39.275Z",
-        "subType": "Normal",
-        "productId": 476118,
-        "groupName": "Prize Pack Series Cards",
-        "groupId": 22880
-      }
+      "pricing": null
     },
     {
       "id": "sm35-61",
@@ -13139,17 +10279,7 @@
         "small": "https://images.pokemontcg.io/sm35/66.png",
         "large": "https://images.pokemontcg.io/sm35/66_hires.png"
       },
-      "pricing": {
-        "market": 0.27,
-        "low": 0.19,
-        "mid": 0.32,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:31.841Z",
-        "subType": "Holofoil",
-        "productId": 528028,
-        "groupName": "Trading Card Game Classic",
-        "groupId": 23323
-      }
+      "pricing": null
     },
     {
       "id": "sm35-67",
@@ -13168,17 +10298,7 @@
         "small": "https://images.pokemontcg.io/sm35/67.png",
         "large": "https://images.pokemontcg.io/sm35/67_hires.png"
       },
-      "pricing": {
-        "market": 0.08,
-        "low": 0.01,
-        "mid": 0.12,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:38.127Z",
-        "subType": "Normal",
-        "productId": 478203,
-        "groupName": "Crown Zenith",
-        "groupId": 17688
-      }
+      "pricing": null
     },
     {
       "id": "sm35-68",
@@ -13197,17 +10317,7 @@
         "small": "https://images.pokemontcg.io/sm35/68.png",
         "large": "https://images.pokemontcg.io/sm35/68_hires.png"
       },
-      "pricing": {
-        "market": 0.31,
-        "low": 0.1,
-        "mid": 0.33,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:45.483Z",
-        "subType": "Reverse Holofoil",
-        "productId": 263870,
-        "groupName": "SWSH09: Brilliant Stars",
-        "groupId": 2948
-      }
+      "pricing": null
     },
     {
       "id": "sm35-68a",
@@ -13226,20 +10336,10 @@
         "small": "https://images.pokemontcg.io/sm35/68a.png",
         "large": "https://images.pokemontcg.io/sm35/68a_hires.png"
       },
-      "pricing": {
-        "market": 0.31,
-        "low": 0.1,
-        "mid": 0.33,
-        "high": 4.95,
-        "lastUpdated": "2025-08-17T21:28:45.483Z",
-        "subType": "Reverse Holofoil",
-        "productId": 263870,
-        "groupName": "SWSH09: Brilliant Stars",
-        "groupId": 2948
-      }
+      "pricing": null
     }
   ],
   "chunk": 20,
   "totalChunks": 39,
-  "lastUpdated": "2025-08-17T21:28:52.295Z"
+  "lastUpdated": "2025-08-18T15:44:47.425Z"
 }
