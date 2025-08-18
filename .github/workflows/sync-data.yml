@@ -23,16 +23,10 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '18'
-        cache: 'npm'
         
-    - name: Install dependencies
-      run: |
-        if [ -f package.json ]; then
-          npm ci
-        else
-          npm install node-fetch@3
-        fi
-        
+    - name: Install minimal dependencies
+      run: npm install node-fetch@3
+      
     - name: Create data directory
       run: mkdir -p data
       
@@ -41,6 +35,7 @@ jobs:
         if [ -f pricing-raw.csv ]; then
           echo "✅ Pricing CSV found"
           ls -la pricing-raw.csv
+          head -3 pricing-raw.csv || echo "Could not preview CSV"
         else
           echo "⚠️ No pricing CSV found - will skip pricing step"
           echo "Upload your pricing-raw.csv file to enable pricing integration"
@@ -56,24 +51,30 @@ jobs:
           node scripts/fetch-pricing.js
         else
           echo "Skipping pricing processing - no CSV file"
-          # Create empty pricing file
+          # Create empty pricing file so merge doesn't fail
+          mkdir -p data
           echo '{"source":"none","lastUpdated":"'$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")'","pricing":{}}' > data/pricing-raw.json
         fi
         
     - name: Merge data
       run: node scripts/merge-data.js
       
+    - name: List generated files
+      run: |
+        echo "📁 Generated data files:"
+        ls -la data/ || echo "No data directory found"
+        
     - name: Upload to Shopify (if configured)
       env:
         SHOPIFY_STORE: ${{ secrets.SHOPIFY_STORE }}
         SHOPIFY_ACCESS_TOKEN: ${{ secrets.SHOPIFY_ACCESS_TOKEN }}
       run: |
         if [ -n "$SHOPIFY_STORE" ] && [ -n "$SHOPIFY_ACCESS_TOKEN" ]; then
-          echo "Uploading to Shopify..."
+          echo "🚀 Uploading to Shopify..."
           node scripts/upload-shopify.js
         else
-          echo "Skipping Shopify upload - no credentials configured"
-          echo "Set SHOPIFY_STORE and SHOPIFY_ACCESS_TOKEN secrets to enable Shopify upload"
+          echo "⚠️ Skipping Shopify upload - no credentials configured"
+          echo "💡 Set SHOPIFY_STORE and SHOPIFY_ACCESS_TOKEN secrets to enable Shopify upload"
         fi
         
     - name: Commit and push data files
@@ -86,25 +87,19 @@ jobs:
         
         # Check if there are changes to commit
         if git diff --staged --quiet; then
-          echo "No changes to commit"
+          echo "📝 No changes to commit"
         else
-          git commit -m "Update Pokemon TCG data - $(date -u +"%Y-%m-%d %H:%M UTC")"
+          echo "📝 Committing new data..."
+          git commit -m "🔄 Update Pokemon TCG data - $(date -u +"%Y-%m-%d %H:%M UTC")"
           git push
+          echo "✅ Data pushed to repository"
         fi
-        
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v4
-      if: always()
-      with:
-        name: pokemon-tcg-data
-        path: |
-          data/
-          !data/raw-*
-        retention-days: 30
         
     - name: Generate summary
       run: |
-        echo "## 🎯 Sync Summary" >> $GITHUB_STEP_SUMMARY
+        echo "## 🎯 Pokemon TCG Sync Summary" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**Sync completed at:** $(date -u)" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
         
         if [ -f data/summary.json ]; then
@@ -116,11 +111,25 @@ jobs:
         
         echo "" >> $GITHUB_STEP_SUMMARY
         echo "### 📁 Generated Files" >> $GITHUB_STEP_SUMMARY
-        echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
-        ls -la data/ || echo "No data directory found"
-        echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+        if [ -d data ]; then
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          ls -la data/ >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "❌ No data directory found" >> $GITHUB_STEP_SUMMARY
+        fi
         
         echo "" >> $GITHUB_STEP_SUMMARY
-        echo "### 🔗 Access URLs" >> $GITHUB_STEP_SUMMARY
-        echo "- Index: \`https://raw.githubusercontent.com/${{ github.repository }}/main/data/tcg-cards-index.json\`" >> $GITHUB_STEP_SUMMARY
-        echo "- Chunks: \`https://raw.githubusercontent.com/${{ github.repository }}/main/data/tcg-cards-chunk-[1-60].json\`" >> $GITHUB_STEP_SUMMARY
+        echo "### 🔗 Access Your Data" >> $GITHUB_STEP_SUMMARY
+        echo "Your buylist can now access data from these URLs:" >> $GITHUB_STEP_SUMMARY
+        echo "- **Index:** \`https://raw.githubusercontent.com/${{ github.repository }}/main/data/tcg-cards-index.json\`" >> $GITHUB_STEP_SUMMARY
+        echo "- **Chunks:** \`https://raw.githubusercontent.com/${{ github.repository }}/main/data/tcg-cards-chunk-[1-60].json\`" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 🛠️ Next Steps" >> $GITHUB_STEP_SUMMARY
+        if [ ! -f pricing-raw.csv ]; then
+          echo "- 📄 **Upload pricing-raw.csv** to enable pricing integration" >> $GITHUB_STEP_SUMMARY
+        fi
+        if [ -z "$SHOPIFY_STORE" ] || [ -z "$SHOPIFY_ACCESS_TOKEN" ]; then
+          echo "- 🏪 **Configure Shopify secrets** (SHOPIFY_STORE, SHOPIFY_ACCESS_TOKEN) for automatic uploads" >> $GITHUB_STEP_SUMMARY
+        fi
+        echo "- 🎯 **Update your buylist URLs** to point to this repository's data files" >> $GITHUB_STEP_SUMMARY
