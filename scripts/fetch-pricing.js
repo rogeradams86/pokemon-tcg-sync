@@ -1,4 +1,4 @@
-// fetch-pricing.js - FIXED VERSION
+// fetch-pricing.js - COMPLETE FIXED VERSION
 // No external dependencies - uses only built-in Node.js modules
 // Maps TCGCSV -> pricing map using a deterministic key:
 //   key = `${groupId}|${extNumber}|${printing}|EN`
