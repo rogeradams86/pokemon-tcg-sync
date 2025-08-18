@@ -1,3 +1,4 @@
+// upload-shopify.js - COMPLETE VERSION
 import fs from 'fs';
 import fetch from 'node-fetch';
 
