@@ -1,200 +1,240 @@
-// debug-pricing.js - COMPLETE VERSION
-// Analyze why pricing isn't matching
-// Run this script to understand pricing data structure and mismatches
-
+// enhanced-debug.js - Find exactly why pricing keys don't match
 import fs from 'node:fs';
 
-function loadJson(path) {
-  if (!fs.existsSync(path)) {
-    console.log(`❌ File not found: ${path}`);
-    return null;
+function parseCSVLine(line, headers) {
+  const result = {};
+  const fields = [];
+  let current = '';
+  let inQuotes = false;
+  let i = 0;
+  
+  while (i < line.length) {
+    const char = line[i];
+    
+    if (char === '"') {
+      if (inQuotes && line[i + 1] === '"') {
+        current += '"';
+        i += 2;
+      } else {
+        inQuotes = !inQuotes;
+        i++;
+      }
+    } else if (char === ',' && !inQuotes) {
+      fields.push(current.trim());
+      current = '';
+      i++;
+    } else {
+      current += char;
+      i++;
+    }
   }
-  return JSON.parse(fs.readFileSync(path, 'utf8'));
+  
+  fields.push(current.trim());
+  
+  headers.forEach((header, index) => {
+    result[header] = fields[index] || '';
+  });
+  
+  return result;
 }
 
-function analyzeCSVHeaders() {
-  const csvPath = 'pricing-raw.csv';
-  if (!fs.existsSync(csvPath)) {
-    console.log('❌ pricing-raw.csv not found');
+function analyzeCSVData() {
+  console.log('=== ANALYZING YOUR CSV DATA ===\n');
+  
+  if (!fs.existsSync('pricing-raw.csv')) {
+    console.log('❌ pricing-raw.csv not found!');
     return null;
   }
   
-  const csvContent = fs.readFileSync(csvPath, 'utf8');
-  const lines = csvContent.split('\n');
-  const headers = lines[0].split(',').map(h => h.trim().replace(/"/g, ''));
+  const csvContent = fs.readFileSync('pricing-raw.csv', 'utf8');
+  const lines = csvContent.split('\n').filter(line => line.trim());
   
+  if (lines.length === 0) {
+    console.log('❌ CSV file is empty!');
+    return null;
+  }
+  
+  // Parse headers
+  const headers = parseCSVLine(lines[0], []).map(h => h.trim().replace(/"/g, ''));
   console.log('📋 CSV Headers:', headers);
   
-  // Show sample data
-  if (lines.length > 1) {
-    console.log('📄 Sample CSV row:');
-    const sampleData = lines[1].split(',').map(d => d.trim().replace(/"/g, ''));
-    headers.forEach((header, i) => {
-      console.log(`  ${header}: ${sampleData[i] || 'empty'}`);
-    });
+  // Check for required columns
+  const requiredColumns = ['groupId', 'extNumber', 'marketPrice'];
+  const missingColumns = requiredColumns.filter(col => !headers.includes(col));
+  
+  if (missingColumns.length > 0) {
+    console.log(`❌ Missing required columns: ${missingColumns.join(', ')}`);
+    console.log('💡 Your CSV needs these columns: groupId, extNumber, marketPrice');
+    return null;
   }
   
-  return { headers, sampleRow: lines[1] };
-}
-
-function analyzePricingData() {
-  console.log('=== PRICING DATA ANALYSIS ===\n');
+  console.log('✅ All required columns found');
   
-  // 1. Check raw CSV structure
-  console.log('1. 📊 Analyzing raw CSV structure...');
-  const csvInfo = analyzeCSVHeaders();
-  
-  // 2. Check processed pricing data
-  console.log('\n2. 💾 Analyzing processed pricing data...');
-  const pricingData = loadJson('data/pricing-raw.json');
-  
-  if (!pricingData) {
-    console.log('❌ No processed pricing data found. Run: node scripts/fetch-pricing.js');
-    return;
+  // Parse sample rows
+  const sampleRows = [];
+  for (let i = 1; i <= Math.min(10, lines.length - 1); i++) {
+    const row = parseCSVLine(lines[i], headers);
+    sampleRows.push(row);
   }
   
-  const pricingMap = pricingData.pricing || {};
-  const keys = Object.keys(pricingMap);
-  
-  console.log(`📈 Pricing entries: ${keys.length}`);
-  console.log(`📅 Last updated: ${pricingData.lastUpdated}`);
-  console.log(`🔗 Source: ${pricingData.source}`);
-  
-  // Show sample pricing keys and their structure
-  console.log('\n📋 Sample pricing keys:');
-  keys.slice(0, 10).forEach(key => {
-    const data = pricingMap[key];
-    console.log(`  ${key}`);
-    console.log(`    → ${data.name} | Market: £${data.market} | Low: £${data.low}`);
+  console.log('\n📄 Sample CSV data:');
+  sampleRows.forEach((row, i) => {
+    console.log(`Row ${i + 1}:`);
+    console.log(`  groupId: "${row.groupId}"`);
+    console.log(`  extNumber: "${row.extNumber}"`);
+    console.log(`  marketPrice: "${row.marketPrice}"`);
+    console.log(`  name: "${row.name || 'N/A'}"`);
+    
+    // Generate the key that would be created
+    const key = `${String(row.groupId || '').toLowerCase()}|${String(row.extNumber || '').toUpperCase()}|normal|EN`;
+    console.log(`  Generated key: "${key}"`);
+    console.log('');
   });
   
-  // Analyze key patterns
-  console.log('\n🔍 Key pattern analysis:');
-  const keyParts = keys.slice(0, 100).map(key => {
-    const parts = key.split('|');
-    return {
-      groupId: parts[0] || '',
-      extNumber: parts[1] || '',
-      printing: parts[2] || '',
-      lang: parts[3] || ''
-    };
-  });
-  
-  const uniqueGroupIds = [...new Set(keyParts.map(k => k.groupId))];
-  const uniquePrintings = [...new Set(keyParts.map(k => k.printing))];
-  
-  console.log(`  Group IDs found: ${uniqueGroupIds.slice(0, 10).join(', ')}${uniqueGroupIds.length > 10 ? '...' : ''}`);
-  console.log(`  Printings found: ${uniquePrintings.join(', ')}`);
-  console.log(`  Number format samples: ${keyParts.slice(0, 5).map(k => k.extNumber).join(', ')}`);
+  return { headers, sampleRows };
 }
 
 function analyzeCardData() {
-  console.log('\n=== CARD DATA ANALYSIS ===\n');
+  console.log('=== ANALYZING POKEMON CARD DATA ===\n');
   
-  const cardData = loadJson('data/raw-cards.json');
-  if (!cardData) {
-    console.log('❌ No card data found. Run: node scripts/fetch-cards.js');
-    return;
+  if (!fs.existsSync('data/raw-cards.json')) {
+    console.log('❌ data/raw-cards.json not found!');
+    console.log('💡 Run: node scripts/fetch-cards.js first');
+    return null;
   }
   
+  const cardData = JSON.parse(fs.readFileSync('data/raw-cards.json', 'utf8'));
   const cards = cardData.cards || [];
   const sets = cardData.sets || [];
   
   console.log(`📦 Total sets: ${sets.length}`);
   console.log(`🃏 Total cards: ${cards.length}`);
   
-  // Analyze set ID patterns
-  console.log('\n📦 Set ID patterns:');
+  // Show sample set IDs
+  console.log('\n📦 Sample set IDs from Pokemon data:');
   sets.slice(0, 10).forEach(set => {
-    console.log(`  ${set.id} → ${set.name} (${set.series || 'Unknown series'})`);
+    console.log(`  "${set.id}" → ${set.name}`);
   });
   
-  // Analyze card number patterns
-  console.log('\n🔢 Card number patterns:');
-  const numberSamples = cards.slice(0, 20).map(card => ({
-    name: card.name,
-    number: card.number,
-    setId: card.set?.id || 'unknown',
-    cardId: card.id
-  }));
-  
-  numberSamples.forEach(sample => {
-    console.log(`  ${sample.name}: #${sample.number} (set: ${sample.setId}, id: ${sample.cardId})`);
+  // Show sample cards and what keys they would generate
+  console.log('\n🃏 Sample cards and their potential keys:');
+  cards.slice(0, 10).forEach(card => {
+    const setId = (card.set?.id || '').toLowerCase();
+    const cardNum = String(card.number || '').toUpperCase();
+    const key = `${setId}|${cardNum}|normal|EN`;
+    
+    console.log(`  ${card.name}`);
+    console.log(`    Set: "${card.set?.id}" (${card.set?.name})`);
+    console.log(`    Number: "${card.number}"`);
+    console.log(`    Generated key: "${key}"`);
+    console.log('');
   });
+  
+  return { cards, sets };
 }
 
-function analyzeMatching() {
-  console.log('\n=== MATCHING ANALYSIS ===\n');
+function compareKeyFormats(csvData, cardData) {
+  console.log('=== COMPARING KEY FORMATS ===\n');
   
-  const pricingData = loadJson('data/pricing-raw.json');
-  const cardData = loadJson('data/raw-cards.json');
-  
-  if (!pricingData || !cardData) {
-    console.log('❌ Missing data files for matching analysis');
+  if (!csvData || !cardData) {
+    console.log('❌ Missing data for comparison');
     return;
   }
   
-  const pricingMap = pricingData.pricing || {};
-  const cards = cardData.cards || [];
+  // Get unique groupIds from CSV
+  const csvGroupIds = [...new Set(csvData.sampleRows.map(row => row.groupId))];
+  console.log('📋 GroupIds in your CSV:', csvGroupIds);
   
-  console.log('🎯 Testing key matching for sample cards...\n');
+  // Get unique set IDs from Pokemon data
+  const pokemonSetIds = [...new Set(cardData.sets.map(set => set.id))];
+  console.log('🃏 Set IDs in Pokemon data:', pokemonSetIds.slice(0, 20));
   
-  // Test first 10 cards
-  cards.slice(0, 10).forEach(card => {
-    console.log(`🃏 Testing: ${card.name}`);
-    console.log(`   Set: ${card.set?.name} (${card.set?.id})`);
-    console.log(`   Number: ${card.number}`);
-    console.log(`   Card ID: ${card.id}`);
+  // Check for matches
+  const matches = csvGroupIds.filter(csvId => 
+    pokemonSetIds.some(pokeId => 
+      pokeId.toLowerCase() === csvId.toLowerCase()
+    )
+  );
+  
+  console.log(`\n🎯 Matching set IDs: ${matches.length}/${csvGroupIds.length}`);
+  if (matches.length > 0) {
+    console.log('✅ Found matches:', matches);
+  } else {
+    console.log('❌ NO MATCHES FOUND!');
+    console.log('\n💡 This is why pricing is failing!');
+    console.log('🔧 Your CSV groupId values need to match Pokemon set IDs');
+  }
+  
+  // Check number formats
+  console.log('\n🔢 Number format comparison:');
+  const csvNumbers = csvData.sampleRows.map(row => row.extNumber).slice(0, 5);
+  const pokeNumbers = cardData.cards.map(card => card.number).slice(0, 5);
+  
+  console.log('📋 CSV extNumbers:', csvNumbers);
+  console.log('🃏 Pokemon card numbers:', pokeNumbers);
+}
+
+function suggestFixes(csvData, cardData) {
+  console.log('\n=== SUGGESTED FIXES ===\n');
+  
+  if (!csvData || !cardData) return;
+  
+  const csvGroupIds = [...new Set(csvData.sampleRows.map(row => row.groupId))];
+  const pokemonSetIds = [...new Set(cardData.sets.map(set => set.id))];
+  
+  console.log('🔧 To fix your pricing integration:');
+  console.log('');
+  
+  console.log('1. 📋 Update your CSV groupId column:');
+  csvGroupIds.slice(0, 5).forEach(csvId => {
+    // Try to find similar Pokemon set IDs
+    const similar = pokemonSetIds.filter(pokeId => 
+      pokeId.toLowerCase().includes(csvId.toLowerCase()) ||
+      csvId.toLowerCase().includes(pokeId.toLowerCase())
+    );
     
-    // Generate possible keys
-    const setId = (card.set?.id || '').toLowerCase();
-    const cardNum = String(card.number || '').toUpperCase();
-    const keys = [
-      `${setId}|${cardNum}|normal|EN`,
-      `${setId}|${cardNum}|holo|EN`,
-      `${setId}|${cardNum}|reverse|EN`,
-      `${setId}|${cardNum.replace(/^0+/, '')}|normal|EN`, // Remove leading zeros
-      `${setId}|${cardNum.padStart(3, '0')}|normal|EN`   // Ensure 3 digits
-    ];
-    
-    console.log(`   Trying keys:`);
-    keys.forEach(key => {
-      const match = pricingMap[key];
-      console.log(`     ${key} → ${match ? `✅ ${match.name} (£${match.market})` : '❌ No match'}`);
-    });
-    
-    console.log('');
+    if (similar.length > 0) {
+      console.log(`   "${csvId}" → should be "${similar[0]}" (found similar: ${similar.join(', ')})`);
+    } else {
+      console.log(`   "${csvId}" → no similar Pokemon set found`);
+    }
   });
+  
+  console.log('\n2. 🎯 Common Pokemon set ID patterns:');
+  console.log('   Base sets: base1, base2, base3, base4, base5');
+  console.log('   XY series: xy1, xy2, xy3, xy4, xy5, xy6, xy7, xy8, xy9, xy10, xy11, xy12');
+  console.log('   Sun & Moon: sm1, sm2, sm3, sm4, sm5, sm6, sm7, sm8, sm9, sm10, sm11, sm12');
+  console.log('   Sword & Shield: swsh1, swsh2, swsh3, swsh4, swsh5, swsh6, swsh7, swsh8, swsh9, swsh10, swsh11, swsh12');
+  console.log('   Scarlet & Violet: sv1, sv2, sv3, sv4, sv5, sv6, sv7, sv8');
+  
+  console.log('\n3. ✏️ Update your CSV file:');
+  console.log('   - Change groupId values to match Pokemon set IDs exactly');
+  console.log('   - Make sure extNumber matches card numbers (with or without leading zeros)');
+  console.log('   - Re-run the pricing pipeline');
+  
+  console.log('\n4. 🚀 After fixing your CSV:');
+  console.log('   node scripts/fetch-pricing.js');
+  console.log('   node scripts/merge-data.js');
+  console.log('   node enhanced-debug.js  # to verify fixes');
 }
 
 function main() {
-  console.log('🔍 POKEMON TCG PRICING DEBUG TOOL\n');
-  console.log('This tool helps diagnose pricing data matching issues.\n');
+  console.log('🔍 ENHANCED POKEMON TCG PRICING DEBUG\n');
+  console.log('This will find exactly why your pricing isn\'t matching.\n');
   
   try {
-    // Analyze all components
-    analyzeCSVHeaders();
-    analyzePricingData();
-    analyzeCardData();
-    analyzeMatching();
+    const csvData = analyzeCSVData();
+    const cardData = analyzeCardData();
     
-    console.log('\n=== RECOMMENDATIONS ===\n');
-    console.log('1. 📋 Check that your CSV has these key columns:');
-    console.log('   - groupId (should match Pokemon set IDs like "base5", "xy1")');
-    console.log('   - extNumber (should match card numbers like "025", "25")');
-    console.log('   - marketPrice (the price data)');
-    console.log('   - subTypeName or extRarity (for print type detection)');
+    if (csvData && cardData) {
+      compareKeyFormats(csvData, cardData);
+      suggestFixes(csvData, cardData);
+    }
     
-    console.log('\n2. 🔧 Common fixes:');
-    console.log('   - Make sure groupId in CSV matches set.id in card data');
-    console.log('   - Check if card numbers need leading zeros or vice versa');
-    console.log('   - Verify printing/rarity terms match between datasets');
-    
-    console.log('\n3. 🚀 Next steps:');
-    console.log('   - Update your CSV if needed');
-    console.log('   - Re-run: node scripts/fetch-pricing.js');
-    console.log('   - Re-run: node scripts/merge-data.js');
-    console.log('   - Check improved pricing coverage');
+    console.log('\n=== SUMMARY ===');
+    console.log('The main issue is likely that your CSV groupId values');
+    console.log('don\'t match the Pokemon TCG set IDs exactly.');
+    console.log('Update your CSV file and re-run the pricing pipeline!');
     
   } catch (error) {
     console.error('❌ Debug error:', error.message);
