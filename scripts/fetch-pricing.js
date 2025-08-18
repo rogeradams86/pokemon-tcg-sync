@@ -1,25 +1,17 @@
-// fetch-pricing (2).js — FULL FILE
+// fetch-pricing.js - FIXED VERSION
+// No external dependencies - uses only built-in Node.js modules
 // Maps TCGCSV -> pricing map using a deterministic key:
 //   key = `${groupId}|${extNumber}|${printing}|EN`
-// printing is normalized from subTypeName/extRarity (reverse/holo/normal)
-//
-// CSV HEADERS (as provided):
-// productId,name,cleanName,imageUrl,categoryId,groupId,url,modifiedOn,imageCount,extNumber,
-// extRarity,extCardType,extHP,extStage,extCardText,extAttack1,extWeakness,extRetreatCost,
-// lowPrice,midPrice,highPrice,marketPrice,directLowPrice,subTypeName,extAttack2,extResistance
 
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { createRequire } from 'node:module';
-const require = createRequire(import.meta.url);
-const csv = require('csv-parser');
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const INPUT_FILE = path.join(__dirname, 'pricing-raw.csv');
-const OUTPUT_FILE = path.join(__dirname, 'pricing-raw.json');
+const OUTPUT_FILE = path.join(__dirname, 'data', 'pricing-raw.json');
 
 const DEFAULT_LANG = 'EN';
 
@@ -37,6 +29,68 @@ function derivePrinting(row) {
 
 function buildPricingKey({ groupId, extNumber, printing, lang }) {
   return `${String(groupId||'').toLowerCase()}|${String(extNumber||'').toUpperCase()}|${String(printing||'normal').toLowerCase()}|${String(lang||DEFAULT_LANG).toUpperCase()}`;
+}
+
+function parseCSVLine(line, headers) {
+  // Simple CSV parser - handles quoted fields and commas
+  const result = {};
+  const fields = [];
+  let current = '';
+  let inQuotes = false;
+  let i = 0;
+  
+  while (i < line.length) {
+    const char = line[i];
+    
+    if (char === '"') {
+      if (inQuotes && line[i + 1] === '"') {
+        // Escaped quote
+        current += '"';
+        i += 2;
+      } else {
+        // Toggle quote state
+        inQuotes = !inQuotes;
+        i++;
+      }
+    } else if (char === ',' && !inQuotes) {
+      // Field separator
+      fields.push(current.trim());
+      current = '';
+      i++;
+    } else {
+      current += char;
+      i++;
+    }
+  }
+  
+  // Add the last field
+  fields.push(current.trim());
+  
+  // Map fields to headers
+  headers.forEach((header, index) => {
+    result[header] = fields[index] || '';
+  });
+  
+  return result;
+}
+
+function parseCSV(csvContent) {
+  const lines = csvContent.split('\n').filter(line => line.trim());
+  if (lines.length === 0) return [];
+  
+  // First line is headers
+  const headers = parseCSVLine(lines[0], []).map(h => h.trim());
+  const rows = [];
+  
+  // Parse remaining lines
+  for (let i = 1; i < lines.length; i++) {
+    if (lines[i].trim()) {
+      const row = parseCSVLine(lines[i], headers);
+      rows.push(row);
+    }
+  }
+  
+  return rows;
 }
 
 function mapCsvRow(row) {
@@ -72,45 +126,76 @@ function mapCsvRow(row) {
 }
 
 function fetchPricingFromCsv() {
-  return new Promise((resolve, reject) => {
-    if (!fs.existsSync(INPUT_FILE)) {
-      return reject(new Error(`CSV not found at ${INPUT_FILE}`));
+  console.log('🔥 Fetching pricing from CSV...');
+  
+  if (!fs.existsSync(INPUT_FILE)) {
+    throw new Error(`CSV not found at ${INPUT_FILE}`);
+  }
+
+  // Create data directory if it doesn't exist
+  const dataDir = path.dirname(OUTPUT_FILE);
+  if (!fs.existsSync(dataDir)) {
+    fs.mkdirSync(dataDir, { recursive: true });
+  }
+
+  // Read and parse CSV
+  const csvContent = fs.readFileSync(INPUT_FILE, 'utf8');
+  const parsed = parseCSV(csvContent);
+  
+  console.log(`📥 Parsed ${parsed.length} pricing rows from ${path.basename(INPUT_FILE)}`);
+
+  const pricingMap = {};
+  let processedCount = 0;
+  
+  for (const row of parsed) {
+    try {
+      const [key, obj] = mapCsvRow(row);
+      if (key && obj.groupId && obj.extNumber) {
+        pricingMap[key] = obj;
+        processedCount++;
+      }
+    } catch (error) {
+      console.warn(`Warning: Failed to process row for ${row.name || 'unknown'}: ${error.message}`);
     }
+  }
 
-    const parsed = [];
-    fs.createReadStream(INPUT_FILE)
-      .pipe(csv())
-      .on('data', (row) => parsed.push(row))
-      .on('end', () => {
-        console.log(`📥 Parsed ${parsed.length} pricing rows from ${path.basename(INPUT_FILE)}`);
+  const out = {
+    source: 'TCGCSV',
+    lastUpdated: new Date().toISOString(),
+    totalRows: parsed.length,
+    processedRows: processedCount,
+    pricing: pricingMap
+  };
 
-        const pricingMap = {};
-        for (const row of parsed) {
-          const [key, obj] = mapCsvRow(row);
-          if (key) pricingMap[key] = obj;
-        }
-
-        const out = {
-          source: 'TCGCSV',
-          lastUpdated: new Date().toISOString(),
-          pricing: pricingMap
-        };
-
-        fs.writeFileSync(OUTPUT_FILE, JSON.stringify(out, null, 2));
-        console.log(`💾 Saved pricing map with ${Object.keys(pricingMap).length} entries → ${OUTPUT_FILE}`);
-        resolve(out);
-      })
-      .on('error', (err) => reject(err));
-  });
+  fs.writeFileSync(OUTPUT_FILE, JSON.stringify(out, null, 2));
+  console.log(`💾 Saved pricing map with ${Object.keys(pricingMap).length} entries → ${OUTPUT_FILE}`);
+  
+  // Show some sample entries for debugging
+  const sampleEntries = Object.entries(pricingMap).slice(0, 5);
+  if (sampleEntries.length > 0) {
+    console.log('\n📋 Sample pricing entries:');
+    sampleEntries.forEach(([key, data]) => {
+      console.log(`  ${key} → ${data.name} (Market: $${data.market})`);
+    });
+  }
+  
+  return out;
 }
 
-(async () => {
-  try {
-    console.log('🔄 Fetching pricing from CSV...');
-    await fetchPricingFromCsv();
-    console.log('✅ Pricing fetch complete');
-  } catch (err) {
-    console.error('❌ Error fetching pricing:', err.message);
-    process.exit(1);
-  }
-})();
+// Main execution
+try {
+  console.log('🔄 Starting pricing fetch process...');
+  const result = fetchPricingFromCsv();
+  console.log(`✅ Pricing fetch complete - ${Object.keys(result.pricing).length} entries processed`);
+} catch (err) {
+  console.error('❌ Error fetching pricing:', err.message);
+  
+  // Provide helpful debugging info
+  console.log('\n🔍 Debugging info:');
+  console.log(`  Looking for CSV at: ${INPUT_FILE}`);
+  console.log(`  Output will be saved to: ${OUTPUT_FILE}`);
+  console.log(`  Current working directory: ${process.cwd()}`);
+  console.log(`  Files in current directory: ${fs.readdirSync('.').join(', ')}`);
+  
+  process.exit(1);
+}
