@@ -16,9 +16,17 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
 
       - name: Install deps
-        run: npm ci
+        run: |
+          if [ -f package-lock.json ]; then
+            echo "Using npm ci (lockfile found)"
+            npm ci
+          else
+            echo "No package-lock.json found; using npm install"
+            npm install --no-audit --no-fund
+          fi
         shell: bash
 
       - name: Fetch pricing
