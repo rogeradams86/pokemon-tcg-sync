@@ -1,7 +1,5 @@
-// merge-data (2).js — FULL FILE
-// Joins cards + pricing + sets. Pricing key matches fetch-pricing (2).js
-//   key = `${groupId}|${extNumber}|${printing}|EN`
-// We try the exact printing and fall back to normal if needed.
+// merge-data.js - COMPLETE FIXED VERSION with enhanced pricing key matching
+// Enhanced debugging and multiple matching strategies
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -32,6 +30,35 @@ function buildPricingKey({ groupId, extNumber, printing, lang }) {
   return `${String(groupId||'').toLowerCase()}|${String(extNumber||'').toUpperCase()}|${String(printing||'normal').toLowerCase()}|${String(lang||DEFAULT_LANG).toUpperCase()}`;
 }
 
+// ENHANCED: Multiple strategies for number matching
+function normalizeCardNumber(num) {
+  if (!num) return [''];
+  const str = String(num).toUpperCase();
+  
+  // Return multiple variations to try
+  return [
+    str,                    // Original: "025"
+    str.replace(/^0+/, ''), // Remove leading zeros: "25"
+    str.padStart(3, '0'),   // Ensure 3 digits: "025"
+    str.replace(/[^0-9A-Z]/g, '') // Remove special chars
+  ].filter(v => v); // Remove empty strings
+}
+
+// ENHANCED: Multiple strategies for set ID matching
+function normalizeSetId(setId) {
+  if (!setId) return [''];
+  const str = String(setId).toLowerCase();
+  
+  return [
+    str,                    // Original: "base5"
+    str.replace(/[^a-z0-9]/g, ''), // Remove special chars
+    str.replace('base', 'bs'),     // Common abbreviation
+    str.replace('bs', 'base'),     // Reverse abbreviation
+    str.replace(/(\d+)$/, ''),     // Remove trailing numbers: "base5" -> "base"
+    str + '1',              // Add 1 if missing: "base" -> "base1"
+  ].filter(v => v); // Remove empty strings
+}
+
 function loadJson(p) {
   return JSON.parse(fs.readFileSync(p, 'utf8'));
 }
@@ -39,7 +66,7 @@ function loadJson(p) {
 function hasKeys(obj) { return obj && typeof obj === 'object' && Object.keys(obj).length > 0; }
 
 function main() {
-  console.log('🔄 Merging card data with pricing...');
+  console.log('🔄 Merging card data with pricing (ENHANCED VERSION)...');
 
   const rawCardsPath = 'data/raw-cards.json';
   const pricingPath  = 'data/pricing-raw.json';
@@ -59,6 +86,13 @@ function main() {
   console.log(`💰 Pricing entries: ${Object.keys(pricingMap).length}`);
   console.log(`📦 Loaded ${allSets.length} sets`);
 
+  // DEBUGGING: Show sample pricing keys
+  console.log('\n🔍 Sample pricing keys from CSV:');
+  Object.keys(pricingMap).slice(0, 10).forEach(key => {
+    const data = pricingMap[key];
+    console.log(`  ${key} → ${data.name} (£${data.market})`);
+  });
+
   // Build set index by id (e.g., base5)
   const setIndex = new Map();
   for (const s of allSets) {
@@ -67,9 +101,16 @@ function main() {
 
   let cardsWithPricing = 0;
   let setsEnriched = 0;
+  let pricingAttempts = 0;
+  let successfulMatches = 0;
 
-  const enrichedCards = allCards.map((card) => {
-    // Ensure card.set is populated (prefer original; else enrich from sets by code)
+  const enrichedCards = allCards.map((card, index) => {
+    // Show progress for large datasets
+    if (index % 1000 === 0) {
+      console.log(`Processing card ${index + 1}/${allCards.length}...`);
+    }
+
+    // Ensure card.set is populated
     let finalSet = hasKeys(card.set) ? card.set : null;
     if (!finalSet) {
       const code = toSetCodeFromIdOrUrl(card.id, card.images?.small || card.images?.large);
@@ -78,23 +119,60 @@ function main() {
       else { finalSet = {}; }
     }
 
-    // Build pricing keys
-    const groupId = (finalSet?.id || toSetCodeFromIdOrUrl(card.id))?.toLowerCase() || '';
-    const extNumber = String(card.number || '').toUpperCase();
-
-    // If your card data carries a variant flag, prefer it; otherwise try to infer from name
-    const inferredFromName = normalizePrintingLike(card.name);
-    const printingTry = [ card.printing || card.variant || inferredFromName, 'normal' ];
+    // ENHANCED: Try multiple matching strategies
+    const setVariations = normalizeSetId(finalSet?.id || toSetCodeFromIdOrUrl(card.id));
+    const numberVariations = normalizeCardNumber(card.number);
+    const printingVariations = [ 
+      card.printing || card.variant || normalizePrintingLike(card.name), 
+      'normal', 
+      'holo', 
+      'reverse' 
+    ];
 
     let pricing = null;
-    for (const p of printingTry) {
-      const key = buildPricingKey({ groupId, extNumber, printing: p, lang: DEFAULT_LANG });
-      if (pricingMap[key]) { pricing = pricingMap[key]; break; }
+    let matchedKey = null;
+
+    // Try all combinations
+    outerLoop: for (const setId of setVariations) {
+      for (const cardNum of numberVariations) {
+        for (const printing of printingVariations) {
+          pricingAttempts++;
+          const key = buildPricingKey({ 
+            groupId: setId, 
+            extNumber: cardNum, 
+            printing: printing, 
+            lang: DEFAULT_LANG 
+          });
+          
+          if (pricingMap[key]) {
+            pricing = pricingMap[key];
+            matchedKey = key;
+            successfulMatches++;
+            break outerLoop;
+          }
+        }
+      }
     }
 
-    if (pricing) cardsWithPricing++;
+    if (pricing) {
+      cardsWithPricing++;
+      
+      // Debug successful matches for first few cards
+      if (cardsWithPricing <= 5) {
+        console.log(`✅ MATCH: ${card.name} matched with key: ${matchedKey}`);
+      }
+    } else {
+      // Debug failed matches for first few cards
+      if (index < 10) {
+        console.log(`❌ NO MATCH: ${card.name}`);
+        console.log(`   Tried set variations: ${setVariations.join(', ')}`);
+        console.log(`   Tried number variations: ${numberVariations.join(', ')}`);
+        console.log(`   Card set ID: ${finalSet?.id || 'none'}`);
+        console.log(`   Card number: ${card.number || 'none'}`);
+      }
+    }
 
-    // shape output
+    // Build output
     const out = {
       id: card.id,
       name: card.name,
@@ -115,15 +193,20 @@ function main() {
       pricing: pricing ? {
         ...pricing,
         groupName: pricing.groupName || finalSet?.name || '',
-        groupId: groupId
+        groupId: pricing.groupId,
+        matchedKey: matchedKey // For debugging
       } : null
     };
 
     return out;
   });
 
+  console.log(`\n🔍 PRICING MATCH ANALYSIS:`);
   console.log(`🧩 Set enrichment applied to ${setsEnriched} card(s)`);
+  console.log(`🎯 Total pricing attempts: ${pricingAttempts}`);
+  console.log(`✅ Successful matches: ${successfulMatches}`);
   console.log(`💷 Cards matched with pricing: ${cardsWithPricing}`);
+  console.log(`📈 Pricing coverage: ${((cardsWithPricing / Math.max(1, allCards.length)) * 100).toFixed(1)}%`);
 
   // Build search index
   console.log('🔍 Creating search index...');
@@ -137,10 +220,16 @@ function main() {
     totalCards: enrichedCards.length,
     totalSets: setMap.size,
     cardsWithPricing: cardsWithPricing,
-    approach: 'attach pricing via groupId|extNumber|printing|EN; fallback to normal',
+    pricingCoverage: ((cardsWithPricing / Math.max(1, enrichedCards.length)) * 100).toFixed(1) + '%',
+    approach: 'enhanced multi-strategy pricing key matching',
     lastUpdated: new Date().toISOString(),
     pricingSource: pricingData.source,
-    pricingUpdated: pricingData.lastUpdated
+    pricingUpdated: pricingData.lastUpdated,
+    pricingStats: {
+      totalAttempts: pricingAttempts,
+      successfulMatches: successfulMatches,
+      successRate: ((successfulMatches / Math.max(1, pricingAttempts)) * 100).toFixed(1) + '%'
+    }
   };
 
   // Chunk and save
@@ -154,7 +243,12 @@ function main() {
   console.log('💾 Saving optimized files...');
   fs.writeFileSync('data/tcg-cards-index.json', JSON.stringify(searchIndex, null, 2));
   chunks.forEach((chunk, idx) => {
-    const payload = { cards: chunk, chunk: idx + 1, totalChunks: chunks.length, lastUpdated: new Date().toISOString() };
+    const payload = { 
+      cards: chunk, 
+      chunk: idx + 1, 
+      totalChunks: chunks.length, 
+      lastUpdated: new Date().toISOString() 
+    };
     fs.writeFileSync(`data/tcg-cards-chunk-${idx + 1}.json`, JSON.stringify(payload, null, 2));
   });
 
@@ -163,17 +257,19 @@ function main() {
     totalSets: searchIndex.totalSets,
     totalChunks: chunks.length,
     cardsWithPricing,
-    pricingCoverage: `${((cardsWithPricing / Math.max(1, enrichedCards.length)) * 100).toFixed(1)}%`,
+    pricingCoverage: searchIndex.pricingCoverage,
+    pricingStats: searchIndex.pricingStats,
     lastUpdated: new Date().toISOString()
   };
   fs.writeFileSync('data/summary.json', JSON.stringify(summary, null, 2));
 
-  console.log('📈 Summary:');
+  console.log('\n📈 FINAL SUMMARY:');
   console.log(`   Total cards: ${summary.totalCards}`);
   console.log(`   Total sets: ${summary.totalSets}`);
   console.log(`   Data chunks: ${summary.totalChunks}`);
   console.log(`   Cards with pricing: ${summary.cardsWithPricing} (${summary.pricingCoverage})`);
-  console.log('✅ Data merge completed successfully!');
+  console.log(`   Pricing success rate: ${summary.pricingStats.successRate}`);
+  console.log('✅ Enhanced data merge completed successfully!');
 }
 
 try { main(); } catch (err) { console.error('❌ Error merging data:', err.message); process.exit(1); }
