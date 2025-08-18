@@ -1063,8 +1063,14 @@
   "totalCards": 19465,
   "totalSets": 168,
   "cardsWithPricing": 0,
-  "approach": "attach pricing via groupId|extNumber|printing|EN; fallback to normal",
-  "lastUpdated": "2025-08-18T15:44:47.380Z",
+  "pricingCoverage": "0.0%",
+  "approach": "enhanced multi-strategy pricing key matching",
+  "lastUpdated": "2025-08-18T16:08:49.120Z",
   "pricingSource": "none",
-  "pricingUpdated": "2025-08-18T15:44:47.034Z"
+  "pricingUpdated": "2025-08-18T16:08:47.786Z",
+  "pricingStats": {
+    "totalAttempts": 1868592,
+    "successfulMatches": 0,
+    "successRate": "0.0%"
+  }
 }

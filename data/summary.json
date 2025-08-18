@@ -4,5 +4,10 @@
   "totalChunks": 39,
   "cardsWithPricing": 0,
   "pricingCoverage": "0.0%",
-  "lastUpdated": "2025-08-18T15:44:47.472Z"
+  "pricingStats": {
+    "totalAttempts": 1868592,
+    "successfulMatches": 0,
+    "successRate": "0.0%"
+  },
+  "lastUpdated": "2025-08-18T16:08:49.211Z"
 }

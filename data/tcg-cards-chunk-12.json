@@ -9394,7 +9394,7 @@
         "series": "Other",
         "releaseDate": "2011/06/17"
       },
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "types": [
         "Colorless"
       ],
@@ -10373,5 +10373,5 @@
   ],
   "chunk": 12,
   "totalChunks": 39,
-  "lastUpdated": "2025-08-18T15:44:47.407Z"
+  "lastUpdated": "2025-08-18T16:08:49.147Z"
 }
