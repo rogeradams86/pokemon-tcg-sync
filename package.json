@@ -1,19 +1,30 @@
 {
   "name": "pokemon-tcg-sync",
   "version": "1.0.0",
-  "description": "Daily sync of Pokemon TCG data with pricing for Shopify buylist",
+  "description": "Pokemon TCG card data sync with pricing integration",
   "type": "module",
+  "main": "index.js",
   "scripts": {
     "fetch-cards": "node scripts/fetch-cards.js",
-    "fetch-pricing": "node scripts/fetch-pricing.js",
+    "fetch-pricing": "node scripts/fetch-pricing.js", 
     "merge-data": "node scripts/merge-data.js",
-    "upload-shopify": "node scripts/upload-shopify.js",
-    "full-sync": "npm run fetch-cards && npm run fetch-pricing && npm run merge-data && npm run upload-shopify"
+    "upload": "node scripts/upload-shopify.js",
+    "build": "npm run fetch-cards && npm run fetch-pricing && npm run merge-data",
+    "deploy": "npm run build && npm run upload",
+    "test": "node --version"
   },
+  "keywords": ["pokemon", "tcg", "trading-cards", "pricing", "shopify"],
+  "author": "Your Name",
+  "license": "MIT",
   "dependencies": {
-    "node-fetch": "^3.3.2",
-    "csv-parse": "^5.4.0"
+    "node-fetch": "^3.3.2"
   },
-  "author": "Roger Adams",
-  "license": "MIT"
+  "devDependencies": {},
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/pokemon-tcg-sync.git"
+  }
 }
