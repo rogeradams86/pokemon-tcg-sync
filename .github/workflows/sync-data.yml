@@ -1,135 +1,47 @@
-name: Sync Pokemon TCG Data
+name: Sync Data
 
 on:
+  workflow_dispatch:
   schedule:
-    # Run daily at 6 AM UTC
-    - cron: '0 6 * * *'
-  workflow_dispatch: # Allow manual trigger
-  push:
-    paths:
-      - 'scripts/**'
-      - 'pricing-raw.csv'
-      - '.github/workflows/**'
+    - cron: '0 6 * * *' # 06:00 UTC daily
 
 jobs:
-  sync-data:
+  build-and-merge:
     runs-on: ubuntu-latest
-    
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
-        
-    - name: Install minimal dependencies
-      run: npm install node-fetch@3
-      
-    - name: Create data directory
-      run: mkdir -p data
-      
-    - name: Check if pricing CSV exists
-      run: |
-        if [ -f pricing-raw.csv ]; then
-          echo "✅ Pricing CSV found"
-          ls -la pricing-raw.csv
-          head -3 pricing-raw.csv || echo "Could not preview CSV"
-        else
-          echo "⚠️ No pricing CSV found - will skip pricing step"
-          echo "Upload your pricing-raw.csv file to enable pricing integration"
-        fi
-        
-    - name: Fetch card data
-      run: node scripts/fetch-cards.js
-      
-    - name: Process pricing data (if CSV exists)
-      run: |
-        if [ -f pricing-raw.csv ]; then
-          echo "Processing pricing data..."
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Fetch pricing
+        env:
+          TCGCSV_URL: ${{ secrets.TCGCSV_URL }}
+        run: |
           node scripts/fetch-pricing.js
-        else
-          echo "Skipping pricing processing - no CSV file"
-          # Create empty pricing file so merge doesn't fail
-          mkdir -p data
-          echo '{"source":"none","lastUpdated":"'$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")'","pricing":{}}' > data/pricing-raw.json
-        fi
-        
-    - name: Merge data
-      run: node scripts/merge-data.js
-      
-    - name: List generated files
-      run: |
-        echo "📁 Generated data files:"
-        ls -la data/ || echo "No data directory found"
-        
-    - name: Upload to Shopify (if configured)
-      env:
-        SHOPIFY_STORE: ${{ secrets.SHOPIFY_STORE }}
-        SHOPIFY_ACCESS_TOKEN: ${{ secrets.SHOPIFY_ACCESS_TOKEN }}
-      run: |
-        if [ -n "$SHOPIFY_STORE" ] && [ -n "$SHOPIFY_ACCESS_TOKEN" ]; then
-          echo "🚀 Uploading to Shopify..."
-          node scripts/upload-shopify.js
-        else
-          echo "⚠️ Skipping Shopify upload - no credentials configured"
-          echo "💡 Set SHOPIFY_STORE and SHOPIFY_ACCESS_TOKEN secrets to enable Shopify upload"
-        fi
-        
-    - name: Commit and push data files
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        
-        # Add generated data files
-        git add data/
-        
-        # Check if there are changes to commit
-        if git diff --staged --quiet; then
-          echo "📝 No changes to commit"
-        else
-          echo "📝 Committing new data..."
-          git commit -m "🔄 Update Pokemon TCG data - $(date -u +"%Y-%m-%d %H:%M UTC")"
-          git push
-          echo "✅ Data pushed to repository"
-        fi
-        
-    - name: Generate summary
-      run: |
-        echo "## 🎯 Pokemon TCG Sync Summary" >> $GITHUB_STEP_SUMMARY
-        echo "" >> $GITHUB_STEP_SUMMARY
-        echo "**Sync completed at:** $(date -u)" >> $GITHUB_STEP_SUMMARY
-        echo "" >> $GITHUB_STEP_SUMMARY
-        
-        if [ -f data/summary.json ]; then
-          echo "### 📊 Data Statistics" >> $GITHUB_STEP_SUMMARY
-          echo "\`\`\`json" >> $GITHUB_STEP_SUMMARY
-          cat data/summary.json >> $GITHUB_STEP_SUMMARY
-          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
-        fi
-        
-        echo "" >> $GITHUB_STEP_SUMMARY
-        echo "### 📁 Generated Files" >> $GITHUB_STEP_SUMMARY
-        if [ -d data ]; then
-          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
-          ls -la data/ >> $GITHUB_STEP_SUMMARY
-          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
-        else
-          echo "❌ No data directory found" >> $GITHUB_STEP_SUMMARY
-        fi
-        
-        echo "" >> $GITHUB_STEP_SUMMARY
-        echo "### 🔗 Access Your Data" >> $GITHUB_STEP_SUMMARY
-        echo "Your buylist can now access data from these URLs:" >> $GITHUB_STEP_SUMMARY
-        echo "- **Index:** \`https://raw.githubusercontent.com/${{ github.repository }}/main/data/tcg-cards-index.json\`" >> $GITHUB_STEP_SUMMARY
-        echo "- **Chunks:** \`https://raw.githubusercontent.com/${{ github.repository }}/main/data/tcg-cards-chunk-[1-60].json\`" >> $GITHUB_STEP_SUMMARY
-        echo "" >> $GITHUB_STEP_SUMMARY
-        echo "### 🛠️ Next Steps" >> $GITHUB_STEP_SUMMARY
-        if [ ! -f pricing-raw.csv ]; then
-          echo "- 📄 **Upload pricing-raw.csv** to enable pricing integration" >> $GITHUB_STEP_SUMMARY
-        fi
-        if [ -z "$SHOPIFY_STORE" ] || [ -z "$SHOPIFY_ACCESS_TOKEN" ]; then
-          echo "- 🏪 **Configure Shopify secrets** (SHOPIFY_STORE, SHOPIFY_ACCESS_TOKEN) for automatic uploads" >> $GITHUB_STEP_SUMMARY
-        fi
-        echo "- 🎯 **Update your buylist URLs** to point to this repository's data files" >> $GITHUB_STEP_SUMMARY
+
+      - name: Guard: pricing not empty
+        run: |
+          node scripts/debug-pricing.js
+
+      - name: Build merged chunks
+        run: |
+          node scripts/merge-data.js
+
+      - name: Commit & push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/*.json || true
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "data: refresh $(date -u +%F)"
+            git push
+          fi
