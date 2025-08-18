@@ -23,16 +23,13 @@ jobs:
       - name: Fetch pricing
         env:
           TCGCSV_URL: ${{ secrets.TCGCSV_URL }}
-        run: |
-          node scripts/fetch-pricing.js
+        run: node scripts/fetch-pricing.js
 
       - name: Guard: pricing not empty
-        run: |
-          node scripts/debug-pricing.js
+        run: node scripts/debug-pricing.js
 
       - name: Build merged chunks
-        run: |
-          node scripts/merge-data.js
+        run: node scripts/merge-data.js
 
       - name: Commit & push
         run: |
