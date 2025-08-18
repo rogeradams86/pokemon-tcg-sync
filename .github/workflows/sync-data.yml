@@ -6,7 +6,7 @@ on:
     - cron: '0 6 * * *'
 
 jobs:
-  build-and-merge:
+  build_and_merge:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -27,7 +27,7 @@ jobs:
         run: node scripts/fetch-pricing.js
         shell: bash
 
-      - name: Guard: pricing not empty
+      - name: Guard pricing not empty
         run: node scripts/debug-pricing.js
         shell: bash
 
@@ -35,7 +35,7 @@ jobs:
         run: node scripts/merge-data.js
         shell: bash
 
-      - name: Commit & push
+      - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
