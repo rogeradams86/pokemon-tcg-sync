@@ -24,56 +24,65 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Node
+      - name: Setup Node (no cache, no install)
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: "npm"
 
-      - name: Ensure UTF-8 locale (avoid emoji/encoding weirdness)
+      - name: Ensure UTF-8 locale
         run: |
           echo "LANG=C.UTF-8" >> $GITHUB_ENV
           echo "LC_ALL=C.UTF-8" >> $GITHUB_ENV
-
-      - name: Install deps (if package.json exists)
-        run: |
-          if [ -f package-lock.json ]; then
-            npm ci --prefer-offline --no-audit --no-fund
-          elif [ -f package.json ]; then
-            npm install --no-audit --no-fund
-          else
-            echo "No package.json; skipping install."
-          fi
 
       - name: Create data dir
         run: mkdir -p data
 
       - name: Fetch Pokémon card data
         run: |
-          node scripts/fetch-cards.js
-          ls -la data/
+          if [ -f scripts/fetch-cards.js ]; then
+            node scripts/fetch-cards.js
+          else
+            echo "scripts/fetch-cards.js not found — skipping."
+          fi
+          ls -la data/ || true
 
-      # Use TCGCSV scraper if you have it; otherwise fallback to fetch-pricing.js with TCGCSV_URL
+      # Prefer tcgcsv-scraper.js if present
       - name: Fetch pricing (TCGCSV scraper)
         if: ${{ hashFiles('tcgcsv-scraper.js') != '' }}
         run: node tcgcsv-scraper.js
 
+      # Fallback to fetch-pricing.js (uses TCGCSV_URL secret)
       - name: Fetch pricing (TCGCSV_URL)
         if: ${{ hashFiles('tcgcsv-scraper.js') == '' }}
         env:
           TCGCSV_URL: ${{ secrets.TCGCSV_URL }}
-        run: node scripts/fetch-pricing.js
+        run: |
+          if [ -f scripts/fetch-pricing.js ]; then
+            node scripts/fetch-pricing.js
+          else
+            echo "scripts/fetch-pricing.js not found — skipping."
+          fi
 
-      # Optional guard script if present
+      # Optional post-processing if you add it later
       - name: Fix fractional pricing keys (optional)
         if: ${{ hashFiles('fix-fractional-numbers.js') != '' }}
         run: node fix-fractional-numbers.js
 
       - name: Merge card + pricing data
-        run: node scripts/merge-data.js
+        run: |
+          if [ -f scripts/merge-data.js ]; then
+            node scripts/merge-data.js
+          else
+            echo "scripts/merge-data.js not found — skipping."
+          fi
 
       - name: Quick sanity check
-        run: node scripts/debug-pricing.js
+        run: |
+          if [ -f scripts/debug-pricing.js ]; then
+            node scripts/debug-pricing.js
+          else
+            echo "scripts/debug-pricing.js not found — skipping."
+          fi
 
       - name: Commit & push changes (data/* + summary.json)
         run: |
@@ -81,12 +90,10 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/ summary.json || true
           if git diff --cached --quiet; then
-            echo "no_changes=true" >> $GITHUB_ENV
             echo "No changes to commit."
           else
             git commit -m "Daily TCG data update - $(date -u +%Y-%m-%d)"
             git push
-            echo "no_changes=false" >> $GITHUB_ENV
           fi
 
       - name: Upload artifacts (always)
