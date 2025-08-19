@@ -46,6 +46,16 @@ jobs:
           fi
           ls -la data/ || true
 
+      - name: Back-compat alias for old merge script
+        run: |
+          if [ -f data/raw-cards.json ]; then
+            cp -f data/raw-cards.json data/cards-all.json
+            echo "Aliased raw-cards.json → cards-all.json"
+          else
+            echo "raw-cards.json missing — was fetch-cards.js skipped?"
+            exit 1
+          fi
+
       # Prefer tcgcsv-scraper.js if present
       - name: Fetch pricing (TCGCSV scraper)
         if: ${{ hashFiles('tcgcsv-scraper.js') != '' }}
