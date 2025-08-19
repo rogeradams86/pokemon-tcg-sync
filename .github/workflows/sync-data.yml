@@ -1,106 +1,27 @@
-# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
-name: Daily Pokemon TCG Data Update
+- name: Commit & push changes (force-add even if ignored)
+  run: |
+    echo "---- git status BEFORE ----"
+    git status --porcelain || true
 
-"on":
-  workflow_dispatch: {}
-  schedule:
-    - cron: "0 6 * * *" # 06:00 UTC daily
+    echo "---- .gitignore (if any) ----"
+    cat .gitignore || true
 
-permissions:
-  contents: write
+    # Stage generated files even if .gitignore blocks them
+    git add -A -f data/
+    if [ -f summary.json ]; then git add -f summary.json; fi
 
-concurrency:
-  group: sync-data
-  cancel-in-progress: true
+    echo "---- git status AFTER add ----"
+    git status --porcelain || true
 
-jobs:
-  update-pokemon-data:
-    runs-on: ubuntu-latest
-    timeout-minutes: 60
+    echo "---- STAGED FILES ----"
+    git diff --cached --name-only || true
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+    if git diff --cached --quiet; then
+      echo "No changes to commit."
+      exit 0
+    fi
 
-      - name: Setup Node (no cache, no install)
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-
-      - name: Ensure UTF-8 locale
-        run: |
-          echo "LANG=C.UTF-8" >> "$GITHUB_ENV"
-          echo "LC_ALL=C.UTF-8" >> "$GITHUB_ENV"
-
-      - name: Create data dir
-        run: mkdir -p data
-
-      - name: Fetch Pokémon card data → data/raw-cards.json
-        run: |
-          if [ ! -f scripts/fetch-cards.js ]; then
-            echo "scripts/fetch-cards.js not found"; exit 1
-          fi
-          node scripts/fetch-cards.js
-          if [ ! -s data/raw-cards.json ]; then
-            echo "raw-cards.json missing/empty"; exit 1
-          fi
-          node -e "const j=JSON.parse(require('fs').readFileSync('data/raw-cards.json','utf8'));console.log('Sets:',j.sets?.length||0,'Cards:',j.cards?.length||0)"
-
-      - name: Build legacy cards-all.json (adapter)
-        run: |
-          node -e "const fs=require('fs');const p='data/raw-cards.json';if(!fs.existsSync(p))process.exit(1);const j=JSON.parse(fs.readFileSync(p,'utf8'));const arr=Array.isArray(j)?j:(Array.isArray(j.cards)?j.cards:[]);if(!Array.isArray(arr)||arr.length===0){console.error('No cards[] found in raw-cards.json');process.exit(1);}fs.writeFileSync('data/cards-all.json',JSON.stringify(arr,null,2));console.log('cards-all.json size:',arr.length);"
-
-      - name: Fetch pricing → data/pricing-raw.json (pick best available)
-        run: |
-          if [ -f tcgcsv-scraper.js ]; then
-            echo "Using tcgcsv-scraper.js"
-            node tcgcsv-scraper.js
-          elif [ -f scripts/fetch-pricing.js ]; then
-            echo "Using scripts/fetch-pricing.js"
-            node scripts/fetch-pricing.js
-          else
-            echo "No pricing script found"; exit 1
-          fi
-          if [ ! -s data/pricing-raw.json ]; then
-            echo "pricing-raw.json missing/empty"; exit 1
-          fi
-          node -e "const j=JSON.parse(require('fs').readFileSync('data/pricing-raw.json','utf8'));const n=j && j.pricing ? Object.keys(j.pricing).length : 0;console.log('Pricing entries:',n)"
-
-      - name: Merge card + pricing → chunks + summary
-        run: |
-          if [ ! -f scripts/merge-data.js ]; then
-            echo "scripts/merge-data.js not found"; exit 1
-          fi
-          node scripts/merge-data.js
-
-      - name: Quick sanity check (optional)
-        run: |
-          if [ -f scripts/debug-pricing.js ]; then
-            node scripts/debug-pricing.js || true
-          else
-            echo "scripts/debug-pricing.js not found — skipping."
-          fi
-
-      - name: Commit & push changes (data/* + summary.json)
-        run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/ summary.json || true
-          if git diff --cached --quiet; then
-            echo "No changes to commit."
-          else
-            git commit -m "Daily TCG data update - $(date -u +%Y-%m-%d)"
-            git push
-          fi
-
-      - name: Upload artifacts (always)
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: data-${{ github.run_number }}
-          path: |
-            data/**
-            summary.json
-          retention-days: 7
+    git config user.name  "github-actions[bot]"
+    git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+    git commit -m "Daily TCG data update - $(date -u +%Y-%m-%d)"
+    git push
