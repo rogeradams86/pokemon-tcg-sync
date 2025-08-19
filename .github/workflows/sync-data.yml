@@ -1,539 +1,100 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
 name: Daily Pokemon TCG Data Update
 
-on:
-  workflow_dispatch:
+"on":
+  workflow_dispatch: {}
   schedule:
-    - cron: '0 6 * * *'  # Daily at 6 AM UTC (7 AM BST)
+    - cron: "0 6 * * *" # 06:00 UTC daily
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-data
+  cancel-in-progress: true
 
 jobs:
   update-pokemon-data:
     runs-on: ubuntu-latest
     timeout-minutes: 45
-    
+
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: "20"
+          cache: "npm"
 
-      - name: Install dependencies
+      - name: Ensure UTF-8 locale (avoid emoji/encoding weirdness)
+        run: |
+          echo "LANG=C.UTF-8" >> $GITHUB_ENV
+          echo "LC_ALL=C.UTF-8" >> $GITHUB_ENV
+
+      - name: Install deps (if package.json exists)
         run: |
           if [ -f package-lock.json ]; then
             npm ci --prefer-offline --no-audit --no-fund
-          else
+          elif [ -f package.json ]; then
             npm install --no-audit --no-fund
+          else
+            echo "No package.json; skipping install."
           fi
 
-      - name: Create data directory
+      - name: Create data dir
         run: mkdir -p data
 
-      - name: Fetch Pokemon card data
+      - name: Fetch Pokémon card data
         run: |
-          echo "🎴 Fetching Pokemon card data..."
           node scripts/fetch-cards.js
-          echo "✅ Card data fetch completed"
           ls -la data/
 
-      - name: Process raw cards to cards-all.json
-        run: |
-          echo "🔄 Processing raw card data..."
-          node -e "
-            const fs = require('fs');
-            const rawData = JSON.parse(fs.readFileSync('data/raw-cards.json', 'utf8'));
-            fs.writeFileSync('data/cards-all.json', JSON.stringify(rawData.cards, null, 2));
-            console.log(\`✅ Processed \${rawData.cards.length} cards\`);
-          "
+      # Use TCGCSV scraper if you have it; otherwise fallback to fetch-pricing.js with TCGCSV_URL
+      - name: Fetch pricing (TCGCSV scraper)
+        if: ${{ hashFiles('tcgcsv-scraper.js') != '' }}
+        run: node tcgcsv-scraper.js
 
-      - name: Extract and fix card sets
-        run: |
-          echo "🔧 Extracting card set information..."
-          node fix-card-sets.js
-          echo "✅ Card sets fixed"
-
-      - name: Fetch comprehensive pricing data
+      - name: Fetch pricing (TCGCSV_URL)
+        if: ${{ hashFiles('tcgcsv-scraper.js') == '' }}
         env:
           TCGCSV_URL: ${{ secrets.TCGCSV_URL }}
-        run: |
-          echo "💰 Fetching comprehensive pricing data..."
-          node tcgcsv-scraper.js
-          echo "✅ Pricing data scraped"
+        run: node scripts/fetch-pricing.js
 
-      - name: Fix fractional pricing keys
-        run: |
-          echo "🔧 Fixing pricing key formats..."
-          if [ -f fix-fractional-numbers.js ]; then
-            node fix-fractional-numbers.js
-          else
-            echo "⚠️  Fractional fix script not found, skipping..."
-          fi
+      # Optional guard script if present
+      - name: Fix fractional pricing keys (optional)
+        if: ${{ hashFiles('fix-fractional-numbers.js') != '' }}
+        run: node fix-fractional-numbers.js
 
-      - name: Merge card and pricing data
-        run: |
-          echo "🔗 Merging card and pricing data..."
-          node scripts/merge-data.js
-          echo "✅ Data merge completed"
+      - name: Merge card + pricing data
+        run: node scripts/merge-data.js
 
-      - name: Generate comprehensive summary
-        id: summary
-        run: |
-          echo "📊 Generating update summary..."
-          node generate-summary.js
-          
-          # Check if summary was generated successfully
-          if [ -f summary.json ]; then
-            echo "summary_generated=true" >> $GITHUB_OUTPUT
-            
-            # Extract key metrics for GitHub Actions summary
-            TOTAL_CARDS=$(node -pe "JSON.parse(require('fs').readFileSync('summary.json', 'utf8')).totalCards")
-            CARDS_WITH_PRICING=$(node -pe "JSON.parse(require('fs').readFileSync('summary.json', 'utf8')).cardsWithPricing")
-            COVERAGE=$(node -pe "JSON.parse(require('fs').readFileSync('summary.json', 'utf8')).pricingCoverage")
-            
-            echo "total_cards=$TOTAL_CARDS" >> $GITHUB_OUTPUT
-            echo "cards_with_pricing=$CARDS_WITH_PRICING" >> $GITHUB_OUTPUT
-            echo "coverage=$COVERAGE" >> $GITHUB_OUTPUT
-          else
-            echo "summary_generated=false" >> $GITHUB_OUTPUT
-          fi
+      - name: Quick sanity check
+        run: node scripts/debug-pricing.js
 
-      - name: Process email template
-        if: steps.summary.outputs.summary_generated == 'true'
+      - name: Commit & push changes (data/* + summary.json)
         run: |
-          echo "📧 Processing email template with data..."
-          node process-email-template.js
-          echo "✅ Email template processed"
-
-      - name: Upload processed data
-        run: |
-          echo "⬆️ Uploading processed data..."
-          node upload-to-github.js
-          echo "✅ Data uploaded to GitHub"
-
-      - name: Commit and push changes
-        run: |
-          git config user.name "github-actions[bot]"
+          git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          
-          # Add all data files
-          git add data/
-          git add summary.json
-          
+          git add data/ summary.json || true
           if git diff --cached --quiet; then
-            echo "📝 No changes to commit"
             echo "no_changes=true" >> $GITHUB_ENV
+            echo "No changes to commit."
           else
-            echo "📝 Committing changes..."
-            git commit -m "🔄 Daily Pokemon TCG data update - $(date -u +%Y-%m-%d)"
+            git commit -m "Daily TCG data update - $(date -u +%Y-%m-%d)"
             git push
-            echo "✅ Changes pushed successfully"
             echo "no_changes=false" >> $GITHUB_ENV
           fi
 
-      - name: Create GitHub Actions Summary
+      - name: Upload artifacts (always)
         if: always()
-        run: |
-          echo "# 🎴 Pokemon TCG Data Update Summary" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**Update Date:** $(date -u '+%Y-%m-%d %H:%M UTC')" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          
-          if [ "${{ steps.summary.outputs.summary_generated }}" == "true" ]; then
-            echo "## 📊 Statistics" >> $GITHUB_STEP_SUMMARY
-            echo "| Metric | Value |" >> $GITHUB_STEP_SUMMARY
-            echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
-            echo "| Total Cards | ${{ steps.summary.outputs.total_cards }} |" >> $GITHUB_STEP_SUMMARY
-            echo "| Cards with Pricing | ${{ steps.summary.outputs.cards_with_pricing }} |" >> $GITHUB_STEP_SUMMARY
-            echo "| Pricing Coverage | ${{ steps.summary.outputs.coverage }} |" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            
-            if [ "${{ env.no_changes }}" == "false" ]; then
-              echo "✅ **Status:** Data updated and committed to repository" >> $GITHUB_STEP_SUMMARY
-            else
-              echo "ℹ️ **Status:** No changes detected in data" >> $GITHUB_STEP_SUMMARY
-            fi
-          else
-            echo "❌ **Status:** Summary generation failed" >> $GITHUB_STEP_SUMMARY
-          fi
-          
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "🔗 **Next Steps:** Shopify will automatically fetch updated data from GitHub" >> $GITHUB_STEP_SUMMARY
-
-      - name: Send success email notification
-        if: env.no_changes == 'false' && secrets.EMAIL_USERNAME != '' && secrets.NOTIFICATION_EMAIL != ''
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 587
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: "✅ Pokemon TCG Data Updated - ${{ steps.summary.outputs.total_cards }} Cards (${{ steps.summary.outputs.coverage }} Coverage)"
-          to: ${{ secrets.NOTIFICATION_EMAIL }}
-          from: ${{ secrets.EMAIL_USERNAME }}
-          html_body: file://email-notification.html
-          body: file://email-notification.txt
-          attachments: summary.json
-
-      - name: Send no-changes email notification
-        if: env.no_changes == 'true' && secrets.EMAIL_USERNAME != '' && secrets.NOTIFICATION_EMAIL != ''
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 587
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: "ℹ️ Pokemon TCG Data - No Changes Detected"
-          to: ${{ secrets.NOTIFICATION_EMAIL }}
-          from: ${{ secrets.EMAIL_USERNAME }}
-          body: |
-            🎴 Pokemon TCG Data Update - No Changes
-            =====================================
-            
-            The daily Pokemon TCG data update ran successfully but no changes were detected.
-            
-            This means:
-            • No new cards were found
-            • No pricing updates were available
-            • All data remains current
-            
-            Current Stats:
-            • Total Cards: ${{ steps.summary.outputs.total_cards }}
-            • Cards with Pricing: ${{ steps.summary.outputs.cards_with_pricing }}
-            • Pricing Coverage: ${{ steps.summary.outputs.coverage }}
-            
-            Time: $(date -u '+%Y-%m-%d %H:%M UTC')
-            Next update: Tomorrow at 6:00 AM UTC
-            
-            🤖 Automated by GitHub Actions
-
-      - name: Send failure notification
-        if: failure() && secrets.EMAIL_USERNAME != '' && secrets.NOTIFICATION_EMAIL != ''
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 587
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: "❌ Pokemon TCG Data Update Failed - $(date +%Y-%m-%d)"
-          to: ${{ secrets.NOTIFICATION_EMAIL }}
-          from: ${{ secrets.EMAIL_USERNAME }}
-          body: |
-            ❌ Pokemon TCG Data Update Failed
-            ================================
-            
-            The daily Pokemon TCG data update failed.
-            
-            🔍 Check the GitHub Actions logs for details:
-            https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-            
-            📋 Failure Details:
-            • Time: $(date -u '+%Y-%m-%d %H:%M UTC')
-            • Repository: ${{ github.repository }}
-            • Workflow: ${{ github.workflow }}
-            • Run ID: ${{ github.run_id }}
-            
-            ⚠️ Next scheduled update: Tomorrow at 6:00 AM UTC
-            
-            🛠️ You may need to:
-            1. Check the repository secrets (TCGCSV_URL, email settings)
-            2. Verify the data source is accessible
-            3. Review any recent changes to the scripts
-            
-            🤖 Automated by GitHub Actions
-
-      - name: Upload debug artifacts on failure
-        if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: debug-data-${{ github.run_number }}
+          name: data-${{ github.run_number }}
           path: |
-            data/
-            *.log
-            *.json
-            *.html
-            *.txt
+            data/**
+            summary.json
           retention-days: 7
-
-      - name: Post-update cleanup
-        if: always()
-        run: |
-          echo "🧹 Cleaning up temporary files..."
-          
-          # Keep important files, remove temporary ones
-          find . -name "*.tmp" -type f -delete 2>/dev/null || true
-          find . -name "*.temp" -type f -delete 2>/dev/null || true
-          
-          echo "✅ Cleanup completed"name: Daily Pokemon TCG Data Update
-
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: '0 6 * * *'  # Daily at 6 AM UTC (7 AM BST)
-
-jobs:
-  update-pokemon-data:
-    runs-on: ubuntu-latest
-    timeout-minutes: 45
-    
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install dependencies
-        run: |
-          if [ -f package-lock.json ]; then
-            npm ci --prefer-offline --no-audit --no-fund
-          else
-            npm install --no-audit --no-fund
-          fi
-
-      - name: Create data directory
-        run: mkdir -p data
-
-      - name: Fetch Pokemon card data
-        run: |
-          echo "🎴 Fetching Pokemon card data..."
-          node scripts/fetch-cards.js
-          echo "✅ Card data fetch completed"
-          ls -la data/
-
-      - name: Process raw cards to cards-all.json
-        run: |
-          echo "🔄 Processing raw card data..."
-          node -e "
-            const fs = require('fs');
-            const rawData = JSON.parse(fs.readFileSync('data/raw-cards.json', 'utf8'));
-            fs.writeFileSync('data/cards-all.json', JSON.stringify(rawData.cards, null, 2));
-            console.log(\`✅ Processed \${rawData.cards.length} cards\`);
-          "
-
-      - name: Extract and fix card sets
-        run: |
-          echo "🔧 Extracting card set information..."
-          node fix-card-sets.js
-          echo "✅ Card sets fixed"
-
-      - name: Fetch comprehensive pricing data
-        env:
-          TCGCSV_URL: ${{ secrets.TCGCSV_URL }}
-        run: |
-          echo "💰 Fetching comprehensive pricing data..."
-          node tcgcsv-scraper.js
-          echo "✅ Pricing data scraped"
-
-      - name: Fix fractional pricing keys
-        run: |
-          echo "🔧 Fixing pricing key formats..."
-          if [ -f fix-fractional-numbers.js ]; then
-            node fix-fractional-numbers.js
-          else
-            echo "⚠️  Fractional fix script not found, skipping..."
-          fi
-
-      - name: Merge card and pricing data
-        run: |
-          echo "🔗 Merging card and pricing data..."
-          node scripts/merge-data.js
-          echo "✅ Data merge completed"
-
-      - name: Generate comprehensive summary
-        id: summary
-        run: |
-          echo "📊 Generating update summary..."
-          node generate-summary.js
-          
-          # Check if summary was generated successfully
-          if [ -f summary.json ]; then
-            echo "summary_generated=true" >> $GITHUB_OUTPUT
-            
-            # Extract key metrics for GitHub Actions summary
-            TOTAL_CARDS=$(node -pe "JSON.parse(require('fs').readFileSync('summary.json', 'utf8')).totalCards")
-            CARDS_WITH_PRICING=$(node -pe "JSON.parse(require('fs').readFileSync('summary.json', 'utf8')).cardsWithPricing")
-            COVERAGE=$(node -pe "JSON.parse(require('fs').readFileSync('summary.json', 'utf8')).pricingCoverage")
-            
-            echo "total_cards=$TOTAL_CARDS" >> $GITHUB_OUTPUT
-            echo "cards_with_pricing=$CARDS_WITH_PRICING" >> $GITHUB_OUTPUT
-            echo "coverage=$COVERAGE" >> $GITHUB_OUTPUT
-          else
-            echo "summary_generated=false" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Process email template
-        if: steps.summary.outputs.summary_generated == 'true'
-        run: |
-          echo "📧 Processing email template with data..."
-          node process-email-template.js
-          echo "✅ Email template processed"
-
-      - name: Upload processed data
-        run: |
-          echo "⬆️ Uploading processed data..."
-          node upload-to-github.js
-          echo "✅ Data uploaded to GitHub"
-
-      - name: Commit and push changes
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          
-          # Add all data files
-          git add data/
-          git add summary.json
-          
-          if git diff --cached --quiet; then
-            echo "📝 No changes to commit"
-            echo "no_changes=true" >> $GITHUB_ENV
-          else
-            echo "📝 Committing changes..."
-            git commit -m "🔄 Daily Pokemon TCG data update - $(date -u +%Y-%m-%d)"
-            git push
-            echo "✅ Changes pushed successfully"
-            echo "no_changes=false" >> $GITHUB_ENV
-          fi
-
-      - name: Create GitHub Actions Summary
-        if: always()
-        run: |
-          echo "# 🎴 Pokemon TCG Data Update Summary" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**Update Date:** $(date -u '+%Y-%m-%d %H:%M UTC')" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          
-          if [ "${{ steps.summary.outputs.summary_generated }}" == "true" ]; then
-            echo "## 📊 Statistics" >> $GITHUB_STEP_SUMMARY
-            echo "| Metric | Value |" >> $GITHUB_STEP_SUMMARY
-            echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
-            echo "| Total Cards | ${{ steps.summary.outputs.total_cards }} |" >> $GITHUB_STEP_SUMMARY
-            echo "| Cards with Pricing | ${{ steps.summary.outputs.cards_with_pricing }} |" >> $GITHUB_STEP_SUMMARY
-            echo "| Pricing Coverage | ${{ steps.summary.outputs.coverage }} |" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            
-            if [ "${{ env.no_changes }}" == "false" ]; then
-              echo "✅ **Status:** Data updated and committed to repository" >> $GITHUB_STEP_SUMMARY
-            else
-              echo "ℹ️ **Status:** No changes detected in data" >> $GITHUB_STEP_SUMMARY
-            fi
-          else
-            echo "❌ **Status:** Summary generation failed" >> $GITHUB_STEP_SUMMARY
-          fi
-          
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "🔗 **Next Steps:** Shopify will automatically fetch updated data from GitHub" >> $GITHUB_STEP_SUMMARY
-
-      - name: Send success email notification
-        if: env.no_changes == 'false' && secrets.EMAIL_USERNAME != '' && secrets.NOTIFICATION_EMAIL != ''
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 587
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: "✅ Pokemon TCG Data Updated - ${{ steps.summary.outputs.total_cards }} Cards (${{ steps.summary.outputs.coverage }} Coverage)"
-          to: ${{ secrets.NOTIFICATION_EMAIL }}
-          from: ${{ secrets.EMAIL_USERNAME }}
-          html_body: file://email-notification.html
-          body: file://email-notification.txt
-          attachments: summary.json
-
-      - name: Send no-changes email notification
-        if: env.no_changes == 'true' && secrets.EMAIL_USERNAME != '' && secrets.NOTIFICATION_EMAIL != ''
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 587
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: "ℹ️ Pokemon TCG Data - No Changes Detected"
-          to: ${{ secrets.NOTIFICATION_EMAIL }}
-          from: ${{ secrets.EMAIL_USERNAME }}
-          body: |
-            🎴 Pokemon TCG Data Update - No Changes
-            =====================================
-            
-            The daily Pokemon TCG data update ran successfully but no changes were detected.
-            
-            This means:
-            • No new cards were found
-            • No pricing updates were available
-            • All data remains current
-            
-            Current Stats:
-            • Total Cards: ${{ steps.summary.outputs.total_cards }}
-            • Cards with Pricing: ${{ steps.summary.outputs.cards_with_pricing }}
-            • Pricing Coverage: ${{ steps.summary.outputs.coverage }}
-            
-            Time: $(date -u '+%Y-%m-%d %H:%M UTC')
-            Next update: Tomorrow at 6:00 AM UTC
-            
-            🤖 Automated by GitHub Actions
-
-      - name: Send failure notification
-        if: failure() && secrets.EMAIL_USERNAME != '' && secrets.NOTIFICATION_EMAIL != ''
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 587
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: "❌ Pokemon TCG Data Update Failed - $(date +%Y-%m-%d)"
-          to: ${{ secrets.NOTIFICATION_EMAIL }}
-          from: ${{ secrets.EMAIL_USERNAME }}
-          body: |
-            ❌ Pokemon TCG Data Update Failed
-            ================================
-            
-            The daily Pokemon TCG data update failed.
-            
-            🔍 Check the GitHub Actions logs for details:
-            https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-            
-            📋 Failure Details:
-            • Time: $(date -u '+%Y-%m-%d %H:%M UTC')
-            • Repository: ${{ github.repository }}
-            • Workflow: ${{ github.workflow }}
-            • Run ID: ${{ github.run_id }}
-            
-            ⚠️ Next scheduled update: Tomorrow at 6:00 AM UTC
-            
-            🛠️ You may need to:
-            1. Check the repository secrets (TCGCSV_URL, email settings)
-            2. Verify the data source is accessible
-            3. Review any recent changes to the scripts
-            
-            🤖 Automated by GitHub Actions
-
-      - name: Upload debug artifacts on failure
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: debug-data-${{ github.run_number }}
-          path: |
-            data/
-            *.log
-            *.json
-            *.html
-            *.txt
-          retention-days: 7
-
-      - name: Post-update cleanup
-        if: always()
-        run: |
-          echo "🧹 Cleaning up temporary files..."
-          
-          # Keep important files, remove temporary ones
-          find . -name "*.tmp" -type f -delete 2>/dev/null || true
-          find . -name "*.temp" -type f -delete 2>/dev/null || true
-          
-          echo "✅ Cleanup completed"
