@@ -48,6 +48,10 @@ jobs:
           fi
           node -e "const j=JSON.parse(require('fs').readFileSync('data/raw-cards.json','utf8'));console.log('Sets:',j.sets?.length||0,'Cards:',j.cards?.length||0)"
 
+      - name: Build legacy cards-all.json (adapter)
+        run: |
+          node -e "const fs=require('fs');const p='data/raw-cards.json';if(!fs.existsSync(p))process.exit(1);const j=JSON.parse(fs.readFileSync(p,'utf8'));const arr=Array.isArray(j)?j:(Array.isArray(j.cards)?j.cards:[]);if(!Array.isArray(arr)||arr.length===0){console.error('No cards[] found in raw-cards.json');process.exit(1);}fs.writeFileSync('data/cards-all.json',JSON.stringify(arr,null,2));console.log('cards-all.json size:',arr.length);"
+
       - name: Fetch pricing → data/pricing-raw.json (pick best available)
         run: |
           if [ -f tcgcsv-scraper.js ]; then
