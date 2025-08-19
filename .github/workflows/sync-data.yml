@@ -16,7 +16,7 @@ concurrency:
 jobs:
   update-pokemon-data:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
 
     steps:
       - name: Checkout
@@ -37,32 +37,31 @@ jobs:
       - name: Create data dir
         run: mkdir -p data
 
-      - name: Fetch Pokémon card data
+      - name: Sanity: Node ESM mode (package.json)
+        run: |
+          if [ -f package.json ]; then
+            node -e "console.log('package.json type:', require('./package.json').type || '(none)')"
+          else
+            echo "No package.json found — but scripts may still run fine."
+          fi
+
+      - name: Fetch Pokémon card data → data/raw-cards.json
         run: |
           if [ -f scripts/fetch-cards.js ]; then
             node scripts/fetch-cards.js
           else
-            echo "scripts/fetch-cards.js not found — skipping."
-          fi
-          ls -la data/ || true
-
-      - name: Back-compat alias for old merge script
-        run: |
-          if [ -f data/raw-cards.json ]; then
-            cp -f data/raw-cards.json data/cards-all.json
-            echo "Aliased raw-cards.json → cards-all.json"
-          else
-            echo "raw-cards.json missing — was fetch-cards.js skipped?"
+            echo "scripts/fetch-cards.js not found — failing."
             exit 1
           fi
+          test -s data/raw-cards.json || (echo "raw-cards.json missing/empty" && exit 1)
+          node -e "const x=require('fs').readFileSync('data/raw-cards.json','utf8');const j=JSON.parse(x);console.log('Sets:',j.sets?.length||0,'Cards:',j.cards?.length||0)"
 
-      # Prefer tcgcsv-scraper.js if present
-      - name: Fetch pricing (TCGCSV scraper)
+      # Prefer scraper (no secret needed). If absent, use TCGCSV_URL with fetch-pricing.js
+      - name: Fetch pricing via scraper → data/pricing-raw.json
         if: ${{ hashFiles('tcgcsv-scraper.js') != '' }}
         run: node tcgcsv-scraper.js
 
-      # Fallback to fetch-pricing.js (uses TCGCSV_URL secret)
-      - name: Fetch pricing (TCGCSV_URL)
+      - name: Fetch pricing via TCGCSV_URL → data/pricing-raw.json
         if: ${{ hashFiles('tcgcsv-scraper.js') == '' }}
         env:
           TCGCSV_URL: ${{ secrets.TCGCSV_URL }}
@@ -70,26 +69,28 @@ jobs:
           if [ -f scripts/fetch-pricing.js ]; then
             node scripts/fetch-pricing.js
           else
-            echo "scripts/fetch-pricing.js not found — skipping."
+            echo "scripts/fetch-pricing.js not found — failing."
+            exit 1
           fi
 
-      # Optional post-processing if you add it later
-      - name: Fix fractional pricing keys (optional)
-        if: ${{ hashFiles('fix-fractional-numbers.js') != '' }}
-        run: node fix-fractional-numbers.js
+      - name: Validate pricing payload
+        run: |
+          test -s data/pricing-raw.json || (echo "pricing-raw.json missing/empty" && exit 1)
+          node -e "const j=JSON.parse(require('fs').readFileSync('data/pricing-raw.json','utf8'));const n=j?.pricing?Object.keys(j.pricing).length:0;console.log('Pricing entries:',n); if(!n){console.log('⚠️ 0 pricing entries — check scraper/TCGCSV_URL.');}"
 
-      - name: Merge card + pricing data
+      - name: Merge card + pricing → chunks + summary
         run: |
           if [ -f scripts/merge-data.js ]; then
             node scripts/merge-data.js
           else
-            echo "scripts/merge-data.js not found — skipping."
+            echo "scripts/merge-data.js not found — failing."
+            exit 1
           fi
 
-      - name: Quick sanity check
+      - name: Quick sanity check (optional)
         run: |
           if [ -f scripts/debug-pricing.js ]; then
-            node scripts/debug-pricing.js
+            node scripts/debug-pricing.js || true
           else
             echo "scripts/debug-pricing.js not found — skipping."
           fi
