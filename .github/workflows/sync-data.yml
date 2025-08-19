@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
+          # Removed cache: 'npm' since no lock file exists
 
       - name: Install dependencies
         run: |
@@ -118,7 +118,7 @@ jobs:
           fi
 
       - name: Send email notification
-        if: env.no_changes == 'false'
+        if: env.no_changes == 'false' && secrets.EMAIL_USERNAME != '' && secrets.NOTIFICATION_EMAIL != ''
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
@@ -132,7 +132,7 @@ jobs:
           attachments: summary.json
 
       - name: Send failure notification
-        if: failure()
+        if: failure() && secrets.EMAIL_USERNAME != '' && secrets.NOTIFICATION_EMAIL != ''
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
