@@ -1,56 +1,142 @@
-name: Sync Data
+name: Sync Pokemon TCG Data
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 6 * * *'
+    - cron: '0 6 * * *'  # Daily at 6 AM UTC
 
 jobs:
-  build_and_merge:
+  sync-pokemon-data:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+    
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
 
-      - name: Install deps
+      - name: Install dependencies
         run: |
           if [ -f package-lock.json ]; then
-            echo "Using npm ci (lockfile found)"
-            npm ci
+            echo "📦 Using npm ci (lockfile found)"
+            npm ci --prefer-offline --no-audit --no-fund
           else
-            echo "No package-lock.json found; using npm install"
+            echo "📦 No package-lock.json found; using npm install"
             npm install --no-audit --no-fund
           fi
-        shell: bash
 
-      - name: Fetch pricing
+      - name: Create data directory
+        run: mkdir -p data
+
+      - name: Fetch Pokemon card data
+        run: |
+          echo "🎴 Fetching Pokemon card data..."
+          node scripts/fetch-cards.js
+          echo "✅ Card data fetch completed"
+
+      - name: Verify card data
+        run: |
+          if [ ! -f data/raw-cards.json ]; then
+            echo "❌ Card data not found!"
+            exit 1
+          fi
+          echo "✅ Card data verified"
+
+      - name: Process cards to cards-all.json
+        run: |
+          echo "🔄 Processing raw card data..."
+          node -e "
+            const fs = require('fs');
+            const rawData = JSON.parse(fs.readFileSync('data/raw-cards.json', 'utf8'));
+            fs.writeFileSync('data/cards-all.json', JSON.stringify(rawData.cards, null, 2));
+            console.log(\`✅ Processed \${rawData.cards.length} cards\`);
+          "
+
+      - name: Fetch pricing data
         env:
           TCGCSV_URL: ${{ secrets.TCGCSV_URL }}
-        run: node scripts/fetch-pricing.js
-        shell: bash
+        run: |
+          echo "💰 Fetching pricing data..."
+          node scripts/fetch-pricing.js
+          echo "✅ Pricing fetch completed"
 
-      - name: Guard pricing not empty
-        run: node scripts/debug-pricing.js
-        shell: bash
+      - name: Debug pricing data
+        run: |
+          echo "🔍 Checking pricing data..."
+          if [ -f data/pricing-raw.json ]; then
+            node -e "
+              const data = JSON.parse(require('fs').readFileSync('data/pricing-raw.json', 'utf8'));
+              const count = data.pricing ? Object.keys(data.pricing).length : 0;
+              console.log(\`📊 Pricing entries: \${count}\`);
+              if (count === 0) {
+                console.log('⚠️  Warning: No pricing data found, but continuing...');
+              }
+            "
+          else
+            echo "❌ No pricing file found!"
+            exit 1
+          fi
 
-      - name: Build merged chunks
-        run: node scripts/merge-data.js
-        shell: bash
+      - name: Merge card and pricing data
+        run: |
+          echo "🔗 Merging card and pricing data..."
+          node scripts/merge-data.js
+          echo "✅ Data merge completed"
 
-      - name: Commit and push
+      - name: Generate summary
+        run: |
+          echo "📈 Generating summary..."
+          node -e "
+            const fs = require('fs');
+            const indexPath = 'data/tcg-cards-index.json';
+            if (fs.existsSync(indexPath)) {
+              const index = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
+              const coverage = index.totalCards > 0 ? 
+                ((index.cardsWithPricing / index.totalCards) * 100).toFixed(1) : '0.0';
+              
+              const summary = {
+                totalCards: index.totalCards,
+                totalChunks: index.chunks.length,
+                cardsWithPricing: index.cardsWithPricing,
+                pricingCoverage: coverage + '%',
+                lastUpdated: new Date().toISOString(),
+                generatedAt: index.generatedAt
+              };
+              
+              fs.writeFileSync('summary.json', JSON.stringify(summary, null, 2));
+              console.log(\`✅ Summary: \${index.totalCards} cards, \${index.cardsWithPricing} with pricing (\${coverage}%)\`);
+            }
+          "
+
+      - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
+          
+          git add data/ summary.json
+          
           if git diff --cached --quiet; then
-            echo "No changes to commit."
+            echo "📝 No changes to commit"
           else
-            git commit -m "data: refresh $(date -u +%F)"
+            echo "📝 Committing changes..."
+            git commit -m "🔄 Auto-update Pokemon TCG data - $(date -u +%Y-%m-%d)"
             git push
+            echo "✅ Changes pushed successfully"
           fi
-        shell: bash
+
+      - name: Upload artifacts (on failure)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-data
+          path: |
+            data/
+            *.log
+          retention-days: 7
