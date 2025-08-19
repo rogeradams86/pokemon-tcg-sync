@@ -31,61 +31,45 @@ jobs:
 
       - name: Ensure UTF-8 locale
         run: |
-          echo "LANG=C.UTF-8" >> $GITHUB_ENV
-          echo "LC_ALL=C.UTF-8" >> $GITHUB_ENV
+          echo "LANG=C.UTF-8" >> "$GITHUB_ENV"
+          echo "LC_ALL=C.UTF-8" >> "$GITHUB_ENV"
 
       - name: Create data dir
         run: mkdir -p data
 
-      - name: Sanity: Node ESM mode (package.json)
-        run: |
-          if [ -f package.json ]; then
-            node -e "console.log('package.json type:', require('./package.json').type || '(none)')"
-          else
-            echo "No package.json found — but scripts may still run fine."
-          fi
-
       - name: Fetch Pokémon card data → data/raw-cards.json
         run: |
-          if [ -f scripts/fetch-cards.js ]; then
-            node scripts/fetch-cards.js
-          else
-            echo "scripts/fetch-cards.js not found — failing."
-            exit 1
+          if [ ! -f scripts/fetch-cards.js ]; then
+            echo "scripts/fetch-cards.js not found"; exit 1
           fi
-          test -s data/raw-cards.json || (echo "raw-cards.json missing/empty" && exit 1)
-          node -e "const x=require('fs').readFileSync('data/raw-cards.json','utf8');const j=JSON.parse(x);console.log('Sets:',j.sets?.length||0,'Cards:',j.cards?.length||0)"
+          node scripts/fetch-cards.js
+          if [ ! -s data/raw-cards.json ]; then
+            echo "raw-cards.json missing/empty"; exit 1
+          fi
+          node -e "const j=JSON.parse(require('fs').readFileSync('data/raw-cards.json','utf8'));console.log('Sets:',j.sets?.length||0,'Cards:',j.cards?.length||0)"
 
-      # Prefer scraper (no secret needed). If absent, use TCGCSV_URL with fetch-pricing.js
-      - name: Fetch pricing via scraper → data/pricing-raw.json
-        if: ${{ hashFiles('tcgcsv-scraper.js') != '' }}
-        run: node tcgcsv-scraper.js
-
-      - name: Fetch pricing via TCGCSV_URL → data/pricing-raw.json
-        if: ${{ hashFiles('tcgcsv-scraper.js') == '' }}
-        env:
-          TCGCSV_URL: ${{ secrets.TCGCSV_URL }}
+      - name: Fetch pricing → data/pricing-raw.json (pick best available)
         run: |
-          if [ -f scripts/fetch-pricing.js ]; then
+          if [ -f tcgcsv-scraper.js ]; then
+            echo "Using tcgcsv-scraper.js"
+            node tcgcsv-scraper.js
+          elif [ -f scripts/fetch-pricing.js ]; then
+            echo "Using scripts/fetch-pricing.js"
             node scripts/fetch-pricing.js
           else
-            echo "scripts/fetch-pricing.js not found — failing."
-            exit 1
+            echo "No pricing script found"; exit 1
           fi
-
-      - name: Validate pricing payload
-        run: |
-          test -s data/pricing-raw.json || (echo "pricing-raw.json missing/empty" && exit 1)
-          node -e "const j=JSON.parse(require('fs').readFileSync('data/pricing-raw.json','utf8'));const n=j?.pricing?Object.keys(j.pricing).length:0;console.log('Pricing entries:',n); if(!n){console.log('⚠️ 0 pricing entries — check scraper/TCGCSV_URL.');}"
+          if [ ! -s data/pricing-raw.json ]; then
+            echo "pricing-raw.json missing/empty"; exit 1
+          fi
+          node -e "const j=JSON.parse(require('fs').readFileSync('data/pricing-raw.json','utf8'));const n=j && j.pricing ? Object.keys(j.pricing).length : 0;console.log('Pricing entries:',n)"
 
       - name: Merge card + pricing → chunks + summary
         run: |
-          if [ -f scripts/merge-data.js ]; then
-            node scripts/merge-data.js
-          else
-            echo "scripts/merge-data.js not found — failing."
-            exit 1
+          if [ ! -f scripts/merge-data.js ]; then
+            echo "scripts/merge-data.js not found"; exit 1
           fi
+          node scripts/merge-data.js
 
       - name: Quick sanity check (optional)
         run: |
