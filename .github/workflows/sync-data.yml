@@ -1,20 +1,21 @@
-name: Sync Pokemon TCG Data
+name: Daily Pokemon TCG Data Update
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 6 * * *'  # Daily at 6 AM UTC
+    - cron: '0 6 * * *'  # Daily at 6 AM UTC (7 AM BST)
 
 jobs:
-  sync-pokemon-data:
+  update-pokemon-data:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -25,10 +26,8 @@ jobs:
       - name: Install dependencies
         run: |
           if [ -f package-lock.json ]; then
-            echo "📦 Using npm ci (lockfile found)"
             npm ci --prefer-offline --no-audit --no-fund
           else
-            echo "📦 No package-lock.json found; using npm install"
             npm install --no-audit --no-fund
           fi
 
@@ -40,16 +39,9 @@ jobs:
           echo "🎴 Fetching Pokemon card data..."
           node scripts/fetch-cards.js
           echo "✅ Card data fetch completed"
+          ls -la data/
 
-      - name: Verify card data
-        run: |
-          if [ ! -f data/raw-cards.json ]; then
-            echo "❌ Card data not found!"
-            exit 1
-          fi
-          echo "✅ Card data verified"
-
-      - name: Process cards to cards-all.json
+      - name: Process raw cards to cards-all.json
         run: |
           echo "🔄 Processing raw card data..."
           node -e "
@@ -59,29 +51,27 @@ jobs:
             console.log(\`✅ Processed \${rawData.cards.length} cards\`);
           "
 
-      - name: Fetch pricing data
+      - name: Extract and fix card sets
+        run: |
+          echo "🔧 Extracting card set information..."
+          node fix-card-sets.js
+          echo "✅ Card sets fixed"
+
+      - name: Fetch comprehensive pricing data
         env:
           TCGCSV_URL: ${{ secrets.TCGCSV_URL }}
         run: |
-          echo "💰 Fetching pricing data..."
-          node scripts/fetch-pricing.js
-          echo "✅ Pricing fetch completed"
+          echo "💰 Fetching comprehensive pricing data..."
+          node tcgcsv-scraper.js
+          echo "✅ Pricing data scraped"
 
-      - name: Debug pricing data
+      - name: Fix fractional pricing keys
         run: |
-          echo "🔍 Checking pricing data..."
-          if [ -f data/pricing-raw.json ]; then
-            node -e "
-              const data = JSON.parse(require('fs').readFileSync('data/pricing-raw.json', 'utf8'));
-              const count = data.pricing ? Object.keys(data.pricing).length : 0;
-              console.log(\`📊 Pricing entries: \${count}\`);
-              if (count === 0) {
-                console.log('⚠️  Warning: No pricing data found, but continuing...');
-              }
-            "
+          echo "🔧 Fixing pricing key formats..."
+          if [ -f fix-fractional-numbers.js ]; then
+            node fix-fractional-numbers.js
           else
-            echo "❌ No pricing file found!"
-            exit 1
+            echo "⚠️  Fractional fix script not found, skipping..."
           fi
 
       - name: Merge card and pricing data
@@ -90,53 +80,85 @@ jobs:
           node scripts/merge-data.js
           echo "✅ Data merge completed"
 
-      - name: Generate summary
+      - name: Generate comprehensive summary
+        id: summary
         run: |
-          echo "📈 Generating summary..."
-          node -e "
-            const fs = require('fs');
-            const indexPath = 'data/tcg-cards-index.json';
-            if (fs.existsSync(indexPath)) {
-              const index = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
-              const coverage = index.totalCards > 0 ? 
-                ((index.cardsWithPricing / index.totalCards) * 100).toFixed(1) : '0.0';
-              
-              const summary = {
-                totalCards: index.totalCards,
-                totalChunks: index.chunks.length,
-                cardsWithPricing: index.cardsWithPricing,
-                pricingCoverage: coverage + '%',
-                lastUpdated: new Date().toISOString(),
-                generatedAt: index.generatedAt
-              };
-              
-              fs.writeFileSync('summary.json', JSON.stringify(summary, null, 2));
-              console.log(\`✅ Summary: \${index.totalCards} cards, \${index.cardsWithPricing} with pricing (\${coverage}%)\`);
-            }
-          "
+          echo "📊 Generating update summary..."
+          node generate-summary.js
+          
+          # Read the summary for email
+          if [ -f data/update-summary.json ]; then
+            echo "summary_file=data/update-summary.json" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Upload processed data
+        run: |
+          echo "⬆️ Uploading processed data..."
+          node upload-to-github.js
+          echo "✅ Data uploaded to GitHub"
 
       - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           
-          git add data/ summary.json
+          # Add all data files
+          git add data/
+          git add summary.json
           
           if git diff --cached --quiet; then
             echo "📝 No changes to commit"
+            echo "no_changes=true" >> $GITHUB_ENV
           else
             echo "📝 Committing changes..."
-            git commit -m "🔄 Auto-update Pokemon TCG data - $(date -u +%Y-%m-%d)"
+            git commit -m "🔄 Daily Pokemon TCG data update - $(date -u +%Y-%m-%d)"
             git push
             echo "✅ Changes pushed successfully"
+            echo "no_changes=false" >> $GITHUB_ENV
           fi
 
-      - name: Upload artifacts (on failure)
+      - name: Send email notification
+        if: env.no_changes == 'false'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "🎴 Pokemon TCG Data Updated - $(date +%Y-%m-%d)"
+          to: ${{ secrets.NOTIFICATION_EMAIL }}
+          from: ${{ secrets.EMAIL_USERNAME }}
+          html_body: file://email-template.html
+          attachments: summary.json
+
+      - name: Send failure notification
+        if: failure()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "❌ Pokemon TCG Data Update Failed - $(date +%Y-%m-%d)"
+          to: ${{ secrets.NOTIFICATION_EMAIL }}
+          from: ${{ secrets.EMAIL_USERNAME }}
+          body: |
+            The daily Pokemon TCG data update failed.
+            
+            Check the GitHub Actions logs for details:
+            https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            
+            Time: $(date -u)
+            Repository: ${{ github.repository }}
+            Workflow: ${{ github.workflow }}
+
+      - name: Upload debug artifacts on failure
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: debug-data
+          name: debug-data-${{ github.run_number }}
           path: |
             data/
             *.log
+            *.json
           retention-days: 7
