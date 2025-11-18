@@ -1,27 +1,88 @@
-- name: Commit & push changes (force-add even if ignored)
-  run: |
-    echo "---- git status BEFORE ----"
-    git status --porcelain || true
+name: Sync Pokémon TCG Data
 
-    echo "---- .gitignore (if any) ----"
-    cat .gitignore || true
+on:
+  workflow_dispatch:     # Allows manual running
+  schedule:
+    - cron: "0 3 * * *"  # Runs every day at 03:00 UTC
 
-    # Stage generated files even if .gitignore blocks them
-    git add -A -f data/
-    if [ -f summary.json ]; then git add -f summary.json; fi
+jobs:
+  build-data:
+    runs-on: ubuntu-latest
 
-    echo "---- git status AFTER add ----"
-    git status --porcelain || true
+    steps:
+    - name: Checkout your repo
+      uses: actions/checkout@v4
 
-    echo "---- STAGED FILES ----"
-    git diff --cached --name-only || true
+    - name: Install Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.11"
 
-    if git diff --cached --quiet; then
-      echo "No changes to commit."
-      exit 0
-    fi
+    - name: Clone PokémonTCG official data repo
+      run: |
+        git clone https://github.com/PokemonTCG/pokemon-tcg-data.git external_data
 
-    git config user.name  "github-actions[bot]"
-    git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-    git commit -m "Daily TCG data update - $(date -u +%Y-%m-%d)"
-    git push
+    - name: Install dependencies (none required but future proof)
+      run: pip install requests
+
+    - name: Build chunked JSON files
+      run: |
+        python3 << 'EOF'
+        import os, json
+        from glob import glob
+        from math import ceil
+
+        DATA_DIR = "external_data"
+        OUTPUT_DIR = "data"
+        CHUNK = 600
+
+        os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+        # Load cards
+        card_files = glob(f"{DATA_DIR}/cards/**/*.json", recursive=True)
+        cards = []
+        for f in card_files:
+            with open(f, "r") as fp:
+                cards.append(json.load(fp))
+
+        # Load sets
+        set_files = glob(f"{DATA_DIR}/sets/*.json")
+        sets = []
+        for f in set_files:
+            with open(f, "r") as fp:
+                sets.append(json.load(fp))
+        sets.sort(key=lambda s: s.get("releaseDate") or "")
+
+        # Write sets
+        with open(f"{OUTPUT_DIR}/card-sets.json", "w") as fp:
+            json.dump(sets, fp)
+
+        # Chunk cards
+        total = len(cards)
+        chunks = ceil(total / CHUNK)
+
+        for i in range(chunks):
+            chunk_cards = cards[i*CHUNK:(i+1)*CHUNK]
+            with open(f"{OUTPUT_DIR}/tcg-cards-chunk-{i+1}.json", "w") as fp:
+                json.dump({"cards": chunk_cards}, fp)
+
+        # Write index
+        with open(f"{OUTPUT_DIR}/tcg-cards-index.json", "w") as fp:
+            json.dump({"total_cards": total, "total_chunks": chunks, "chunk_size": CHUNK}, fp)
+
+        print(f"Generated {chunks} chunks, {total} cards.")
+        EOF
+
+    - name: Commit & push updated data
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+        git add data || true
+        if git diff --cached --quiet; then
+          echo "No changes to commit."
+          exit 0
+        fi
+
+        git commit -m "Auto-update Pokémon TCG data"
+        git push
