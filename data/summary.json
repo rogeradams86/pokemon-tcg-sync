@@ -1,13 +1,11 @@
 {
-  "totalCards": 19465,
-  "totalSets": 168,
-  "totalChunks": 39,
+  "lastUpdated": "2025-11-18T23:25:32.150Z",
+  "totalCards": 19783,
   "cardsWithPricing": 0,
-  "pricingCoverage": "0.0%",
-  "pricingStats": {
-    "totalAttempts": 1868592,
-    "successfulMatches": 0,
-    "successRate": "0.0%"
-  },
-  "lastUpdated": "2025-08-18T16:08:49.211Z"
+  "chunks": [
+    "tcg-cards-chunk-1.json",
+    "tcg-cards-chunk-2.json",
+    "tcg-cards-chunk-3.json",
+    "tcg-cards-chunk-4.json"
+  ]
 }
