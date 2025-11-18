@@ -1,210 +1,205 @@
 /**
  * merge-data.js
- * 
+ *
  * Merges Pokémon TCG card data with pricing from `data/pricing-raw.json`,
- * enriches cards with full set metadata, and writes chunked card JSON files.
+ * writes chunked card JSON files and an index manifest into /data.
  */
 
-import fs from 'fs';
-import path from 'path';
-import process from 'process';
+import fs from "fs";
+import path from "path";
+import process from "process";
 
 const REPO_ROOT = process.cwd();
-const DATA_DIR  = path.join(REPO_ROOT, 'data');
-
-// ALWAYS read raw-cards.json now
-const RAW_SRC   = path.join(DATA_DIR, 'raw-cards.json');
-const PRICING   = path.join(DATA_DIR, 'pricing-raw.json');
+const DATA_DIR = path.join(REPO_ROOT, "data");
+const RAW_SRC = path.join(DATA_DIR, "raw-cards.json");
+const PRICING_SRC = path.join(DATA_DIR, "pricing-raw.json");
 
 const CHUNK_SIZE = 5000;
 
-// --------------------- utils ---------------------
-function readJson(p, optional=false) {
+// ---------------- Utilities ----------------------
+
+function readJson(p, optional = false) {
   if (!fs.existsSync(p)) {
     if (optional) return null;
-    throw new Error(`Missing file: ${p}`);
+    throw new Error(`Missing required file: ${p}`);
   }
-  return JSON.parse(fs.readFileSync(p, 'utf8'));
+  return JSON.parse(fs.readFileSync(p, "utf8"));
 }
 
 function writeJson(p, obj) {
   fs.mkdirSync(path.dirname(p), { recursive: true });
-  fs.writeFileSync(p, JSON.stringify(obj, null, 2), 'utf8');
+  fs.writeFileSync(p, JSON.stringify(obj, null, 2), "utf8");
 }
 
-function normalizeSetId(setId) {
-  if (!setId) return [''];
-  const s = String(setId).toLowerCase();
-  const out = new Set([s, s.replace(/[^a-z0-9]/g,'')]);
-
-  // vintage alias support
-  if (s === 'base') { out.add('base1'); out.add('base-set'); }
-  if (s === 'base1') { out.add('base'); out.add('base-set'); }
-
-  out.add(s.replace(/(\d+)$/, '')); // neo1 -> neo
-
-  return [...out];
-}
-
-function numberCandidates(n) {
-  if (!n) return ['','0'];
-  const s = String(n).toUpperCase().trim();
-  const out = new Set([s]);
-
-  if (s.includes('/')) {
-    const left = s.split('/')[0];
-    out.add(left);
-    const num = parseInt(left, 10);
-    if (Number.isFinite(num)) out.add(String(num));
+function chunkArray(arr, size) {
+  const out = [];
+  for (let i = 0; i < arr.length; i += size) {
+    out.push(arr.slice(i, i + size));
   }
-  const digits = s.replace(/\D/g,'');
-  if (digits) {
-    out.add(digits);
-    const n2 = parseInt(digits, 10);
-    if (Number.isFinite(n2)) out.add(String(n2));
+  return out;
+}
+
+// Build map: setId → setObject
+function buildSetMap(raw) {
+  const out = {};
+  if (raw.sets && Array.isArray(raw.sets)) {
+    raw.sets.forEach((s) => {
+      if (!s.id) return;
+      out[String(s.id).toLowerCase()] = {
+        id: s.id,
+        name: s.name,
+        series: s.series,
+        printedTotal: s.printedTotal,
+        total: s.total,
+        releaseDate: s.releaseDate,
+        images: s.images,
+      };
+    });
   }
-  out.add(s.replace(/[^A-Z0-9]/g,'')); // SVP-001 -> SVP001
-  return [...out].filter(Boolean);
+  return out;
 }
 
-function normalizePrint(v='normal') {
-  v = String(v || 'normal').toLowerCase();
-  if (v.startsWith('rev') || v.includes('reverse')) return 'reverse';
-  if (v.includes('holo') || v.includes('foil'))   return 'holo';
-  if (v.includes('normal'))                        return 'normal';
-  return v || 'normal';
+// ---------------- Pricing matching ----------------------
+
+function normalizeSetId(id) {
+  if (!id) return "";
+  return String(id).toLowerCase().replace(/[^a-z0-9]/g, "");
 }
 
-function toSetIdFromCard(card) {
-  if (card?.set?.id) return String(card.set.id).toLowerCase();
-  const id = String(card?.id || '');
-  const m = id.match(/^([a-z0-9\-]+)\-/i);
-  if (m) return m[1].toLowerCase();
-  return '';
+function normalizeNumber(num) {
+  if (!num) return "";
+  return String(num).replace(/\D/g, "");
 }
 
+function normalizePrint(v = "normal") {
+  v = String(v).toLowerCase();
+  if (v.includes("reverse")) return "reverse";
+  if (v.includes("holo") || v.includes("foil")) return "holo";
+  return "normal";
+}
+
+// Attach pricing if found
 function attachPricing(card, pricingMap) {
-  const setIds = normalizeSetId(toSetIdFromCard(card));
-  const nums   = numberCandidates(card.number);
-  const prints = [
-    normalizePrint(card.printing || card.variant || card.rarity || 'normal'),
-    'normal','holo','reverse'
+  if (!pricingMap) {
+    card.pricing = null;
+    return card;
+  }
+
+  const setId = normalizeSetId(card.set?.id);
+  const number = normalizeNumber(card.number);
+  const basePrint = normalizePrint(card.printing || card.rarity || "normal");
+
+  const candidates = [
+    `${setId}|${number}|${basePrint}|EN`,
+    `${setId}|${number}|normal|EN`,
+    `${setId}|${number}|holo|EN`,
+    `${setId}|${number}|reverse|EN`,
+    `${setId}||${basePrint}|EN`,
+    `${setId}||normal|EN`,
   ];
 
   let match = null;
-
-  outer: for (const gid of setIds) {
-    for (const num of nums) for (const pr of prints) {
-      const k = `${gid}|${num}|${pr}|EN`;
-      if (pricingMap[k]) { match = pricingMap[k]; break outer; }
-    }
-  }
-
-  // fallback for sealed / no-number
-  if (!match) {
-    for (const gid of setIds) for (const pr of prints) {
-      const k = `${gid}||${pr}|EN`;
-      if (pricingMap[k]) { match = pricingMap[k]; break; }
+  for (const k of candidates) {
+    if (pricingMap[k]) {
+      match = pricingMap[k];
+      break;
     }
   }
 
   card.pricing = match
-    ? { market: match.market, low: match.low, high: match.high }
+    ? {
+        market: match.market,
+        low: match.low,
+        high: match.high,
+      }
     : null;
 
   return card;
 }
 
-// --------------------- NEW: Include set metadata ---------------------
-function buildSetMap(raw) {
-  const out = {};
-  if (!raw.sets) return out;
+// ---------------- Set assignment (the fix) ----------------------
 
-  raw.sets.forEach(s => {
-    out[String(s.id).toLowerCase()] = s;
-  });
-  return out;
+function forceAttachSet(card, setMap) {
+  // derive "me2-13" → "me2"
+  const idPrefix = card.id.split("-")[0].toLowerCase();
+  const meta = setMap[idPrefix];
+
+  if (meta) {
+    card.set = {
+      id: meta.id,
+      name: meta.name,
+      series: meta.series,
+      printedTotal: meta.printedTotal,
+      total: meta.total,
+      releaseDate: meta.releaseDate,
+      images: meta.images,
+    };
+  } else {
+    // fallback for rare future cases
+    card.set = {
+      id: idPrefix,
+      name: "Unknown Set",
+    };
+  }
+
+  return card;
 }
+
+// ---------------- Main ----------------------
 
 function loadCardsWithSets() {
   const raw = readJson(RAW_SRC);
+  if (!raw) throw new Error("raw-cards.json missing");
 
-  const cards = Array.isArray(raw)
-    ? raw
-    : Array.isArray(raw.cards)
-      ? raw.cards
-      : [];
+  const cards = Array.isArray(raw.cards) ? raw.cards : raw;
 
   const setMap = buildSetMap(raw);
 
-  cards.forEach(card => {
-    let sid = card.set?.id || card.set;
-    if (!sid) return;
-
-    sid = String(sid).toLowerCase();
-
-    if (!card.set) card.set = { id: sid };
-
-    if (setMap[sid]) {
-      card.set = {
-        ...card.set,
-        name: setMap[sid].name,
-        series: setMap[sid].series,
-        releaseDate: setMap[sid].releaseDate,
-        images: setMap[sid].images,
-        printedTotal: setMap[sid].printedTotal,
-        total: setMap[sid].total
-      };
-    }
-  });
-
-  return cards;
-}
-
-// --------------------- main ---------------------
-function chunkArray(arr, size) {
-  const out = [];
-  for (let i=0; i<arr.length; i+=size) out.push(arr.slice(i, i+size));
-  return out;
+  return { cards, setMap };
 }
 
 function main() {
-  const cards = loadCardsWithSets();
-  const pricingRaw = readJson(PRICING, true);
+  const { cards, setMap } = loadCardsWithSets();
+  const pricingRaw = readJson(PRICING_SRC, true);
   const pricingMap = pricingRaw?.pricing || {};
 
-  console.log(`Cards: ${cards.length} • Pricing entries: ${Object.keys(pricingMap).length}`);
+  console.log(
+    `Cards loaded: ${cards.length} • Pricing entries: ${Object.keys(pricingMap).length}`
+  );
 
   let withPricing = 0;
 
-  const merged = cards.map(c => {
-    const r = attachPricing({ ...c }, pricingMap);
-    if (r.pricing) withPricing++;
-    return r;
+  const merged = cards.map((c) => {
+    const withSet = forceAttachSet({ ...c }, setMap);
+    const withPrice = attachPricing(withSet, pricingMap);
+    if (withPrice.pricing) withPricing++;
+    return withPrice;
   });
 
-  // write chunks
+  // Write chunks
   const chunks = chunkArray(merged, CHUNK_SIZE);
   const chunkNames = [];
+
   chunks.forEach((chunk, idx) => {
-    const name = `tcg-cards-chunk-${idx+1}.json`;
+    const name = `tcg-cards-chunk-${idx + 1}.json`;
     writeJson(path.join(DATA_DIR, name), { cards: chunk });
     chunkNames.push(name);
   });
 
-  // write index
-  const index = {
+  // Manifest
+  writeJson(path.join(DATA_DIR, "tcg-cards-index.json"), {
     generatedAt: new Date().toISOString(),
     totalCards: merged.length,
     cardsWithPricing: withPricing,
-    chunks: chunkNames
-  };
+    chunks: chunkNames,
+  });
 
-  writeJson(path.join(DATA_DIR, 'tcg-cards-index.json'), index);
-
-  console.log(`✅ Wrote ${chunkNames.length} chunk(s). cardsWithPricing=${withPricing}`);
+  console.log(
+    `✅ Finished: ${merged.length} cards, ${withPricing} with pricing, ${chunks.length} chunks`
+  );
 }
 
+// Run
 try {
   main();
 } catch (e) {
