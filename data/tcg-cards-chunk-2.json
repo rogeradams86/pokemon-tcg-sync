@@ -64280,7 +64280,7 @@
     {
       "id": "bw3-75",
       "name": "Pawniard",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Basic"
       ],
@@ -121974,7 +121974,7 @@
           ],
           "convertedEnergyCost": 1,
           "damage": "10",
-          "text": "Discard a Special Energy attached to your opponent's Active Pokémon. If you do, prevent all effects of attacks, including damage, done to this Pokémon during your opponent's next turn."
+          "text": "Discard a Special Energy attached to your opponent's Active Pok��mon. If you do, prevent all effects of attacks, including damage, done to this Pokémon during your opponent's next turn."
         },
         {
           "name": "Dream Dance",
@@ -149024,7 +149024,7 @@
           ],
           "convertedEnergyCost": 2,
           "damage": "30",
-          "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pokémon."
+          "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pok��mon."
         },
         {
           "name": "Tailspin Piledriver",
