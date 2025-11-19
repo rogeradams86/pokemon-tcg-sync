@@ -96743,7 +96743,7 @@
           ],
           "convertedEnergyCost": 3,
           "damage": "90",
-          "text": "This attack does 30 damage to 2 of your opponent's Benched Pok��mon-GX and Pokémon-EX. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          "text": "This attack does 30 damage to 2 of your opponent's Benched Pokémon-GX and Pokémon-EX. (Don't apply Weakness and Resistance for Benched Pokémon.)"
         },
         {
           "name": "Unfair-GX",
