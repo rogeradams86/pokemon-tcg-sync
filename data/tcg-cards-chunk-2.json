@@ -52930,7 +52930,7 @@
       "abilities": [
         {
           "name": "Fight Song",
-          "text": "Your Dragon Pok��mon's attacks do 20 more damage to the Active Pokémon (before applying Weakness and Resistance).",
+          "text": "Your Dragon Pokémon's attacks do 20 more damage to the Active Pokémon (before applying Weakness and Resistance).",
           "type": "Ability"
         }
       ],
@@ -197266,7 +197266,7 @@
       "abilities": [
         {
           "name": "Flare Command",
-          "text": "Once during your turn (before your attack), you may discard a Fire Energy attached to this Pok��mon. If you do, switch 1 of your opponent's Benched Pokémon with his or her Active Pokémon.",
+          "text": "Once during your turn (before your attack), you may discard a Fire Energy attached to this Pokémon. If you do, switch 1 of your opponent's Benched Pokémon with his or her Active Pokémon.",
           "type": "Ability"
         }
       ],
@@ -260086,7 +260086,7 @@
         "Supporter"
       ],
       "rules": [
-        "Search your deck for a card that evolves from 1 of your Pokémon (excluding Pokémon-EX) and put it onto that Pok��mon. (This counts as evolving that Pokémon.) Shuffle your deck afterward. You can use this card during your first turn or on a Pokémon that was put into play this turn.",
+        "Search your deck for a card that evolves from 1 of your Pokémon (excluding Pokémon-EX) and put it onto that Pokémon. (This counts as evolving that Pokémon.) Shuffle your deck afterward. You can use this card during your first turn or on a Pokémon that was put into play this turn.",
         "You may play only 1 Supporter card during your turn (before your attack)."
       ],
       "number": "RC27",
@@ -313270,7 +313270,7 @@
           ],
           "convertedEnergyCost": 1,
           "damage": "",
-          "text": "Shuffle this Pokémon and all cards attached to it into your deck. If this Pokémon has at least 1 extra Fire, Water, and Lightning Energy attached to it (in addition to this attack's cost), this attack does 110 damage to 3 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pok��mon.) (You can't use more than 1 GX attack in a game.)"
+          "text": "Shuffle this Pokémon and all cards attached to it into your deck. If this Pokémon has at least 1 extra Fire, Water, and Lightning Energy attached to it (in addition to this attack's cost), this attack does 110 damage to 3 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) (You can't use more than 1 GX attack in a game.)"
         }
       ],
       "weaknesses": [

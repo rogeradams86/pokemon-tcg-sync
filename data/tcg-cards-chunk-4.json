@@ -150859,7 +150859,7 @@
       ],
       "rules": [
         "The Future Pokémon this card is attached to has no Retreat Cost, and the attacks it uses do 20 more damage to your opponent's Active Pokémon (before applying Weakness and Resistance).",
-        "You may attach any number of Pokémon Tools to your Pokémon during your turn. You may attach only 1 Pokémon Tool to each Pokémon, and it stays attached."
+        "You may attach any number of Pok��mon Tools to your Pokémon during your turn. You may attach only 1 Pokémon Tool to each Pokémon, and it stays attached."
       ],
       "number": "164",
       "artist": "5ban Graphics",
@@ -312402,7 +312402,7 @@
     {
       "id": "me1-95",
       "name": "Dialga",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Basic"
       ],
@@ -326026,7 +326026,7 @@
         "Stadium"
       ],
       "rules": [
-        "Prevent all damage counters from being placed on Benched Pokémon (both yours and your opponent's) by effects of attacks and Abilities from the opponent's Pok��mon. (Damage from attacks is still taken.)",
+        "Prevent all damage counters from being placed on Benched Pokémon (both yours and your opponent's) by effects of attacks and Abilities from the opponent's Pokémon. (Damage from attacks is still taken.)",
         "You may play only 1 Stadium card during your turn. Put it next to the Active Spot, and discard it if another Stadium comes into play. A Stadium with the same name can't be played."
       ],
       "number": "116",
