@@ -78031,7 +78031,7 @@
         "Supporter"
       ],
       "rules": [
-        "Look at the top card of your deck, and then choose 1:\n• Discard your hand and draw 5 cards.\n�� Discard your hand and draw 5 cards from the bottom of your deck.",
+        "Look at the top card of your deck, and then choose 1:\n• Discard your hand and draw 5 cards.\n• Discard your hand and draw 5 cards from the bottom of your deck.",
         "You may play only 1 Supporter card during your turn (before your attack)."
       ],
       "number": "144",
@@ -90133,7 +90133,7 @@
           ],
           "convertedEnergyCost": 2,
           "damage": "30+",
-          "text": "If you have fewer Pokémon in play than your opponent, this attack does 50 more damage for each Pokémon fewer you have in play."
+          "text": "If you have fewer Pokémon in play than your opponent, this attack does 50 more damage for each Pok��mon fewer you have in play."
         },
         {
           "name": "Magnum Punch",
