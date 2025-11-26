@@ -67568,7 +67568,7 @@
       "number": "118",
       "artist": "Shimaris Yukichi",
       "rarity": "Promo",
-      "flavorText": "Tatsugiri is an extremely cunning Pokémon. It feigns weakness to lure in prey, then orders its partner to attack.",
+      "flavorText": "Tatsugiri is an extremely cunning Pok��mon. It feigns weakness to lure in prey, then orders its partner to attack.",
       "nationalPokedexNumbers": [
         978
       ],
@@ -93949,7 +93949,7 @@
           ],
           "name": "Follow-Up Kerzap",
           "damage": "100",
-          "text": "You can use this attack only if this Pok��mon used Stun Needle during your last turn.",
+          "text": "You can use this attack only if this Pokémon used Stun Needle during your last turn.",
           "convertedEnergyCost": 1
         }
       ],
