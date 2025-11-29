@@ -61061,7 +61061,7 @@
       "weaknesses": [
         {
           "type": "Psychic",
-          "value": "��2"
+          "value": "×2"
         }
       ],
       "retreatCost": [
@@ -77792,7 +77792,7 @@
     {
       "id": "bw3-75",
       "name": "Pawniard",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Basic"
       ],
