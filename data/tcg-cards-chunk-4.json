@@ -14247,7 +14247,7 @@
           ],
           "convertedEnergyCost": 2,
           "damage": "40+",
-          "text": "Put any number of Pokémon Tool cards from your discard pile in the Lost Zone. This attack does 40 more damage for each card you put in the Lost Zone in this way."
+          "text": "Put any number of Pok��mon Tool cards from your discard pile in the Lost Zone. This attack does 40 more damage for each card you put in the Lost Zone in this way."
         }
       ],
       "weaknesses": [
@@ -147489,7 +147489,7 @@
     {
       "id": "sv4-117",
       "name": "Garbodor",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Stage 1"
       ],
