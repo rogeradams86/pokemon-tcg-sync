@@ -14247,7 +14247,7 @@
           ],
           "convertedEnergyCost": 2,
           "damage": "40+",
-          "text": "Put any number of Pok��mon Tool cards from your discard pile in the Lost Zone. This attack does 40 more damage for each card you put in the Lost Zone in this way."
+          "text": "Put any number of Pokémon Tool cards from your discard pile in the Lost Zone. This attack does 40 more damage for each card you put in the Lost Zone in this way."
         }
       ],
       "weaknesses": [
@@ -147489,7 +147489,7 @@
     {
       "id": "sv4-117",
       "name": "Garbodor",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Stage 1"
       ],
@@ -324104,7 +324104,7 @@
         "Stadium"
       ],
       "rules": [
-        "Prevent all damage counters from being placed on Benched Pokémon (both yours and your opponent's) by effects of attacks and Abilities from the opponent's Pokémon. (Damage from attacks is still taken.)",
+        "Prevent all damage counters from being placed on Benched Pok��mon (both yours and your opponent's) by effects of attacks and Abilities from the opponent's Pokémon. (Damage from attacks is still taken.)",
         "You may play only 1 Stadium card during your turn. Put it next to the Active Spot, and discard it if another Stadium comes into play. A Stadium with the same name can't be played."
       ],
       "number": "85",
