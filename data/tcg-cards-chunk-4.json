@@ -137148,7 +137148,7 @@
           ],
           "convertedEnergyCost": 2,
           "damage": "50",
-          "text": "Put an Energy attached to your opponent's Active Pokémon into their hand."
+          "text": "Put an Energy attached to your opponent's Active Pok��mon into their hand."
         }
       ],
       "weaknesses": [
@@ -223132,7 +223132,7 @@
       "weaknesses": [
         {
           "type": "Fighting",
-          "value": "��2"
+          "value": "×2"
         }
       ],
       "retreatCost": [
