@@ -67568,7 +67568,7 @@
       "number": "118",
       "artist": "Shimaris Yukichi",
       "rarity": "Promo",
-      "flavorText": "Tatsugiri is an extremely cunning Pokémon. It feigns weakness to lure in prey, then orders its partner to attack.",
+      "flavorText": "Tatsugiri is an extremely cunning Pok��mon. It feigns weakness to lure in prey, then orders its partner to attack.",
       "nationalPokedexNumbers": [
         978
       ],
@@ -137148,7 +137148,7 @@
           ],
           "convertedEnergyCost": 2,
           "damage": "50",
-          "text": "Put an Energy attached to your opponent's Active Pok��mon into their hand."
+          "text": "Put an Energy attached to your opponent's Active Pokémon into their hand."
         }
       ],
       "weaknesses": [
@@ -235330,7 +235330,7 @@
       "name": "Colbur Berry",
       "supertype": "Trainer",
       "subtypes": [
-        "Pokémon Tool"
+        "Pok��mon Tool"
       ],
       "rules": [
         "If the Pokémon this card is attached to is damaged by an attack from your opponent's Darkness Pokémon, it takes 60 less damage (after applying Weakness and Resistance), and discard this card.",
@@ -238008,7 +238008,7 @@
       ],
       "evolvesFrom": "Feebas",
       "rules": [
-        "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        "Pok��mon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
       ],
       "abilities": [
         {
@@ -324104,7 +324104,7 @@
         "Stadium"
       ],
       "rules": [
-        "Prevent all damage counters from being placed on Benched Pok��mon (both yours and your opponent's) by effects of attacks and Abilities from the opponent's Pokémon. (Damage from attacks is still taken.)",
+        "Prevent all damage counters from being placed on Benched Pokémon (both yours and your opponent's) by effects of attacks and Abilities from the opponent's Pokémon. (Damage from attacks is still taken.)",
         "You may play only 1 Stadium card during your turn. Put it next to the Active Spot, and discard it if another Stadium comes into play. A Stadium with the same name can't be played."
       ],
       "number": "85",
