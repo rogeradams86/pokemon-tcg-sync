@@ -22135,7 +22135,7 @@
       "weaknesses": [
         {
           "type": "Water",
-          "value": "×2"
+          "value": "��2"
         }
       ],
       "retreatCost": [
@@ -67568,7 +67568,7 @@
       "number": "118",
       "artist": "Shimaris Yukichi",
       "rarity": "Promo",
-      "flavorText": "Tatsugiri is an extremely cunning Pok��mon. It feigns weakness to lure in prey, then orders its partner to attack.",
+      "flavorText": "Tatsugiri is an extremely cunning Pokémon. It feigns weakness to lure in prey, then orders its partner to attack.",
       "nationalPokedexNumbers": [
         978
       ],
@@ -235330,7 +235330,7 @@
       "name": "Colbur Berry",
       "supertype": "Trainer",
       "subtypes": [
-        "Pok��mon Tool"
+        "Pokémon Tool"
       ],
       "rules": [
         "If the Pokémon this card is attached to is damaged by an attack from your opponent's Darkness Pokémon, it takes 60 less damage (after applying Weakness and Resistance), and discard this card.",
@@ -238008,7 +238008,7 @@
       ],
       "evolvesFrom": "Feebas",
       "rules": [
-        "Pok��mon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
       ],
       "abilities": [
         {
