@@ -78031,7 +78031,7 @@
         "Supporter"
       ],
       "rules": [
-        "Look at the top card of your deck, and then choose 1:\n• Discard your hand and draw 5 cards.\n• Discard your hand and draw 5 cards from the bottom of your deck.",
+        "Look at the top card of your deck, and then choose 1:\n• Discard your hand and draw 5 cards.\n��� Discard your hand and draw 5 cards from the bottom of your deck.",
         "You may play only 1 Supporter card during your turn (before your attack)."
       ],
       "number": "144",
@@ -255870,7 +255870,7 @@
       "abilities": [
         {
           "name": "Sap Sipper",
-          "text": "This Pok��mon's attacks do 60 more damage to your opponent's Grass Pokémon (before applying Weakness and Resistance).",
+          "text": "This Pokémon's attacks do 60 more damage to your opponent's Grass Pokémon (before applying Weakness and Resistance).",
           "type": "Ability"
         }
       ],
