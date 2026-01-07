@@ -42436,7 +42436,7 @@
       "weaknesses": [
         {
           "type": "Lightning",
-          "value": "��2"
+          "value": "×2"
         }
       ],
       "resistances": [
@@ -277928,7 +277928,7 @@
     {
       "id": "dp4-11",
       "name": "Togekiss",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Stage 2"
       ],
