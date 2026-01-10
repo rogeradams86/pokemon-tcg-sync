@@ -130372,7 +130372,7 @@
       "weaknesses": [
         {
           "type": "Fire",
-          "value": "×2"
+          "value": "��2"
         }
       ],
       "retreatCost": [
@@ -147878,7 +147878,7 @@
     {
       "id": "ex4-94",
       "name": "Suicune ex",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Basic",
         "ex"
@@ -326352,7 +326352,7 @@
     {
       "id": "pl2-44",
       "name": "Lairon",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Stage 1"
       ],
