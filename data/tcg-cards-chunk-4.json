@@ -137148,7 +137148,7 @@
           ],
           "convertedEnergyCost": 2,
           "damage": "50",
-          "text": "Put an Energy attached to your opponent's Active Pokémon into their hand."
+          "text": "Put an Energy attached to your opponent's Active Pok��mon into their hand."
         }
       ],
       "weaknesses": [
@@ -297605,7 +297605,7 @@
     {
       "id": "rsv10pt5-60",
       "name": "Garbodor",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Stage 1"
       ],
