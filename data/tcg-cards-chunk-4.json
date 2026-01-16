@@ -70129,7 +70129,7 @@
       "abilities": [
         {
           "name": "Obliging Heal",
-          "text": "When you play this Pokémon from your hand onto your Bench during your turn, you may heal 30 damage from your Active Pok��mon and have it recover from a Special Condition.",
+          "text": "When you play this Pokémon from your hand onto your Bench during your turn, you may heal 30 damage from your Active Pokémon and have it recover from a Special Condition.",
           "type": "Ability"
         }
       ],
@@ -137148,7 +137148,7 @@
           ],
           "convertedEnergyCost": 2,
           "damage": "50",
-          "text": "Put an Energy attached to your opponent's Active Pokémon into their hand."
+          "text": "Put an Energy attached to your opponent's Active Pok��mon into their hand."
         }
       ],
       "weaknesses": [
