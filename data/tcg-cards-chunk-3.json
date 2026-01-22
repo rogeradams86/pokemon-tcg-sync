@@ -79116,7 +79116,7 @@
             "Psychic"
           ],
           "convertedEnergyCost": 2,
-          "damage": "50×",
+          "damage": "50��",
           "text": "Your opponent reveals their hand. This attack does 50 damage for each Trainer card you find there."
         },
         {
@@ -224589,7 +224589,7 @@
       "number": "69",
       "artist": "nagimiso",
       "rarity": "Common",
-      "flavorText": "If it finds bad children who won't listen to their parents, it will spirit them away—or so it's said.",
+      "flavorText": "If it finds bad children who won't listen to their parents, it will spirit them away���or so it's said.",
       "nationalPokedexNumbers": [
         355
       ],
