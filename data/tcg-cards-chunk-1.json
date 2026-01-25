@@ -92124,7 +92124,7 @@
         "Supporter"
       ],
       "rules": [
-        "You can play only one Supporter card each turn. When you play this card, put it next to your Active Pokémon. When your turn ends, discard this card.",
+        "You can play only one Supporter card each turn. When you play this card, put it next to your Active Pok��mon. When your turn ends, discard this card.",
         "Search your deck for an Evolution card, show it to your opponent, and put it into your hand. Shuffle your deck afterward."
       ],
       "number": "148",
@@ -264411,7 +264411,7 @@
       "number": "89",
       "artist": "Yusuke Ohmura",
       "rarity": "Common",
-      "flavorText": "It is said to be the world's weakest Pokémon. No one knows why it has managed to survive.",
+      "flavorText": "It is said to be the world's weakest Pok��mon. No one knows why it has managed to survive.",
       "nationalPokedexNumbers": [
         129
       ],
@@ -326352,7 +326352,7 @@
     {
       "id": "pl2-44",
       "name": "Lairon",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Stage 1"
       ],
