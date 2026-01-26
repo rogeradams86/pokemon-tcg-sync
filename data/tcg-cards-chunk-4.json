@@ -86301,7 +86301,7 @@
           ],
           "name": "Knickknack Carrying",
           "damage": "",
-          "text": "Search your deck for up to 3 Pok��mon Tool cards, reveal them, and put them into your hand. Then, shuffle your deck.",
+          "text": "Search your deck for up to 3 Pokémon Tool cards, reveal them, and put them into your hand. Then, shuffle your deck.",
           "convertedEnergyCost": 1
         },
         {
@@ -301060,7 +301060,7 @@
           ],
           "convertedEnergyCost": 3,
           "damage": "120",
-          "text": "Discard an Energy from this Pokémon."
+          "text": "Discard an Energy from this Pok��mon."
         }
       ],
       "weaknesses": [
