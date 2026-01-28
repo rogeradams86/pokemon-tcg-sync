@@ -86301,7 +86301,7 @@
           ],
           "name": "Knickknack Carrying",
           "damage": "",
-          "text": "Search your deck for up to 3 Pokémon Tool cards, reveal them, and put them into your hand. Then, shuffle your deck.",
+          "text": "Search your deck for up to 3 Pok��mon Tool cards, reveal them, and put them into your hand. Then, shuffle your deck.",
           "convertedEnergyCost": 1
         },
         {
@@ -121847,7 +121847,7 @@
         "Supporter"
       ],
       "rules": [
-        "Move up to 2 Energy from 1 of your Pokémon to another of your Pokémon.",
+        "Move up to 2 Energy from 1 of your Pok��mon to another of your Pokémon.",
         "You may play only 1 Supporter card during your turn."
       ],
       "number": "193",
@@ -137148,7 +137148,7 @@
           ],
           "convertedEnergyCost": 2,
           "damage": "50",
-          "text": "Put an Energy attached to your opponent's Active Pok��mon into their hand."
+          "text": "Put an Energy attached to your opponent's Active Pokémon into their hand."
         }
       ],
       "weaknesses": [
