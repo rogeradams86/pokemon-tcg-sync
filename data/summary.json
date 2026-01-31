@@ -1,11 +1,12 @@
 {
-  "lastUpdated": "2026-01-30T06:58:14.637Z",
-  "totalCards": 19783,
+  "lastUpdated": "2026-01-31T06:49:25.179Z",
+  "totalCards": 20078,
   "cardsWithPricing": 0,
   "chunks": [
     "tcg-cards-chunk-1.json",
     "tcg-cards-chunk-2.json",
     "tcg-cards-chunk-3.json",
-    "tcg-cards-chunk-4.json"
+    "tcg-cards-chunk-4.json",
+    "tcg-cards-chunk-5.json"
   ]
 }
