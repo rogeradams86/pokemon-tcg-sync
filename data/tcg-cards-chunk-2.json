@@ -100019,7 +100019,7 @@
       "weaknesses": [
         {
           "type": "Water",
-          "value": "×2"
+          "value": "��2"
         }
       ],
       "resistances": [
@@ -108094,7 +108094,7 @@
     {
       "id": "bw7-24",
       "name": "Tepig",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Basic"
       ],
@@ -263097,7 +263097,7 @@
       "number": "38",
       "artist": "MAHOU",
       "rarity": "Uncommon",
-      "flavorText": "This Pokémon was regenerated from the fossil of an ancient creature. It protects itself with a hard shell.",
+      "flavorText": "This Pok��mon was regenerated from the fossil of an ancient creature. It protects itself with a hard shell.",
       "nationalPokedexNumbers": [
         140
       ],
