@@ -74164,7 +74164,7 @@
       "weaknesses": [
         {
           "type": "Grass",
-          "value": "×2"
+          "value": "��2"
         }
       ],
       "retreatCost": [
@@ -77792,7 +77792,7 @@
     {
       "id": "bw3-75",
       "name": "Pawniard",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Basic"
       ],
@@ -270496,7 +270496,7 @@
           ],
           "convertedEnergyCost": 1,
           "damage": "20",
-          "text": "Choose 2 of your Benched Pokémon. Attach a Fire Energy card from your discard pile to each of those Pokémon."
+          "text": "Choose 2 of your Benched Pokémon. Attach a Fire Energy card from your discard pile to each of those Pok��mon."
         },
         {
           "name": "Steam Artillery",
