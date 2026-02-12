@@ -74164,7 +74164,7 @@
       "weaknesses": [
         {
           "type": "Grass",
-          "value": "��2"
+          "value": "×2"
         }
       ],
       "retreatCost": [
@@ -180056,7 +180056,7 @@
           ],
           "convertedEnergyCost": 2,
           "damage": "30",
-          "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pok��mon."
+          "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pokémon."
         },
         {
           "name": "Tailspin Piledriver",
@@ -270496,7 +270496,7 @@
           ],
           "convertedEnergyCost": 1,
           "damage": "20",
-          "text": "Choose 2 of your Benched Pokémon. Attach a Fire Energy card from your discard pile to each of those Pok��mon."
+          "text": "Choose 2 of your Benched Pokémon. Attach a Fire Energy card from your discard pile to each of those Pokémon."
         },
         {
           "name": "Steam Artillery",
