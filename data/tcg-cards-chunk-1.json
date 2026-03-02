@@ -73259,7 +73259,7 @@
     {
       "id": "neo4-90",
       "name": "Venonat",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Basic"
       ],
@@ -264411,7 +264411,7 @@
       "number": "89",
       "artist": "Yusuke Ohmura",
       "rarity": "Common",
-      "flavorText": "It is said to be the world's weakest Pokémon. No one knows why it has managed to survive.",
+      "flavorText": "It is said to be the world's weakest Pok��mon. No one knows why it has managed to survive.",
       "nationalPokedexNumbers": [
         129
       ],

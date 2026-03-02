@@ -108694,7 +108694,7 @@
       "abilities": [
         {
           "name": "Forest Miasma",
-          "text": "During Pokémon Checkup, if this Pokémon is in the Active Spot, put 1 damage counter on your opponent's Active Pok��mon.",
+          "text": "During Pokémon Checkup, if this Pokémon is in the Active Spot, put 1 damage counter on your opponent's Active Pokémon.",
           "type": "Ability"
         }
       ],
@@ -150859,7 +150859,7 @@
       ],
       "rules": [
         "The Future Pokémon this card is attached to has no Retreat Cost, and the attacks it uses do 20 more damage to your opponent's Active Pokémon (before applying Weakness and Resistance).",
-        "You may attach any number of Pokémon Tools to your Pokémon during your turn. You may attach only 1 Pokémon Tool to each Pokémon, and it stays attached."
+        "You may attach any number of Pok��mon Tools to your Pokémon during your turn. You may attach only 1 Pokémon Tool to each Pokémon, and it stays attached."
       ],
       "number": "164",
       "artist": "5ban Graphics",
