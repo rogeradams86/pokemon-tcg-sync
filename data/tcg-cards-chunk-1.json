@@ -130372,7 +130372,7 @@
       "weaknesses": [
         {
           "type": "Fire",
-          "value": "��2"
+          "value": "×2"
         }
       ],
       "retreatCost": [
@@ -264411,7 +264411,7 @@
       "number": "89",
       "artist": "Yusuke Ohmura",
       "rarity": "Common",
-      "flavorText": "It is said to be the world's weakest Pok��mon. No one knows why it has managed to survive.",
+      "flavorText": "It is said to be the world's weakest Pokémon. No one knows why it has managed to survive.",
       "nationalPokedexNumbers": [
         129
       ],
