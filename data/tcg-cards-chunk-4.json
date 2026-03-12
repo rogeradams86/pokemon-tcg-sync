@@ -22135,7 +22135,7 @@
       "weaknesses": [
         {
           "type": "Water",
-          "value": "��2"
+          "value": "×2"
         }
       ],
       "retreatCost": [
@@ -86301,7 +86301,7 @@
           ],
           "name": "Knickknack Carrying",
           "damage": "",
-          "text": "Search your deck for up to 3 Pokémon Tool cards, reveal them, and put them into your hand. Then, shuffle your deck.",
+          "text": "Search your deck for up to 3 Pok��mon Tool cards, reveal them, and put them into your hand. Then, shuffle your deck.",
           "convertedEnergyCost": 1
         },
         {
