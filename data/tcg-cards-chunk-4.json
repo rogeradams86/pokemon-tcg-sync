@@ -135411,7 +135411,7 @@
       "number": "150",
       "artist": "AKIRA EGAWA",
       "rarity": "Rare",
-      "flavorText": "A Pokémon created by recombining Mew's genes. It's said to have the most savage heart among Pok��mon.",
+      "flavorText": "A Pokémon created by recombining Mew's genes. It's said to have the most savage heart among Pokémon.",
       "nationalPokedexNumbers": [
         150
       ],
@@ -328434,7 +328434,7 @@
       "weaknesses": [
         {
           "type": "Water",
-          "value": "×2"
+          "value": "��2"
         }
       ],
       "retreatCost": [
