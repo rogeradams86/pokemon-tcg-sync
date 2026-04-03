@@ -36161,7 +36161,7 @@
       "weaknesses": [
         {
           "type": "Fire",
-          "value": "��2"
+          "value": "×2"
         }
       ],
       "resistances": [
@@ -108694,7 +108694,7 @@
       "abilities": [
         {
           "name": "Forest Miasma",
-          "text": "During Pokémon Checkup, if this Pokémon is in the Active Spot, put 1 damage counter on your opponent's Active Pok��mon.",
+          "text": "During Pokémon Checkup, if this Pokémon is in the Active Spot, put 1 damage counter on your opponent's Active Pokémon.",
           "type": "Ability"
         }
       ],
