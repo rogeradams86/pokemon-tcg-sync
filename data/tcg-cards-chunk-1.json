@@ -13330,7 +13330,7 @@
           ],
           "convertedEnergyCost": 1,
           "damage": "",
-          "text": "Search your deck for a Baby Pokémon card and put it onto your Bench. Shuffle your deck afterward. (You can't use this attack if your Bench is full.)"
+          "text": "Search your deck for a Baby Pok��mon card and put it onto your Bench. Shuffle your deck afterward. (You can't use this attack if your Bench is full.)"
         }
       ],
       "number": "35",
@@ -92124,7 +92124,7 @@
         "Supporter"
       ],
       "rules": [
-        "You can play only one Supporter card each turn. When you play this card, put it next to your Active Pok��mon. When your turn ends, discard this card.",
+        "You can play only one Supporter card each turn. When you play this card, put it next to your Active Pokémon. When your turn ends, discard this card.",
         "Search your deck for an Evolution card, show it to your opponent, and put it into your hand. Shuffle your deck afterward."
       ],
       "number": "148",
@@ -130372,7 +130372,7 @@
       "weaknesses": [
         {
           "type": "Fire",
-          "value": "��2"
+          "value": "×2"
         }
       ],
       "retreatCost": [

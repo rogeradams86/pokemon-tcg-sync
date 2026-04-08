@@ -260086,7 +260086,7 @@
         "Supporter"
       ],
       "rules": [
-        "Search your deck for a card that evolves from 1 of your Pokémon (excluding Pokémon-EX) and put it onto that Pokémon. (This counts as evolving that Pokémon.) Shuffle your deck afterward. You can use this card during your first turn or on a Pokémon that was put into play this turn.",
+        "Search your deck for a card that evolves from 1 of your Pokémon (excluding Pokémon-EX) and put it onto that Pok��mon. (This counts as evolving that Pokémon.) Shuffle your deck afterward. You can use this card during your first turn or on a Pokémon that was put into play this turn.",
         "You may play only 1 Supporter card during your turn (before your attack)."
       ],
       "number": "RC27",
@@ -322178,7 +322178,7 @@
           ],
           "convertedEnergyCost": 3,
           "damage": "190",
-          "text": "This Pokémon is Knocked Out."
+          "text": "This Pok��mon is Knocked Out."
         }
       ],
       "weaknesses": [
