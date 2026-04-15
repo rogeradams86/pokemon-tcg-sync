@@ -240853,7 +240853,7 @@
             "Grass"
           ],
           "convertedEnergyCost": 1,
-          "damage": "20×",
+          "damage": "20��",
           "text": "This attack does 20 damage for each of your Benched Pokémon."
         }
       ],
@@ -297605,7 +297605,7 @@
     {
       "id": "rsv10pt5-60",
       "name": "Garbodor",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Stage 1"
       ],
