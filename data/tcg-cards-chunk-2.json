@@ -7017,7 +7017,7 @@
             "Colorless"
           ],
           "convertedEnergyCost": 3,
-          "damage": "40��",
+          "damage": "40×",
           "text": "Discard all Lightning Energy attached to Luxio. Flip a coin for each Energy card you discarded. This attack does 40 damage times the number of heads."
         }
       ],
@@ -180056,7 +180056,7 @@
           ],
           "convertedEnergyCost": 2,
           "damage": "30",
-          "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pok��mon."
+          "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pokémon."
         },
         {
           "name": "Tailspin Piledriver",
