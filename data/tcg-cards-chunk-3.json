@@ -78031,7 +78031,7 @@
         "Supporter"
       ],
       "rules": [
-        "Look at the top card of your deck, and then choose 1:\n• Discard your hand and draw 5 cards.\n• Discard your hand and draw 5 cards from the bottom of your deck.",
+        "Look at the top card of your deck, and then choose 1:\n• Discard your hand and draw 5 cards.\n��� Discard your hand and draw 5 cards from the bottom of your deck.",
         "You may play only 1 Supporter card during your turn (before your attack)."
       ],
       "number": "144",
@@ -147485,7 +147485,7 @@
       "abilities": [
         {
           "name": "Violent Appetite",
-          "text": "Once during your turn (before your attack), you may discard a Pokémon from your hand. If you do, heal 60 damage from this Pokémon.",
+          "text": "Once during your turn (before your attack), you may discard a Pok��mon from your hand. If you do, heal 60 damage from this Pokémon.",
           "type": "Ability"
         }
       ],
