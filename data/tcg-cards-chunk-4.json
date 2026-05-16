@@ -108694,7 +108694,7 @@
       "abilities": [
         {
           "name": "Forest Miasma",
-          "text": "During Pokémon Checkup, if this Pokémon is in the Active Spot, put 1 damage counter on your opponent's Active Pokémon.",
+          "text": "During Pokémon Checkup, if this Pokémon is in the Active Spot, put 1 damage counter on your opponent's Active Pok��mon.",
           "type": "Ability"
         }
       ],
@@ -180481,7 +180481,7 @@
     {
       "id": "sv5-83",
       "name": "Medicham",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Stage 1"
       ],
