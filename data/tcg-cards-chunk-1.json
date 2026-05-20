@@ -130372,7 +130372,7 @@
       "weaknesses": [
         {
           "type": "Fire",
-          "value": "×2"
+          "value": "��2"
         }
       ],
       "retreatCost": [
@@ -167999,7 +167999,7 @@
     {
       "id": "ex7-33",
       "name": "Dark Flaaffy",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Stage 1"
       ],
@@ -217903,7 +217903,7 @@
         {
           "name": "Primal Light",
           "text": "Once during your turn (before your attack), you may search your deck for a basic Energy card, show it to your opponent, and put it into your hand. Shuffle your deck afterward. This power can't be used if Aerodactyl is affected by a Special Condition.",
-          "type": "Pok��-Power"
+          "type": "Poké-Power"
         }
       ],
       "attacks": [
