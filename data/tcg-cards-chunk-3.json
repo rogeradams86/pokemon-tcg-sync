@@ -147485,7 +147485,7 @@
       "abilities": [
         {
           "name": "Violent Appetite",
-          "text": "Once during your turn (before your attack), you may discard a Pokémon from your hand. If you do, heal 60 damage from this Pokémon.",
+          "text": "Once during your turn (before your attack), you may discard a Pok��mon from your hand. If you do, heal 60 damage from this Pokémon.",
           "type": "Ability"
         }
       ],
@@ -228287,7 +228287,7 @@
           ],
           "convertedEnergyCost": 3,
           "damage": "100",
-          "text": "If the Defending Pokémon is an Evolution Pokémon, it can't attack during your opponent's next turn."
+          "text": "If the Defending Pokémon is an Evolution Pok��mon, it can't attack during your opponent's next turn."
         }
       ],
       "weaknesses": [
