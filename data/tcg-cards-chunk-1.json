@@ -115587,7 +115587,7 @@
       "abilities": [
         {
           "name": "Venom Spray",
-          "text": "When you play Beedrill from your hand to evolve your Active Pok��mon, the Defending Pokémon is now Paralyzed and Poisoned.",
+          "text": "When you play Beedrill from your hand to evolve your Active Pokémon, the Defending Pokémon is now Paralyzed and Poisoned.",
           "type": "Poké-Power"
         }
       ],
@@ -130372,7 +130372,7 @@
       "weaknesses": [
         {
           "type": "Fire",
-          "value": "��2"
+          "value": "×2"
         }
       ],
       "retreatCost": [
