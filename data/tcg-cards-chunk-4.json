@@ -7865,7 +7865,7 @@
           ],
           "convertedEnergyCost": 1,
           "damage": "",
-          "text": "Flip a coin. If heads, search your deck for up to 5 Grass Energy cards and attach them to your Pok��mon in any way you like. Then, shuffle your deck."
+          "text": "Flip a coin. If heads, search your deck for up to 5 Grass Energy cards and attach them to your Pokémon in any way you like. Then, shuffle your deck."
         },
         {
           "name": "Head Swing",
@@ -86301,7 +86301,7 @@
           ],
           "name": "Knickknack Carrying",
           "damage": "",
-          "text": "Search your deck for up to 3 Pokémon Tool cards, reveal them, and put them into your hand. Then, shuffle your deck.",
+          "text": "Search your deck for up to 3 Pok��mon Tool cards, reveal them, and put them into your hand. Then, shuffle your deck.",
           "convertedEnergyCost": 1
         },
         {
