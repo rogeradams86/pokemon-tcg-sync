@@ -32000,7 +32000,7 @@
       ],
       "evolvesFrom": "Frogadier",
       "rules": [
-        "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        "Pokémon-GX rule: When your Pok��mon-GX is Knocked Out, your opponent takes 2 Prize cards."
       ],
       "abilities": [
         {
@@ -228287,7 +228287,7 @@
           ],
           "convertedEnergyCost": 3,
           "damage": "100",
-          "text": "If the Defending Pokémon is an Evolution Pokémon, it can't attack during your opponent's next turn."
+          "text": "If the Defending Pokémon is an Evolution Pok��mon, it can't attack during your opponent's next turn."
         }
       ],
       "weaknesses": [
