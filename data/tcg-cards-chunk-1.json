@@ -130372,7 +130372,7 @@
       "weaknesses": [
         {
           "type": "Fire",
-          "value": "×2"
+          "value": "��2"
         }
       ],
       "retreatCost": [
@@ -330566,7 +330566,7 @@
         {
           "name": "Sand Reset",
           "text": "Once during a game on your turn (before your attack), each player shuffles all cards in play (excluding Pokémon and Supporter cards) into his or her deck. You can't use more than 1 Sand Reset Poké-Power each game.",
-          "type": "Pok��-Power"
+          "type": "Poké-Power"
         }
       ],
       "attacks": [
