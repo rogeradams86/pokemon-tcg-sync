@@ -110248,7 +110248,7 @@
     {
       "id": "sm11-154",
       "name": "Axew",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Basic"
       ],
@@ -255870,7 +255870,7 @@
       "abilities": [
         {
           "name": "Sap Sipper",
-          "text": "This Pok��mon's attacks do 60 more damage to your opponent's Grass Pokémon (before applying Weakness and Resistance).",
+          "text": "This Pokémon's attacks do 60 more damage to your opponent's Grass Pokémon (before applying Weakness and Resistance).",
           "type": "Ability"
         }
       ],
