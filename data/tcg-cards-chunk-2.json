@@ -77792,7 +77792,7 @@
     {
       "id": "bw3-75",
       "name": "Pawniard",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Basic"
       ],
@@ -100019,7 +100019,7 @@
       "weaknesses": [
         {
           "type": "Water",
-          "value": "×2"
+          "value": "��2"
         }
       ],
       "resistances": [
@@ -140327,7 +140327,7 @@
       "weaknesses": [
         {
           "type": "Dragon",
-          "value": "��2"
+          "value": "×2"
         }
       ],
       "retreatCost": [
