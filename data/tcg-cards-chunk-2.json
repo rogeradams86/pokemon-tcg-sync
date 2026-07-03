@@ -20668,7 +20668,7 @@
       "weaknesses": [
         {
           "type": "Lightning",
-          "value": "��2"
+          "value": "×2"
         }
       ],
       "resistances": [
@@ -77792,7 +77792,7 @@
     {
       "id": "bw3-75",
       "name": "Pawniard",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Basic"
       ],
