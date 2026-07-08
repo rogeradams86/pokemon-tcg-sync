@@ -183044,7 +183044,7 @@
       "weaknesses": [
         {
           "type": "Fire",
-          "value": "��2"
+          "value": "×2"
         }
       ],
       "resistances": [
@@ -301060,7 +301060,7 @@
           ],
           "convertedEnergyCost": 3,
           "damage": "120",
-          "text": "Discard an Energy from this Pokémon."
+          "text": "Discard an Energy from this Pok��mon."
         }
       ],
       "weaknesses": [
