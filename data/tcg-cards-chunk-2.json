@@ -77792,7 +77792,7 @@
     {
       "id": "bw3-75",
       "name": "Pawniard",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Basic"
       ],
@@ -153302,7 +153302,7 @@
           ],
           "convertedEnergyCost": 3,
           "damage": "130",
-          "text": "This Pok��mon can't use Portal Strike during your next turn."
+          "text": "This Pokémon can't use Portal Strike during your next turn."
         }
       ],
       "weaknesses": [
@@ -180056,7 +180056,7 @@
           ],
           "convertedEnergyCost": 2,
           "damage": "30",
-          "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pok��mon."
+          "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pokémon."
         },
         {
           "name": "Tailspin Piledriver",
@@ -295290,7 +295290,7 @@
           ],
           "convertedEnergyCost": 1,
           "damage": "40",
-          "text": "Attach 2 basic Energy cards from your discard pile to your Pokémon in any way you like."
+          "text": "Attach 2 basic Energy cards from your discard pile to your Pok��mon in any way you like."
         },
         {
           "name": "Solar Blade",

@@ -67568,7 +67568,7 @@
       "number": "118",
       "artist": "Shimaris Yukichi",
       "rarity": "Promo",
-      "flavorText": "Tatsugiri is an extremely cunning Pok��mon. It feigns weakness to lure in prey, then orders its partner to attack.",
+      "flavorText": "Tatsugiri is an extremely cunning Pokémon. It feigns weakness to lure in prey, then orders its partner to attack.",
       "nationalPokedexNumbers": [
         978
       ],
@@ -180481,7 +180481,7 @@
     {
       "id": "sv5-83",
       "name": "Medicham",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Stage 1"
       ],
@@ -195594,7 +195594,7 @@
     {
       "id": "sv6-82",
       "name": "Alakazam",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Stage 2"
       ],

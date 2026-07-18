@@ -130372,7 +130372,7 @@
       "weaknesses": [
         {
           "type": "Fire",
-          "value": "��2"
+          "value": "×2"
         }
       ],
       "retreatCost": [
@@ -280359,7 +280359,7 @@
     {
       "id": "dp4-44",
       "name": "Loudred",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Stage 1"
       ],
