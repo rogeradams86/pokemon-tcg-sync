@@ -110248,7 +110248,7 @@
     {
       "id": "sm11-154",
       "name": "Axew",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Basic"
       ],
@@ -318526,7 +318526,7 @@
       "weaknesses": [
         {
           "type": "Fighting",
-          "value": "×2"
+          "value": "��2"
         }
       ],
       "retreatCost": [
