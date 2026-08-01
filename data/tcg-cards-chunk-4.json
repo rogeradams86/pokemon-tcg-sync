@@ -63650,7 +63650,7 @@
       "weaknesses": [
         {
           "type": "Metal",
-          "value": "��2"
+          "value": "×2"
         }
       ],
       "retreatCost": [
@@ -270029,7 +270029,7 @@
           ],
           "convertedEnergyCost": 3,
           "damage": "80×",
-          "text": "Your opponent flips a coin for each of their Benched Pok��mon. This attack does 80 damage to your opponent's Active Pokémon for each tails. This attack's damage isn't affected by Weakness or Resistance."
+          "text": "Your opponent flips a coin for each of their Benched Pokémon. This attack does 80 damage to your opponent's Active Pokémon for each tails. This attack's damage isn't affected by Weakness or Resistance."
         }
       ],
       "weaknesses": [
