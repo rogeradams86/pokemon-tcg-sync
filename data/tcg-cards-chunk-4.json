@@ -68412,7 +68412,7 @@
       "weaknesses": [
         {
           "type": "Fire",
-          "value": "��2"
+          "value": "×2"
         }
       ],
       "resistances": [
@@ -332698,7 +332698,7 @@
           ],
           "convertedEnergyCost": 3,
           "damage": "60+",
-          "text": "This attack does 40 more damage for each Psychic Energy attached to this Pok��mon."
+          "text": "This attack does 40 more damage for each Psychic Energy attached to this Pokémon."
         }
       ],
       "weaknesses": [
