@@ -51841,7 +51841,7 @@
           ],
           "convertedEnergyCost": 2,
           "damage": "10",
-          "text": "Flip a coin. If heads, the Defending Pokémon can't attack. (Benching or evolving the Defending Pok��mon ends this effect.)"
+          "text": "Flip a coin. If heads, the Defending Pokémon can't attack. (Benching or evolving the Defending Pokémon ends this effect.)"
         },
         {
           "name": "Blizzard",
