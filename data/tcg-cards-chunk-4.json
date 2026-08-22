@@ -156616,7 +156616,7 @@
           ],
           "convertedEnergyCost": 2,
           "damage": "140",
-          "text": "During your opponent's next turn, prevent all effects of attacks used by your opponent's Pokémon done to this Pok��mon. (Damage is not an effect.)"
+          "text": "During your opponent's next turn, prevent all effects of attacks used by your opponent's Pokémon done to this Pokémon. (Damage is not an effect.)"
         }
       ],
       "retreatCost": [
@@ -290327,7 +290327,7 @@
       "number": "132",
       "artist": "Apios",
       "rarity": "Illustration Rare",
-      "flavorText": "Its bite injects a potent poison, enough to paralyze large bird Pokémon that try to prey on it.",
+      "flavorText": "Its bite injects a potent poison, enough to paralyze large bird Pok��mon that try to prey on it.",
       "nationalPokedexNumbers": [
         543
       ],
