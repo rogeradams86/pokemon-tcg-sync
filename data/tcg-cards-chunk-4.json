@@ -148335,7 +148335,7 @@
       "abilities": [
         {
           "name": "Exoskeleton",
-          "text": "This Pokémon takes 30 less damage from attacks (after applying Weakness and Resistance).",
+          "text": "This Pok��mon takes 30 less damage from attacks (after applying Weakness and Resistance).",
           "type": "Ability"
         }
       ],
@@ -290327,7 +290327,7 @@
       "number": "132",
       "artist": "Apios",
       "rarity": "Illustration Rare",
-      "flavorText": "Its bite injects a potent poison, enough to paralyze large bird Pok��mon that try to prey on it.",
+      "flavorText": "Its bite injects a potent poison, enough to paralyze large bird Pokémon that try to prey on it.",
       "nationalPokedexNumbers": [
         543
       ],
