@@ -130372,7 +130372,7 @@
       "weaknesses": [
         {
           "type": "Fire",
-          "value": "×2"
+          "value": "��2"
         }
       ],
       "retreatCost": [
@@ -291105,7 +291105,7 @@
     {
       "id": "dp5-68",
       "name": "Munchlax",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Basic"
       ],
@@ -333252,7 +333252,7 @@
     {
       "id": "pl3-22",
       "name": "Claydol",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Stage 1"
       ],
