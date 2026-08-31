@@ -27685,7 +27685,7 @@
         "Supporter"
       ],
       "rules": [
-        "You can play only one Supporter card each turn. When you play this card, put it next to your Active Pok��mon. When your turn ends, discard this card.",
+        "You can play only one Supporter card each turn. When you play this card, put it next to your Active Pokémon. When your turn ends, discard this card.",
         "Flip a coin. If heads, draw 3 cards. If tails, draw 2 cards."
       ],
       "number": "73",
@@ -77792,7 +77792,7 @@
     {
       "id": "bw3-75",
       "name": "Pawniard",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Basic"
       ],
@@ -111692,7 +111692,7 @@
     {
       "id": "bw7-74",
       "name": "Scolipede",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Stage 2"
       ],

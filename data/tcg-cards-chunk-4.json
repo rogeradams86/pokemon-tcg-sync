@@ -70574,7 +70574,7 @@
         "Colorless"
       ],
       "rules": [
-        "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        "Pok��mon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
       ],
       "abilities": [
         {
@@ -169198,7 +169198,7 @@
             "Fighting"
           ],
           "convertedEnergyCost": 1,
-          "damage": "70��",
+          "damage": "70×",
           "text": "This attack does 70 damage for each Prize card your opponent has taken."
         },
         {
