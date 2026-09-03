@@ -4443,7 +4443,7 @@
           ],
           "convertedEnergyCost": 4,
           "damage": "50",
-          "text": "Before doing damage, count the remaining HP of the Defending Pok��mon and Tangrowth. If the Defending Pokémon has fewer remaining HP than Tangrowth's, this attack does 120 damage instead."
+          "text": "Before doing damage, count the remaining HP of the Defending Pokémon and Tangrowth. If the Defending Pokémon has fewer remaining HP than Tangrowth's, this attack does 120 damage instead."
         }
       ],
       "weaknesses": [
