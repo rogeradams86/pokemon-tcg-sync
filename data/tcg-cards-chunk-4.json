@@ -22135,7 +22135,7 @@
       "weaknesses": [
         {
           "type": "Water",
-          "value": "��2"
+          "value": "×2"
         }
       ],
       "retreatCost": [
@@ -183044,7 +183044,7 @@
       "weaknesses": [
         {
           "type": "Fire",
-          "value": "×2"
+          "value": "��2"
         }
       ],
       "resistances": [
