@@ -116385,7 +116385,7 @@
         {
           "name": "Immunity",
           "text": "Prevent all effects of your opponent's attacks done to Machamp.",
-          "type": "Pok��-Body"
+          "type": "Poké-Body"
         }
       ],
       "attacks": [
@@ -207817,7 +207817,7 @@
       "abilities": [
         {
           "name": "Stages of Evolution",
-          "text": "As long as Magmar is an Evolved Pokémon, all Energy attached to Magmar are Fire Energy instead of their usual types.",
+          "text": "As long as Magmar is an Evolved Pok��mon, all Energy attached to Magmar are Fire Energy instead of their usual types.",
           "type": "Poké-Body"
         }
       ],
@@ -291105,7 +291105,7 @@
     {
       "id": "dp5-68",
       "name": "Munchlax",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Basic"
       ],
