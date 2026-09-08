@@ -130372,7 +130372,7 @@
       "weaknesses": [
         {
           "type": "Fire",
-          "value": "��2"
+          "value": "×2"
         }
       ],
       "retreatCost": [
@@ -207817,7 +207817,7 @@
       "abilities": [
         {
           "name": "Stages of Evolution",
-          "text": "As long as Magmar is an Evolved Pok��mon, all Energy attached to Magmar are Fire Energy instead of their usual types.",
+          "text": "As long as Magmar is an Evolved Pokémon, all Energy attached to Magmar are Fire Energy instead of their usual types.",
           "type": "Poké-Body"
         }
       ],
@@ -291105,7 +291105,7 @@
     {
       "id": "dp5-68",
       "name": "Munchlax",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Basic"
       ],
