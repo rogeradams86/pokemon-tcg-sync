@@ -4296,7 +4296,7 @@
         "Psychic"
       ],
       "rules": [
-        "Pokémon-GX rule: When your Pok��mon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
       ],
       "abilities": [
         {
@@ -226536,7 +226536,7 @@
     {
       "id": "swsh4-96",
       "name": "Mudbray",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Basic"
       ],
@@ -329176,7 +329176,7 @@
           ],
           "convertedEnergyCost": 1,
           "damage": "30",
-          "text": "You may switch this Pokémon with 1 of your Benched Pokémon."
+          "text": "You may switch this Pokémon with 1 of your Benched Pok��mon."
         },
         {
           "name": "Hundred Furious Blows",
