@@ -27934,7 +27934,7 @@
           ],
           "convertedEnergyCost": 4,
           "damage": "",
-          "text": "Your opponent shuffles his or her Active Pokémon and all cards attached to it into his or her deck. This attack can't be used if your opponent has no Benched Pokémon."
+          "text": "Your opponent shuffles his or her Active Pokémon and all cards attached to it into his or her deck. This attack can't be used if your opponent has no Benched Pok��mon."
         }
       ],
       "weaknesses": [
@@ -194705,7 +194705,7 @@
           ],
           "convertedEnergyCost": 2,
           "damage": "",
-          "text": "Choose 1 of your opponent's Pokémon. This attack does 30 damage to that Pok��mon. If that Pokémon is a Stage 2 Evolved Pokémon, this attack does 50 damage instead. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          "text": "Choose 1 of your opponent's Pokémon. This attack does 30 damage to that Pokémon. If that Pokémon is a Stage 2 Evolved Pokémon, this attack does 50 damage instead. (Don't apply Weakness and Resistance for Benched Pokémon.)"
         },
         {
           "name": "Punch and Run",
