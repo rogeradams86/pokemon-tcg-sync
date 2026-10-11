@@ -104709,7 +104709,7 @@
     "weaknesses": [
       {
         "type": "Fire",
-        "value": "×2"
+        "value": "��2"
       }
     ],
     "retreatCost": [
@@ -740476,7 +740476,7 @@
         ],
         "convertedEnergyCost": 3,
         "damage": "100",
-        "text": "If the Defending Pokémon is an Evolution Pokémon, it can't attack during your opponent's next turn."
+        "text": "If the Defending Pok��mon is an Evolution Pokémon, it can't attack during your opponent's next turn."
       }
     ],
     "weaknesses": [
@@ -960572,7 +960572,7 @@
         ],
         "convertedEnergyCost": 2,
         "damage": "140",
-        "text": "During your opponent's next turn, prevent all effects of attacks used by your opponent's Pokémon done to this Pok��mon. (Damage is not an effect.)"
+        "text": "During your opponent's next turn, prevent all effects of attacks used by your opponent's Pokémon done to this Pokémon. (Damage is not an effect.)"
       }
     ],
     "retreatCost": [
