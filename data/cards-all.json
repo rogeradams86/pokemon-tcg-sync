@@ -104709,7 +104709,7 @@
     "weaknesses": [
       {
         "type": "Fire",
-        "value": "��2"
+        "value": "×2"
       }
     ],
     "retreatCost": [
@@ -337246,7 +337246,7 @@
   {
     "id": "bw3-75",
     "name": "Pawniard",
-    "supertype": "Pok��mon",
+    "supertype": "Pokémon",
     "subtypes": [
       "Basic"
     ],
@@ -740476,7 +740476,7 @@
         ],
         "convertedEnergyCost": 3,
         "damage": "100",
-        "text": "If the Defending Pok��mon is an Evolution Pokémon, it can't attack during your opponent's next turn."
+        "text": "If the Defending Pokémon is an Evolution Pokémon, it can't attack during your opponent's next turn."
       }
     ],
     "weaknesses": [
