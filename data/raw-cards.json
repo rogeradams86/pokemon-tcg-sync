@@ -107825,7 +107825,7 @@
       "weaknesses": [
         {
           "type": "Fire",
-          "value": "×2"
+          "value": "��2"
         }
       ],
       "retreatCost": [
@@ -340362,7 +340362,7 @@
     {
       "id": "bw3-75",
       "name": "Pawniard",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Basic"
       ],
@@ -423646,7 +423646,7 @@
           ],
           "convertedEnergyCost": 2,
           "damage": "30",
-          "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pok��mon."
+          "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pokémon."
         },
         {
           "name": "Tailspin Piledriver",
@@ -425189,7 +425189,7 @@
           ],
           "convertedEnergyCost": 2,
           "damage": "",
-          "text": "Heal 60 damage from this Pokémon. This Pokémon is now Asleep."
+          "text": "Heal 60 damage from this Pok��mon. This Pokémon is now Asleep."
         },
         {
           "name": "Ice Ball",
@@ -541070,7 +541070,7 @@
     {
       "id": "sm2-110",
       "name": "Fletchinder",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Stage 1"
       ],
@@ -704576,7 +704576,7 @@
           ],
           "convertedEnergyCost": 1,
           "damage": "",
-          "text": "Your opponent's Active Pokémon is now Poisoned."
+          "text": "Your opponent's Active Pok��mon is now Poisoned."
         },
         {
           "name": "Slashing Claw",
@@ -1145897,7 +1145897,7 @@
       }
     }
   ],
-  "lastUpdated": "2026-10-12T14:57:55.566Z",
+  "lastUpdated": "2026-10-13T13:55:24.504Z",
   "totalSets": 176,
   "totalCards": 20635
 }
