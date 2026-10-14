@@ -77792,7 +77792,7 @@
     {
       "id": "bw3-75",
       "name": "Pawniard",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Basic"
       ],
@@ -255497,7 +255497,7 @@
       "weaknesses": [
         {
           "type": "Darkness",
-          "value": "×2"
+          "value": "��2"
         }
       ],
       "resistances": [
@@ -324793,7 +324793,7 @@
     {
       "id": "sm2-110",
       "name": "Fletchinder",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Stage 1"
       ],

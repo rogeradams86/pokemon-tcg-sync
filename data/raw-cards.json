@@ -340362,7 +340362,7 @@
     {
       "id": "bw3-75",
       "name": "Pawniard",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Basic"
       ],
@@ -484657,7 +484657,7 @@
       "weaknesses": [
         {
           "type": "Darkness",
-          "value": "×2"
+          "value": "��2"
         }
       ],
       "resistances": [
@@ -541070,7 +541070,7 @@
     {
       "id": "sm2-110",
       "name": "Fletchinder",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Stage 1"
       ],
@@ -704576,7 +704576,7 @@
           ],
           "convertedEnergyCost": 1,
           "damage": "",
-          "text": "Your opponent's Active Pok��mon is now Poisoned."
+          "text": "Your opponent's Active Pokémon is now Poisoned."
         },
         {
           "name": "Slashing Claw",
@@ -1145897,7 +1145897,7 @@
       }
     }
   ],
-  "lastUpdated": "2026-10-13T13:55:24.504Z",
+  "lastUpdated": "2026-10-14T11:31:53.980Z",
   "totalSets": 176,
   "totalCards": 20635
 }
