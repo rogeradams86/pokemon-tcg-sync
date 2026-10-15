@@ -337246,7 +337246,7 @@
   {
     "id": "bw3-75",
     "name": "Pawniard",
-    "supertype": "Pokémon",
+    "supertype": "Pok��mon",
     "subtypes": [
       "Basic"
     ],
@@ -420530,7 +420530,7 @@
         ],
         "convertedEnergyCost": 2,
         "damage": "30",
-        "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pokémon."
+        "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pok��mon."
       },
       {
         "name": "Tailspin Piledriver",
@@ -422073,7 +422073,7 @@
         ],
         "convertedEnergyCost": 2,
         "damage": "",
-        "text": "Heal 60 damage from this Pok��mon. This Pokémon is now Asleep."
+        "text": "Heal 60 damage from this Pokémon. This Pokémon is now Asleep."
       },
       {
         "name": "Ice Ball",
@@ -481541,7 +481541,7 @@
     "weaknesses": [
       {
         "type": "Darkness",
-        "value": "��2"
+        "value": "×2"
       }
     ],
     "resistances": [

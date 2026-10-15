@@ -2471,7 +2471,7 @@
     },
     {
       "id": "pgo",
-      "name": "Pokémon GO",
+      "name": "Pok��mon GO",
       "series": "Sword & Shield",
       "printedTotal": 78,
       "total": 88,
@@ -340362,7 +340362,7 @@
     {
       "id": "bw3-75",
       "name": "Pawniard",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Basic"
       ],
@@ -423646,7 +423646,7 @@
           ],
           "convertedEnergyCost": 2,
           "damage": "30",
-          "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pokémon."
+          "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pok��mon."
         },
         {
           "name": "Tailspin Piledriver",
@@ -425189,7 +425189,7 @@
           ],
           "convertedEnergyCost": 2,
           "damage": "",
-          "text": "Heal 60 damage from this Pok��mon. This Pokémon is now Asleep."
+          "text": "Heal 60 damage from this Pokémon. This Pokémon is now Asleep."
         },
         {
           "name": "Ice Ball",
@@ -484657,7 +484657,7 @@
       "weaknesses": [
         {
           "type": "Darkness",
-          "value": "��2"
+          "value": "×2"
         }
       ],
       "resistances": [
@@ -1145897,7 +1145897,7 @@
       }
     }
   ],
-  "lastUpdated": "2026-10-14T11:31:53.980Z",
+  "lastUpdated": "2026-10-15T11:10:18.031Z",
   "totalSets": 176,
   "totalCards": 20635
 }
