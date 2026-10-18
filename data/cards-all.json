@@ -337246,7 +337246,7 @@
   {
     "id": "bw3-75",
     "name": "Pawniard",
-    "supertype": "Pok��mon",
+    "supertype": "Pokémon",
     "subtypes": [
       "Basic"
     ],
@@ -701460,7 +701460,7 @@
         ],
         "convertedEnergyCost": 1,
         "damage": "",
-        "text": "Your opponent's Active Pokémon is now Poisoned."
+        "text": "Your opponent's Active Pok��mon is now Poisoned."
       },
       {
         "name": "Slashing Claw",
@@ -1106510,7 +1106510,7 @@
     "abilities": [
       {
         "name": "Final Chain",
-        "text": "If this Pok��mon is Knocked Out by damage from an attack from your opponent's Pokémon, search your deck for a card and put it into your hand. Then, shuffle your deck.",
+        "text": "If this Pokémon is Knocked Out by damage from an attack from your opponent's Pokémon, search your deck for a card and put it into your hand. Then, shuffle your deck.",
         "type": "Ability"
       }
     ],
