@@ -337246,7 +337246,7 @@
   {
     "id": "bw3-75",
     "name": "Pawniard",
-    "supertype": "Pokémon",
+    "supertype": "Pok��mon",
     "subtypes": [
       "Basic"
     ],
@@ -701460,7 +701460,7 @@
         ],
         "convertedEnergyCost": 1,
         "damage": "",
-        "text": "Your opponent's Active Pok��mon is now Poisoned."
+        "text": "Your opponent's Active Pokémon is now Poisoned."
       },
       {
         "name": "Slashing Claw",
@@ -1093201,7 +1093201,7 @@
   {
     "id": "me2-37",
     "name": "Snubbull",
-    "supertype": "Pokémon",
+    "supertype": "Pok��mon",
     "subtypes": [
       "Basic"
     ],
