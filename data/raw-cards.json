@@ -107825,7 +107825,7 @@
       "weaknesses": [
         {
           "type": "Fire",
-          "value": "��2"
+          "value": "×2"
         }
       ],
       "retreatCost": [
@@ -631100,7 +631100,7 @@
           ],
           "convertedEnergyCost": 2,
           "damage": "30+",
-          "text": "If you have fewer Pokémon in play than your opponent, this attack does 50 more damage for each Pokémon fewer you have in play."
+          "text": "If you have fewer Pokémon in play than your opponent, this attack does 50 more damage for each Pok��mon fewer you have in play."
         },
         {
           "name": "Magnum Punch",
@@ -1096317,7 +1096317,7 @@
     {
       "id": "me2-37",
       "name": "Snubbull",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Basic"
       ],
@@ -1145897,7 +1145897,7 @@
       }
     }
   ],
-  "lastUpdated": "2026-10-19T12:42:22.526Z",
+  "lastUpdated": "2026-10-20T11:13:57.522Z",
   "totalSets": 176,
   "totalCards": 20635
 }
