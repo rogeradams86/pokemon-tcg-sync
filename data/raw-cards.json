@@ -323045,7 +323045,7 @@
           ],
           "convertedEnergyCost": 1,
           "damage": "",
-          "text": "During your opponent's next turn, any damage done by attacks from the Defending Pokémon is reduced by 20 (before applying Weakness and Resistance)."
+          "text": "During your opponent's next turn, any damage done by attacks from the Defending Pok��mon is reduced by 20 (before applying Weakness and Resistance)."
         },
         {
           "name": "Quick Attack",
@@ -1145897,7 +1145897,7 @@
       }
     }
   ],
-  "lastUpdated": "2026-10-25T11:03:27.315Z",
+  "lastUpdated": "2026-10-26T12:36:21.708Z",
   "totalSets": 176,
   "totalCards": 20635
 }
