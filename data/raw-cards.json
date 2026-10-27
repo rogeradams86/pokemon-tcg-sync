@@ -107825,7 +107825,7 @@
       "weaknesses": [
         {
           "type": "Fire",
-          "value": "��2"
+          "value": "×2"
         }
       ],
       "retreatCost": [
@@ -323045,7 +323045,7 @@
           ],
           "convertedEnergyCost": 1,
           "damage": "",
-          "text": "During your opponent's next turn, any damage done by attacks from the Defending Pok��mon is reduced by 20 (before applying Weakness and Resistance)."
+          "text": "During your opponent's next turn, any damage done by attacks from the Defending Pokémon is reduced by 20 (before applying Weakness and Resistance)."
         },
         {
           "name": "Quick Attack",
@@ -340362,7 +340362,7 @@
     {
       "id": "bw3-75",
       "name": "Pawniard",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Basic"
       ],
@@ -422245,7 +422245,7 @@
     {
       "id": "xy1-106",
       "name": "Bidoof",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Basic"
       ],
@@ -423646,7 +423646,7 @@
           ],
           "convertedEnergyCost": 2,
           "damage": "30",
-          "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pok��mon."
+          "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pokémon."
         },
         {
           "name": "Tailspin Piledriver",
@@ -1145897,7 +1145897,7 @@
       }
     }
   ],
-  "lastUpdated": "2026-10-26T12:36:21.708Z",
+  "lastUpdated": "2026-10-27T11:53:37.552Z",
   "totalSets": 176,
   "totalCards": 20635
 }
