@@ -422245,7 +422245,7 @@
     {
       "id": "xy1-106",
       "name": "Bidoof",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Basic"
       ],
@@ -559404,7 +559404,7 @@
       "number": "12",
       "artist": "Mitsuhiro Arita",
       "rarity": "Rare Holo",
-      "flavorText": "The bones it possesses were once its mother's. Its mother's regrets have become like a vengeful spirit protecting this Pokémon.",
+      "flavorText": "The bones it possesses were once its mother's. Its mother's regrets have become like a vengeful spirit protecting this Pok��mon.",
       "nationalPokedexNumbers": [
         105
       ],
@@ -1145897,7 +1145897,7 @@
       }
     }
   ],
-  "lastUpdated": "2026-10-27T11:53:37.552Z",
+  "lastUpdated": "2026-10-28T12:28:19.855Z",
   "totalSets": 176,
   "totalCards": 20635
 }
