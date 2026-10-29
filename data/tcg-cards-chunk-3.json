@@ -1615,7 +1615,7 @@
       "number": "12",
       "artist": "Mitsuhiro Arita",
       "rarity": "Rare Holo",
-      "flavorText": "The bones it possesses were once its mother's. Its mother's regrets have become like a vengeful spirit protecting this Pok��mon.",
+      "flavorText": "The bones it possesses were once its mother's. Its mother's regrets have become like a vengeful spirit protecting this Pokémon.",
       "nationalPokedexNumbers": [
         105
       ],
@@ -223062,7 +223062,7 @@
           ],
           "convertedEnergyCost": 3,
           "damage": "",
-          "text": "Discard all Energy from this Pokémon, and this attack does 160 damage to 1 of your opponent's Pokémon V or Pokémon-GX. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          "text": "Discard all Energy from this Pokémon, and this attack does 160 damage to 1 of your opponent's Pokémon V or Pokémon-GX. (Don't apply Weakness and Resistance for Benched Pok��mon.)"
         }
       ],
       "weaknesses": [

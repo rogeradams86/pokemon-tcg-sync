@@ -107825,7 +107825,7 @@
       "weaknesses": [
         {
           "type": "Fire",
-          "value": "×2"
+          "value": "��2"
         }
       ],
       "retreatCost": [
@@ -423646,7 +423646,7 @@
           ],
           "convertedEnergyCost": 2,
           "damage": "30",
-          "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pokémon."
+          "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pok��mon."
         },
         {
           "name": "Tailspin Piledriver",
@@ -463917,7 +463917,7 @@
       "weaknesses": [
         {
           "type": "Metal",
-          "value": "×2"
+          "value": "��2"
         }
       ],
       "resistances": [
@@ -559404,7 +559404,7 @@
       "number": "12",
       "artist": "Mitsuhiro Arita",
       "rarity": "Rare Holo",
-      "flavorText": "The bones it possesses were once its mother's. Its mother's regrets have become like a vengeful spirit protecting this Pok��mon.",
+      "flavorText": "The bones it possesses were once its mother's. Its mother's regrets have become like a vengeful spirit protecting this Pokémon.",
       "nationalPokedexNumbers": [
         105
       ],
@@ -739277,7 +739277,7 @@
           ],
           "convertedEnergyCost": 3,
           "damage": "",
-          "text": "Discard all Energy from this Pokémon, and this attack does 160 damage to 1 of your opponent's Pokémon V or Pokémon-GX. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          "text": "Discard all Energy from this Pokémon, and this attack does 160 damage to 1 of your opponent's Pokémon V or Pokémon-GX. (Don't apply Weakness and Resistance for Benched Pok��mon.)"
         }
       ],
       "weaknesses": [
@@ -1145897,7 +1145897,7 @@
       }
     }
   ],
-  "lastUpdated": "2026-10-28T12:28:19.855Z",
+  "lastUpdated": "2026-10-29T12:39:19.664Z",
   "totalSets": 176,
   "totalCards": 20635
 }
