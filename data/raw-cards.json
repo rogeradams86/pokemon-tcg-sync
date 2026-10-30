@@ -340362,7 +340362,7 @@
     {
       "id": "bw3-75",
       "name": "Pawniard",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Basic"
       ],
@@ -463917,7 +463917,7 @@
       "weaknesses": [
         {
           "type": "Metal",
-          "value": "��2"
+          "value": "×2"
         }
       ],
       "resistances": [
@@ -739277,7 +739277,7 @@
           ],
           "convertedEnergyCost": 3,
           "damage": "",
-          "text": "Discard all Energy from this Pokémon, and this attack does 160 damage to 1 of your opponent's Pokémon V or Pokémon-GX. (Don't apply Weakness and Resistance for Benched Pok��mon.)"
+          "text": "Discard all Energy from this Pokémon, and this attack does 160 damage to 1 of your opponent's Pokémon V or Pokémon-GX. (Don't apply Weakness and Resistance for Benched Pokémon.)"
         }
       ],
       "weaknesses": [
@@ -1145897,7 +1145897,7 @@
       }
     }
   ],
-  "lastUpdated": "2026-10-29T12:39:19.664Z",
+  "lastUpdated": "2026-10-30T12:30:20.500Z",
   "totalSets": 176,
   "totalCards": 20635
 }

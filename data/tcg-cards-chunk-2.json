@@ -77792,7 +77792,7 @@
     {
       "id": "bw3-75",
       "name": "Pawniard",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Basic"
       ],
@@ -229778,7 +229778,7 @@
       "weaknesses": [
         {
           "type": "Metal",
-          "value": "��2"
+          "value": "×2"
         }
       ],
       "resistances": [
