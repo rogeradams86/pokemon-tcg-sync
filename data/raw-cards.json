@@ -37613,7 +37613,7 @@
       "weaknesses": [
         {
           "type": "Grass",
-          "value": "×2"
+          "value": "��2"
         }
       ],
       "resistances": [
@@ -340362,7 +340362,7 @@
     {
       "id": "bw3-75",
       "name": "Pawniard",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Basic"
       ],
@@ -468185,7 +468185,7 @@
       "weaknesses": [
         {
           "type": "Grass",
-          "value": "×2"
+          "value": "��2"
         }
       ],
       "retreatCost": [
@@ -482115,7 +482115,7 @@
         "Psychic"
       ],
       "rules": [
-        "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        "Pokémon-EX rule: When a Pok��mon-EX has been Knocked Out, your opponent takes 2 Prize cards."
       ],
       "attacks": [
         {
@@ -1145897,7 +1145897,7 @@
       }
     }
   ],
-  "lastUpdated": "2026-10-31T11:58:31.079Z",
+  "lastUpdated": "2026-11-01T12:58:31.484Z",
   "totalSets": 176,
   "totalCards": 20635
 }
