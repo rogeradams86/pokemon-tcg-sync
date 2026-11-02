@@ -37613,7 +37613,7 @@
       "weaknesses": [
         {
           "type": "Grass",
-          "value": "��2"
+          "value": "×2"
         }
       ],
       "resistances": [
@@ -423646,7 +423646,7 @@
           ],
           "convertedEnergyCost": 2,
           "damage": "30",
-          "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pok��mon."
+          "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pokémon."
         },
         {
           "name": "Tailspin Piledriver",
@@ -468185,7 +468185,7 @@
       "weaknesses": [
         {
           "type": "Grass",
-          "value": "��2"
+          "value": "×2"
         }
       ],
       "retreatCost": [
@@ -482115,7 +482115,7 @@
         "Psychic"
       ],
       "rules": [
-        "Pokémon-EX rule: When a Pok��mon-EX has been Knocked Out, your opponent takes 2 Prize cards."
+        "Pokémon-EX rule: When a Pokémon-EX has been Knocked Out, your opponent takes 2 Prize cards."
       ],
       "attacks": [
         {
@@ -893870,7 +893870,7 @@
         "Colorless"
       ],
       "rules": [
-        "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        "Pok��mon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
       ],
       "abilities": [
         {
@@ -1089006,7 +1089006,7 @@
           ],
           "convertedEnergyCost": 1,
           "damage": "20",
-          "text": "This attack also does 20 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          "text": "This attack also does 20 damage to 1 of your opponent's Benched Pok��mon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
         },
         {
           "name": "Boundless Power",
@@ -1096317,7 +1096317,7 @@
     {
       "id": "me2-37",
       "name": "Snubbull",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Basic"
       ],
@@ -1145897,7 +1145897,7 @@
       }
     }
   ],
-  "lastUpdated": "2026-11-01T12:58:31.484Z",
+  "lastUpdated": "2026-11-02T15:16:38.265Z",
   "totalSets": 176,
   "totalCards": 20635
 }

@@ -70574,7 +70574,7 @@
         "Colorless"
       ],
       "rules": [
-        "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        "Pok��mon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
       ],
       "abilities": [
         {
@@ -311418,7 +311418,7 @@
           ],
           "convertedEnergyCost": 1,
           "damage": "20",
-          "text": "This attack also does 20 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+          "text": "This attack also does 20 damage to 1 of your opponent's Benched Pok��mon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
         },
         {
           "name": "Boundless Power",
@@ -320601,7 +320601,7 @@
     {
       "id": "me2-37",
       "name": "Snubbull",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Basic"
       ],
