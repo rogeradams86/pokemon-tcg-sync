@@ -107825,7 +107825,7 @@
       "weaknesses": [
         {
           "type": "Fire",
-          "value": "��2"
+          "value": "×2"
         }
       ],
       "retreatCost": [
@@ -326221,7 +326221,7 @@
           ],
           "convertedEnergyCost": 2,
           "damage": "90",
-          "text": "If the Defending Pok��mon is not Asleep, this attack does nothing."
+          "text": "If the Defending Pokémon is not Asleep, this attack does nothing."
         }
       ],
       "weaknesses": [
@@ -340362,7 +340362,7 @@
     {
       "id": "bw3-75",
       "name": "Pawniard",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Basic"
       ],
@@ -513930,7 +513930,7 @@
           ],
           "convertedEnergyCost": 1,
           "damage": "10",
-          "text": "If any damage is done to this Pok��mon by attacks during your opponent's next turn, flip a coin. If heads, prevent that damage."
+          "text": "If any damage is done to this Pokémon by attacks during your opponent's next turn, flip a coin. If heads, prevent that damage."
         }
       ],
       "weaknesses": [
@@ -561604,7 +561604,7 @@
         "Psychic"
       ],
       "rules": [
-        "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        "Pokémon-GX rule: When your Pok��mon-GX is Knocked Out, your opponent takes 2 Prize cards."
       ],
       "abilities": [
         {
@@ -1145897,7 +1145897,7 @@
       }
     }
   ],
-  "lastUpdated": "2026-11-04T14:05:01.655Z",
+  "lastUpdated": "2026-11-05T14:24:58.005Z",
   "totalSets": 176,
   "totalCards": 20635
 }

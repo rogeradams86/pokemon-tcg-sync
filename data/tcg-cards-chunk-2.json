@@ -60388,7 +60388,7 @@
           ],
           "convertedEnergyCost": 2,
           "damage": "90",
-          "text": "If the Defending Pok��mon is not Asleep, this attack does nothing."
+          "text": "If the Defending Pokémon is not Asleep, this attack does nothing."
         }
       ],
       "weaknesses": [
@@ -77792,7 +77792,7 @@
     {
       "id": "bw3-75",
       "name": "Pawniard",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Basic"
       ],
@@ -291842,7 +291842,7 @@
           ],
           "convertedEnergyCost": 1,
           "damage": "10",
-          "text": "If any damage is done to this Pok��mon by attacks during your opponent's next turn, flip a coin. If heads, prevent that damage."
+          "text": "If any damage is done to this Pokémon by attacks during your opponent's next turn, flip a coin. If heads, prevent that damage."
         }
       ],
       "weaknesses": [
