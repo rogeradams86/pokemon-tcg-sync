@@ -340362,7 +340362,7 @@
     {
       "id": "bw3-75",
       "name": "Pawniard",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Basic"
       ],
@@ -561604,7 +561604,7 @@
         "Psychic"
       ],
       "rules": [
-        "Pokémon-GX rule: When your Pok��mon-GX is Knocked Out, your opponent takes 2 Prize cards."
+        "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
       ],
       "abilities": [
         {
@@ -1145897,7 +1145897,7 @@
       }
     }
   ],
-  "lastUpdated": "2026-11-05T14:24:58.005Z",
+  "lastUpdated": "2026-11-06T14:00:36.834Z",
   "totalSets": 176,
   "totalCards": 20635
 }
