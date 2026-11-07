@@ -107825,7 +107825,7 @@
       "weaknesses": [
         {
           "type": "Fire",
-          "value": "×2"
+          "value": "��2"
         }
       ],
       "retreatCost": [
@@ -1145897,7 +1145897,7 @@
       }
     }
   ],
-  "lastUpdated": "2026-11-06T14:00:36.834Z",
+  "lastUpdated": "2026-11-07T12:45:24.602Z",
   "totalSets": 176,
   "totalCards": 20635
 }
