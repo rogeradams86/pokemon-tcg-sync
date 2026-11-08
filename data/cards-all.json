@@ -33769,7 +33769,7 @@
         ],
         "convertedEnergyCost": 3,
         "damage": "40",
-        "text": "If you have any Benched Pokémon, flip a coin. If tails, choose 1 of your Benched Pokémon. This attack does 20 damage to that Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+        "text": "If you have any Benched Pokémon, flip a coin. If tails, choose 1 of your Benched Pokémon. This attack does 20 damage to that Pok��mon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
       }
     ],
     "weaknesses": [
@@ -960572,7 +960572,7 @@
         ],
         "convertedEnergyCost": 2,
         "damage": "140",
-        "text": "During your opponent's next turn, prevent all effects of attacks used by your opponent's Pokémon done to this Pokémon. (Damage is not an effect.)"
+        "text": "During your opponent's next turn, prevent all effects of attacks used by your opponent's Pokémon done to this Pok��mon. (Damage is not an effect.)"
       }
     ],
     "retreatCost": [
