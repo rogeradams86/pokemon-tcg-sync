@@ -257199,7 +257199,7 @@
     {
       "id": "pl1-31",
       "name": "Infernape",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Stage 2"
       ],
@@ -1153212,7 +1153212,7 @@
       }
     }
   ],
-  "lastUpdated": "2026-11-10T14:38:50.305Z",
+  "lastUpdated": "2026-11-11T13:54:07.402Z",
   "totalSets": 177,
   "totalCards": 20776
 }
