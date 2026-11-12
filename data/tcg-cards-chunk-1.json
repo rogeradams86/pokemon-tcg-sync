@@ -314658,7 +314658,7 @@
     {
       "id": "pl1-31",
       "name": "Infernape",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Stage 2"
       ],
@@ -320597,7 +320597,7 @@
         "Item"
       ],
       "rules": [
-        "You may play this card during your opponent's turn when your opponent's Pokémon uses any Poké-Power. Prevent all effects of that Poké-Power. (This counts as that Pokémon using its Poké-Power.) If you have 2 or less Pokémon SP in play, you can't play this card."
+        "You may play this card during your opponent's turn when your opponent's Pokémon uses any Poké-Power. Prevent all effects of that Poké-Power. (This counts as that Pokémon using its Pok��-Power.) If you have 2 or less Pokémon SP in play, you can't play this card."
       ],
       "number": "117",
       "artist": "Yusuke Ishikawa",

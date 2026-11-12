@@ -254064,7 +254064,7 @@
   {
     "id": "pl1-31",
     "name": "Infernape",
-    "supertype": "Pok��mon",
+    "supertype": "Pokémon",
     "subtypes": [
       "Stage 2"
     ],
@@ -258885,7 +258885,7 @@
       "Item"
     ],
     "rules": [
-      "You may play this card during your opponent's turn when your opponent's Pokémon uses any Poké-Power. Prevent all effects of that Poké-Power. (This counts as that Pokémon using its Poké-Power.) If you have 2 or less Pokémon SP in play, you can't play this card."
+      "You may play this card during your opponent's turn when your opponent's Pokémon uses any Poké-Power. Prevent all effects of that Poké-Power. (This counts as that Pokémon using its Pok��-Power.) If you have 2 or less Pokémon SP in play, you can't play this card."
     ],
     "number": "117",
     "artist": "Yusuke Ishikawa",
@@ -337246,7 +337246,7 @@
   {
     "id": "bw3-75",
     "name": "Pawniard",
-    "supertype": "Pok��mon",
+    "supertype": "Pokémon",
     "subtypes": [
       "Basic"
     ],
@@ -420530,7 +420530,7 @@
         ],
         "convertedEnergyCost": 2,
         "damage": "30",
-        "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pokémon."
+        "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pok��mon."
       },
       {
         "name": "Tailspin Piledriver",
@@ -539205,7 +539205,7 @@
         ],
         "convertedEnergyCost": 3,
         "damage": "",
-        "text": "Your opponent's Active Pokémon is now Poisoned. Put 10 damage counters instead of 1 on that Pokémon between turns."
+        "text": "Your opponent's Active Pok��mon is now Poisoned. Put 10 damage counters instead of 1 on that Pokémon between turns."
       },
       {
         "name": "Total Shelter-GX",
@@ -548859,7 +548859,7 @@
     ],
     "evolvesFrom": "Wimpod",
     "rules": [
-      "Pokémon-GX rule: When your Pokémon-GX is Knocked Out, your opponent takes 2 Prize cards."
+      "Pokémon-GX rule: When your Pok��mon-GX is Knocked Out, your opponent takes 2 Prize cards."
     ],
     "attacks": [
       {
@@ -890754,7 +890754,7 @@
       "Colorless"
     ],
     "rules": [
-      "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+      "Pok��mon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
     ],
     "abilities": [
       {
@@ -969323,7 +969323,7 @@
     "weaknesses": [
       {
         "type": "Metal",
-        "value": "×2"
+        "value": "��2"
       }
     ],
     "retreatCost": [
