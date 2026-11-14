@@ -420530,7 +420530,7 @@
         ],
         "convertedEnergyCost": 2,
         "damage": "30",
-        "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pokémon."
+        "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pok��mon."
       },
       {
         "name": "Tailspin Piledriver",
@@ -441264,7 +441264,7 @@
         ],
         "convertedEnergyCost": 3,
         "damage": "80",
-        "text": "Heal 20 damage from each of your Pokémon."
+        "text": "Heal 20 damage from each of your Pok��mon."
       }
     ],
     "weaknesses": [
@@ -489013,7 +489013,7 @@
         ],
         "convertedEnergyCost": 1,
         "damage": "",
-        "text": "Flip a coin. If heads, prevent all effects of attacks, including damage, done to this Pok��mon during your opponent's next turn."
+        "text": "Flip a coin. If heads, prevent all effects of attacks, including damage, done to this Pokémon during your opponent's next turn."
       },
       {
         "name": "Hammer In",
@@ -727032,7 +727032,7 @@
   {
     "id": "swsh3-154",
     "name": "Rookidee",
-    "supertype": "Pokémon",
+    "supertype": "Pok��mon",
     "subtypes": [
       "Basic"
     ],
@@ -958587,7 +958587,7 @@
     ],
     "evolvesFrom": "Snorunt",
     "rules": [
-      "Tera: As long as this Pok��mon is on your Bench, prevent all damage done to this Pokémon by attacks (both yours and your opponent's).",
+      "Tera: As long as this Pokémon is on your Bench, prevent all damage done to this Pokémon by attacks (both yours and your opponent's).",
       "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
     ],
     "abilities": [
