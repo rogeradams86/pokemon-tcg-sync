@@ -10055,7 +10055,7 @@
         ],
         "convertedEnergyCost": 3,
         "damage": "30",
-        "text": "Flip a coin. If heads, and if your opponent has any Benched Pokémon, choose 1 of them. This attack does 30 damage to that Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) If tails, Zapdos does 30 damage to itself."
+        "text": "Flip a coin. If heads, and if your opponent has any Benched Pok��mon, choose 1 of them. This attack does 30 damage to that Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.) If tails, Zapdos does 30 damage to itself."
       }
     ],
     "resistances": [
@@ -60245,7 +60245,7 @@
     "abilities": [
       {
         "name": "Curse",
-        "text": "Once during your turn (before your attack), you may move 1 damage counter from 1 of your opponent's Pokémon to another (even if it would Knock Out the other Pokémon). This power can't be used if Gengar is affected by a Special Condition.",
+        "text": "Once during your turn (before your attack), you may move 1 damage counter from 1 of your opponent's Pok��mon to another (even if it would Knock Out the other Pokémon). This power can't be used if Gengar is affected by a Special Condition.",
         "type": "Pokémon Power"
       }
     ],
@@ -204969,7 +204969,7 @@
         ],
         "convertedEnergyCost": 3,
         "damage": "",
-        "text": "Choose 1 of your opponent's Pokémon. This attack does 80 damage to that Pokémon (Don't apply Weakness and Resistance for Benched Pokémon.) Empoleon can't attack during your next turn."
+        "text": "Choose 1 of your opponent's Pokémon. This attack does 80 damage to that Pok��mon (Don't apply Weakness and Resistance for Benched Pokémon.) Empoleon can't attack during your next turn."
       }
     ],
     "weaknesses": [
@@ -337246,7 +337246,7 @@
   {
     "id": "bw3-75",
     "name": "Pawniard",
-    "supertype": "Pok��mon",
+    "supertype": "Pokémon",
     "subtypes": [
       "Basic"
     ],
@@ -441264,7 +441264,7 @@
         ],
         "convertedEnergyCost": 3,
         "damage": "80",
-        "text": "Heal 20 damage from each of your Pok��mon."
+        "text": "Heal 20 damage from each of your Pokémon."
       }
     ],
     "weaknesses": [
@@ -727032,7 +727032,7 @@
   {
     "id": "swsh3-154",
     "name": "Rookidee",
-    "supertype": "Pok��mon",
+    "supertype": "Pokémon",
     "subtypes": [
       "Basic"
     ],

@@ -77792,7 +77792,7 @@
     {
       "id": "bw3-75",
       "name": "Pawniard",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Basic"
       ],
@@ -205639,7 +205639,7 @@
           ],
           "convertedEnergyCost": 3,
           "damage": "80",
-          "text": "Heal 20 damage from each of your Pok��mon."
+          "text": "Heal 20 damage from each of your Pokémon."
         }
       ],
       "weaknesses": [
