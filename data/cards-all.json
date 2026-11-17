@@ -256143,7 +256143,7 @@
   {
     "id": "pl1-64",
     "name": "Vigoroth",
-    "supertype": "Pokémon",
+    "supertype": "Pok��mon",
     "subtypes": [
       "Stage 1"
     ],
@@ -337246,7 +337246,7 @@
   {
     "id": "bw3-75",
     "name": "Pawniard",
-    "supertype": "Pok��mon",
+    "supertype": "Pokémon",
     "subtypes": [
       "Basic"
     ],
@@ -480815,7 +480815,7 @@
   {
     "id": "g1-24",
     "name": "Vaporeon-EX",
-    "supertype": "Pok��mon",
+    "supertype": "Pokémon",
     "subtypes": [
       "Basic",
       "EX"
@@ -751655,7 +751655,7 @@
     "weaknesses": [
       {
         "type": "Metal",
-        "value": "×2"
+        "value": "��2"
       }
     ],
     "retreatCost": [
@@ -1141737,7 +1141737,7 @@
     ],
     "evolvesFrom": "Palkia",
     "rules": [
-      "Put this card onto your Active Palkia. Palkia LV.X can use any attack, Poké-Power, or Poké-Body from its previous level."
+      "Put this card onto your Active Palkia. Palkia LV.X can use any attack, Pok��-Power, or Poké-Body from its previous level."
     ],
     "abilities": [
       {
