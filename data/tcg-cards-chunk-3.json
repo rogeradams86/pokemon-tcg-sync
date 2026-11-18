@@ -118617,7 +118617,7 @@
     {
       "id": "sm115-26",
       "name": "Ekans",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Basic"
       ],
@@ -242261,7 +242261,7 @@
       "weaknesses": [
         {
           "type": "Metal",
-          "value": "��2"
+          "value": "×2"
         }
       ],
       "retreatCost": [

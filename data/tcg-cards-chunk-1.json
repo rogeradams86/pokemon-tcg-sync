@@ -98406,7 +98406,7 @@
     {
       "id": "ecard2-72",
       "name": "Cubone",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Basic"
       ],
@@ -130372,7 +130372,7 @@
       "weaknesses": [
         {
           "type": "Fire",
-          "value": "��2"
+          "value": "×2"
         }
       ],
       "retreatCost": [
@@ -317166,7 +317166,7 @@
     {
       "id": "pl1-64",
       "name": "Vigoroth",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Stage 1"
       ],
