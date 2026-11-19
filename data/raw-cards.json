@@ -82092,7 +82092,7 @@
     {
       "id": "ecard2-72",
       "name": "Cubone",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Basic"
       ],
@@ -107844,7 +107844,7 @@
       "weaknesses": [
         {
           "type": "Fire",
-          "value": "×2"
+          "value": "��2"
         }
       ],
       "retreatCost": [
@@ -167908,7 +167908,7 @@
     {
       "id": "ex11-82",
       "name": "Sandshrew",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Basic"
       ],
@@ -323064,7 +323064,7 @@
           ],
           "convertedEnergyCost": 1,
           "damage": "",
-          "text": "During your opponent's next turn, any damage done by attacks from the Defending Pok��mon is reduced by 20 (before applying Weakness and Resistance)."
+          "text": "During your opponent's next turn, any damage done by attacks from the Defending Pokémon is reduced by 20 (before applying Weakness and Resistance)."
         },
         {
           "name": "Quick Attack",
@@ -349233,7 +349233,7 @@
     {
       "id": "bw5-24",
       "name": "Slowbro",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Stage 1"
       ],
@@ -423665,7 +423665,7 @@
           ],
           "convertedEnergyCost": 2,
           "damage": "30",
-          "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pok��mon."
+          "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pokémon."
         },
         {
           "name": "Tailspin Piledriver",
@@ -654143,7 +654143,7 @@
     {
       "id": "sm115-26",
       "name": "Ekans",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Basic"
       ],
@@ -1153212,7 +1153212,7 @@
       }
     }
   ],
-  "lastUpdated": "2026-11-18T15:25:59.134Z",
+  "lastUpdated": "2026-11-19T15:31:14.351Z",
   "totalSets": 177,
   "totalCards": 20776
 }

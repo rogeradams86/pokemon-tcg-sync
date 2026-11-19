@@ -98406,7 +98406,7 @@
     {
       "id": "ecard2-72",
       "name": "Cubone",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Basic"
       ],
@@ -130372,7 +130372,7 @@
       "weaknesses": [
         {
           "type": "Fire",
-          "value": "×2"
+          "value": "��2"
         }
       ],
       "retreatCost": [
@@ -204541,7 +204541,7 @@
     {
       "id": "ex11-82",
       "name": "Sandshrew",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Basic"
       ],
