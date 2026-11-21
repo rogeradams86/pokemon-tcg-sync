@@ -82092,7 +82092,7 @@
     {
       "id": "ecard2-72",
       "name": "Cubone",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Basic"
       ],
@@ -340381,7 +340381,7 @@
     {
       "id": "bw3-75",
       "name": "Pawniard",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Basic"
       ],
@@ -483950,7 +483950,7 @@
     {
       "id": "g1-24",
       "name": "Vaporeon-EX",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Basic",
         "EX"
@@ -1010746,7 +1010746,7 @@
       "abilities": [
         {
           "name": "Food Prep",
-          "text": "Attacks used by this Pok��mon cost Colorless less for each Kofu card in your discard pile.",
+          "text": "Attacks used by this Pokémon cost Colorless less for each Kofu card in your discard pile.",
           "type": "Ability"
         }
       ],
@@ -1153212,7 +1153212,7 @@
       }
     }
   ],
-  "lastUpdated": "2026-11-20T15:09:54.023Z",
+  "lastUpdated": "2026-11-21T14:28:15.050Z",
   "totalSets": 177,
   "totalCards": 20776
 }
