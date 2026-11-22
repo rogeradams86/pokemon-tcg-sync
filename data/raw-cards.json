@@ -423665,7 +423665,7 @@
           ],
           "convertedEnergyCost": 2,
           "damage": "30",
-          "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pokémon."
+          "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pok��mon."
         },
         {
           "name": "Tailspin Piledriver",
@@ -1056067,7 +1056067,7 @@
     {
       "id": "sv10-93",
       "name": "Ethan's Sudowoodo",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Basic"
       ],
@@ -1153212,7 +1153212,7 @@
       }
     }
   ],
-  "lastUpdated": "2026-11-21T14:28:15.050Z",
+  "lastUpdated": "2026-11-22T14:23:02.178Z",
   "totalSets": 177,
   "totalCards": 20776
 }
