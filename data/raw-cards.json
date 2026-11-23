@@ -340381,7 +340381,7 @@
     {
       "id": "bw3-75",
       "name": "Pawniard",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Basic"
       ],
@@ -423665,7 +423665,7 @@
           ],
           "convertedEnergyCost": 2,
           "damage": "30",
-          "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pok��mon."
+          "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pokémon."
         },
         {
           "name": "Tailspin Piledriver",
@@ -427407,7 +427407,7 @@
       "weaknesses": [
         {
           "type": "Fighting",
-          "value": "×2"
+          "value": "��2"
         }
       ],
       "resistances": [
@@ -1056067,7 +1056067,7 @@
     {
       "id": "sv10-93",
       "name": "Ethan's Sudowoodo",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Basic"
       ],
@@ -1153212,7 +1153212,7 @@
       }
     }
   ],
-  "lastUpdated": "2026-11-22T14:23:02.178Z",
+  "lastUpdated": "2026-11-23T17:46:56.747Z",
   "totalSets": 177,
   "totalCards": 20776
 }
