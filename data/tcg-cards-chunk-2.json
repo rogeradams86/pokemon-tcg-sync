@@ -83088,7 +83088,7 @@
     {
       "id": "bw4-49",
       "name": "Emolga",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Basic"
       ],
@@ -184578,7 +184578,7 @@
       "weaknesses": [
         {
           "type": "Fighting",
-          "value": "��2"
+          "value": "×2"
         }
       ],
       "resistances": [
@@ -339138,7 +339138,7 @@
       "weaknesses": [
         {
           "type": "Fighting",
-          "value": "×2"
+          "value": "��2"
         }
       ],
       "resistances": [
