@@ -104709,7 +104709,7 @@
     "weaknesses": [
       {
         "type": "Fire",
-        "value": "×2"
+        "value": "��2"
       }
     ],
     "retreatCost": [
@@ -341554,7 +341554,7 @@
   {
     "id": "bw4-49",
     "name": "Emolga",
-    "supertype": "Pok��mon",
+    "supertype": "Pokémon",
     "subtypes": [
       "Basic"
     ],
@@ -420530,7 +420530,7 @@
         ],
         "convertedEnergyCost": 2,
         "damage": "30",
-        "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pokémon."
+        "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pok��mon."
       },
       {
         "name": "Tailspin Piledriver",
@@ -438881,7 +438881,7 @@
         ],
         "convertedEnergyCost": 1,
         "damage": "",
-        "text": "Heal 30 damage from this Pokémon."
+        "text": "Heal 30 damage from this Pok��mon."
       },
       {
         "name": "Lucky Punch",
@@ -549556,7 +549556,7 @@
     "weaknesses": [
       {
         "type": "Fighting",
-        "value": "��2"
+        "value": "×2"
       }
     ],
     "resistances": [
@@ -678426,7 +678426,7 @@
         ],
         "convertedEnergyCost": 1,
         "damage": "20",
-        "text": "This attack also does 20 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+        "text": "This attack also does 20 damage to 1 of your opponent's Benched Pok��mon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
       },
       {
         "name": "Electro Wheel",
@@ -691661,7 +691661,7 @@
         ],
         "convertedEnergyCost": 3,
         "damage": "190",
-        "text": "During your next turn, this Pokémon can't attack."
+        "text": "During your next turn, this Pok��mon can't attack."
       }
     ],
     "weaknesses": [
@@ -930115,7 +930115,7 @@
     "weaknesses": [
       {
         "type": "Fire",
-        "value": "×2"
+        "value": "��2"
       }
     ],
     "resistances": [
@@ -1006824,7 +1006824,7 @@
     "evolvesFrom": "Raboot",
     "rules": [
       "As long as this Pokémon is on your Bench, prevent all damage done to this Pokémon by attacks (both yours and your opponent's).",
-      "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+      "Pokémon ex rule: When your Pok��mon ex is Knocked Out, your opponent takes 2 Prize cards."
     ],
     "attacks": [
       {

@@ -119178,7 +119178,7 @@
       "weaknesses": [
         {
           "type": "Fire",
-          "value": "×2"
+          "value": "��2"
         }
       ],
       "resistances": [
@@ -213645,7 +213645,7 @@
       "evolvesFrom": "Raboot",
       "rules": [
         "As long as this Pokémon is on your Bench, prevent all damage done to this Pokémon by attacks (both yours and your opponent's).",
-        "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
+        "Pokémon ex rule: When your Pok��mon ex is Knocked Out, your opponent takes 2 Prize cards."
       ],
       "attacks": [
         {
