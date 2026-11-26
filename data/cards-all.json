@@ -104709,7 +104709,7 @@
     "weaknesses": [
       {
         "type": "Fire",
-        "value": "��2"
+        "value": "×2"
       }
     ],
     "retreatCost": [
@@ -337246,7 +337246,7 @@
   {
     "id": "bw3-75",
     "name": "Pawniard",
-    "supertype": "Pok��mon",
+    "supertype": "Pokémon",
     "subtypes": [
       "Basic"
     ],
@@ -364958,7 +364958,7 @@
   {
     "id": "bw7-74",
     "name": "Scolipede",
-    "supertype": "Pokémon",
+    "supertype": "Pok��mon",
     "subtypes": [
       "Stage 2"
     ],
@@ -377719,7 +377719,7 @@
         ],
         "convertedEnergyCost": 2,
         "damage": "20+",
-        "text": "Does 10 more damage for each Pokémon in your discard pile."
+        "text": "Does 10 more damage for each Pok��mon in your discard pile."
       },
       {
         "name": "Heat Tackle",
@@ -438881,7 +438881,7 @@
         ],
         "convertedEnergyCost": 1,
         "damage": "",
-        "text": "Heal 30 damage from this Pok��mon."
+        "text": "Heal 30 damage from this Pokémon."
       },
       {
         "name": "Lucky Punch",
@@ -678426,7 +678426,7 @@
         ],
         "convertedEnergyCost": 1,
         "damage": "20",
-        "text": "This attack also does 20 damage to 1 of your opponent's Benched Pok��mon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+        "text": "This attack also does 20 damage to 1 of your opponent's Benched Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
       },
       {
         "name": "Electro Wheel",
@@ -691661,7 +691661,7 @@
         ],
         "convertedEnergyCost": 3,
         "damage": "190",
-        "text": "During your next turn, this Pok��mon can't attack."
+        "text": "During your next turn, this Pokémon can't attack."
       }
     ],
     "weaknesses": [
@@ -904744,7 +904744,7 @@
       {
         "type": "Ability",
         "name": "Psychic Embrace",
-        "text": "As often as you like during your turn, you may attach a Basic Psychic Energy card from your discard pile to 1 of your Psychic Pokémon. If you attached Energy to a Pokémon in this way, put 2 damage counters on that Pokémon. You can't use this Ability on a Pokémon that would be Knocked Out."
+        "text": "As often as you like during your turn, you may attach a Basic Psychic Energy card from your discard pile to 1 of your Psychic Pokémon. If you attached Energy to a Pokémon in this way, put 2 damage counters on that Pok��mon. You can't use this Ability on a Pokémon that would be Knocked Out."
       }
     ],
     "attacks": [
@@ -930115,7 +930115,7 @@
     "weaknesses": [
       {
         "type": "Fire",
-        "value": "��2"
+        "value": "×2"
       }
     ],
     "resistances": [
@@ -1006824,7 +1006824,7 @@
     "evolvesFrom": "Raboot",
     "rules": [
       "As long as this Pokémon is on your Bench, prevent all damage done to this Pokémon by attacks (both yours and your opponent's).",
-      "Pokémon ex rule: When your Pok��mon ex is Knocked Out, your opponent takes 2 Prize cards."
+      "Pokémon ex rule: When your Pokémon ex is Knocked Out, your opponent takes 2 Prize cards."
     ],
     "attacks": [
       {

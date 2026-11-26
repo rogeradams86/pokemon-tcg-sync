@@ -77792,7 +77792,7 @@
     {
       "id": "bw3-75",
       "name": "Pawniard",
-      "supertype": "Pok��mon",
+      "supertype": "Pokémon",
       "subtypes": [
         "Basic"
       ],
@@ -111692,7 +111692,7 @@
     {
       "id": "bw7-74",
       "name": "Scolipede",
-      "supertype": "Pokémon",
+      "supertype": "Pok��mon",
       "subtypes": [
         "Stage 2"
       ],
@@ -127430,7 +127430,7 @@
           ],
           "convertedEnergyCost": 2,
           "damage": "20+",
-          "text": "Does 10 more damage for each Pokémon in your discard pile."
+          "text": "Does 10 more damage for each Pok��mon in your discard pile."
         },
         {
           "name": "Heat Tackle",
@@ -202554,7 +202554,7 @@
           ],
           "convertedEnergyCost": 1,
           "damage": "",
-          "text": "Heal 30 damage from this Pok��mon."
+          "text": "Heal 30 damage from this Pokémon."
         },
         {
           "name": "Lucky Punch",
