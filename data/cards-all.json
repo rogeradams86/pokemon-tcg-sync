@@ -272802,7 +272802,7 @@
         ],
         "convertedEnergyCost": 1,
         "damage": "",
-        "text": "Choose 1 of your opponent's Pokémon. This attack does 30 damage to that Pokémon for each Pokémon Tool and Stadium card your opponent has in play. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+        "text": "Choose 1 of your opponent's Pokémon. This attack does 30 damage to that Pokémon for each Pok��mon Tool and Stadium card your opponent has in play. (Don't apply Weakness and Resistance for Benched Pokémon.)"
       },
       {
         "name": "Amnesia",
@@ -337246,7 +337246,7 @@
   {
     "id": "bw3-75",
     "name": "Pawniard",
-    "supertype": "Pokémon",
+    "supertype": "Pok��mon",
     "subtypes": [
       "Basic"
     ],
@@ -364958,7 +364958,7 @@
   {
     "id": "bw7-74",
     "name": "Scolipede",
-    "supertype": "Pok��mon",
+    "supertype": "Pokémon",
     "subtypes": [
       "Stage 2"
     ],
@@ -377719,7 +377719,7 @@
         ],
         "convertedEnergyCost": 2,
         "damage": "20+",
-        "text": "Does 10 more damage for each Pok��mon in your discard pile."
+        "text": "Does 10 more damage for each Pokémon in your discard pile."
       },
       {
         "name": "Heat Tackle",
@@ -904744,7 +904744,7 @@
       {
         "type": "Ability",
         "name": "Psychic Embrace",
-        "text": "As often as you like during your turn, you may attach a Basic Psychic Energy card from your discard pile to 1 of your Psychic Pokémon. If you attached Energy to a Pokémon in this way, put 2 damage counters on that Pok��mon. You can't use this Ability on a Pokémon that would be Knocked Out."
+        "text": "As often as you like during your turn, you may attach a Basic Psychic Energy card from your discard pile to 1 of your Psychic Pokémon. If you attached Energy to a Pokémon in this way, put 2 damage counters on that Pokémon. You can't use this Ability on a Pokémon that would be Knocked Out."
       }
     ],
     "attacks": [
@@ -1088111,7 +1088111,7 @@
       "Stadium"
     ],
     "rules": [
-      "Whenever any player puts a Basic non-Darkness Pokémon onto their Bench during their turn, place 2 damage counters on that Pokémon.",
+      "Whenever any player puts a Basic non-Darkness Pok��mon onto their Bench during their turn, place 2 damage counters on that Pokémon.",
       "You may play only 1 Stadium card during your turn. Put it next to the Active Spot, and discard it if another Stadium comes into play. A Stadium with the same name can't be played."
     ],
     "number": "127",
