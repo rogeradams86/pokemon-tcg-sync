@@ -272802,7 +272802,7 @@
         ],
         "convertedEnergyCost": 1,
         "damage": "",
-        "text": "Choose 1 of your opponent's Pokémon. This attack does 30 damage to that Pokémon for each Pok��mon Tool and Stadium card your opponent has in play. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+        "text": "Choose 1 of your opponent's Pokémon. This attack does 30 damage to that Pokémon for each Pokémon Tool and Stadium card your opponent has in play. (Don't apply Weakness and Resistance for Benched Pokémon.)"
       },
       {
         "name": "Amnesia",
@@ -337246,7 +337246,7 @@
   {
     "id": "bw3-75",
     "name": "Pawniard",
-    "supertype": "Pok��mon",
+    "supertype": "Pokémon",
     "subtypes": [
       "Basic"
     ],
@@ -420530,7 +420530,7 @@
         ],
         "convertedEnergyCost": 2,
         "damage": "30",
-        "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pok��mon."
+        "text": "Before doing damage, discard all Pokémon Tool cards attached to your opponent's Active Pokémon."
       },
       {
         "name": "Tailspin Piledriver",
@@ -465063,7 +465063,7 @@
         ],
         "convertedEnergyCost": 2,
         "damage": "30",
-        "text": "Flip a coin. If heads, your opponent's Active Pokémon is now Paralyzed."
+        "text": "Flip a coin. If heads, your opponent's Active Pok��mon is now Paralyzed."
       }
     ],
     "weaknesses": [
@@ -1088111,7 +1088111,7 @@
       "Stadium"
     ],
     "rules": [
-      "Whenever any player puts a Basic non-Darkness Pok��mon onto their Bench during their turn, place 2 damage counters on that Pokémon.",
+      "Whenever any player puts a Basic non-Darkness Pokémon onto their Bench during their turn, place 2 damage counters on that Pokémon.",
       "You may play only 1 Stadium card during your turn. Put it next to the Active Spot, and discard it if another Stadium comes into play. A Stadium with the same name can't be played."
     ],
     "number": "127",
